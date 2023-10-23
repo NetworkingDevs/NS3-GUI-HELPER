@@ -1,8 +1,11 @@
+import FileHandler.Writer;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.JavaBean;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,9 +49,22 @@ public class Topology_P2P extends JFrame {
     private JCheckBox checkBox_wireshark;
     private JCheckBox checkBox_NetAnim;
     private JButton btn_go;
-    private ArrayList<String> param = new ArrayList<>();
 
-    public Topology_P2P() {
+    // Functionalities Required Below Things...
+    private ArrayList<String> param = new ArrayList<>();
+    private String OutputPath;
+    Writer writer;
+
+    public Topology_P2P(String path) {
+        this.OutputPath = path;
+        this.setContentPane(this.JPanel_main);
+        this.setTitle("Topology Helper - P2P");
+        this.setSize(400,800);
+        this.setVisible(true);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.writer = new Writer(this.OutputPath);
+
         btn_go.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,9 +88,7 @@ public class Topology_P2P extends JFrame {
                 }
 
                 // file handling will go here...
-                for (String elem: param ) {
-                    System.out.println(elem);
-                }
+                CreateFile();
             }
         });
 
@@ -95,6 +109,148 @@ public class Topology_P2P extends JFrame {
                 textField_Netmask.setEnabled(false);
             }
         });
+    }
+
+    private void CreateFile() {
+        this.writer = new Writer(this.OutputPath);
+
+        String moduleString = """
+                #include "ns3/netanim-module.h"
+                """;
+        String netanimString = """
+                AnimationInterface anim("animationFirst.xml"); 
+                """;
+        if(!this.param.get(this.param.size()-1).equals("NetAnim")) {
+            moduleString = "";
+            netanimString = "";
+        }
+
+        int StopTimeServer = Integer.parseInt(this.param.get(7))+Integer.parseInt(this.param.get(8));
+        int StopTimeClient = Integer.parseInt(this.param.get(12))+Integer.parseInt(this.param.get(13));
+        String clientNode = (this.param.get(5).equals("0"))?"1":"0";
+        String wiresharkString = """
+                pointToPoint.EnablePcapAll("first");
+                """;
+        if(this.param.indexOf("Wireshark") < 0) {
+            wiresharkString = "";
+        }
+
+        String first = """
+                #include "ns3/applications-module.h"
+                #include "ns3/core-module.h"
+                #include "ns3/internet-module.h"
+                #include "ns3/network-module.h"
+                #include "ns3/point-to-point-module.h"
+                """
+                + moduleString +
+                """                
+                using namespace ns3;
+                                
+                NS_LOG_COMPONENT_DEFINE("FirstScriptExample");
+                                
+                int
+                main(int argc, char* argv[])
+                {
+                    CommandLine cmd(__FILE__);
+                    cmd.Parse(argc, argv);
+                                
+                    Time::SetResolution(Time::NS);
+                    LogComponentEnable("UdpEchoClientApplication", LOG_LEVEL_INFO);
+                    LogComponentEnable("UdpEchoServerApplication", LOG_LEVEL_INFO);
+                                
+                    NodeContainer nodes;
+                    nodes.Create(2);
+                                
+                    PointToPointHelper pointToPoint;
+                    pointToPoint.SetDeviceAttribute("DataRate", StringValue(\""""
+                    + this.param.get(1)+this.param.get(2) +
+                    """
+                    \"));
+                    pointToPoint.SetChannelAttribute("Delay", StringValue(\""""
+                        + this.param.get(0) +
+                    """
+                    ms\"));
+                                
+                    NetDeviceContainer devices;
+                    devices = pointToPoint.Install(nodes);
+                                
+                    InternetStackHelper stack;
+                    stack.Install(nodes);
+                                
+                    Ipv4AddressHelper address;
+                    address.SetBase(\""""
+                    + this.param.get(3) +
+                    """
+                    \", \""""
+                    + this.param.get(4) +
+                    """
+                    \");
+                                
+                    Ipv4InterfaceContainer interfaces = address.Assign(devices);
+                                
+                    UdpEchoServerHelper echoServer("""
+                    + this.param.get(6) +
+                    """
+                    );
+                                
+                    ApplicationContainer serverApps = echoServer.Install(nodes.Get("""
+                    + this.param.get(5) +
+                    """
+                    ));
+                    serverApps.Start(Seconds("""
+                    + this.param.get(7) +
+                    """
+                    .0));
+                    serverApps.Stop(Seconds("""
+                    + StopTimeServer +
+                    """
+                    .0));
+                                
+                    UdpEchoClientHelper echoClient(interfaces.GetAddress("""
+                    + this.param.get(5) +
+                    """
+                    ), """
+                    + this.param.get(6) +
+                    """
+                    );
+                    echoClient.SetAttribute("MaxPackets", UintegerValue("""
+                    + this.param.get(11) +
+                    """
+                    ));
+                    echoClient.SetAttribute("Interval", TimeValue(Seconds("""
+                    + this.param.get(10) +
+                    """
+                    .0)));
+                    echoClient.SetAttribute("PacketSize", UintegerValue("""
+                    + this.param.get(9) +
+                    """
+                    ));
+                                
+                    ApplicationContainer clientApps = echoClient.Install(nodes.Get("""
+                    + clientNode +
+                    """
+                    ));
+                    clientApps.Start(Seconds("""
+                    + this.param.get(12) +
+                    """
+                    .0));
+                    clientApps.Stop(Seconds("""
+                    + StopTimeClient +
+                    """
+                    .0));
+                    
+                    """
+                    + netanimString + "\n" + wiresharkString +
+                    """
+                                
+                    Simulator::Run();
+                    Simulator::Destroy();
+                    return 0;
+                }
+                """;
+        this.writer.writeToFile(first);
+        this.writer.closeTheFile();
+        this.param = new ArrayList<>();
     }
 
     private void ValidateTopologyConfig() {
@@ -220,15 +376,5 @@ public class Topology_P2P extends JFrame {
         // store all the parameters for later use...
         param.add(FieldStartTime);
         param.add(FieldUpTime);
-    }
-
-    public static void main(String[] args) {
-        Topology_P2P p2p = new Topology_P2P();
-        p2p.setContentPane(p2p.JPanel_main);
-        p2p.setTitle("Topology Helper - P2P");
-        p2p.setSize(400,800);
-        p2p.setVisible(true);
-        p2p.setResizable(false);
-        p2p.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
