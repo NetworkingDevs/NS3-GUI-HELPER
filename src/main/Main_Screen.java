@@ -28,6 +28,8 @@ public class Main_Screen extends JFrame {
 
                 if(FieldTopology == 0) {
                     Topology_P2P p2p = new Topology_P2P(FieldOutputPath);
+                } else if(FieldTopology == 1) {
+                    Topology_Ring ring = new Topology_Ring(FieldOutputPath);
                 }
             }
         });

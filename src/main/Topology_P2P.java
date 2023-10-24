@@ -62,7 +62,7 @@ public class Topology_P2P extends JFrame {
         this.setSize(400,800);
         this.setVisible(true);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.writer = new Writer(this.OutputPath);
 
         btn_go.addActionListener(new ActionListener() {
@@ -279,7 +279,7 @@ public class Topology_P2P extends JFrame {
 
     private void ValidateIpSettings() {
 
-        String FieldStartIp = "54.0.0.1";
+        String FieldStartIp = "54.0.0.0";
         String FieldNetMask = "255.0.0.0";
 
         if(!radioBtn_autoip.isSelected()) {
