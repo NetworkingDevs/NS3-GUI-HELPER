@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="JPanel_main" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="744"/>
+      <xy x="20" y="20" width="500" height="699"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -24,7 +24,9 @@
         <colspec value="left:4dlu:noGrow"/>
         <colspec value="fill:d:grow"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="494" height="232"/>
+          </grid>
         </constraints>
         <properties/>
         <border type="bevel-lowered" title="Configure Topology"/>
@@ -74,51 +76,17 @@
             </constraints>
             <properties>
               <horizontalScrollBarPolicy value="31"/>
-              <preferredSize width="375" height="100"/>
+              <preferredSize width="375" height="10"/>
               <verticalScrollBarPolicy value="22"/>
             </properties>
             <border type="none"/>
             <children>
-              <grid id="22b76" binding="JPanel_links_main" layout-manager="FormLayout">
-                <rowspec value="center:d:noGrow"/>
-                <colspec value="fill:197px:noGrow"/>
-                <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:74px:noGrow"/>
-                <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:80px:noGrow"/>
+              <component id="866d7" class="javax.swing.JComboBox" binding="comboBox_links">
                 <constraints/>
-                <properties/>
-                <border type="none"/>
-                <children>
-                  <component id="56525" class="javax.swing.JLabel" binding="lbl_default">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                      <forms/>
-                    </constraints>
-                    <properties>
-                      <text value="Default"/>
-                    </properties>
-                  </component>
-                  <component id="8b581" class="javax.swing.JButton" binding="btn_edit_0">
-                    <constraints>
-                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                      <forms/>
-                    </constraints>
-                    <properties>
-                      <text value="Edit"/>
-                    </properties>
-                  </component>
-                  <component id="3ccaa" class="javax.swing.JButton" binding="btn_delete_0">
-                    <constraints>
-                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                      <forms/>
-                    </constraints>
-                    <properties>
-                      <text value="Delete"/>
-                    </properties>
-                  </component>
-                </children>
-              </grid>
+                <properties>
+                  <model/>
+                </properties>
+              </component>
             </children>
           </scrollpane>
           <component id="81756" class="javax.swing.JLabel" binding="lbl_networks">
@@ -146,51 +114,19 @@
             </constraints>
             <properties>
               <horizontalScrollBarPolicy value="31"/>
-              <preferredSize width="219" height="100"/>
+              <preferredSize width="219" height="10"/>
               <verticalScrollBarPolicy value="22"/>
             </properties>
             <border type="none"/>
             <children>
-              <grid id="be2cc" binding="JPanel_networks_main" layout-manager="FormLayout">
-                <rowspec value="center:d:noGrow"/>
-                <colspec value="fill:d:grow"/>
-                <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:max(d;4px):noGrow"/>
-                <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:max(d;4px):noGrow"/>
+              <component id="f3871" class="javax.swing.JComboBox" binding="comboBox_networks">
                 <constraints/>
-                <properties/>
-                <border type="none"/>
-                <children>
-                  <component id="f720f" class="javax.swing.JLabel" binding="lbl_default_network">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                      <forms/>
-                    </constraints>
-                    <properties>
-                      <text value="Default"/>
-                    </properties>
-                  </component>
-                  <component id="1e576" class="javax.swing.JButton" binding="btn_edit_net_0">
-                    <constraints>
-                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                      <forms/>
-                    </constraints>
-                    <properties>
-                      <text value="Edit"/>
-                    </properties>
-                  </component>
-                  <component id="5f13a" class="javax.swing.JButton" binding="btn_delete_net_0">
-                    <constraints>
-                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                      <forms/>
-                    </constraints>
-                    <properties>
-                      <text value="Delete"/>
-                    </properties>
-                  </component>
-                </children>
-              </grid>
+                <properties>
+                  <model>
+                    <item value="Default-n/w - 54.0.0.0/255.0.0.0"/>
+                  </model>
+                </properties>
+              </component>
             </children>
           </scrollpane>
           <component id="405df" class="javax.swing.JButton" binding="btn_configTopology">
@@ -222,7 +158,9 @@
         <colspec value="left:4dlu:noGrow"/>
         <colspec value="fill:237px:noGrow"/>
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="494" height="308"/>
+          </grid>
         </constraints>
         <properties/>
         <border type="bevel-lowered" title="Configure Server"/>
@@ -382,7 +320,9 @@
         <colspec value="left:4dlu:noGrow"/>
         <colspec value="fill:238px:noGrow"/>
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="493" height="160"/>
+          </grid>
         </constraints>
         <properties/>
         <border type="bevel-lowered" title="Configure Client"/>
@@ -456,7 +396,9 @@
         <colspec value="left:4dlu:noGrow"/>
         <colspec value="fill:243px:noGrow"/>
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="495" height="68"/>
+          </grid>
         </constraints>
         <properties/>
         <border type="bevel-lowered" title="Configure Utilities"/>

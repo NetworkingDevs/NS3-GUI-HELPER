@@ -1,6 +1,10 @@
+import Dialogs.Dialog_Link;
 import FileHandler.Writer;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Topology_Ring extends JFrame {
@@ -12,16 +16,9 @@ public class Topology_Ring extends JFrame {
     private JButton btn_addLink;
     private JScrollPane JScrollPanel_Links;
     private JPanel JPanel_links_main;
-    private JLabel lbl_default;
-    private JButton btn_edit_0;
-    private JButton btn_delete_0;
     private JLabel lbl_networks;
     private JButton btn_addNetwork;
     private JScrollPane JScrollPanel_Networks;
-    private JPanel JPanel_networks_main;
-    private JLabel lbl_default_network;
-    private JButton btn_edit_net_0;
-    private JButton btn_delete_net_0;
     private JButton btn_configTopology;
     private JPanel JPanel_ConfigServer;
     private JComboBox comboBox_serverIndex;
@@ -49,11 +46,14 @@ public class Topology_Ring extends JFrame {
     private JCheckBox checkBox_wireshark;
     private JCheckBox checkBox_netAnim;
     private JButton btn_Go;
+    private JComboBox comboBox_links;
+    private JComboBox comboBox_networks;
 
     // Functionalities Required Below Things...
     private ArrayList<String> param = new ArrayList<>();
     private String OutputPath;
     Writer writer;
+    Dialog_Link dialog_link;
 
     public Topology_Ring(String path) {
         this.OutputPath = path;
@@ -64,6 +64,22 @@ public class Topology_Ring extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.writer = new Writer(this.OutputPath);
+        this.JPanel_links_main = new JPanel();
+        this.JPanel_links_main.setLayout(new GridLayout(3,3));
+
+        this.dialog_link = new Dialog_Link(this.comboBox_links);
+        this.dialog_link.showDefaultLink();
+        this.dialog_link.setVisible(false);
+
+        btn_addLink.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showDialogLink();
+            }
+        });
     }
 
+    public void showDialogLink() {
+        this.dialog_link.setVisible(true);
+    }
 }
