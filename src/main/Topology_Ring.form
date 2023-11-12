@@ -122,9 +122,7 @@
               <component id="f3871" class="javax.swing.JComboBox" binding="comboBox_networks">
                 <constraints/>
                 <properties>
-                  <model>
-                    <item value="Default-n/w - 54.0.0.0/255.0.0.0"/>
-                  </model>
+                  <model/>
                 </properties>
               </component>
             </children>

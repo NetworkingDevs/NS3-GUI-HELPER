@@ -1,4 +1,5 @@
 import Dialogs.Dialog_Link;
+import Dialogs.Dialog_Network;
 import FileHandler.Writer;
 
 import javax.swing.*;
@@ -54,12 +55,13 @@ public class Topology_Ring extends JFrame {
     private String OutputPath;
     Writer writer;
     Dialog_Link dialog_link;
+    Dialog_Network dialog_network;
 
     public Topology_Ring(String path) {
         this.OutputPath = path;
         this.setContentPane(this.JPanel_main);
         this.setTitle("Topology Helper - Ring");
-        this.setSize(500,850);
+        this.setSize(500,800);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -71,15 +73,29 @@ public class Topology_Ring extends JFrame {
         this.dialog_link.showDefaultLink();
         this.dialog_link.setVisible(false);
 
+        this.dialog_network = new Dialog_Network(this.comboBox_networks);
+        this.dialog_network.showDefaultNetwork();
+        this.dialog_network.setVisible(false);
+
         btn_addLink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 showDialogLink();
             }
         });
+        btn_addNetwork.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showDialogNetwork();
+            }
+        });
     }
 
     public void showDialogLink() {
         this.dialog_link.setVisible(true);
+    }
+
+    public void showDialogNetwork() {
+        this.dialog_network.setVisible(true);
     }
 }
