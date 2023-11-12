@@ -15,7 +15,7 @@ public class Main_Screen extends JFrame {
     public Main_Screen() {
         this.setContentPane(this.JPanel_main);
         this.setTitle("Topology Helper - NS3");
-        this.setSize(400,400);
+        this.setSize(400,300);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
