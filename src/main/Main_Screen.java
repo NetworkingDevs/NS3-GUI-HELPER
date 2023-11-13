@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileOutputStream;
 
 public class Main_Screen extends JFrame {
@@ -18,7 +20,22 @@ public class Main_Screen extends JFrame {
         this.setSize(400,300);
         this.setVisible(true);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // this was by default...
+        // this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // this has been added for user confirmation...
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+
+                int option = JOptionPane.showConfirmDialog(JPanel_main,"Are you sure you want to close the app?","Quit!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                if(option == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
 
         btn_Go.addActionListener(new ActionListener() {
             @Override
