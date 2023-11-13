@@ -1,5 +1,6 @@
 import Dialogs.Dialog_Link;
 import Dialogs.Dialog_Network;
+import Dialogs.Dialog_Topology;
 import FileHandler.Writer;
 
 import javax.swing.*;
@@ -77,18 +78,45 @@ public class Topology_Ring extends JFrame {
         this.dialog_network.showDefaultNetwork();
         this.dialog_network.setVisible(false);
 
+        // this is an event when, clicking on Add Link Button...
         btn_addLink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 showDialogLink();
             }
         });
+        // this is an event when, clicking on add network Button...
         btn_addNetwork.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 showDialogNetwork();
             }
         });
+        // this is an event when, clicking on configure topology button...
+        btn_configTopology.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showDialogTopology();
+            }
+        });
+    }
+
+    private void showDialogTopology() {
+        String nodes = this.textField_Nodes.getText().toString();
+
+        // validation of nodes...
+        // validate textField:Nodes (it should -> not be empty / be number / be >=3 )
+        if(nodes.length() == 0 || !nodes.chars().allMatch(Character::isDigit)) {
+            JOptionPane.showMessageDialog(JPanel_main, "Please enter valid no. of Nodes!", "WARNING", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(Integer.parseInt(nodes) < 3) {
+            JOptionPane.showMessageDialog(JPanel_main, "Ring topology should contain at least 3 nodes.", "INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        // if all checks pass...
+        Dialog_Topology topologyConfigDialog = new Dialog_Topology(Integer.parseInt(nodes));
     }
 
     public void showDialogLink() {

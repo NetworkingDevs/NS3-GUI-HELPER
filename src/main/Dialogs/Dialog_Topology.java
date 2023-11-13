@@ -9,16 +9,20 @@ public class Dialog_Topology extends JFrame {
     private JButton btn_setUp;
     private JScrollPane JScrollPane_btns_links;
 
+    // for functionalities...
+    // for image icon to be used on button...
     ImageIcon icon = new ImageIcon("src/main/Resources/link_color.png");
     Image img = icon.getImage();
 
     public Dialog_Topology(int gridSize) {
 
+        // for grid calculation...
         int grid = (int) Math.floor(gridSize/2);
 
         this.setContentPane(this.JPanel_main);
         this.JPanel_topology_btns.setLayout(new GridLayout(grid,grid*2,3,3));
 
+        // for generating button...
         for(int i=0; i<gridSize; i++) {
             JButton btn = new JButton(String.valueOf(i));
             btn.setHorizontalTextPosition(SwingConstants.TRAILING);
@@ -28,14 +32,13 @@ public class Dialog_Topology extends JFrame {
             btn.setIcon(linkIcon);
         }
 
-        this.setTitle("GUI Topology Setup");
+        // initializing this component...
+        this.setTitle("GUI Devices Setup");
         this.setSize(500,500);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
-    public static void main(String[] args) {
-        new Dialog_Topology(4);
-    }
+    // removed the main function because that was just for testing purpose...
 }
