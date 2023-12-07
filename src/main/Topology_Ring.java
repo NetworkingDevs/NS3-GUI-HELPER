@@ -9,6 +9,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * Program name: Topology_Ring
+ * Program date: 24th October 2023
+ * Program owner: Henil Mistry
+ * Contributor:
+ * Last Modified: 07th December 2023
+ *
+ * Purpose: This class will be responsible for generating code of ring topology.
+ * */
 public class Topology_Ring extends JFrame {
     private JPanel JPanel_main;
     private JPanel JPanel_ConfigTopology;
@@ -57,6 +66,7 @@ public class Topology_Ring extends JFrame {
     Writer writer;
     Dialog_Link dialog_link;
     Dialog_Network dialog_network;
+    private Dialog_Topology topologyConfigDialog;
 
     public Topology_Ring(String path) {
         this.OutputPath = path;
@@ -116,7 +126,7 @@ public class Topology_Ring extends JFrame {
         }
 
         // if all checks pass...
-        Dialog_Topology topologyConfigDialog = new Dialog_Topology(Integer.parseInt(nodes));
+        this.topologyConfigDialog = new Dialog_Topology(Integer.parseInt(nodes));
     }
 
     public void showDialogLink() {
