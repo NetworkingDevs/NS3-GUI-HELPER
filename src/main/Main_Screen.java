@@ -5,6 +5,15 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileOutputStream;
 
+/**
+ * Program name: Main_Screen
+ * Program date: 23rd October 2023
+ * Program owner: Henil Mistry
+ * Contributor:
+ * Last Modified: 07th December 2023
+ *
+ * Purpose: This is the home screen for the application.
+ * */
 public class Main_Screen extends JFrame {
     private JPanel JPanel_main;
     private JPanel JPanel_config;
@@ -23,7 +32,7 @@ public class Main_Screen extends JFrame {
         // this was by default...
         // this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // this has been added for user confirmation...
+        // this has been added for user confirmation...(about exiting the application)
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -37,6 +46,7 @@ public class Main_Screen extends JFrame {
             }
         });
 
+        // according to user's choice the topology setup window will be shown (P2P, Ring, etc.)
         btn_Go.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

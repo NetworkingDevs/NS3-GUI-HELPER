@@ -10,6 +10,15 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Program name: Topology_P2P
+ * Program date: 23rd November 2023
+ * Program owner: Henil Mistry
+ * Contributor:
+ * Last Modified: 07th December 2023
+ *
+ * Purpose: This class will be responsible for generating the code for p2p topology.
+ * */
 public class Topology_P2P extends JFrame {
     private JPanel JPanel_main;
     private JPanel JPanel_ConfigTopology;
