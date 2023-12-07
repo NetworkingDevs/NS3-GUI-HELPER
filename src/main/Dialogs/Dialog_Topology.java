@@ -40,5 +40,14 @@ public class Dialog_Topology extends JFrame {
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
-    // removed the main function because that was just for testing purpose...
+    /*
+
+    // Completed on : 07th Dec. 2023
+    // This is the example of Constructor for this dialog...
+    public static void main(String[] args) {
+         new Dialog_Topology(4); // 4 = number of nodes in ring topology
+    }
+
+     */
+
 }
