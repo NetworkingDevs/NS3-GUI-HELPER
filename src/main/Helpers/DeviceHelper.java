@@ -24,7 +24,7 @@ public class DeviceHelper {
      * Example:
      *  devices01 = pointToPoint.Install(nodes01);
      * */
-    public String getDeviceConf() {
+    public String getDeviceConfCode() {
         return "\ndevices"+this.nodesGroup+" = "+this.linkSettings.name+".Install(nodes"+this.nodesGroup+");";
     }
 
@@ -33,7 +33,7 @@ public class DeviceHelper {
      *  address.SetBase("54.0.0.0", "255.0.0.0");
      *  Ipv4InterfaceContainer interfaces01 = address.Assign(devices01);
      * */
-    public String getIPConf() {
+    public String getIPConfCode() {
         String firstLine = "address.SetBase(\""+this.networkSettings.netId+"\",\""+this.networkSettings.netMask+"\");";
         String secondLine = "Ipv4InterfaceContainer interfaces"+this.nodesGroup+" = "+"address.Assign(devices"+this.nodesGroup+");";
         return "\n"+firstLine+"\n"+secondLine+"\n";
