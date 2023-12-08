@@ -126,7 +126,9 @@ public class Topology_Ring extends JFrame {
         }
 
         // if all checks pass...
-        this.topologyConfigDialog = new Dialog_Topology(Integer.parseInt(nodes));
+        // changed : changed the constructor of Dialog_Topology so, adjusted here
+        // change made on : 09/12/23
+        this.topologyConfigDialog = new Dialog_Topology(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links);
     }
 
     public void showDialogLink() {
