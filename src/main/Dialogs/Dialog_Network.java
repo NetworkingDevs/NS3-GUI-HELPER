@@ -20,7 +20,7 @@ public class Dialog_Network extends JFrame {
 
     // for serving the functionalities....
     private JComboBox comboBox;
-    ArrayList<NetworkHelper> links;
+    public ArrayList<NetworkHelper> links; // changed this to public on 08/12/23 for accessibility...
     private int lastID = 0;
 
     public Dialog_Network(JComboBox comboBox) {

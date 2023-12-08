@@ -21,7 +21,7 @@ public class Dialog_Link extends JFrame {
 
     // for serving the functionalities....
     private JComboBox comboBox;
-    ArrayList<LinkHelper> links;
+    public ArrayList<LinkHelper> links; // changed this to public on 08/12/23 for accessibility...
     private int lastID = 0;
 
     public Dialog_Link(JComboBox comboBox) {
@@ -35,7 +35,7 @@ public class Dialog_Link extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
-        this.links.add(new LinkHelper(lastID++,"Default Link", "3", "500", "MB/s"));
+        this.links.add(new LinkHelper(lastID++,"DefaultLink", "3", "500", "MB/s"));
         btn_buildLink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
