@@ -66,7 +66,7 @@ public class Topology_Ring extends JFrame {
     Writer writer;
     Dialog_Link dialog_link;
     Dialog_Network dialog_network;
-    private Dialog_Topology topologyConfigDialog;
+    Dialog_Topology dialog_topology;
 
     public Topology_Ring(String path) {
         this.OutputPath = path;
@@ -128,7 +128,7 @@ public class Topology_Ring extends JFrame {
         // if all checks pass...
         // changed : changed the constructor of Dialog_Topology so, adjusted here
         // change made on : 09/12/23
-        this.topologyConfigDialog = new Dialog_Topology(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links);
+        this.dialog_topology = new Dialog_Topology(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links);
     }
 
     public void showDialogLink() {
