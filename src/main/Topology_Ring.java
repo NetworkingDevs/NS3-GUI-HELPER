@@ -2,6 +2,9 @@ import Dialogs.Dialog_Link;
 import Dialogs.Dialog_Network;
 import Dialogs.Dialog_Topology;
 import FileHandler.Writer;
+import Helpers.DeviceHelper;
+import Helpers.LinkHelper;
+import Helpers.ValidationHelper;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +17,7 @@ import java.util.ArrayList;
  * Program date: 24th October 2023
  * Program owner: Henil Mistry
  * Contributor:
- * Last Modified: 07th December 2023
+ * Last Modified: 10th December 2023
  *
  * Purpose: This class will be responsible for generating code of ring topology.
  * */
@@ -67,8 +70,11 @@ public class Topology_Ring extends JFrame {
     Dialog_Link dialog_link;
     Dialog_Network dialog_network;
     Dialog_Topology dialog_topology;
+    ValidationHelper validator;// added this on 10/12/2023 for validation...
 
     public Topology_Ring(String path) {
+        this.validator = new ValidationHelper(this);
+
         this.OutputPath = path;
         this.setContentPane(this.JPanel_main);
         this.setTitle("Topology Helper - Ring");
@@ -109,6 +115,217 @@ public class Topology_Ring extends JFrame {
                 showDialogTopology();
             }
         });
+
+        // added this on 10/12/2023
+        // this is an event when, clicking on generate code button...
+        btn_Go.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                performValidation();
+            }
+        });
+    }
+
+    // added this on 10/12/2023 for validation and file generation...
+    private void performValidation() {
+        if (!this.validator.validateTopology(this.textField_Nodes.getText().toString(), this.dialog_topology.devices)) {
+            return;
+        }
+
+        if (!this.validator.validateServerConfig(this.comboBox_serverIndex.getSelectedItem().toString(), this.textField_PortNo.getText().toString(), this.textField_startTime_server.getText().toString(), this.textField_UpTime_server.getText().toString(), this.textField_mtu.getText().toString(), this.textField_interval.getText().toString(), this.textField_packets.getText().toString())) {
+            return;
+        }
+
+        if (!this.validator.validateClientConfig(this.comboBox_clientIndex.getSelectedItem().toString(), this.textField_startTime_client.getText().toString(), this.textField_upTime_client.getText().toString())) {
+            return;
+        }
+
+        for (String param : this.validator.param) {
+            this.param.add(param);
+        }
+
+        if (this.checkBox_wireshark.isSelected()) {
+            param.add("Wireshark");
+        }
+
+        if (this.checkBox_netAnim.isSelected()) {
+            param.add("NetAnim");
+        }
+
+        createFile();
+    }
+
+    // added this on 10/12/2023 for file generation...
+    private void createFile() {
+        this.writer = new Writer(this.OutputPath);
+
+        // some variable parameters configuration ======================================================================
+        String netAnimModuleString = """
+                #include "ns3/netanim-module.h"
+                """;
+        String netanimUtilityString = """
+                AnimationInterface anim("animationRing.xml"); 
+                """;
+        String wiresharkUtilityString = """
+                pointToPoint.EnablePcapAll("ring");
+                """;
+        int StopTimeServer = Integer.parseInt(this.param.get(3))+Integer.parseInt(this.param.get(4));
+        int StopTimeClient = Integer.parseInt(this.param.get(9))+Integer.parseInt(this.param.get(10));
+        if(this.param.indexOf("Wireshark") < 0) {
+            wiresharkUtilityString = "";
+        }
+        if(this.param.indexOf("NetAnim") < 0) {
+            netAnimModuleString = "";
+            netanimUtilityString = "";
+        }
+        String nodesGrp = new String();
+        String nodesGrpCode = new String();
+        String linkConfigCode = new String();
+        String devicesGrp = new String();
+        String deviceConfigCode = new String();
+        String ipConfigCode = new String();
+        String primaryServerGrp = new String();
+
+        for(DeviceHelper device : this.dialog_topology.devices) {
+            nodesGrp = nodesGrp.concat(device.getNodesGroup()+",");
+            if (device.nodeA.compareToIgnoreCase(this.param.get(1))==0) {
+                primaryServerGrp = device.nodesGroup;
+            }
+        }
+        nodesGrp = nodesGrp.substring(0,nodesGrp.length()-1);
+
+        for (DeviceHelper device : this.dialog_topology.devices) {
+            nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
+        }
+
+        for (LinkHelper link : this.dialog_link.links) {
+            linkConfigCode = linkConfigCode.concat(link.getLinkConfigCode()+"\n");
+        }
+
+        for (DeviceHelper device : this.dialog_topology.devices) {
+            devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
+        }
+        devicesGrp = devicesGrp.substring(0,devicesGrp.length()-1);
+
+        for (DeviceHelper device : this.dialog_topology.devices) {
+            deviceConfigCode = deviceConfigCode.concat(device.getDeviceConfCode());
+        }
+
+        for (DeviceHelper device : this.dialog_topology.devices) {
+            ipConfigCode = ipConfigCode.concat(device.getIPConfCode()+"\n");
+        }
+        // variable parameters configuration ends ======================================================================
+
+        String ring = """
+                #include "ns3/applications-module.h"
+                #include "ns3/core-module.h"
+                #include "ns3/internet-module.h"
+                #include "ns3/network-module.h"
+                #include "ns3/point-to-point-module.h"
+                """
+                + netAnimModuleString +
+                """
+                                
+                using namespace ns3;
+                                
+                NS_LOG_COMPONENT_DEFINE("RingExample");
+                                
+                int
+                main(int argc, char* argv[])
+                {
+                    CommandLine cmd(__FILE__);
+                    cmd.Parse(argc, argv);
+                                
+                    Time::SetResolution(Time::NS);
+                    LogComponentEnable("UdpEchoClientApplication", LOG_LEVEL_INFO);
+                    LogComponentEnable("UdpEchoServerApplication", LOG_LEVEL_INFO);
+                   \s
+                    // step-1 = creating group of nodes....
+                    NodeContainer allNodes,"""
+                    + nodesGrp +
+                    """
+                    ;
+                    allNodes.Create("""
+                    + this.param.get(0) +
+                    """
+                    );
+                    
+                    """
+                    + nodesGrpCode +
+                    """
+                                
+                    // step-2 = create link
+                    """
+                    + linkConfigCode +
+                    """
+                   \s
+                    // step-3 = creating devices
+                    NetDeviceContainer   """
+                    + devicesGrp +
+                    """
+                    ;
+                    
+                    """
+                    + deviceConfigCode +
+                    """
+                                
+                    // step-4 = Install ip stack
+                    InternetStackHelper stack;
+                    stack.Install(allNodes);
+                   
+                    // step-5 = Assignment of IP Address
+                    Ipv4AddressHelper address;
+                   
+                    """
+                    + ipConfigCode +
+                    """
+                  
+                    // step-6 = server configuration
+                    UdpEchoServerHelper echoServer("""
+                    + this.param.get(2) +"""
+                    );
+                                
+                    ApplicationContainer serverApps = echoServer.Install(allNodes.Get("""
+                    + this.param.get(1) + """
+                    ));
+                    serverApps.Start(Seconds("""+ this.param.get(3)  +"""
+                    .0));
+                    serverApps.Stop(Seconds("""+ StopTimeServer +"""
+                    .0));
+                   
+                    // step-7 = client configuration
+                    UdpEchoClientHelper echoClient(interfaces"""+ primaryServerGrp +"""
+                    .GetAddress(0),"""+ this.param.get(2) +"""
+                    );
+                    echoClient.SetAttribute("MaxPackets", UintegerValue("""+ this.param.get(7) +"""
+                    ));
+                    echoClient.SetAttribute("Interval", TimeValue(Seconds("""+ this.param.get(6) +"""
+                    .0)));
+                    echoClient.SetAttribute("PacketSize", UintegerValue("""+ this.param.get(5) +"""
+                    ));
+                                
+                    ApplicationContainer clientApps = echoClient.Install(allNodes.Get("""+ this.param.get(8) +"""
+                    ));
+                    clientApps.Start(Seconds("""+ this.param.get(9) +"""
+                    .0));
+                    clientApps.Stop(Seconds("""+ StopTimeClient +"""
+                    .0));
+                   
+                    Ipv4GlobalRoutingHelper::PopulateRoutingTables();
+                    """
+                    + netanimUtilityString + "\n" + wiresharkUtilityString +
+                    """
+                   
+                                
+                    Simulator::Run();
+                    Simulator::Destroy();
+                    return 0;
+                }
+                """;
+
+        this.writer.writeToFile(ring);
+        this.writer.closeTheFile();
+        this.param = new ArrayList<>();
     }
 
     private void showDialogTopology() {
