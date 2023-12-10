@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Program date: 12th November 2023
  * Program owner: Henil Mistry
  * Contributor:
- * Last Modified: 08th December 2023
+ * Last Modified: 10th December 2023
  *
  * Purpose: This class helps for setting up the 'Topology' in GUI form.
  * */
@@ -33,7 +33,7 @@ public class Dialog_Topology extends JFrame {
     ImageIcon icon = new ImageIcon("src/main/Resources/link_color.png");
     Image img = icon.getImage();
     // for storing the devices, and it's configuration...
-    ArrayList<DeviceHelper> devices;
+    public ArrayList<DeviceHelper> devices;
     int grid;
     int nodes;
     // for passing it to the Dialog_Device...

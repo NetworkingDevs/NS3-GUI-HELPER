@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Program date: 13th November 2023
  * Program owner: Henil Mistry
  * Contributor:
- * Last Modified: 08th December 2023
+ * Last Modified: 10th December 2023
  *
  * Purpose: This class helps for setting up the 'Device' (in terms of NS3)
  * */
@@ -82,14 +82,14 @@ public class Dialog_Device extends JFrame {
 
         for (int i=0; i<this.parent.devices.size(); i++) {
             if(this.parent.devices.get(i).nodesGroup.compareToIgnoreCase(nodeGrp) == 0) {
-                this.parent.devices.add(new DeviceHelper(this.links.get(this.comboBox_link_config.getSelectedIndex()),this.networks.get(this.comboBox_net_config.getSelectedIndex()), nodeGrp));
+                this.parent.devices.add(new DeviceHelper(this.links.get(this.comboBox_link_config.getSelectedIndex()),this.networks.get(this.comboBox_net_config.getSelectedIndex()), nodeA, nodeB));
                 this.parent.devices.remove(i);
                 collision = true;
             }
         }
 
         if (!collision) {
-            this.parent.devices.add(new DeviceHelper(this.links.get(this.comboBox_link_config.getSelectedIndex()),this.networks.get(this.comboBox_net_config.getSelectedIndex()), nodeGrp));
+            this.parent.devices.add(new DeviceHelper(this.links.get(this.comboBox_link_config.getSelectedIndex()),this.networks.get(this.comboBox_net_config.getSelectedIndex()), nodeA, nodeB));
         }
         JOptionPane.showMessageDialog(this,"Device has been configured!", "Device Config.", JOptionPane.INFORMATION_MESSAGE);
         this.setVisible(false);
