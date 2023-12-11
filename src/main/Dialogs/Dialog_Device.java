@@ -32,7 +32,8 @@ public class Dialog_Device extends JFrame {
 
     // Functionalities Required Below Things...
     ArrayList<LinkHelper> links;
-    ArrayList<NetworkHelper> networks;
+    public static ArrayList<NetworkHelper> networks = new ArrayList<>();
+    public static boolean DONE_NETWORK_COLLECTION = false;
     Dialog_Topology parent;
     String nodeA,nodeB;
 
@@ -47,8 +48,12 @@ public class Dialog_Device extends JFrame {
         // init. the lists and other things...
         this.links = new ArrayList<>();
         this.links.addAll(l);
-        this.networks = new ArrayList<>();
-        this.networks.addAll(n);
+
+        if (!DONE_NETWORK_COLLECTION) {
+            networks.addAll(n);
+            DONE_NETWORK_COLLECTION = true;
+        }
+
         this.parent = parent;
 
         // init. the combo boxes...
@@ -82,15 +87,16 @@ public class Dialog_Device extends JFrame {
 
         for (int i=0; i<this.parent.devices.size(); i++) {
             if(this.parent.devices.get(i).nodesGroup.compareToIgnoreCase(nodeGrp) == 0) {
-                this.parent.devices.add(new DeviceHelper(this.links.get(this.comboBox_link_config.getSelectedIndex()),this.networks.get(this.comboBox_net_config.getSelectedIndex()), nodeA, nodeB));
+                this.parent.devices.add(new DeviceHelper(this.links.get(this.comboBox_link_config.getSelectedIndex()), networks.get(this.comboBox_net_config.getSelectedIndex()), nodeA, nodeB));
                 this.parent.devices.remove(i);
                 collision = true;
             }
         }
 
         if (!collision) {
-            this.parent.devices.add(new DeviceHelper(this.links.get(this.comboBox_link_config.getSelectedIndex()),this.networks.get(this.comboBox_net_config.getSelectedIndex()), nodeA, nodeB));
+            this.parent.devices.add(new DeviceHelper(this.links.get(this.comboBox_link_config.getSelectedIndex()), networks.get(this.comboBox_net_config.getSelectedIndex()), nodeA, nodeB));
         }
+        networks.remove(this.comboBox_net_config.getSelectedIndex());
         JOptionPane.showMessageDialog(this,"Device has been configured!", "Device Config.", JOptionPane.INFORMATION_MESSAGE);
         this.setVisible(false);
     }
