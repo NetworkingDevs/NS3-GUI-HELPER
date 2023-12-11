@@ -42,6 +42,10 @@ public class Dialog_Topology extends JFrame {
 
     public Dialog_Topology(int gridSize, ArrayList<LinkHelper> l, ArrayList<NetworkHelper> n) {
 
+        // change made on 11/12/2023
+        // This line is very important...because it enables the network list to be refilled again if misplaced
+        Dialog_Device.DONE_NETWORK_COLLECTION = false;
+
         // initializing the components...
         this.devices = new ArrayList<>();
         this.links = l;
@@ -82,7 +86,9 @@ public class Dialog_Topology extends JFrame {
         btn_setUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                printDeviceConfig();
+                // changed made on : 11/12/2023
+                // Removed this function, it was just for debugging purpose...
+                // printDeviceConfig();
                 showInfoMsg();
             }
         });
@@ -117,11 +123,15 @@ public class Dialog_Topology extends JFrame {
         }
     }
 
+    // change made on : 11/12/2023
+    // Removed this function, because of 2 reasons; no needed anymore and it was just for debugging purpose...
+    /*
     private void printDeviceConfig() {
         for (DeviceHelper device : this.devices) {
             System.out.println(device.getDeviceConfCode());
         }
     }
+    */
 
     // added : Added this function because 'i' cannot be accessed outside of scope...
     private void openDevicesDialog(int i) {
