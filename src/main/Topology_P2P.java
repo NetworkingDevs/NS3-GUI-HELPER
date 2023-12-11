@@ -260,6 +260,8 @@ public class Topology_P2P extends JFrame {
         this.writer.writeToFile(first);
         this.writer.closeTheFile();
         this.param = new ArrayList<>();
+
+        JOptionPane.showMessageDialog(this, "File has been generated successfully!", "Code Generated!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void ValidateTopologyConfig() {
