@@ -29,7 +29,9 @@
           </grid>
         </constraints>
         <properties/>
-        <border type="bevel-lowered" title="Configure Topology"/>
+        <border type="bevel-lowered" title="Configure Topology">
+          <title-color color="-14566617"/>
+        </border>
         <children>
           <component id="416c2" class="javax.swing.JLabel" binding="lbl_nodes">
             <constraints>
@@ -161,7 +163,9 @@
           </grid>
         </constraints>
         <properties/>
-        <border type="bevel-lowered" title="Configure Server"/>
+        <border type="bevel-lowered" title="Configure Server">
+          <title-color color="-14566617"/>
+        </border>
         <children>
           <component id="c0270" class="javax.swing.JLabel" binding="lbl_serverIndex">
             <constraints>
@@ -178,10 +182,7 @@
               <forms/>
             </constraints>
             <properties>
-              <model>
-                <item value="0"/>
-                <item value="1"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="65e17" class="javax.swing.JLabel" binding="lbl_portNo">
@@ -323,7 +324,9 @@
           </grid>
         </constraints>
         <properties/>
-        <border type="bevel-lowered" title="Configure Client"/>
+        <border type="bevel-lowered" title="Configure Client">
+          <title-color color="-14566617"/>
+        </border>
         <children>
           <component id="15506" class="javax.swing.JLabel" binding="lbl_clientIndex">
             <constraints>
@@ -340,10 +343,7 @@
               <forms/>
             </constraints>
             <properties>
-              <model>
-                <item value="0"/>
-                <item value="1"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="6cf9" class="javax.swing.JLabel" binding="lbl_startTime_client">
@@ -399,7 +399,9 @@
           </grid>
         </constraints>
         <properties/>
-        <border type="bevel-lowered" title="Configure Utilities"/>
+        <border type="bevel-lowered" title="Configure Utilities">
+          <title-color color="-14566617"/>
+        </border>
         <children>
           <component id="a768a" class="javax.swing.JCheckBox" binding="checkBox_wireshark">
             <constraints>

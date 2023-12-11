@@ -124,7 +124,52 @@ public class Topology_Ring extends JFrame {
                 performValidation();
             }
         });
+
+        // change made on : 11/12/2023
+        // Removed these function because they were causing the unexpected result while adding items to comboBoxes...
+        /*
+        comboBox_serverIndex.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                makeClientIndices();
+            }
+        });
+        comboBox_clientIndex.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                makeServerIndices();
+            }
+        });
+        */
     }
+
+    // changed made on 11/12/2023
+    // Change : Removed This Code Because It Was Not Required Any More...
+    /*
+    private void makeServerIndices() {
+        int nodes = this.comboBox_clientIndex.getItemCount();
+        int client_node = this.comboBox_clientIndex.getSelectedIndex();
+
+        this.comboBox_serverIndex.removeAllItems();
+        for (int i=0; i<nodes; i++) {
+            if (i != client_node) {
+                this.comboBox_serverIndex.addItem(i);
+            }
+        }
+    }
+
+    private void makeClientIndices() {
+        int nodes = this.comboBox_serverIndex.getItemCount();
+        int server_node = this.comboBox_serverIndex.getSelectedIndex();
+
+        this.comboBox_clientIndex.removeAllItems();
+        for (int i=0; i<nodes; i++) {
+            if (i != server_node) {
+                this.comboBox_clientIndex.addItem(i);
+            }
+        }
+    }
+    */
 
     // added this on 10/12/2023 for validation and file generation...
     private void performValidation() {
@@ -132,11 +177,11 @@ public class Topology_Ring extends JFrame {
             return;
         }
 
-        if (!this.validator.validateServerConfig(this.comboBox_serverIndex.getSelectedItem().toString(), this.textField_PortNo.getText().toString(), this.textField_startTime_server.getText().toString(), this.textField_UpTime_server.getText().toString(), this.textField_mtu.getText().toString(), this.textField_interval.getText().toString(), this.textField_packets.getText().toString())) {
+        if (!this.validator.validateServerConfig(String.valueOf(this.comboBox_serverIndex.getSelectedIndex()), this.textField_PortNo.getText().toString(), this.textField_startTime_server.getText().toString(), this.textField_UpTime_server.getText().toString(), this.textField_mtu.getText().toString(), this.textField_interval.getText().toString(), this.textField_packets.getText().toString())) {
             return;
         }
 
-        if (!this.validator.validateClientConfig(this.comboBox_clientIndex.getSelectedItem().toString(), this.textField_startTime_client.getText().toString(), this.textField_upTime_client.getText().toString())) {
+        if (!this.validator.validateClientConfig(String.valueOf(this.comboBox_clientIndex.getSelectedIndex()), this.textField_startTime_client.getText().toString(), this.textField_upTime_client.getText().toString())) {
             return;
         }
 
@@ -326,6 +371,8 @@ public class Topology_Ring extends JFrame {
         this.writer.writeToFile(ring);
         this.writer.closeTheFile();
         this.param = new ArrayList<>();
+
+        JOptionPane.showMessageDialog(this, "File has been generated successfully!", "Code Generated!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void showDialogTopology() {
@@ -342,10 +389,43 @@ public class Topology_Ring extends JFrame {
             return;
         }
 
-        // if all checks pass...
-        // changed : changed the constructor of Dialog_Topology so, adjusted here
-        // change made on : 09/12/23
+        // If it contains the already configured device, then ask for reassignment (to the user...)
+        if (this.dialog_topology != null) {
+            if (this.dialog_topology.devices.size() == Integer.parseInt(nodes)) {
+                int option = JOptionPane.showConfirmDialog(this,"Topology has already configured!\nAre You sure you want to reassign the configuration?","Redo Configuration!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                if(option == JOptionPane.YES_OPTION) {
+                    this.adjustNodesAndShowDialogTopology(nodes);
+                }
+            } else {
+                System.out.println("Just Checking!!");
+                this.dialog_topology.setVisible(true);
+            }
+        } else {
+            // if all checks pass...
+            this.adjustNodesAndShowDialogTopology(nodes);
+        }
+    }
+
+    // added this on 11/12/2023
+    // For modularity, nothing much...
+    private void adjustNodesAndShowDialogTopology(String nodes) {
+        this.comboBox_serverIndex.removeAllItems();
+        this.addNodesToServerIndex(Integer.parseInt(nodes));
         this.dialog_topology = new Dialog_Topology(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links);
+    }
+
+    private void addNodesToServerIndex(int n) {
+        for (int i=0; i<n; i++) {
+            this.comboBox_serverIndex.addItem("Node : "+String.valueOf(i));
+        }
+        this.comboBox_clientIndex.removeAllItems();
+        this.addNodesToClientIndex(n);
+    }
+
+    private void addNodesToClientIndex(int n) {
+        for (int i=0; i<n; i++) {
+            this.comboBox_clientIndex.addItem("Node : "+String.valueOf(i));
+        }
     }
 
     public void showDialogLink() {
