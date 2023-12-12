@@ -5,6 +5,7 @@ import FileHandler.Writer;
 import Helpers.DeviceHelper;
 import Helpers.LinkHelper;
 import Helpers.ValidationHelper;
+import StatusHelper.TopologyStatus;
 
 import javax.swing.*;
 import java.awt.*;
@@ -71,13 +72,21 @@ public class Topology_Ring extends JFrame {
     Dialog_Network dialog_network;
     Dialog_Topology dialog_topology;
     ValidationHelper validator;// added this on 10/12/2023 for validation...
+    TopologyStatus topologyStatus;
 
-    public Topology_Ring(String path) {
-        this.validator = new ValidationHelper(this);
+    public Topology_Ring(String path, TopologyStatus topologyStatus) {
+        this.topologyStatus = topologyStatus;
+        this.validator = new ValidationHelper(this, this.topologyStatus);
 
         this.OutputPath = path;
         this.setContentPane(this.JPanel_main);
-        this.setTitle("Topology Helper - Ring");
+        if (this.topologyStatus == TopologyStatus.TOPOLOGY_RING) {
+            this.setTitle("Topology Helper - Ring");
+        } else if (this.topologyStatus == TopologyStatus.TOPOLOGY_STAR) {
+            this.setTitle("Topology Helper - Star");
+        } else { // expected mesh topology...
+            this.setTitle("Topology Helper - Mesh");
+        }
         this.setSize(500,800);
         this.setVisible(true);
         this.setResizable(false);
@@ -143,6 +152,10 @@ public class Topology_Ring extends JFrame {
         */
     }
 
+    public Topology_Ring(String path) {
+        this(path,TopologyStatus.TOPOLOGY_RING);
+    }
+
     // changed made on 11/12/2023
     // Change : Removed This Code Because It Was Not Required Any More...
     /*
@@ -205,11 +218,20 @@ public class Topology_Ring extends JFrame {
         this.writer = new Writer(this.OutputPath);
 
         // some variable parameters configuration ======================================================================
+        String topology;
+        if (this.topologyStatus == TopologyStatus.TOPOLOGY_RING) {
+            topology = "Ring";
+        } else if (this.topologyStatus == TopologyStatus.TOPOLOGY_STAR) {
+            topology = "Star";
+        } else { // mesh topology expected...
+            topology = "Mesh";
+        }
         String netAnimModuleString = """
                 #include "ns3/netanim-module.h"
                 """;
         String netanimUtilityString = """
-                AnimationInterface anim("animationRing.xml"); 
+                AnimationInterface anim(\"animation"""+topology+"""
+                .xml\"); 
                 """;
         String wiresharkUtilityString = """
                 pointToPoint.EnablePcapAll("ring");
@@ -273,7 +295,8 @@ public class Topology_Ring extends JFrame {
                                 
                 using namespace ns3;
                                 
-                NS_LOG_COMPONENT_DEFINE("RingExample");
+                NS_LOG_COMPONENT_DEFINE(\""""+topology+"""
+                Example\");
                                 
                 int
                 main(int argc, char* argv[])
@@ -411,7 +434,7 @@ public class Topology_Ring extends JFrame {
     private void adjustNodesAndShowDialogTopology(String nodes) {
         this.comboBox_serverIndex.removeAllItems();
         this.addNodesToServerIndex(Integer.parseInt(nodes));
-        this.dialog_topology = new Dialog_Topology(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links);
+        this.dialog_topology = new Dialog_Topology(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links, this.topologyStatus);
     }
 
     private void addNodesToServerIndex(int n) {
