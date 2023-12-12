@@ -3,6 +3,7 @@ package Dialogs;
 import Helpers.DeviceHelper;
 import Helpers.LinkHelper;
 import Helpers.NetworkHelper;
+import StatusHelper.TopologyStatus;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,9 +40,12 @@ public class Dialog_Topology extends JFrame {
     // for passing it to the Dialog_Device...
     ArrayList<LinkHelper> links;
     ArrayList<NetworkHelper> networks;
+    // for storing which type of topology is currently active...
+    TopologyStatus TOPOLOGY;
 
-    public Dialog_Topology(int gridSize, ArrayList<LinkHelper> l, ArrayList<NetworkHelper> n) {
-
+    public Dialog_Topology(int nodes, ArrayList<LinkHelper> l, ArrayList<NetworkHelper> n, TopologyStatus status) {
+        // setting the topology...
+        this.TOPOLOGY = status;
         // change made on 11/12/2023
         // This line is very important...because it enables the network list to be refilled again if misplaced
         Dialog_Device.DONE_NETWORK_COLLECTION = false;
@@ -52,30 +56,17 @@ public class Dialog_Topology extends JFrame {
         this.networks = n;
 
         // for grid calculation...
-        this.nodes = gridSize;
-        this.grid = (int) Math.floor(this.nodes/2);
+        this.nodes = nodes;
+        this.grid = (int) Math.ceil((this.getButtons(this.nodes)/2));
 
         this.setContentPane(this.JPanel_main);
-        this.JPanel_topology_btns.setLayout(new GridLayout(grid,grid*2,3,3));
+        this.JPanel_topology_btns.setLayout(new GridLayout(this.grid,this.grid,3,3));
 
         // change : added the action listener on each button which is added...
         // change made on : 08th Dec., 2023
         // for generating button...
-        for(int i=0; i<gridSize; i++) {
-            JButton btn = new JButton(String.valueOf(i));
-            btn.setHorizontalTextPosition(SwingConstants.TRAILING);
-            btn.setActionCommand(String.valueOf(i));
-            btn.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    openDevicesDialog(Integer.parseInt(e.getActionCommand()));
-                }
-            });
-            this.JPanel_topology_btns.add(btn);
-            Image scaledImg = img.getScaledInstance(100,100,Image.SCALE_SMOOTH);
-            ImageIcon linkIcon = new ImageIcon(scaledImg);
-            btn.setIcon(linkIcon);
-        }
+        this.addButtons(this.nodes);
+
 
         // initializing this component...
         this.setTitle("GUI Devices Setup");
@@ -102,9 +93,71 @@ public class Dialog_Topology extends JFrame {
         });
     }
 
+
+    public Dialog_Topology(int nodes, ArrayList<LinkHelper> l, ArrayList<NetworkHelper> n) {
+        this(nodes,l,n,TopologyStatus.TOPOLOGY_RING);
+    }
+
+    // this function has been created for adding buttons according to type of topology...
+    private void addButtons(int nodes) {
+        int btns = this.getButtons(nodes);
+        if (TOPOLOGY == TopologyStatus.TOPOLOGY_RING) {
+            System.out.println("Inside Ring...");
+            for(int i=0; i<btns; i++) {
+                this.addButton(String.valueOf(i),String.valueOf(i));
+            }
+        } else if (TOPOLOGY == TopologyStatus.TOPOLOGY_MESH) {
+            int count = 0;
+            for (int i=0; i<=nodes-2; i++) {
+                for (int j=i+1; j<=nodes-1; j++) {
+                    String command = i + "-" + j;
+                    this.addButton(String.valueOf(count), command);
+                    count ++;
+                }
+            }
+        } else { // expected to be star topology...
+            for (int i=0; i<btns; i++) {
+                this.addButton(String.valueOf(i),String.valueOf(i));
+            }
+        }
+    }
+
+    private void addButton(String label, String command) {
+        JButton btn = new JButton(label);
+        btn.setHorizontalTextPosition(SwingConstants.TRAILING);
+        btn.setActionCommand(command);
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (TOPOLOGY == TopologyStatus.TOPOLOGY_MESH) {
+                    String[] nodes = e.getActionCommand().split("-");
+                    openDevicesDialog(Integer.parseInt(nodes[0]),Integer.parseInt(nodes[1]));
+                } else {
+                    openDevicesDialog(Integer.parseInt(e.getActionCommand()));
+                }
+            }
+        });
+        this.JPanel_topology_btns.add(btn);
+        Image scaledImg = img.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        ImageIcon linkIcon = new ImageIcon(scaledImg);
+        btn.setIcon(linkIcon);
+    }
+
+    // this function will return the no. of buttons required, based on (no. of nodes, type of topology)
+    private int getButtons(int nodes) {
+        if (TOPOLOGY == TopologyStatus.TOPOLOGY_RING) {
+          return nodes;// n links...
+        } else if (TOPOLOGY == TopologyStatus.TOPOLOGY_MESH) {
+            return ( ((nodes)*(nodes-1))/2 ); // (n*n-1)/2 links...
+        } else { // expected to be star topology...
+            return (nodes-1); // n-1 links...
+        }
+    }
+
     private void AskForConfirmation() {
+        int expectedConfiguredLinks = this.getButtons(this.nodes);
         // System.out.println("Nodes : "+this.nodes+" Devices : "+this.devices.size());
-        if (this.nodes != this.devices.size()) {
+        if (this.devices.size() != expectedConfiguredLinks) {
             int option = JOptionPane.showConfirmDialog(JPanel_main,"Some or All devices are left configured!\nAre you sure you want to close the topology config?","Quit!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
             if(option == JOptionPane.YES_OPTION) {
                 this.setVisible(false);
@@ -135,8 +188,21 @@ public class Dialog_Topology extends JFrame {
 
     // added : Added this function because 'i' cannot be accessed outside of scope...
     private void openDevicesDialog(int i) {
+        this.openDevicesDialog(i, 0);
+    }
+
+    // this variant is made, just for keeping the mesh topology in the mind...
+    // this variant will only be used better when it's mesh topology...
+    private void openDevicesDialog(int i,int j) {
         // System.out.println("GRID : "+this.nodes+" i : "+i);
-        Dialog_Device dialogDevice = new Dialog_Device(String.valueOf(i),String.valueOf(((i+1)%this.nodes)), "Device configuration for node "+i+" and "+((i+1)%this.nodes),this.links, this.networks, this);
+        if (TOPOLOGY == TopologyStatus.TOPOLOGY_RING) {
+            Dialog_Device dialogDevice = new Dialog_Device(String.valueOf(i),String.valueOf(((i+1)%this.nodes)), "Device configuration for node "+i+" and "+((i+1)%this.nodes),this.links, this.networks, this);
+        } else if (TOPOLOGY == TopologyStatus.TOPOLOGY_MESH) {
+            Dialog_Device dialogDevice = new Dialog_Device(String.valueOf(i),String.valueOf(j),"Device Configuration for node "+i+" and "+j,this.links, this.networks, this);
+        } else { // expected to be star...
+            // always center node will be '0'
+            Dialog_Device dialogDevice = new Dialog_Device("0",String.valueOf(i+1), "Device configuration for node 0 and "+((i+1)),this.links, this.networks, this);
+        }
     }
 
     /*
