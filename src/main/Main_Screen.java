@@ -1,3 +1,5 @@
+import StatusHelper.TopologyStatus;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -57,6 +59,10 @@ public class Main_Screen extends JFrame {
                     Topology_P2P p2p = new Topology_P2P(FieldOutputPath);
                 } else if(FieldTopology == 1) {
                     Topology_Ring ring = new Topology_Ring(FieldOutputPath);
+                } else if (FieldTopology == 2) {
+                    Topology_Ring star = new Topology_Ring(FieldOutputPath, TopologyStatus.TOPOLOGY_STAR);
+                } else { // Expected Mesh Topology...
+                    Topology_Ring mesh = new Topology_Ring(FieldOutputPath, TopologyStatus.TOPOLOGY_MESH);
                 }
             }
         });
