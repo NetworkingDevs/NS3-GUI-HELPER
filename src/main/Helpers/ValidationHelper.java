@@ -1,5 +1,7 @@
 package Helpers;
 
+import StatusHelper.TopologyStatus;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -14,26 +16,21 @@ import java.util.ArrayList;
  * */
 public class ValidationHelper {
 
-    // various topology types starts here...
-    public static String TOPOLOGY_RING = "RING";
-    public static String TOPOLOGY_MESH = "MESH";
-    public static String TOPOLOGY_STAR = "STAR";
-    // various topology types ends here...
-
     public JFrame parent_frame; // for showing the message dialogs...
-    public static String TOPOLOGY = TOPOLOGY_RING; // for tracking that which type of topology is here...
+    public static TopologyStatus TOPOLOGY = TopologyStatus.TOPOLOGY_RING; // for tracking that which type of topology is here...
     public ArrayList<String> param = new ArrayList<>(); // for storing the variable parameters for the code generation...
 
-    public ValidationHelper(JFrame parent) {
+    public ValidationHelper(JFrame parent, TopologyStatus status) {
         this.parent_frame = parent;
+        TOPOLOGY = status;
     }
 
     // validation of topology starts here ==============================================================================
     // This method will calculate the expected no. of links that has to be there in given topology...
     private static int calculateExpectedDeviceSize(int nodes) {
-        if (TOPOLOGY == TOPOLOGY_RING) {
+        if (TOPOLOGY == TopologyStatus.TOPOLOGY_RING) {
             return nodes;
-        } else if (TOPOLOGY == TOPOLOGY_MESH) {
+        } else if (TOPOLOGY == TopologyStatus.TOPOLOGY_MESH) {
             return ((nodes)*(nodes - 1)) / 2;
         } else {
             return nodes-1;
