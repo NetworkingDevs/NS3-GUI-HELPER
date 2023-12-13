@@ -1,10 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="NS3-GUI:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/NS3_GUI_jar</output-path>
+    <output-path>$PROJECT_DIR$/..</output-path>
     <root id="archive" name="NS3-GUI.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/../META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="NS3-GUI" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/21.0.1/javafx-base-21.0.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/jgoodies/forms/1.2.1/forms-1.2.1.jar" path-in-jar="/" />
@@ -18,7 +15,6 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-swing/21.0.1/javafx-swing-21.0.1-win.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/21.0.1/javafx-base-21.0.1-win.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-swing/21.0.1/javafx-swing-21.0.1.jar" path-in-jar="/" />
-      <element id="dir-copy" path="$PROJECT_DIR$/src/main/Resources" />
     </root>
   </artifact>
 </component>
