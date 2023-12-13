@@ -2,6 +2,9 @@
 layout: default
 ---
 
+| Home | [Final Product](./appImages.html) |
+|:-----|:----------------------------------|
+
 # Application Images
 - I've included a sneak peek of the final desktop application, granting you an immediate glimpse of its functionality and satisfying your curiosity to witness it in action.
 
