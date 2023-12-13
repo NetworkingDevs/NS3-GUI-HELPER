@@ -2,8 +2,9 @@
 layout: default
 ---
 
-| Home | [Final Product](./appImages.html) |
-|:-----|:----------------------------------|
+| [Home](./index.html) | Final Product |
+|:---------------------|:--------------|
+| To Home Page         | This Page     |
 
 # Application Images
 - I've included a sneak peek of the final desktop application, granting you an immediate glimpse of its functionality and satisfying your curiosity to witness it in action.
