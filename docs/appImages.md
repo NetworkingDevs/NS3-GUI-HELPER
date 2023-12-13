@@ -4,6 +4,7 @@ layout: default
 
 # Application Images
 - I've included a sneak peek of the final desktop application, granting you an immediate glimpse of its functionality and satisfying your curiosity to witness it in action.
+- <img src="./assets/Images/App/img1_mainScreen.png" width="100" height="100">
 
 ## Main Screen
 - The primary interface of the application features a selection menu allowing users to choose their desired networking topology for code generation. Additionally, it requires users to specify a valid path where the generated code file will be stored.
