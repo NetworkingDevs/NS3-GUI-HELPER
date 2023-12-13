@@ -1,4 +1,5 @@
 remote_theme: pages-themes/minimal@v0.2.0
+theme: jekyll-theme-minimal
 title: ["NS3-GUI Code Generator"] # The title of your site
 description: ["This is a Desktop Application for Generating Code For Various Topologies in NS3!"] # A short description of your site's purpose
 show_downloads: ["true"] #  or "false" (unquoted) to indicate whether to provide a download URL
