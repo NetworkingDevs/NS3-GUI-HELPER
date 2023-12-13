@@ -5,12 +5,14 @@ import Helpers.LinkHelper;
 import Helpers.NetworkHelper;
 import StatusHelper.TopologyStatus;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -31,8 +33,18 @@ public class Dialog_Topology extends JFrame {
 
     // for functionalities...
     // for image icon to be used on button...
-    ImageIcon icon = new ImageIcon("src/main/Resources/link_color.png");
-    Image img = icon.getImage();
+    Image img;
+
+    {
+        try {
+            img = ImageIO.read(getClass().getClassLoader().getResource("link_color.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    // ImageIcon icon = new ImageIcon(computer);
+    // Image img = icon.getImage();
+
     // for storing the devices, and it's configuration...
     public ArrayList<DeviceHelper> devices;
     int grid;
