@@ -2,14 +2,21 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# NS3 - GUI Code Generator
 
-[Link to another page](./another-page.html).
+## NS3 (Network Simulator 3)
+- NS3, or **_Network Simulator 3_**, is an open-source discrete-event network simulator **developed primarily** for _research 
+  and educational purposes._ 
+- It is widely used in the field of **computer networking** to simulate and analyze the _behavior 
+  of complex communication networks._ 
+- NS3 allows researchers and developers to experiment with various network protocols, 
+  applications, and scenarios in a controlled and repeatable environment
 
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+## GUI Code Generator
+- In NS3, coding in C/C++ is a requirement for simulation tasks, which may pose a challenge for students or researchers
+  who are relatively new to NS3 and still in the early stages of learning.
+- To enhance code comprehension and expedite the learning process, I've developed an application that facilitates the generation of code for fundamental networking topologies outlined below.
+  - Point To Point Topology
+  - Ring Topology
+  - Mesh Topology
+  - Star Topology
