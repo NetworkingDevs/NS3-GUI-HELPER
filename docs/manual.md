@@ -64,6 +64,7 @@ layout: default
   - The generated code will be stored at the destination specified in the [initial step](#choosing-the-type-of-networking-topology), with the filename "output.txt," encompassing the configured parameters and attributes.
     <br>
     <img src="./assets/images/Manual/img8.png" alt="Final Output">
+  
 ## How to ...
 - [Generate Code For Ring Topology!](./Manual/manualRing.html)
 - [Generate Code For Mesh Topology!](./Manual/manualMesh.html)
