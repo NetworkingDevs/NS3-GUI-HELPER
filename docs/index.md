@@ -2,9 +2,9 @@
 layout: default
 ---
 
-| Home      | [Final Product](./appImages.html) |
-|:----------|:----------------------------------|
-| This Page | To Final Product                  |
+| Home      | [Final Product](./appImages.html) | [Manul](./manual.html) |
+|:----------|:----------------------------------|------------------------|
+| This Page | To Final Product                  | To User Manual         |
 
 # NS3 - GUI Code Generator
 
