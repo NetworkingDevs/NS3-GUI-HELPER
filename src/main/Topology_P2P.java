@@ -68,7 +68,7 @@ public class Topology_P2P extends JFrame {
         this.OutputPath = path;
         this.setContentPane(this.JPanel_main);
         this.setTitle("Topology Helper - P2P");
-        this.setSize(400,800);
+        this.setSize(400,650);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

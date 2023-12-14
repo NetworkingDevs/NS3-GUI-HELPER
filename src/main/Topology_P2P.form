@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Topology_P2P">
   <grid id="27dc6" binding="JPanel_main" layout-manager="FormLayout">
-    <rowspec value="fill:80px:grow"/>
+    <rowspec value="fill:d:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:130px:noGrow"/>
+    <rowspec value="center:d:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:291px:noGrow"/>
+    <rowspec value="center:d:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:96px:noGrow"/>
+    <rowspec value="center:d:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
     <colspec value="fill:d:grow"/>
     <constraints>
-      <xy x="20" y="20" width="504" height="737"/>
+      <xy x="20" y="20" width="504" height="713"/>
     </constraints>
     <properties/>
     <border type="line" title="P2P Topology" title-justification="1">
@@ -27,17 +27,10 @@
         <rowspec value="top:4dlu:noGrow"/>
         <rowspec value="center:max(d;4px):noGrow"/>
         <rowspec value="top:4dlu:noGrow"/>
-        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="center:d:noGrow"/>
         <rowspec value="top:4dlu:noGrow"/>
         <rowspec value="center:d:grow"/>
-        <rowspec value="top:4dlu:noGrow"/>
-        <rowspec value="center:max(d;4px):noGrow"/>
-        <rowspec value="top:4dlu:noGrow"/>
-        <rowspec value="center:max(d;4px):noGrow"/>
-        <rowspec value="top:4dlu:noGrow"/>
-        <rowspec value="center:max(d;4px):noGrow"/>
-        <rowspec value="top:4dlu:noGrow"/>
-        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="center:d:noGrow"/>
         <colspec value="fill:d:grow"/>
         <colspec value="left:4dlu:noGrow"/>
         <colspec value="fill:d:grow"/>
@@ -109,29 +102,9 @@
               <text value="Enter Start Time (in sec.)"/>
             </properties>
           </component>
-          <component id="27aff" class="javax.swing.JTextField" binding="textField_mtu">
-            <constraints>
-              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <forms defaultalign-horz="false"/>
-            </constraints>
-            <properties>
-              <text value="Enter Packet Size (in bytes)"/>
-            </properties>
-          </component>
-          <component id="2644d" class="javax.swing.JLabel" binding="lbl_mtu">
-            <constraints>
-              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <forms/>
-            </constraints>
-            <properties>
-              <text value="MTU"/>
-            </properties>
-          </component>
           <component id="a750f" class="javax.swing.JLabel" binding="lbl_UpTime">
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <forms/>
             </constraints>
             <properties>
@@ -140,53 +113,13 @@
           </component>
           <component id="b2bc9" class="javax.swing.JTextField" binding="textField_upTime">
             <constraints>
-              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
               <forms defaultalign-horz="false"/>
             </constraints>
             <properties>
               <text value="Enter Total Up Time (in sec.)"/>
-            </properties>
-          </component>
-          <component id="5ab38" class="javax.swing.JTextField" binding="textField_Interval">
-            <constraints>
-              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <forms defaultalign-horz="false"/>
-            </constraints>
-            <properties>
-              <text value="Enter Jitter (in sec.)"/>
-            </properties>
-          </component>
-          <component id="e684" class="javax.swing.JLabel" binding="lbl_Interval">
-            <constraints>
-              <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <forms/>
-            </constraints>
-            <properties>
-              <text value="Interval"/>
-            </properties>
-          </component>
-          <component id="fe172" class="javax.swing.JTextField" binding="textField_packets">
-            <constraints>
-              <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-              <forms defaultalign-horz="false"/>
-            </constraints>
-            <properties>
-              <text value="Enter no. of packets"/>
-            </properties>
-          </component>
-          <component id="f6a4" class="javax.swing.JLabel" binding="lbl_Packets">
-            <constraints>
-              <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <forms/>
-            </constraints>
-            <properties>
-              <text value="No. of packets"/>
             </properties>
           </component>
         </children>
@@ -345,6 +278,12 @@
         <rowspec value="center:d:grow"/>
         <rowspec value="top:4dlu:noGrow"/>
         <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
         <colspec value="fill:212px:noGrow"/>
         <colspec value="left:4dlu:noGrow"/>
         <colspec value="fill:d:grow"/>
@@ -395,6 +334,66 @@
             </constraints>
             <properties>
               <text value="Up Time"/>
+            </properties>
+          </component>
+          <component id="2644d" class="javax.swing.JLabel" binding="lbl_mtu">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="MTU"/>
+            </properties>
+          </component>
+          <component id="27aff" class="javax.swing.JTextField" binding="textField_mtu">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+              <forms defaultalign-horz="false"/>
+            </constraints>
+            <properties>
+              <text value="Enter Packet Size (in bytes)"/>
+            </properties>
+          </component>
+          <component id="e684" class="javax.swing.JLabel" binding="lbl_Interval">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="Interval"/>
+            </properties>
+          </component>
+          <component id="5ab38" class="javax.swing.JTextField" binding="textField_Interval">
+            <constraints>
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+              <forms defaultalign-horz="false"/>
+            </constraints>
+            <properties>
+              <text value="Enter Jitter (in sec.)"/>
+            </properties>
+          </component>
+          <component id="f6a4" class="javax.swing.JLabel" binding="lbl_Packets">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="No. of packets"/>
+            </properties>
+          </component>
+          <component id="fe172" class="javax.swing.JTextField" binding="textField_packets">
+            <constraints>
+              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+              <forms defaultalign-horz="false"/>
+            </constraints>
+            <properties>
+              <text value="Enter no. of packets"/>
             </properties>
           </component>
         </children>
