@@ -1,6 +1,7 @@
 import Dialogs.Dialog_Link;
 import Dialogs.Dialog_Network;
 import Dialogs.Dialog_Topology;
+import Dialogs.Dialog_TopologyGUI;
 import FileHandler.Writer;
 import Helpers.DeviceHelper;
 import Helpers.LinkHelper;
@@ -71,6 +72,7 @@ public class Topology_Ring extends JFrame {
     Dialog_Link dialog_link;
     Dialog_Network dialog_network;
     Dialog_Topology dialog_topology;
+    Dialog_TopologyGUI dialog_topologyGUI;
     ValidationHelper validator;// added this on 10/12/2023 for validation...
     TopologyStatus topologyStatus;
 
@@ -434,7 +436,8 @@ public class Topology_Ring extends JFrame {
     private void adjustNodesAndShowDialogTopology(String nodes) {
         this.comboBox_serverIndex.removeAllItems();
         this.addNodesToServerIndex(Integer.parseInt(nodes));
-        this.dialog_topology = new Dialog_Topology(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links, this.topologyStatus);
+        // this.dialog_topology = new Dialog_Topology(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links, this.topologyStatus);
+        this.dialog_topologyGUI = new Dialog_TopologyGUI(Integer.parseInt(nodes),this.dialog_link.links, this.dialog_network.links, this.topologyStatus);
     }
 
     private void addNodesToServerIndex(int n) {
