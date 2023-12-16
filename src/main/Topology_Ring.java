@@ -87,7 +87,7 @@ public class Topology_Ring extends JFrame {
         } else { // expected mesh topology...
             this.setTitle("Topology Helper - Mesh");
         }
-        this.setSize(500,800);
+        this.setSize(500,650);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
