@@ -8,6 +8,18 @@ import java.util.ArrayList;
 public class TopologyPainter extends Canvas {
     private static int DEFAULT_WIDTH = 500;
     private static int DEFAULT_HEIGHT = 500;
+    // below is the grid configuration...
+    public int[][] GRID_X0 = new int[][] {{0,0},{100,0},{100,100},{0,100}};
+    public int[][] GRID_X1 = new int[][] {{200,0},{300,0},{300,100},{200,100}};
+    public int[][] GRID_X2 = new int[][] {{200,200},{300,200},{300,300},{200,300}};
+    public int[][] GRID_X3 = new int[][] {{0,200},{100,200},{100,300},{0,300}};
+    public int[][][] GRID_MAIN = new int[][][] {GRID_X0, GRID_X1, GRID_X2, GRID_X3};
+
+    // index0 of SUB_GRIDS_INDEX = X0 and so on....
+    // public static int GRID_X0_INDEX = 0, GRID_X1_INDEX = 0, GRID_X2_INDEX = 0, GRID_X3_INDEX = 0;
+    public int[] SUB_GRIDS_INDEX = new int[] {3,0,1,2};
+    public int SUB_GRID_INDEX = 0; // it will range from 0 to GRID_SIZE
+    public int GRID_SIZE = 4, GRID_INDEX = 0; // GRID_INDEX will range from 0 to GRID_SIZE
 
     int width, height;
     ArrayList<NodeHelper> nodes;
@@ -41,5 +53,46 @@ public class TopologyPainter extends Canvas {
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(500,500);
+    }
+
+    public int[] nextRandomPoint() {
+        int[] point = new int[2];
+
+        // generate random...
+        // point[0] = xPos, x point will be generated...
+        point[0] = getRandom(GRID_MAIN[GRID_INDEX][SUB_GRIDS_INDEX[SUB_GRID_INDEX]][0]);
+        // point[1] = yPos, y point will be generated...
+        point[1] = getRandom(GRID_MAIN[GRID_INDEX][SUB_GRIDS_INDEX[SUB_GRID_INDEX]][1]);
+
+        // now change the grid where next point will be generated...
+        GRID_INDEX = (GRID_INDEX + 1)%GRID_SIZE; // changing the next 200x200 grid... [x0 -> x1 -> x2 -> x3 -> x0 -> ...]
+        SUB_GRIDS_INDEX[SUB_GRID_INDEX] = (SUB_GRIDS_INDEX[SUB_GRID_INDEX]+2)%GRID_SIZE; // changing the next 100x100 grid [A0 -> A1 -> A2 -> A3 -> A0 -> ...](if current 100x100 grid is A)
+        SUB_GRID_INDEX = (SUB_GRID_INDEX+1)%GRID_SIZE; // changing to the next 100x100 grid...in next 200x200 grid [A -> B -> C -> D -> A -> ...]
+
+        return point;
+    }
+
+    private int getRandom(int low) {
+        return getRandom(low, low + 100); // 100 = Size of Sub Grids in 2D Space...
+    }
+
+    private int getRandom(int low, int high) {
+        return (int) (Math.random() * (high - low)) + low;
+    }
+
+    public ArrayList<NodeHelper> getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(ArrayList<NodeHelper> nodes) {
+        this.nodes = nodes;
+    }
+
+    public ArrayList<P2PLinkHelper> getLinks() {
+        return links;
+    }
+
+    public void setLinks(ArrayList<P2PLinkHelper> links) {
+        this.links = links;
     }
 }
