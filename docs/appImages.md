@@ -2,9 +2,9 @@
 layout: default
 ---
 
-| [Home](./index.html) | Final Product | [Manual](./manual.html) |
-|:---------------------|:--------------|-------------------------|
-| To Home Page         | This Page     | To User Manual          |
+| [Home](./index.html) | Final Product | [Manual](./manual.html) | [Releases](./releases.html) |
+|:---------------------|:--------------|-------------------------|-----------------------------|
+| To Home Page         | This Page     | To User Manual          | For latest updates          |
 
 # Application Images
 - I've included a sneak peek of the final desktop application, granting you an immediate glimpse of its functionality and satisfying your curiosity to witness it in action.
