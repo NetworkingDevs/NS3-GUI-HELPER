@@ -45,6 +45,7 @@
                 <item value="Ring Topology"/>
                 <item value="Star Topology"/>
                 <item value="Mesh Topology"/>
+                <item value="Custome Create"/>
               </model>
             </properties>
           </component>
