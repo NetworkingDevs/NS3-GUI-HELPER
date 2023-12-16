@@ -22,14 +22,14 @@ layout: default
   - If you possess sufficient knowledge about the aforementioned concepts, you'll notice buttons labeled **'Add Link'** and **'Add Network.'** These buttons are intended for creating links and networks, and the links and networks you create will be **_displayed in the respective combo boxes located below each button_**, as illustrated in the accompanying image.
     <br>
     <img alt="Add Link Dialog Box" src="../assets/images/Manual/img10.png">
-  - This step is analogous to the **Topology Configuration step** for the 'Point To Point' topology [previously discussed](../manual.html/#how-to-generate-code-for-point-to-point-topology). The key difference lies in the presence of multiple links. In this case, the dialog box facilitates the addition of multiple links.
+  - This step is analogous to the **Topology Configuration step** for the 'Point To Point' topology [previously discussed](../manual.html). The key difference lies in the presence of multiple links. In this case, the dialog box facilitates the addition of multiple links.
   - To add a link, simply click the 'Add Link' button. This action will open a new dialog box, as depicted below.
   <br>
     <img alt="Ring Topology Configuration Dialog Box" src="../assets/images/Manual/img11.png">
   - **Image Description** : If you wish to add a link with a Delay Attribute of '1' millisecond and a Data rate of '1' GB/s, follow the steps depicted in the image above. Enter the specified values, select the appropriate speed modifier from the combo box for the data rate, provide a unique name for identification, and then click the 'Make Link' button. This action will display the newly created link in the combo box of links, as illustrated in the image.
   - **Remember** : A unique name is essential for distinguishing between different links.
   - To add a network, click the 'Add Network' button. This action will prompt a dialog box to appear, as depicted below.
-  - This step mirrors the IP settings configuration [previously encountered](../manual.html/#how-to-generate-code-for-point-to-point-topology) in the configuration box for the 'Point To Point' topology. However, in this context, the dialog box enables the creation of multiple networks, a necessary component for topology creation.
+  - This step mirrors the IP settings configuration [previously encountered](../manual.html) in the configuration box for the 'Point To Point' topology. However, in this context, the dialog box enables the creation of multiple networks, a necessary component for topology creation.
   <br>
     <img alt="Add Network Dialog Box" src="../assets/images/Manual/img12.png">
   - **Image Description** : If you intend to add a network with a **_Net ID of '56.0.0.0,'_** a **_subnet mask of '255.0.0.0,'_** and a **_unique name 'net2,'_** follow the input requirements outlined in the image above. Subsequently, clicking the 'Make Network' button will append this network to the combo box of networks, as illustrated earlier.
