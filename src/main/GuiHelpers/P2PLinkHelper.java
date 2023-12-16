@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class P2PLinkHelper {
     public NodeHelper nodeA,nodeB;
-    Color linkColor;
+    public Color linkColor;
 
     private static Color DEFAULT_LINK_COLOR = Color.black;
 
