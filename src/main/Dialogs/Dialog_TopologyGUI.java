@@ -8,6 +8,9 @@ import Helpers.NetworkHelper;
 import StatusHelper.TopologyStatus;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Dialog_TopologyGUI extends JFrame {
@@ -35,12 +38,13 @@ public class Dialog_TopologyGUI extends JFrame {
         this.networks.addAll(n);
         this.topologyStatus = status;
 
+        this.painter = new TopologyPainter(this.GUInodes,this.GUIlinks);
         this.paintTopology();
         this.JScrollPane_main.setViewportView(painter);
 
         // initializing this component...
         this.setTitle("GUI Devices Setup");
-        this.setSize(500,500);
+        this.setSize(550,550);
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -56,6 +60,13 @@ public class Dialog_TopologyGUI extends JFrame {
         });
         timer.start();
         */
+        btn_setUpTopology.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                painter.getLinks().get(0).linkColor = Color.green;
+                painter.repaint();
+            }
+        });
     }
 
     private boolean collisionExist() {
@@ -71,11 +82,10 @@ public class Dialog_TopologyGUI extends JFrame {
 
     private void generateNodes() {
         // it will generate nodes...
-        int x=0,y=0;
+        int[] point;
         for (int i=0; i<this.totalNodes; i++) {
-            x = (int) (Math.random() * 250) + 25;
-            y = (int) (Math.random() * 250) + 25;
-            this.GUInodes.add(new NodeHelper(x,y,String.valueOf(i)));
+            point = this.painter.nextRandomPoint();
+            this.GUInodes.add(new NodeHelper(point[0],point[1],String.valueOf(i)));
         }
     }
 
@@ -119,8 +129,9 @@ public class Dialog_TopologyGUI extends JFrame {
 
         // generating links...
         this.generateLinks();
-        System.out.println("length of GUINodes "+this.GUInodes.size()+" length of GUILinks : "+this.GUIlinks.size());
-        this.painter = new TopologyPainter(this.GUInodes, this.GUIlinks);
+        // System.out.println("length of GUINodes "+this.GUInodes.size()+" length of GUILinks : "+this.GUIlinks.size());
+        this.painter.setNodes(this.GUInodes);
+        this.painter.setLinks(this.GUIlinks);
         this.painter.repaint();
     }
 }
