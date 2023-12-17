@@ -74,4 +74,9 @@ public class DeviceHelper {
         String line2 = this.getNodesGroup()+".Add(allNodes.Get("+this.nodeB+"));";
         return line1+"\n"+line2;
     }
+
+    @Override
+    public String toString() {
+        return "Device connecting : "+nodeA+" and "+nodeB;
+    }
 }
