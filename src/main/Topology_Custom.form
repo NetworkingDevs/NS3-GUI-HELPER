@@ -128,7 +128,7 @@
                           <forms/>
                         </constraints>
                         <properties>
-                          <text value="Link"/>
+                          <text value="Connection"/>
                           <toolTipText value="Select To Add Links"/>
                         </properties>
                       </component>
