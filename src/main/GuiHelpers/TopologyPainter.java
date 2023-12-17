@@ -72,6 +72,46 @@ public class TopologyPainter extends Canvas {
         return point;
     }
 
+    public void addNode(NodeHelper node) {
+        this.nodes.add(node);
+    }
+
+    public void addLink(P2PLinkHelper link) {
+        this.links.add(link);
+    }
+
+    public void addAndPrintNode(NodeHelper node) {
+        this.addNode(node);
+        this.repaint();
+    }
+
+    public void addAndPrintLink(P2PLinkHelper link) {
+        this.addLink(link);
+        this.repaint();
+    }
+
+    public int pointCollideWithAny(int x, int y) {
+        int index = -1;
+
+        for (int i=0; i<this.nodes.size(); i++) {
+            if (this.checkCollisionWithNode(this.nodes.get(i), x, y)) {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
+    }
+
+    private boolean checkCollisionWithNode(NodeHelper n, int x, int y) {
+        int distance = (int) Math.sqrt(Math.pow(n.xPos - x,2) + Math.pow(n.yPos - y, 2));
+        // System.out.println("Distance : "+distance); // just for testing...
+        if (distance < n.radius) {
+            return true;
+        }
+        return false;
+    }
+
     private int getRandom(int low) {
         return getRandom(low, low + 100); // 100 = Size of Sub Grids in 2D Space...
     }
