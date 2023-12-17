@@ -61,6 +61,8 @@ public class Main_Screen extends JFrame {
                     Topology_Ring ring = new Topology_Ring(FieldOutputPath);
                 } else if (FieldTopology == 2) {
                     Topology_Ring star = new Topology_Ring(FieldOutputPath, TopologyStatus.TOPOLOGY_STAR);
+                } else if (FieldTopology == 4) {
+                    Topology_Custom custom = new Topology_Custom(FieldOutputPath);
                 } else { // Expected Mesh Topology...
                     Topology_Ring mesh = new Topology_Ring(FieldOutputPath, TopologyStatus.TOPOLOGY_MESH);
                 }
