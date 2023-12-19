@@ -24,3 +24,6 @@ layout: default
   - Ring Topology
   - Mesh Topology
   - Star Topology
+
+## Be a part of community! <sup>NEW</sup>
+- [GitHub Discussion](https://github.com/HenilMistry/NS3-GUI-HELPER/discussions)
