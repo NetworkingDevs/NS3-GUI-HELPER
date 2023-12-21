@@ -193,7 +193,13 @@ public class Topology_Custom extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (checkNodes()) {
-                    dialogConfigureClient.showDialog(painter.getNodes().size());
+                    if (dialogConfigureServer.settings.size() == 0) { // server configuration has not been done yet...
+                        // show warning message...
+                        showServerConfigWarning();
+                    } else { // otherwise...
+                        // show client configuration dialog box...
+                        dialogConfigureClient.showDialog(painter.getNodes().size());
+                    }
                 }
             }
         });
@@ -207,6 +213,10 @@ public class Topology_Custom extends JFrame {
                 }
             }
         });
+    }
+
+    private void showServerConfigWarning() {
+        JOptionPane.showMessageDialog(this, "Please configure the server first!", "Warning!", JOptionPane.WARNING_MESSAGE);
     }
 
     private boolean checkLinkTool() {
@@ -274,11 +284,22 @@ public class Topology_Custom extends JFrame {
         String deviceConfigCode = new String();
         String ipConfigCode = new String();
         String primaryServerGrp = new String();
+        String serverPrimaryIndex = new String();
+        boolean serverPrimaryConfigured = false;
 
         for(DeviceHelper device : this.dialogConnection.devices) {
             nodesGrp = nodesGrp.concat(device.getNodesGroup()+",");
-            if (device.nodeA.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
-                primaryServerGrp = device.nodesGroup;
+            if (!serverPrimaryConfigured) {
+                if (device.nodeA.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
+                    primaryServerGrp = device.nodesGroup;
+                    serverPrimaryIndex = "0";
+                    serverPrimaryConfigured = true;
+                } else if (device.nodeB.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex()) == 0) {
+                    primaryServerGrp = device.nodesGroup;
+                    serverPrimaryIndex = "1";
+                    serverPrimaryConfigured = true;
+                }
+                // System.out.println("Primary Index : "+serverPrimaryIndex+" Primary Group : "+primaryServerGrp);
             }
         }
         nodesGrp = nodesGrp.substring(0,nodesGrp.length()-1);
@@ -385,7 +406,8 @@ public class Topology_Custom extends JFrame {
                    
                     // step-7 = client configuration
                     UdpEchoClientHelper echoClient(interfaces"""+ primaryServerGrp +"""
-                    .GetAddress(0),"""+ this.dialogConfigureServer.getPortNumber() +"""
+                    .GetAddress("""+ serverPrimaryIndex + """
+                ),"""+ this.dialogConfigureServer.getPortNumber() +"""
                     );
                     echoClient.SetAttribute("MaxPackets", UintegerValue("""+ this.dialogConfigureClient.getPackets() +"""
                     ));
