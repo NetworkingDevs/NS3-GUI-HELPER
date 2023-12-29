@@ -89,7 +89,7 @@ public class Home_Screen extends JFrame {
     public Home_Screen() {
         // basic initialization of this component...
         // ========================================= BASIC CONF. =======================================================
-        this.OutputPath = "E:\\Project\\Networking Projects\\NS3-GUI Releases";
+        this.OutputPath = System.getProperty("user.dir");
         this.setContentPane(this.JPanel_main);
         this.setTitle("Topology Helper - NS3");
         this.setSize(1090,650);
@@ -288,6 +288,10 @@ public class Home_Screen extends JFrame {
                     }
                     incrementClicks(successfulClick);
                 }
+                // if tool is 'view' tool...
+                else if (toolStatus == ToolStatus.TOOL_VIEW) {
+
+                }
             }
         });
 
@@ -309,6 +313,40 @@ public class Home_Screen extends JFrame {
                     lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
                     toolStatus = ToolStatus.TOOL_LINK;
                 }
+            }
+        });
+
+        // event that will happen immediately when clicking on view tool
+        btn_tool_view.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (checkNodes("WARNING : No nodes to view!!")) {
+                    lbl_info.setText("View Tool Selected : Double click to disable! OR Click on any node to view connections!");
+                    int server_index = Integer.MIN_VALUE,client_index = Integer.MIN_VALUE;
+                    if (dialogConfigureServer.settings.size() != 0) {
+                        server_index = Integer.parseInt(dialogConfigureServer.settings.get(0));
+                    }
+
+                    if (dialogConfigureClient.settings.size() != 0) {
+                        client_index = Integer.parseInt(dialogConfigureClient.settings.get(0));
+                    }
+                    painter.enableView(server_index,client_index);
+                }
+            }
+        });
+
+        btn_tool_view.addMouseListener(new MouseAdapter() {
+            private long lastClick = 0;
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                long currentClick = System.currentTimeMillis();
+                if (currentClick - lastClick < 500) {
+                    painter.enableView(-1,-1);
+                    lbl_info.setText("Select the tool to make your toplogy!");
+                }
+                lastClick = currentClick;
             }
         });
 
@@ -402,7 +440,7 @@ public class Home_Screen extends JFrame {
             public void componentHidden(ComponentEvent e) {
                 super.componentHidden(e);
                 if (dialogNetwork.links.size() > 1) {
-                    updateLinkCount(dialogNetwork.links.size()-1+" n/w created");
+                    updateNetworkCount(dialogNetwork.links.size()-1+" n/w created");
                 }
             }
         });
