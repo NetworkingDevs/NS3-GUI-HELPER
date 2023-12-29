@@ -35,8 +35,14 @@
               <forms/>
             </constraints>
             <properties>
+              <font name="Arial Black" size="14" style="2"/>
+              <foreground color="-4521977"/>
+              <iconTextGap value="8"/>
+              <maximumSize width="198" height="40"/>
+              <preferredSize width="198" height="30"/>
               <text value="Select the tool to make your toplogy!"/>
               <verticalAlignment value="0"/>
+              <visible value="true"/>
             </properties>
           </component>
           <scrollpane id="6e6ee" binding="JScrollPane_canvas">
@@ -99,18 +105,24 @@
                 <children>
                   <grid id="93830" binding="JPanel_tools" layout-manager="FormLayout">
                     <rowspec value="center:d:grow"/>
-                    <rowspec value="top:4dlu:noGrow"/>
-                    <rowspec value="center:max(d;4px):noGrow"/>
-                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:61px:grow"/>
                     <rowspec value="center:max(d;4px):noGrow"/>
                     <colspec value="fill:d:grow"/>
+                    <colspec value="left:4dlu:noGrow"/>
+                    <colspec value="fill:max(d;4px):grow"/>
                     <colspec value="left:4dlu:noGrow"/>
                     <colspec value="fill:max(d;4px):grow"/>
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                       <forms/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <minimumSize width="175" height="300"/>
+                      <preferredSize width="175" height="300"/>
+                      <verifyInputWhenFocusTarget value="true"/>
+                      <visible value="true"/>
+                    </properties>
                     <border type="etched" title="Tools">
                       <font name="Arial Black" size="14" style="1"/>
                       <title-color color="-14566617"/>
@@ -118,7 +130,7 @@
                     <children>
                       <component id="2ed7d" class="javax.swing.JButton" binding="btn_tool_node">
                         <constraints>
-                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties>
@@ -128,7 +140,7 @@
                       </component>
                       <component id="78056" class="javax.swing.JButton" binding="btn_tool_p2pConn">
                         <constraints>
-                          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties>
@@ -138,7 +150,7 @@
                       </component>
                       <component id="fac35" class="javax.swing.JButton" binding="btn_tool_view">
                         <constraints>
-                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties>
