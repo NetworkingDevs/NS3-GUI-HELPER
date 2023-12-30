@@ -1,4 +1,5 @@
 import Dialogs.*;
+import FileHandler.CodeGenerator;
 import FileHandler.Writer;
 import GuiHelpers.NodeHelper;
 import GuiHelpers.P2PLinkHelper;
@@ -85,6 +86,7 @@ public class Home_Screen extends JFrame {
     Dialog_ConfigureClient dialogConfigureClient;
     Writer writer;
     String OutputPath;
+    CodeGenerator codeGenerator;
 
     public Home_Screen() {
         // basic initialization of this component...
@@ -465,187 +467,24 @@ public class Home_Screen extends JFrame {
     private void createFile() {
         this.writer = new Writer(this.OutputPath);
 
-        // some variable parameters configuration ======================================================================
-        String topology = "Custom";
-
-        String netAnimModuleString = """
-                #include "ns3/netanim-module.h"
-                """;
-        String netanimUtilityString = """
-                AnimationInterface anim(\"animation"""+topology+"""
-                .xml\"); 
-                """;
-        String wiresharkUtilityString = """
-                pointToPoint.EnablePcapAll("code");
-                """;
-        int StopTimeServer = this.dialogConfigureServer.getStopTime();
-        int StopTimeClient = this.dialogConfigureClient.getStopTime();
-        if(!this.chkBox_wireshark.isSelected()) {
-            wiresharkUtilityString = "";
-        }
-        if(!this.chkBox_netanim.isSelected()) {
-            netAnimModuleString = "";
-            netanimUtilityString = "";
-        }
-        String nodesGrp = new String();
-        String nodesGrpCode = new String();
-        String linkConfigCode = new String();
-        String devicesGrp = new String();
-        String deviceConfigCode = new String();
-        String ipConfigCode = new String();
-        String primaryServerGrp = new String();
-        String serverPrimaryIndex = new String();
-        boolean serverPrimaryConfigured = false;
-
-        for(DeviceHelper device : this.dialogConnection.devices) {
-            nodesGrp = nodesGrp.concat(device.getNodesGroup()+",");
-            if (!serverPrimaryConfigured) {
-                if (device.nodeA.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
-                    primaryServerGrp = device.nodesGroup;
-                    serverPrimaryIndex = "0";
-                    serverPrimaryConfigured = true;
-                } else if (device.nodeB.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex()) == 0) {
-                    primaryServerGrp = device.nodesGroup;
-                    serverPrimaryIndex = "1";
-                    serverPrimaryConfigured = true;
-                }
-                // System.out.println("Primary Index : "+serverPrimaryIndex+" Primary Group : "+primaryServerGrp);
-            }
-        }
-        nodesGrp = nodesGrp.substring(0,nodesGrp.length()-1);
-
-        for (DeviceHelper device : this.dialogConnection.devices) {
-            nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
+        Map<String, String> otherFields = new HashMap<>();
+        if (this.chkBox_netanim.isSelected()) {
+            otherFields.put(CodeGenerator.UTILITY_NETANIM, CodeGenerator.VALUE_TRUE);
+        } else {
+            otherFields.put(CodeGenerator.UTILITY_NETANIM, CodeGenerator.VALUE_FALSE);
         }
 
-        for (LinkHelper link : this.dialogLink.links) {
-            linkConfigCode = linkConfigCode.concat(link.getLinkConfigCode()+"\n");
+        if (this.chkBox_wireshark.isSelected()) {
+            otherFields.put(CodeGenerator.UTILITY_WIRESHARK,CodeGenerator.VALUE_TRUE);
+        } else {
+            otherFields.put(CodeGenerator.UTILITY_WIRESHARK,CodeGenerator.VALUE_FALSE);
         }
 
-        for (DeviceHelper device : this.dialogConnection.devices) {
-            devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
-        }
-        devicesGrp = devicesGrp.substring(0,devicesGrp.length()-1);
-
-        for (DeviceHelper device : this.dialogConnection.devices) {
-            deviceConfigCode = deviceConfigCode.concat(device.getDeviceConfCode());
-        }
-
-        for (DeviceHelper device : this.dialogConnection.devices) {
-            ipConfigCode = ipConfigCode.concat(device.getIPConfCode()+"\n");
-        }
-        // variable parameters configuration ends ======================================================================
-
-        String code = """
-                #include "ns3/applications-module.h"
-                #include "ns3/core-module.h"
-                #include "ns3/internet-module.h"
-                #include "ns3/network-module.h"
-                #include "ns3/point-to-point-module.h"
-                """
-                + netAnimModuleString +
-                """
-                                
-                using namespace ns3;
-                                
-                NS_LOG_COMPONENT_DEFINE(\""""+topology+"""
-                Example\");
-                                
-                int
-                main(int argc, char* argv[])
-                {
-                    CommandLine cmd(__FILE__);
-                    cmd.Parse(argc, argv);
-                                
-                    Time::SetResolution(Time::NS);
-                    LogComponentEnable("UdpEchoClientApplication", LOG_LEVEL_INFO);
-                    LogComponentEnable("UdpEchoServerApplication", LOG_LEVEL_INFO);
-                   \s
-                    // step-1 = creating group of nodes....
-                    NodeContainer allNodes,"""
-                + nodesGrp +
-                """
-                ;
-                allNodes.Create("""
-                + this.painter.getNodes().size() +
-                """
-                );
-                
-                """
-                + nodesGrpCode +
-                """
-                            
-                // step-2 = create link
-                """
-                + linkConfigCode +
-                """
-               \s
-                // step-3 = creating devices
-                NetDeviceContainer   """
-                + devicesGrp +
-                """
-                ;
-                
-                """
-                + deviceConfigCode +
-                """
-                            
-                // step-4 = Install ip stack
-                InternetStackHelper stack;
-                stack.Install(allNodes);
-               
-                // step-5 = Assignment of IP Address
-                Ipv4AddressHelper address;
-               
-                """
-                + ipConfigCode +
-                """
-              
-                // step-6 = server configuration
-                UdpEchoServerHelper echoServer("""
-                + this.dialogConfigureServer.getPortNumber() +"""
-                    );
-                                
-                    ApplicationContainer serverApps = echoServer.Install(allNodes.Get("""
-                + this.dialogConfigureServer.getServerIndex() + """
-                    ));
-                    serverApps.Start(Seconds("""+ this.dialogConfigureServer.getStartTime()  +"""
-                    .0));
-                    serverApps.Stop(Seconds("""+ StopTimeServer +"""
-                    .0));
-                   
-                    // step-7 = client configuration
-                    UdpEchoClientHelper echoClient(interfaces"""+ primaryServerGrp +"""
-                    .GetAddress("""+ serverPrimaryIndex + """
-                ),"""+ this.dialogConfigureServer.getPortNumber() +"""
-                    );
-                    echoClient.SetAttribute("MaxPackets", UintegerValue("""+ this.dialogConfigureClient.getPackets() +"""
-                    ));
-                    echoClient.SetAttribute("Interval", TimeValue(Seconds("""+ this.dialogConfigureClient.getInterval() +"""
-                    .0)));
-                    echoClient.SetAttribute("PacketSize", UintegerValue("""+ this.dialogConfigureClient.getMTU() +"""
-                    ));
-                                
-                    ApplicationContainer clientApps = echoClient.Install(allNodes.Get("""+ this.dialogConfigureClient.getClientIndex() +"""
-                    ));
-                    clientApps.Start(Seconds("""+ this.dialogConfigureClient.getStartTime() +"""
-                    .0));
-                    clientApps.Stop(Seconds("""+ StopTimeClient +"""
-                    .0));
-                   
-                    Ipv4GlobalRoutingHelper::PopulateRoutingTables();
-                    """
-                + netanimUtilityString + "\n" + wiresharkUtilityString +
-                """
-               
-                            
-                Simulator::Run();
-                Simulator::Destroy();
-                return 0;
-            }
-            """;
-
-        this.writer.writeToFile(code);
+        otherFields.put(CodeGenerator.NAME_OF_TOPOLOGY, "Custom");
+        otherFields.put(CodeGenerator.TOTAL_NODES, String.valueOf(this.painter.getNodes().size()));
+        this.codeGenerator = new CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink, otherFields);
+        this.codeGenerator.GenerateCode();
+        this.writer.writeToFile(this.codeGenerator.getCode());
         this.writer.closeTheFile();
 
         JOptionPane.showMessageDialog(this, "File has been generated successfully!\nAt : "+this.OutputPath, "Code Generated!", JOptionPane.INFORMATION_MESSAGE);
