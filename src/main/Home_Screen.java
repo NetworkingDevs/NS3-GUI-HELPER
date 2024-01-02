@@ -1,12 +1,12 @@
 import Dialogs.*;
 import FileHandler.CodeGenerator;
+import FileHandler.Reader;
 import FileHandler.Writer;
 import GuiHelpers.NodeHelper;
 import GuiHelpers.P2PLinkHelper;
 import GuiHelpers.TopologyPainter;
-import Helpers.DeviceHelper;
-import Helpers.LinkHelper;
 import StatusHelper.ToolStatus;
+import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -84,9 +84,12 @@ public class Home_Screen extends JFrame {
     Dialog_Connection dialogConnection;
     Dialog_ConfigureServer dialogConfigureServer;
     Dialog_ConfigureClient dialogConfigureClient;
+    Dialog_outputFileChooser dialogOutputFileChooser;
     Writer writer;
+    Reader reader;
     String OutputPath;
     CodeGenerator codeGenerator;
+    public static JSONObject UNIVERSAL_SETTINGS;
 
     public Home_Screen() {
         // basic initialization of this component...
@@ -113,6 +116,7 @@ public class Home_Screen extends JFrame {
         this.btn_tool_view.setIcon(new ImageIcon(icon_viewTool.getScaledInstance(50,50, Image.SCALE_SMOOTH)));
         this.btn_tool_view.setText("");
 
+        // TODO: move all those to create when clicking or it is used....
         this.dialogLink = new Dialog_Link(this.comboBox_links);
         this.dialogLink.setVisible(false);
         this.dialogNetwork = new Dialog_Network(this.comboBox_networks);
@@ -123,9 +127,18 @@ public class Home_Screen extends JFrame {
         this.dialogConfigureServer.setVisible(false);
         this.dialogConfigureClient = new Dialog_ConfigureClient(0);
         this.dialogConfigureClient.setVisible(false);
+        this.dialogOutputFileChooser = new Dialog_outputFileChooser();
+        this.dialogOutputFileChooser.setVisible(false);
+        this.dialogOutputFileChooser.setPath(this.OutputPath);
 
         this.JScrollPane_canvas.setViewportView(this.painter);
         this.JScrollPane_forConfigJPanel.setViewportView(this.JPanel_configTopology);
+
+        this.reader = new Reader(this.getClass().getClassLoader().getResource("Settings/file.txt"));
+        this.reader.isFileEmpty();
+        UNIVERSAL_SETTINGS = new JSONObject();
+        UNIVERSAL_SETTINGS.put("outputPath", this.OutputPath);
+        UNIVERSAL_SETTINGS.put("fileName", "output");
         // ========================================= BASIC CONF. =======================================================
 
         // Adding the menu bar to this component...
@@ -198,6 +211,12 @@ public class Home_Screen extends JFrame {
         this.menuItemsListMapping.put(FILE_MENU,new ArrayList<>());
         // step-3 : add menu items
         this.menuItemsListMapping.get(FILE_MENU).add(new JMenuItem("Output Path"));
+        this.menuItemsListMapping.get(FILE_MENU).get(0).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialogOutputFileChooser.setVisible(true);
+            }
+        });
         // step-4 : add menu to menu order
         this.MenusOrder.add(FILE_MENU);
         // following above 4 steps for each menu...
@@ -253,6 +272,7 @@ public class Home_Screen extends JFrame {
         this.painter.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                // TODO: Use Switch Case
                 super.mouseClicked(e);
                 System.out.println("Clicked at x : "+e.getX()+" y : "+e.getY());
                 // if tool is 'node' tool then...
