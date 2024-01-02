@@ -5,6 +5,7 @@ import FileHandler.Writer;
 import GuiHelpers.NodeHelper;
 import GuiHelpers.P2PLinkHelper;
 import GuiHelpers.TopologyPainter;
+import Helpers.DebuggingHelper;
 import StatusHelper.ToolStatus;
 import org.json.JSONObject;
 
@@ -85,6 +86,7 @@ public class Home_Screen extends JFrame {
     Dialog_ConfigureServer dialogConfigureServer;
     Dialog_ConfigureClient dialogConfigureClient;
     Dialog_outputFileChooser dialogOutputFileChooser;
+    Dialog_Helper dialogHelper;
     Writer writer;
     Reader reader;
     String OutputPath;
@@ -116,29 +118,12 @@ public class Home_Screen extends JFrame {
         this.btn_tool_view.setIcon(new ImageIcon(icon_viewTool.getScaledInstance(50,50, Image.SCALE_SMOOTH)));
         this.btn_tool_view.setText("");
 
-        // TODO: move all those to create when clicking or it is used....
-        this.dialogLink = new Dialog_Link(this.comboBox_links);
-        this.dialogLink.setVisible(false);
-        this.dialogNetwork = new Dialog_Network(this.comboBox_networks);
-        this.dialogNetwork.setVisible(false);
-        this.dialogConnection = new Dialog_Connection();
-        this.dialogConnection.setVisible(false);
-        this.dialogConfigureServer = new Dialog_ConfigureServer(0);
-        this.dialogConfigureServer.setVisible(false);
-        this.dialogConfigureClient = new Dialog_ConfigureClient(0);
-        this.dialogConfigureClient.setVisible(false);
-        this.dialogOutputFileChooser = new Dialog_outputFileChooser();
-        this.dialogOutputFileChooser.setVisible(false);
-        this.dialogOutputFileChooser.setPath(this.OutputPath);
+        this.dialogHelper = new Dialog_Helper(this.JPanel_main);
 
         this.JScrollPane_canvas.setViewportView(this.painter);
         this.JScrollPane_forConfigJPanel.setViewportView(this.JPanel_configTopology);
 
         this.reader = new Reader(this.getClass().getClassLoader().getResource("Settings/file.txt"));
-        this.reader.isFileEmpty();
-        UNIVERSAL_SETTINGS = new JSONObject();
-        UNIVERSAL_SETTINGS.put("outputPath", this.OutputPath);
-        UNIVERSAL_SETTINGS.put("fileName", "output");
         // ========================================= BASIC CONF. =======================================================
 
         // Adding the menu bar to this component...
@@ -152,14 +137,14 @@ public class Home_Screen extends JFrame {
     }
 
     private void addMenusToMenuBar() {
-        for (String menu : this.MenusOrder) {
+        for (String menu : this.MenusOrder) { // adding each menu to menu bar...
             this.menuBar.add(this.menuMapping.get(menu));
         }
     }
 
     private void addMenuItemsToMenus() {
-        for (Map.Entry<String, JMenu> menu : this.menuMapping.entrySet()) {
-            for (JMenuItem item : this.menuItemsListMapping.get(menu.getKey())) {
+        for (Map.Entry<String, JMenu> menu : this.menuMapping.entrySet()) { // for each menu...
+            for (JMenuItem item : this.menuItemsListMapping.get(menu.getKey())) { // adding each menu item...
                 menu.getValue().add(item);
             }
         }
@@ -171,31 +156,28 @@ public class Home_Screen extends JFrame {
         }
     }
 
-    private boolean checkLinkTool() {
-        if (this.painter.getNodes().size() == 0) {
-            JOptionPane.showMessageDialog(this, "Please add some nodes to make a connection!", "Warning", JOptionPane.WARNING_MESSAGE);
+    private boolean checkIfLinkCanBeAdded() {
+        // link tool selection is invalid in below conditions...
+        if (this.painter.getNodes().size() == 0) { // if there are no node...
+            this.dialogHelper.showWarningMsg("Please add some nodes to make a connection!", "Warning");
             return false;
-        } else if (dialogLink.links.size() <= 1) {
-            JOptionPane.showMessageDialog(this, "Please create at least one link before making a connection!", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (dialogLink.links.size() == 0) { // if there are no links...
+            this.dialogHelper.showWarningMsg("Please create at least one link before making a connection!", "Warning");
             return false;
-        } else if (dialogNetwork.links.size() <= 1) {
-            JOptionPane.showMessageDialog(this, "Please create at least one network before making a connection!", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (dialogNetwork.links.size() == 0) { // if there are no network settings made...
+            this.dialogHelper.showWarningMsg("Please create at least one network before making a connection!", "Warning");
             return false;
         } else {
             return true;
         }
     }
 
-    private boolean checkNodes(String msg) {
+    private boolean checkIfNodesExists (String msg) {
         if (painter.getNodes().size() == 0) {
-            JOptionPane.showMessageDialog(this, msg, "Error", JOptionPane.ERROR_MESSAGE);
+            this.dialogHelper.showErrorMsg(msg, "Error!");
             return false;
         }
         return true;
-    }
-
-    private boolean checkNodes() {
-        return this.checkNodes("Please add some nodes first!");
     }
 
     private void setUpMenuBar()
@@ -214,7 +196,12 @@ public class Home_Screen extends JFrame {
         this.menuItemsListMapping.get(FILE_MENU).get(0).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dialogOutputFileChooser.setVisible(true);
+                if (dialogOutputFileChooser != null) {
+                    dialogOutputFileChooser.setVisible(true);
+                } else {
+                    dialogOutputFileChooser = new Dialog_outputFileChooser();
+                    dialogOutputFileChooser.setVisible(true);
+                }
             }
         });
         // step-4 : add menu to menu order
@@ -244,25 +231,6 @@ public class Home_Screen extends JFrame {
         // ========================================= MENU BAR CONF. ====================================================
     }
 
-    private void updateServerIndex(String lbl) {
-        this.lbl_server.setText("Server Index : "+lbl);
-    }
-
-    private void updateClientIndex(String lbl) {
-        this.lbl_client.setText("Client Index : "+lbl);
-    }
-
-    private void updateLinkCount(String lbl) {
-        this.lbl_links.setText("Links : "+lbl);
-    }
-
-    private void updateNetworkCount(String lbl) {
-        this.lbl_networks.setText("Networks : "+lbl);
-    }
-
-    private void showServerConfigWarning() {
-        JOptionPane.showMessageDialog(this, "Please configure the server first!", "Warning!", JOptionPane.WARNING_MESSAGE);
-    }
 
     private void setUpEventListeners()
     {
@@ -272,46 +240,50 @@ public class Home_Screen extends JFrame {
         this.painter.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // TODO: Use Switch Case
                 super.mouseClicked(e);
-                System.out.println("Clicked at x : "+e.getX()+" y : "+e.getY());
-                // if tool is 'node' tool then...
-                if (toolStatus == ToolStatus.TOOL_NODE) {
-                    // create a new node at given point...
-                    NodeHelper node = new NodeHelper(e.getX()-10, e.getY()-10, 20,String.valueOf(painter.getNodes().size()));
-                    // add that node to painter for painting on canvas...
-                    painter.addAndPrintNode(node);
-                }
-                // if tool is 'link' tool then...
-                else if (toolStatus == ToolStatus.TOOL_LINK) {
-                    int collision = -1;
-                    boolean successfulClick = false;
-                    // for first successful click....
-                    // check if collision with any node...
-                    collision = painter.pointCollideWithAny(e.getX(), e.getY());
-                    // System.out.println("Collision : "+collision+" Clicks : "+clicks); // just for testing...
-                    if (collision >= 0 && clicks%2!=0) {
-                        // if collision then change the information label and increment the no. of clicks...
-                        firstNode = collision;
-                        lbl_info.setText("Connection Tool Selected: First node selected now, select second node.");
-                        successfulClick = true;
-                    }
+                DebuggingHelper.Debugln("Clicked at x : "+e.getX()+" y : "+e.getY());
+                switch (toolStatus) {
+                    // if tool is 'node' tool then...
+                    case TOOL_NODE : {
+                        // create a new node at given point...
+                        NodeHelper node = new NodeHelper(e.getX()-10, e.getY()-10, 20,String.valueOf(painter.getNodes().size()));
+                        // add that node to painter for painting on canvas...
+                        painter.addAndPrintNode(node);
+                    } break;
 
-                    // for second successful click...
-                    // check if collision with any node...
-                    if (collision >= 0 && clicks%2==0) {
-                        // if collision then change the information label, increment the no. of clicks and open a device configuration dialog box...
-                        lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
-                        painter.addAndPrintLink(new P2PLinkHelper(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
-                        successfulClick = true;
-                        System.out.println(firstNode+" "+collision);
-                        dialogConnection.showDialog(dialogLink.links,dialogNetwork.links,firstNode,collision);
-                        firstNode = -1;
-                    }
-                    incrementClicks(successfulClick);
-                }
-                // if tool is 'view' tool...
-                else if (toolStatus == ToolStatus.TOOL_VIEW) {
+                    // if tool is 'link' tool then...
+                    case TOOL_LINK : {
+                        int collision = -1;
+                        boolean successfulClick = false;
+                        // for first successful click....
+                        // check if collision with any node...
+                        collision = painter.pointCollideWithAny(e.getX(), e.getY());
+                        DebuggingHelper.Debugln("Collision : "+collision+" Clicks : "+clicks);
+                        if (collision >= 0 && clicks%2!=0) {
+                            // if collision then change the information label and increment the no. of clicks...
+                            firstNode = collision;
+                            lbl_info.setText("Connection Tool Selected: First node selected now, select second node.");
+                            successfulClick = true;
+                        }
+
+                        // for second successful click...
+                        // check if collision with any node...
+                        if (collision >= 0 && clicks%2==0) {
+                            // if collision then change the information label, increment the no. of clicks and open a device configuration dialog box...
+                            lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
+                            painter.addAndPrintLink(new P2PLinkHelper(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
+                            successfulClick = true;
+                            DebuggingHelper.Debugln(firstNode+" "+collision);
+                            if (dialogConnection != null) {
+                                dialogConnection.showDialog(dialogLink.links,dialogNetwork.links,firstNode,collision);
+                            } else {
+                                dialogConnection = new Dialog_Connection();
+                                dialogConnection.showDialog(dialogLink.links,dialogNetwork.links,firstNode,collision);
+                            }
+                            firstNode = -1;
+                        }
+                        incrementClicks(successfulClick);
+                    } break;
 
                 }
             }
@@ -331,7 +303,7 @@ public class Home_Screen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // check condition if there exists at least one link and warn if not present...(pending)
-                if (checkLinkTool()) {
+                if (checkIfLinkCanBeAdded()) {
                     lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
                     toolStatus = ToolStatus.TOOL_LINK;
                 }
@@ -342,15 +314,19 @@ public class Home_Screen extends JFrame {
         btn_tool_view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (checkNodes("WARNING : No nodes to view!!")) {
+                if (checkIfNodesExists("WARNING : No nodes to view!!")) {
                     lbl_info.setText("View Tool Selected : Double click to disable! OR Click on any node to view connections!");
                     int server_index = Integer.MIN_VALUE,client_index = Integer.MIN_VALUE;
-                    if (dialogConfigureServer.settings.size() != 0) {
-                        server_index = Integer.parseInt(dialogConfigureServer.settings.get(0));
+                    if (dialogConfigureServer != null) {
+                        if (dialogConfigureServer.settings.size() != 0) {
+                            server_index = Integer.parseInt(dialogConfigureServer.settings.get(0));
+                        }
                     }
 
-                    if (dialogConfigureClient.settings.size() != 0) {
-                        client_index = Integer.parseInt(dialogConfigureClient.settings.get(0));
+                    if (dialogConfigureClient != null) {
+                        if (dialogConfigureClient.settings.size() != 0) {
+                            client_index = Integer.parseInt(dialogConfigureClient.settings.get(0));
+                        }
                     }
                     painter.enableView(server_index,client_index);
                 }
@@ -376,38 +352,70 @@ public class Home_Screen extends JFrame {
         btn_addLink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dialogLink.setVisible(true);
+                if (dialogLink != null) { // if dialog is already instantiated...
+                    dialogLink.setVisible(true);
+                } else { // first time instantiation....
+                    Map<String, JComponent> helpfulComponents = new HashMap<>();
+                    helpfulComponents.put(Dialog_Link.COMPONENT_COMBO_BOX, comboBox_links);
+                    helpfulComponents.put(Dialog_Link.COMPONENT_OVERVIEW_LABEL, lbl_links);
+                    dialogLink = new Dialog_Link(helpfulComponents);
+                    dialogLink.setVisible(true);
+                }
             }
         });
+
         // action to be performed when Add Network button is pressed...
         btn_addNetwork.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dialogNetwork.setVisible(true);
+                // logic is same as mentioned in btn_addLink's action listener...
+                if (dialogNetwork != null) {
+                    dialogNetwork.setVisible(true);
+                } else {
+                    Map<String, JComponent> helpfulComponents = new HashMap<>();
+                    helpfulComponents.put(Dialog_Network.COMPONENT_COMBO_BOX, comboBox_networks);
+                    helpfulComponents.put(Dialog_Network.COMPONENT_OVERVIEW_LABEL, lbl_networks);
+                    dialogNetwork = new Dialog_Network(helpfulComponents);
+                    dialogNetwork.setVisible(true);
+                }
             }
         });
-
 
         // action to be performed when clicking on configure server button...
         btn_serverConfig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (checkNodes()) {
-                    dialogConfigureServer.showDialog(painter.getNodes().size());
+                if (checkIfNodesExists("Please add some nodes first!")) {
+                   if (dialogConfigureServer != null) {
+                       dialogConfigureServer.showDialog(painter.getNodes().size());
+                   } else {
+                       Map<String, JComponent> helpfulComponents = new HashMap<>();
+                       helpfulComponents.put(Dialog_ConfigureServer.COMPONENT_OVERVIEW_LABEL, lbl_server);
+                       dialogConfigureServer = new Dialog_ConfigureServer(painter.getNodes().size(), helpfulComponents);
+                       dialogConfigureServer.showDialog(painter.getNodes().size());
+                   }
                 }
             }
         });
+
         // action to be performed when clicking on configure client button...
         btn_clientConfig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (checkNodes()) {
+                if (checkIfNodesExists("Please add some nodes first!")) {
                     if (dialogConfigureServer.settings.size() == 0) { // server configuration has not been done yet...
                         // show warning message...
-                        showServerConfigWarning();
+                        dialogHelper.showWarningMsg("Please configure the server first!", "Warning!");
                     } else { // otherwise...
-                        // show client configuration dialog box...
-                        dialogConfigureClient.showDialog(painter.getNodes().size());
+                        if (dialogConfigureClient != null) {
+                            // show client configuration dialog box...
+                            dialogConfigureClient.showDialog(painter.getNodes().size());
+                        } else {
+                            Map<String, JComponent> helpfulComponents = new HashMap<>();
+                            helpfulComponents.put(Dialog_ConfigureClient.COMPONENT_OVERVIEW_LABEL, lbl_client);
+                            dialogConfigureClient = new Dialog_ConfigureClient(painter.getNodes().size(), helpfulComponents);
+                            dialogConfigureClient.showDialog(painter.getNodes().size());
+                        }
                     }
                 }
             }
@@ -417,52 +425,8 @@ public class Home_Screen extends JFrame {
         btn_generateCode.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (checkNodes("Please create your topology first!")) {
+                if (checkIfNodesExists("Please create your topology first!")) {
                     createFile();
-                }
-            }
-        });
-
-        // update server index in overview tab when server configuration dialog is hidden...
-        this.dialogConfigureServer.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentHidden(ComponentEvent e) {
-                super.componentHidden(e);
-                if (dialogConfigureServer.settings.size() != 0) {
-                    updateServerIndex("configured node "+dialogConfigureServer.settings.get(0));
-                }
-            }
-        });
-
-        // update client index in overview tab when client configuration dialog is hidden...
-        this.dialogConfigureClient.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentHidden(ComponentEvent e) {
-                super.componentHidden(e);
-                if (dialogConfigureClient.settings.size() != 0) {
-                    updateClientIndex("configured node "+dialogConfigureClient.settings.get(0));
-                }
-            }
-        });
-
-        // update links count in overview tab when add link dialog is closed.....
-        this.dialogLink.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentHidden(ComponentEvent e) {
-                super.componentHidden(e);
-                if (dialogLink.links.size() > 1) {
-                    updateLinkCount(dialogLink.links.size()-1+" links created");
-                }
-            }
-        });
-
-        // update n/w count in overview tab when add n/w dialog is closed.....
-        this.dialogNetwork.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentHidden(ComponentEvent e) {
-                super.componentHidden(e);
-                if (dialogNetwork.links.size() > 1) {
-                    updateNetworkCount(dialogNetwork.links.size()-1+" n/w created");
                 }
             }
         });
@@ -502,12 +466,12 @@ public class Home_Screen extends JFrame {
 
         otherFields.put(CodeGenerator.NAME_OF_TOPOLOGY, "Custom");
         otherFields.put(CodeGenerator.TOTAL_NODES, String.valueOf(this.painter.getNodes().size()));
-        this.codeGenerator = new CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink, otherFields);
+        this.codeGenerator = new CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink,otherFields);
         this.codeGenerator.GenerateCode();
         this.writer.writeToFile(this.codeGenerator.getCode());
         this.writer.closeTheFile();
 
-        JOptionPane.showMessageDialog(this, "File has been generated successfully!\nAt : "+this.OutputPath, "Code Generated!", JOptionPane.INFORMATION_MESSAGE);
+        this.dialogHelper.showInformationMsg("File has been generated successfully!\nAt : "+this.OutputPath, "Code Generated!");
     }
 
     public static void main(String[] args) {

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Dialog_ConfigureServer extends JFrame {
     private JPanel JPanel_main;
@@ -17,12 +18,22 @@ public class Dialog_ConfigureServer extends JFrame {
     private JTextField textField_upTime;
     private JButton btn_save;
 
+    // mention all the components that have to be taken here....
+    public static final String COMPONENT_OVERVIEW_LABEL = "Client_OverviewLabel";
+
+    // for serving the functionalities....
+    Map<String, JComponent> helpfulComponents;
+
+    // for serving the functionalities...
     int totalNodes;
     public ArrayList<String> settings;
+    Dialog_Helper dialogHelper;
 
-    public Dialog_ConfigureServer(int n) {
+    public Dialog_ConfigureServer(int n, Map<String, JComponent> helpfulComponents) {
         this.totalNodes = n;
+        this.helpfulComponents = helpfulComponents;
         this.settings = new ArrayList<>();
+        this.dialogHelper = new Dialog_Helper(this.JPanel_main);
 
         // initializing the components...
         this.setContentPane(this.JPanel_main);
@@ -44,33 +55,34 @@ public class Dialog_ConfigureServer extends JFrame {
                     settings.add(textField_portNo.getText());
                     settings.add(textField_startTime.getText());
                     settings.add(textField_upTime.getText());
-                    showConfirmation();
+                    updateOverviewTxt();
+                    dialogHelper.showInformationMsg("Server configuration settings has been saved!", "Action Completed!");
+                    setVisible(false);
                 }
             }
         });
     }
 
-    private void showConfirmation() {
-        JOptionPane.showMessageDialog(this, "Server configuration settings has been saved!", "Action Completed!", JOptionPane.INFORMATION_MESSAGE);
-        this.setVisible(false);
+    private void updateOverviewTxt() {
+        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Server Index : Configured node "+this.settings.get(0));
     }
 
     private boolean validateInputs() {
         // port number validation...
         if (!textField_portNo.getText().chars().allMatch(Character::isDigit) || textField_portNo.getText().toString().length() == 0) {
-            JOptionPane.showMessageDialog(this,"Please enter valid port number!", "Error!", JOptionPane.ERROR_MESSAGE);
+            this.dialogHelper.showErrorMsg("Please enter valid port number!", "Error!");
             return false;
         }
 
         // start time validation...
         if (!textField_startTime.getText().chars().allMatch(Character::isDigit) || textField_startTime.getText().toString().length() == 0) {
-            JOptionPane.showMessageDialog(this,"Please enter valid start time!", "Error!", JOptionPane.ERROR_MESSAGE);
+            this.dialogHelper.showErrorMsg("Please enter valid start time!", "Error!");
             return false;
         }
 
         // up time validation...
         if (!textField_upTime.getText().chars().allMatch(Character::isDigit) || textField_upTime.getText().toString().length() == 0) {
-            JOptionPane.showMessageDialog(this,"Please enter valid up time!", "Error!", JOptionPane.ERROR_MESSAGE);
+            this.dialogHelper.showErrorMsg("Please enter valid up time!", "Error!");
             return false;
         }
 

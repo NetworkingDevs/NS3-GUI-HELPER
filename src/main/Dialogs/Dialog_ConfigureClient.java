@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Dialog_ConfigureClient extends JFrame {
     private JPanel JPanel_main;
@@ -21,12 +22,22 @@ public class Dialog_ConfigureClient extends JFrame {
     private JTextField textField_packets;
     private JButton btn_save;
 
+    // mention all the components that have to be taken here....
+    public static final String COMPONENT_OVERVIEW_LABEL = "Server_OverviewLabel";
+
+    // for serving the functionalities....
+    Map<String, JComponent> helpfulComponents;
+
+    // for serving the functionalities...
     int totalNodes;
     public ArrayList<String> settings;
+    Dialog_Helper dialogHelper;
 
-    public Dialog_ConfigureClient(int n) {
+    public Dialog_ConfigureClient(int n, Map<String, JComponent> helpfulComponents) {
+        this.helpfulComponents = helpfulComponents;
         this.totalNodes = n;
         this.settings = new ArrayList<>();
+        this.dialogHelper = new Dialog_Helper(this.JPanel_main);
 
         // initializing the components...
         this.setContentPane(this.JPanel_main);
@@ -50,50 +61,12 @@ public class Dialog_ConfigureClient extends JFrame {
                     settings.add(textField_mtu.getText());
                     settings.add(textField_interval.getText());
                     settings.add(textField_packets.getText());
-                    showConfirmation();
+                    updateOverviewTxt();
+                    dialogHelper.showInformationMsg("Client configuration settings has been saved!", "Action Completed!");
+                    setVisible(false);
                 }
             }
         });
-    }
-
-    private void showConfirmation() {
-        JOptionPane.showMessageDialog(this, "Client configuration settings has been saved!", "Action Completed!", JOptionPane.INFORMATION_MESSAGE);
-        this.setVisible(false);
-    }
-
-    private boolean validateInputs() {
-
-        // start time validation...
-        if (!textField_startTime.getText().chars().allMatch(Character::isDigit) || textField_startTime.getText().toString().length() == 0) {
-            JOptionPane.showMessageDialog(this,"Please enter valid start time!", "Error!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-
-        // up time validation...
-        if (!textField_upTime.getText().chars().allMatch(Character::isDigit) || textField_upTime.getText().toString().length() == 0) {
-            JOptionPane.showMessageDialog(this,"Please enter valid up time!", "Error!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-
-        // mtu validation...
-        if (!textField_mtu.getText().chars().allMatch(Character::isDigit) || textField_mtu.getText().toString().length() == 0) {
-            JOptionPane.showMessageDialog(this,"Please enter valid up MTU!", "Error!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-
-        // interval validation...
-        if (!textField_interval.getText().chars().allMatch(Character::isDigit) || textField_interval.getText().toString().length() == 0) {
-            JOptionPane.showMessageDialog(this,"Please enter valid interval time!", "Error!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-
-        // no. of packets...
-        if (!textField_packets.getText().chars().allMatch(Character::isDigit) || textField_packets.getText().toString().length() == 0) {
-            JOptionPane.showMessageDialog(this,"Please enter valid no. of packets!", "Error!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-
-        return true;
     }
 
     @Override
@@ -133,5 +106,44 @@ public class Dialog_ConfigureClient extends JFrame {
 
     public String getPackets() {
         return this.settings.get(5);
+    }
+
+    private void updateOverviewTxt() {
+        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Client Index : Configured node "+this.settings.get(0));
+    }
+
+    private boolean validateInputs() {
+
+        // start time validation...
+        if (!textField_startTime.getText().chars().allMatch(Character::isDigit) || textField_startTime.getText().toString().length() == 0) {
+            this.dialogHelper.showErrorMsg("Please enter valid start time!", "Error!");
+            return false;
+        }
+
+        // up time validation...
+        if (!textField_upTime.getText().chars().allMatch(Character::isDigit) || textField_upTime.getText().toString().length() == 0) {
+            this.dialogHelper.showErrorMsg("Please enter valid up time!", "Error!");
+            return false;
+        }
+
+        // mtu validation...
+        if (!textField_mtu.getText().chars().allMatch(Character::isDigit) || textField_mtu.getText().toString().length() == 0) {
+            this.dialogHelper.showErrorMsg("Please enter valid up MTU!", "Error!");
+            return false;
+        }
+
+        // interval validation...
+        if (!textField_interval.getText().chars().allMatch(Character::isDigit) || textField_interval.getText().toString().length() == 0) {
+            this.dialogHelper.showErrorMsg("Please enter valid interval time!", "Error!");
+            return false;
+        }
+
+        // no. of packets...
+        if (!textField_packets.getText().chars().allMatch(Character::isDigit) || textField_packets.getText().toString().length() == 0) {
+            this.dialogHelper.showErrorMsg("Please enter valid no. of packets!", "Error!");
+            return false;
+        }
+
+        return true;
     }
 }

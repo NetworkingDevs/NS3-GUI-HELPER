@@ -20,6 +20,7 @@ public class Dialog_outputFileChooser extends JFrame {
     // These are variable created for serving the functionalities....
     String outputPath;
     String fileName;
+    Dialog_Helper dialogHelper;
 
     public Dialog_outputFileChooser() {
         // ==================== BASIC CONF. ====================
@@ -31,6 +32,7 @@ public class Dialog_outputFileChooser extends JFrame {
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         // ==================== DONE BASIC CONF. ====================
 
+        this.dialogHelper = new Dialog_Helper(this);
         this.setUpEventListeners();
         this.textField_fileName.setText("output");
         this.outputPath = new String();
@@ -43,10 +45,6 @@ public class Dialog_outputFileChooser extends JFrame {
 
     public void setFileName(String value) {
         this.textField_fileName.setText(value);
-    }
-
-    private void showInfoMsg(String msg, String title) {
-        JOptionPane.showMessageDialog(this,msg,title,JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void setUpEventListeners() {
@@ -72,7 +70,7 @@ public class Dialog_outputFileChooser extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 outputPath = textField_outputPath.getText();
                 fileName = textField_fileName.getText();
-                showInfoMsg("Settings has been saved!", "Success!");
+                dialogHelper.showInformationMsg("Settings has been saved!", "Success!");
             }
         });
     }
