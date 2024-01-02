@@ -30,7 +30,7 @@ public class Dialog_Network extends JFrame {
         this.setContentPane(this.JPanel_main);
         this.setTitle("Create Network");
         this.setSize(400,200);
-        this.setVisible(true);
+        this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 

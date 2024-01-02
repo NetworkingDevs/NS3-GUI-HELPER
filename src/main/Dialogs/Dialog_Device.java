@@ -68,7 +68,7 @@ public class Dialog_Device extends JFrame {
         this.setContentPane(this.JPanel_main);
         this.setTitle("Configure Device");
         this.setSize(400,200);
-        this.setVisible(true);
+        this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         btn_configDevice.addActionListener(new ActionListener() {
