@@ -1,7 +1,6 @@
 import Dialogs.*;
 import FileHandler.CodeGenerator;
-import FileHandler.Reader;
-import FileHandler.Writer;
+import FileHandler.FileReaderWriter;
 import GuiHelpers.NodeHelper;
 import GuiHelpers.P2PLinkHelper;
 import GuiHelpers.TopologyPainter;
@@ -87,11 +86,9 @@ public class Home_Screen extends JFrame {
     Dialog_ConfigureClient dialogConfigureClient;
     Dialog_outputFileChooser dialogOutputFileChooser;
     Dialog_Helper dialogHelper;
-    Writer writer;
-    Reader reader;
     String OutputPath;
     CodeGenerator codeGenerator;
-    public static JSONObject UNIVERSAL_SETTINGS;
+    public static JSONObject UNIVERSAL_SETTINGS = new JSONObject();
 
     public Home_Screen() {
         // basic initialization of this component...
@@ -123,7 +120,18 @@ public class Home_Screen extends JFrame {
         this.JScrollPane_canvas.setViewportView(this.painter);
         this.JScrollPane_forConfigJPanel.setViewportView(this.JPanel_configTopology);
 
-        this.reader = new Reader(this.getClass().getClassLoader().getResource("Settings/file.txt"));
+        UNIVERSAL_SETTINGS.put("fileName", "output");
+        UNIVERSAL_SETTINGS.put("outputPath", this.OutputPath);
+        String d = FileReaderWriter.readIfEmptyUsingPath(UNIVERSAL_SETTINGS.toString(), this.OutputPath+"\\file.txt");
+        JSONObject objJ = new JSONObject(d);
+        for (String key : objJ.keySet()) {
+            if (UNIVERSAL_SETTINGS.has(key)) {
+                UNIVERSAL_SETTINGS.remove(key);
+                UNIVERSAL_SETTINGS.put(key, objJ.get(key));
+            } else {
+                UNIVERSAL_SETTINGS.put(key, objJ.get(key));
+            }
+        }
         // ========================================= BASIC CONF. =======================================================
 
         // Adding the menu bar to this component...
@@ -161,10 +169,10 @@ public class Home_Screen extends JFrame {
         if (this.painter.getNodes().size() == 0) { // if there are no node...
             this.dialogHelper.showWarningMsg("Please add some nodes to make a connection!", "Warning");
             return false;
-        } else if (dialogLink.links.size() == 0) { // if there are no links...
+        } else if (dialogLink==null || dialogLink.links.size() == 0) { // if there are no links...
             this.dialogHelper.showWarningMsg("Please create at least one link before making a connection!", "Warning");
             return false;
-        } else if (dialogNetwork.links.size() == 0) { // if there are no network settings made...
+        } else if (dialogNetwork==null || dialogNetwork.links.size() == 0) { // if there are no network settings made...
             this.dialogHelper.showWarningMsg("Please create at least one network before making a connection!", "Warning");
             return false;
         } else {
@@ -449,7 +457,7 @@ public class Home_Screen extends JFrame {
     }
 
     private void createFile() {
-        this.writer = new Writer(this.OutputPath);
+        String path = UNIVERSAL_SETTINGS.getString("outputPath")+"\\"+UNIVERSAL_SETTINGS.getString("fileName")+".txt";
 
         Map<String, String> otherFields = new HashMap<>();
         if (this.chkBox_netanim.isSelected()) {
@@ -468,8 +476,7 @@ public class Home_Screen extends JFrame {
         otherFields.put(CodeGenerator.TOTAL_NODES, String.valueOf(this.painter.getNodes().size()));
         this.codeGenerator = new CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink,otherFields);
         this.codeGenerator.GenerateCode();
-        this.writer.writeToFile(this.codeGenerator.getCode());
-        this.writer.closeTheFile();
+        FileReaderWriter.writeUsingPath(this.codeGenerator.getCode(), path);
 
         this.dialogHelper.showInformationMsg("File has been generated successfully!\nAt : "+this.OutputPath, "Code Generated!");
     }
