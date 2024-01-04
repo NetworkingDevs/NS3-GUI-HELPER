@@ -47,12 +47,20 @@ public class Dialog_outputFileChooser extends JFrame {
         this.textField_fileName.setText(value);
     }
 
+    public String getOutputPath() {
+        return outputPath;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
     private void setUpEventListeners() {
         // action to perform when clicking on output path check box...
         chkBox_outputPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textField_outputPath.setEnabled(chkBox_outputPath.isSelected());
+                textField_outputPath.setEnabled(!chkBox_outputPath.isSelected());
             }
         });
 
@@ -60,7 +68,7 @@ public class Dialog_outputFileChooser extends JFrame {
         chkBox_fileName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textField_fileName.setEnabled(chkBox_fileName.isSelected());
+                textField_fileName.setEnabled(!chkBox_fileName.isSelected());
             }
         });
 
@@ -71,6 +79,7 @@ public class Dialog_outputFileChooser extends JFrame {
                 outputPath = textField_outputPath.getText();
                 fileName = textField_fileName.getText();
                 dialogHelper.showInformationMsg("Settings has been saved!", "Success!");
+                setVisible(false);
             }
         });
     }

@@ -25,6 +25,10 @@ public class Home_Screen extends JFrame {
     private final int MIN_WINDOW_WIDTH = 1090;
     private final int MIN_WINDOW_HEIGHT = 650;
 
+    // list of settings...
+    private static String OUTPUT_PATH = "outputPath";
+    private static String FILE_NAME = "fileName";
+
     private JPanel JPanel_main;
     private JPanel JPanel_main_left;
     private JPanel JPanel_main_right;
@@ -120,8 +124,8 @@ public class Home_Screen extends JFrame {
         this.JScrollPane_canvas.setViewportView(this.painter);
         this.JScrollPane_forConfigJPanel.setViewportView(this.JPanel_configTopology);
 
-        UNIVERSAL_SETTINGS.put("fileName", "output");
-        UNIVERSAL_SETTINGS.put("outputPath", this.OutputPath);
+        UNIVERSAL_SETTINGS.put(FILE_NAME, "output");
+        UNIVERSAL_SETTINGS.put(OUTPUT_PATH, this.OutputPath);
         String d = FileReaderWriter.readIfEmptyUsingPath(UNIVERSAL_SETTINGS.toString(), this.OutputPath+"\\file.txt");
         JSONObject objJ = new JSONObject(d);
         for (String key : objJ.keySet()) {
@@ -205,9 +209,27 @@ public class Home_Screen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (dialogOutputFileChooser != null) {
+                    dialogOutputFileChooser.setPath(UNIVERSAL_SETTINGS.get(OUTPUT_PATH).toString());
+                    dialogOutputFileChooser.setFileName(UNIVERSAL_SETTINGS.get(FILE_NAME).toString());
                     dialogOutputFileChooser.setVisible(true);
                 } else {
                     dialogOutputFileChooser = new Dialog_outputFileChooser();
+                    dialogOutputFileChooser.setPath(UNIVERSAL_SETTINGS.get(OUTPUT_PATH).toString());
+                    dialogOutputFileChooser.setFileName(UNIVERSAL_SETTINGS.get(FILE_NAME).toString());
+                    dialogOutputFileChooser.addComponentListener(new ComponentAdapter() {
+                        @Override
+                        public void componentHidden(ComponentEvent e) {
+                            super.componentHidden(e);
+                            DebuggingHelper.Debugln("Output settings has been altered!");
+                            UNIVERSAL_SETTINGS.remove(OUTPUT_PATH);
+                            UNIVERSAL_SETTINGS.put(OUTPUT_PATH,dialogOutputFileChooser.getOutputPath());
+                            UNIVERSAL_SETTINGS.remove(FILE_NAME);
+                            UNIVERSAL_SETTINGS.put(FILE_NAME,dialogOutputFileChooser.getFileName());
+                            DebuggingHelper.Debugln("Updated JSON : "+UNIVERSAL_SETTINGS.toString());
+                            FileReaderWriter.writeUsingPath(UNIVERSAL_SETTINGS.toString(), OutputPath+"\\file.txt");
+                            DebuggingHelper.Debugln("Updated to file!! Settings has been saved in file!!");
+                        }
+                    });
                     dialogOutputFileChooser.setVisible(true);
                 }
             }
@@ -457,7 +479,7 @@ public class Home_Screen extends JFrame {
     }
 
     private void createFile() {
-        String path = UNIVERSAL_SETTINGS.getString("outputPath")+"\\"+UNIVERSAL_SETTINGS.getString("fileName")+".txt";
+        String path = UNIVERSAL_SETTINGS.getString(OUTPUT_PATH)+"\\"+UNIVERSAL_SETTINGS.getString(FILE_NAME)+".txt";
 
         Map<String, String> otherFields = new HashMap<>();
         if (this.chkBox_netanim.isSelected()) {
