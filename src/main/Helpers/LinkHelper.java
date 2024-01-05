@@ -24,8 +24,14 @@ public class LinkHelper {
         this.speedModifier = speedModifier;
     }
 
+    @Override
     public String toString() {
         return this.name+" - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
+    }
+
+    // for storing in file for settings...
+    public String forSettings() {
+        return this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier;
     }
 
 
