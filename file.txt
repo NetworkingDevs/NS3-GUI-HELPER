@@ -1,0 +1,1 @@
+{"fileName":"output","defaultLinks":["link1|2|100|MB/s","link2|5|100|KB/s","link3|1|1|GB/s"],"outputPath":"E:\\Project\\Networking Projects\\NS3-GUI"}
