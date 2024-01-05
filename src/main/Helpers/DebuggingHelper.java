@@ -12,6 +12,7 @@ package Helpers;
 
 public class DebuggingHelper {
     public static boolean DEBUG_STATUS = true;
+    public static boolean TESTING_STATUS = false;
     public static void Debug(String value) {
         if (DEBUG_STATUS) {
             System.out.print(value);
