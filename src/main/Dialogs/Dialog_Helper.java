@@ -16,7 +16,11 @@ public class Dialog_Helper {
     public Component anyParentComponent;
 
     public Dialog_Helper(Component component) {
-        // this.anyParentComponent = component;
+         this.anyParentComponent = component;
+    }
+
+    public int showConfirmationDialog(String msg, String title) {
+        return JOptionPane.showConfirmDialog(this.anyParentComponent, msg, title, JOptionPane.YES_NO_OPTION);
     }
 
     public void showWarningMsg(String msg, String title) {
