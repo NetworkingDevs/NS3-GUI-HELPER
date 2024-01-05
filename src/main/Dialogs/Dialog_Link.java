@@ -24,14 +24,17 @@ public class Dialog_Link extends JFrame {
     public static final String COMPONENT_COMBO_BOX = "Link_ComboBox";
     public static final String COMPONENT_OVERVIEW_LABEL = "Link_OverviewLabel";
 
+    private static boolean SHOW_DEFAULT = false;
+
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;
-    public ArrayList<LinkHelper> links; // changed this to public on 08/12/23 for accessibility...
+    public ArrayList<LinkHelper> links, defaultLinks; // changed this to public on 08/12/23 for accessibility...
     Dialog_Helper dialogHelper;
 
     public Dialog_Link(Map<String, JComponent> components) {
         this.helpfulComponents = components;
         this.links = new ArrayList<>();
+        this.defaultLinks = new ArrayList<>();
         this.dialogHelper = new Dialog_Helper(this);
 
         this.setContentPane(this.JPanel_main);
@@ -48,6 +51,27 @@ public class Dialog_Link extends JFrame {
                 updateOverviewTxt();
             }
         });
+    }
+
+    public void showLinks() {
+        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
+        if (SHOW_DEFAULT) {
+            for (LinkHelper link : defaultLinks) {
+                ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
+            }
+        }
+        for (LinkHelper link : links) {
+            ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
+        }
+    }
+
+    public void setDefaultLinks(ArrayList<LinkHelper> links) {
+        this.defaultLinks = links;
+    }
+
+    public void showDefaultLinks(boolean show) {
+        SHOW_DEFAULT = show;
+        this.showLinks();
     }
 
     private void addLink() {
