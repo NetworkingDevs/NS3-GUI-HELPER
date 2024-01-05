@@ -5,8 +5,8 @@ import GuiHelpers.NodeHelper;
 import GuiHelpers.P2PLinkHelper;
 import GuiHelpers.TopologyPainter;
 import Helpers.DebuggingHelper;
+import Helpers.LinkHelper;
 import StatusHelper.ToolStatus;
-import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static Helpers.ApplicationSettingsHelper.*;
+
 public class Home_Screen extends JFrame {
     private final String FILE_MENU = "File";
     private final String SCENARIOS_MENU = "Scenarios";
@@ -24,10 +26,6 @@ public class Home_Screen extends JFrame {
     private ArrayList<String> MenusOrder = new ArrayList<>();
     private final int MIN_WINDOW_WIDTH = 1090;
     private final int MIN_WINDOW_HEIGHT = 650;
-
-    // list of settings...
-    private static String OUTPUT_PATH = "outputPath";
-    private static String FILE_NAME = "fileName";
 
     private JPanel JPanel_main;
     private JPanel JPanel_main_left;
@@ -90,9 +88,9 @@ public class Home_Screen extends JFrame {
     Dialog_ConfigureClient dialogConfigureClient;
     Dialog_outputFileChooser dialogOutputFileChooser;
     Dialog_Helper dialogHelper;
+    Dialog_DefaultLinkConfig dialogDefaultLinkConfig;
     String OutputPath;
     CodeGenerator codeGenerator;
-    public static JSONObject UNIVERSAL_SETTINGS = new JSONObject();
 
     public Home_Screen() {
         // basic initialization of this component...
@@ -124,18 +122,7 @@ public class Home_Screen extends JFrame {
         this.JScrollPane_canvas.setViewportView(this.painter);
         this.JScrollPane_forConfigJPanel.setViewportView(this.JPanel_configTopology);
 
-        UNIVERSAL_SETTINGS.put(FILE_NAME, "output");
-        UNIVERSAL_SETTINGS.put(OUTPUT_PATH, this.OutputPath);
-        String d = FileReaderWriter.readIfEmptyUsingPath(UNIVERSAL_SETTINGS.toString(), this.OutputPath+"\\file.txt");
-        JSONObject objJ = new JSONObject(d);
-        for (String key : objJ.keySet()) {
-            if (UNIVERSAL_SETTINGS.has(key)) {
-                UNIVERSAL_SETTINGS.remove(key);
-                UNIVERSAL_SETTINGS.put(key, objJ.get(key));
-            } else {
-                UNIVERSAL_SETTINGS.put(key, objJ.get(key));
-            }
-        }
+        setUpSettings();
         // ========================================= BASIC CONF. =======================================================
 
         // Adding the menu bar to this component...
@@ -226,8 +213,6 @@ public class Home_Screen extends JFrame {
                             UNIVERSAL_SETTINGS.remove(FILE_NAME);
                             UNIVERSAL_SETTINGS.put(FILE_NAME,dialogOutputFileChooser.getFileName());
                             DebuggingHelper.Debugln("Updated JSON : "+UNIVERSAL_SETTINGS.toString());
-                            FileReaderWriter.writeUsingPath(UNIVERSAL_SETTINGS.toString(), OutputPath+"\\file.txt");
-                            DebuggingHelper.Debugln("Updated to file!! Settings has been saved in file!!");
                         }
                     });
                     dialogOutputFileChooser.setVisible(true);
@@ -250,8 +235,20 @@ public class Home_Screen extends JFrame {
         // for settings menu...
         this.menuMapping.put(SETTINGS_MENU, new JMenu("Settings"));
         this.menuItemsListMapping.put(SETTINGS_MENU, new ArrayList<>());
-        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Server Config"));
-        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Client Config"));
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Link Config"));
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(0).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (dialogDefaultLinkConfig == null) {
+                    dialogDefaultLinkConfig = new Dialog_DefaultLinkConfig(new ArrayList<>());
+                } else {
+                    dialogDefaultLinkConfig.setVisible(true);
+                }
+                dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
+                dialogDefaultLinkConfig.showLinksAgain();
+            }
+        });
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Network Config"));
         this.MenusOrder.add(SETTINGS_MENU);
 
 
@@ -473,6 +470,31 @@ public class Home_Screen extends JFrame {
                 if (w < MIN_WINDOW_WIDTH || h < MIN_WINDOW_HEIGHT) {
                     setSize(MIN_WINDOW_WIDTH,MIN_WINDOW_HEIGHT);
                 }
+            }
+        });
+
+        // save settings while main window is being closed!!
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+
+                // pre-processing before saving the settings...
+                if (dialogDefaultLinkConfig != null) {
+                    if (dialogDefaultLinkConfig.defaultLinks.size() > 0) {
+                        if (UNIVERSAL_SETTINGS.has(DEFAULT_LINKS)) {
+                            UNIVERSAL_SETTINGS.remove(DEFAULT_LINKS);
+                        }
+                        ArrayList<String> links = new ArrayList<>();
+                        for (LinkHelper link : dialogDefaultLinkConfig.defaultLinks) {
+                            links.add(link.forSettings());
+                        }
+                        UNIVERSAL_SETTINGS.put(DEFAULT_LINKS, links);
+                    }
+                }
+
+                // saving the settings...
+                saveSettings();
             }
         });
         // ==================================== ALL EVENT LISTENERS ENDS ===============================================
