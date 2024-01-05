@@ -63,7 +63,7 @@ public class Home_Screen extends JFrame {
     Map<String, ArrayList<JMenuItem>> menuItemsListMapping; // this is a mapping (from string to list of each menu's item's list)
 
     // Images for tools and other buttons...
-    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_viewTool;
+    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_viewTool, icon_selected;
 
     {
         try {
@@ -71,6 +71,7 @@ public class Home_Screen extends JFrame {
             icon_nodeTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_node.png"));
             icon_p2pLinkTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_p2pLink.png"));
             icon_viewTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_view.png"));
+            icon_selected = ImageIO.read(getClass().getClassLoader().getResource("icon_selected.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -179,17 +180,16 @@ public class Home_Screen extends JFrame {
         return true;
     }
 
-    private void setUpMenuBar()
-    {
+    private void setUpMenuBar() {
         // ========================================= MENU BAR CONF. ====================================================
         this.menuBar = new JMenuBar();
 
         // adding each menu for menu bar...
 
         // step-1 : Add a menu in menus
-        this.menuMapping.put(FILE_MENU,new JMenu("File"));
+        this.menuMapping.put(FILE_MENU, new JMenu("File"));
         // step-2 : create a menu item list
-        this.menuItemsListMapping.put(FILE_MENU,new ArrayList<>());
+        this.menuItemsListMapping.put(FILE_MENU, new ArrayList<>());
         // step-3 : add menu items
         this.menuItemsListMapping.get(FILE_MENU).add(new JMenuItem("Output Path"));
         this.menuItemsListMapping.get(FILE_MENU).get(0).addActionListener(new ActionListener() {
@@ -209,10 +209,10 @@ public class Home_Screen extends JFrame {
                             super.componentHidden(e);
                             DebuggingHelper.Debugln("Output settings has been altered!");
                             UNIVERSAL_SETTINGS.remove(OUTPUT_PATH);
-                            UNIVERSAL_SETTINGS.put(OUTPUT_PATH,dialogOutputFileChooser.getOutputPath());
+                            UNIVERSAL_SETTINGS.put(OUTPUT_PATH, dialogOutputFileChooser.getOutputPath());
                             UNIVERSAL_SETTINGS.remove(FILE_NAME);
-                            UNIVERSAL_SETTINGS.put(FILE_NAME,dialogOutputFileChooser.getFileName());
-                            DebuggingHelper.Debugln("Updated JSON : "+UNIVERSAL_SETTINGS.toString());
+                            UNIVERSAL_SETTINGS.put(FILE_NAME, dialogOutputFileChooser.getFileName());
+                            DebuggingHelper.Debugln("Updated JSON : " + UNIVERSAL_SETTINGS.toString());
                         }
                     });
                     dialogOutputFileChooser.setVisible(true);
@@ -239,13 +239,36 @@ public class Home_Screen extends JFrame {
         this.menuItemsListMapping.get(SETTINGS_MENU).get(0).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (dialogDefaultLinkConfig == null) {
-                    dialogDefaultLinkConfig = new Dialog_DefaultLinkConfig(new ArrayList<>());
-                } else {
-                    dialogDefaultLinkConfig.setVisible(true);
-                }
+                instantiateDefaultLinkConfig();
+                dialogDefaultLinkConfig.setVisible(true);
                 dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
                 dialogDefaultLinkConfig.showLinksAgain();
+            }
+        });
+        JMenuItem item = new JMenuItem("Show default links");
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(item);
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(1).addActionListener(new ActionListener() {
+            boolean iconVis = false;
+            JMenuItem THIS = menuItemsListMapping.get(SETTINGS_MENU).get(1);
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                instantiateDefaultLinkConfig();
+                instantiateLinkDialog();
+                dialogLink.setDefaultLinks(dialogDefaultLinkConfig.defaultLinks);
+                if (iconVis) {
+                    DebuggingHelper.Debugln("Hiding the default links!");
+                    THIS.setIcon(null);
+                    THIS.setText("Show default links");
+                    dialogLink.showDefaultLinks(false);
+                } else {
+                    DebuggingHelper.Debugln("Showing the default links!");
+                    THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
+                    THIS.setText("Hide default links");
+                    dialogLink.showDefaultLinks(true);
+                    dialogHelper.showInformationMsg("Default links are visible!", "Success!");
+                }
+                iconVis = !iconVis;
             }
         });
         this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Network Config"));
@@ -257,7 +280,6 @@ public class Home_Screen extends JFrame {
         this.setJMenuBar(menuBar);
         // ========================================= MENU BAR CONF. ====================================================
     }
-
 
     private void setUpEventListeners()
     {
@@ -382,10 +404,7 @@ public class Home_Screen extends JFrame {
                 if (dialogLink != null) { // if dialog is already instantiated...
                     dialogLink.setVisible(true);
                 } else { // first time instantiation....
-                    Map<String, JComponent> helpfulComponents = new HashMap<>();
-                    helpfulComponents.put(Dialog_Link.COMPONENT_COMBO_BOX, comboBox_links);
-                    helpfulComponents.put(Dialog_Link.COMPONENT_OVERVIEW_LABEL, lbl_links);
-                    dialogLink = new Dialog_Link(helpfulComponents);
+                    instantiateLinkDialog();
                     dialogLink.setVisible(true);
                 }
             }
@@ -399,10 +418,7 @@ public class Home_Screen extends JFrame {
                 if (dialogNetwork != null) {
                     dialogNetwork.setVisible(true);
                 } else {
-                    Map<String, JComponent> helpfulComponents = new HashMap<>();
-                    helpfulComponents.put(Dialog_Network.COMPONENT_COMBO_BOX, comboBox_networks);
-                    helpfulComponents.put(Dialog_Network.COMPONENT_OVERVIEW_LABEL, lbl_networks);
-                    dialogNetwork = new Dialog_Network(helpfulComponents);
+                    instantiateNetworkDialog();
                     dialogNetwork.setVisible(true);
                 }
             }
@@ -498,6 +514,31 @@ public class Home_Screen extends JFrame {
             }
         });
         // ==================================== ALL EVENT LISTENERS ENDS ===============================================
+    }
+
+    private void instantiateLinkDialog() {
+        if (dialogLink == null) {
+            Map<String, JComponent> helpfulComponents = new HashMap<>();
+            helpfulComponents.put(Dialog_Link.COMPONENT_COMBO_BOX, comboBox_links);
+            helpfulComponents.put(Dialog_Link.COMPONENT_OVERVIEW_LABEL, lbl_links);
+            dialogLink = new Dialog_Link(helpfulComponents);
+        }
+    }
+
+    private void instantiateNetworkDialog() {
+        if (dialogNetwork == null) {
+            Map<String, JComponent> helpfulComponents = new HashMap<>();
+            helpfulComponents.put(Dialog_Network.COMPONENT_COMBO_BOX, comboBox_networks);
+            helpfulComponents.put(Dialog_Network.COMPONENT_OVERVIEW_LABEL, lbl_networks);
+            dialogNetwork = new Dialog_Network(helpfulComponents);
+        }
+    }
+
+    private void instantiateDefaultLinkConfig() {
+        if (dialogDefaultLinkConfig == null) {
+            dialogDefaultLinkConfig = new Dialog_DefaultLinkConfig(new ArrayList<>());
+        }
+        dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
     }
 
     private void createFile() {
