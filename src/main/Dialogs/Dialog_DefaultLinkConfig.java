@@ -48,7 +48,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         this.setContentPane(this.JPanel_main);
         this.setTitle("Default Link Configuration");
         this.setSize(400,500);
-        this.setVisible(true);
+        this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         // ==================== DONE BASIC CONF. ====================
