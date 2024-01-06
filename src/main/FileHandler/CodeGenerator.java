@@ -88,7 +88,7 @@ public class CodeGenerator {
             nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
         }
 
-        for (LinkHelper link : this.dialogLink.links) {
+        for (LinkHelper link : this.dialogLink.getAllLinks()) {
             linkConfigCode = linkConfigCode.concat(link.getLinkConfigCode()+"\n");
         }
 
