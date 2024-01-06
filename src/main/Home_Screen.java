@@ -6,6 +6,7 @@ import GuiHelpers.P2PLinkHelper;
 import GuiHelpers.TopologyPainter;
 import Helpers.DebuggingHelper;
 import Helpers.LinkHelper;
+import Helpers.NetworkHelper;
 import StatusHelper.ToolStatus;
 
 import javax.imageio.ImageIO;
@@ -90,6 +91,7 @@ public class Home_Screen extends JFrame {
     Dialog_outputFileChooser dialogOutputFileChooser;
     Dialog_Helper dialogHelper;
     Dialog_DefaultLinkConfig dialogDefaultLinkConfig;
+    Dialog_DefaultNetworkConfig dialogDefaultNetworkConfig;
     String OutputPath;
     CodeGenerator codeGenerator;
 
@@ -161,10 +163,10 @@ public class Home_Screen extends JFrame {
         if (this.painter.getNodes().size() == 0) { // if there are no node...
             this.dialogHelper.showWarningMsg("Please add some nodes to make a connection!", "Warning");
             return false;
-        } else if (dialogLink==null || dialogLink.links.size() == 0) { // if there are no links...
+        } else if (dialogLink==null || (dialogLink.links.size() == 0 && dialogLink.defaultLinks.size() == 0)) { // if there are no links...
             this.dialogHelper.showWarningMsg("Please create at least one link before making a connection!", "Warning");
             return false;
-        } else if (dialogNetwork==null || dialogNetwork.links.size() == 0) { // if there are no network settings made...
+        } else if (dialogNetwork==null || (dialogNetwork.links.size() == 0 && dialogNetwork.defaultNetworks.size() == 0)) { // if there are no network settings made...
             this.dialogHelper.showWarningMsg("Please create at least one network before making a connection!", "Warning");
             return false;
         } else {
@@ -236,17 +238,13 @@ public class Home_Screen extends JFrame {
         this.menuMapping.put(SETTINGS_MENU, new JMenu("Settings"));
         this.menuItemsListMapping.put(SETTINGS_MENU, new ArrayList<>());
         this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Link Config"));
-        this.menuItemsListMapping.get(SETTINGS_MENU).get(0).addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                instantiateDefaultLinkConfig();
-                dialogDefaultLinkConfig.setVisible(true);
-                dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
-                dialogDefaultLinkConfig.showLinksAgain();
-            }
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(0).addActionListener(e -> {
+            instantiateDefaultLinkConfig();
+            dialogDefaultLinkConfig.setVisible(true);
+            dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
+            dialogDefaultLinkConfig.showLinksAgain();
         });
-        JMenuItem item = new JMenuItem("Show default links");
-        this.menuItemsListMapping.get(SETTINGS_MENU).add(item);
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Show default links"));
         this.menuItemsListMapping.get(SETTINGS_MENU).get(1).addActionListener(new ActionListener() {
             boolean iconVis = false;
             JMenuItem THIS = menuItemsListMapping.get(SETTINGS_MENU).get(1);
@@ -272,6 +270,40 @@ public class Home_Screen extends JFrame {
             }
         });
         this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Network Config"));
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(2).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                instantiateDefaultNetworkConfig();
+                dialogDefaultNetworkConfig.setVisible(true);
+                dialogDefaultNetworkConfig.defaultNetworks = getDefaultNetworks();
+                dialogDefaultNetworkConfig.showNetworksAgain();
+            }
+        });
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Show default networks"));
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(3).addActionListener(new ActionListener() {
+            boolean iconVis = false;
+            JMenuItem THIS = menuItemsListMapping.get(SETTINGS_MENU).get(3);
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                instantiateNetworkDialog();
+                instantiateDefaultNetworkConfig();
+                dialogNetwork.setDefaultNetworks(dialogDefaultNetworkConfig.defaultNetworks);
+                if (iconVis) {
+                    DebuggingHelper.Debugln("Hiding the default networks!");
+                    THIS.setIcon(null);
+                    THIS.setText("Show default networks");
+                    dialogNetwork.showDefaultNetworks(false);
+                } else {
+                    DebuggingHelper.Debugln("Showing the default networks!");
+                    THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
+                    THIS.setText("Hide default networks");
+                    dialogNetwork.showDefaultNetworks(true);
+                    dialogHelper.showInformationMsg("Default networks are visible!", "Success!");
+                }
+                iconVis = !iconVis;
+            }
+        });
         this.MenusOrder.add(SETTINGS_MENU);
 
 
@@ -323,12 +355,8 @@ public class Home_Screen extends JFrame {
                             painter.addAndPrintLink(new P2PLinkHelper(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
                             successfulClick = true;
                             DebuggingHelper.Debugln(firstNode+" "+collision);
-                            if (dialogConnection != null) {
-                                dialogConnection.showDialog(dialogLink.links,dialogNetwork.links,firstNode,collision);
-                            } else {
-                                dialogConnection = new Dialog_Connection();
-                                dialogConnection.showDialog(dialogLink.links,dialogNetwork.links,firstNode,collision);
-                            }
+                            instantiateConnectionDialog();
+                            dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(),firstNode,collision);
                             firstNode = -1;
                         }
                         incrementClicks(successfulClick);
@@ -496,7 +524,7 @@ public class Home_Screen extends JFrame {
                 super.windowClosing(e);
 
                 // pre-processing before saving the settings...
-                if (dialogDefaultLinkConfig != null) {
+                if (dialogDefaultLinkConfig != null) { // if there are some default links to be configured....
                     if (dialogDefaultLinkConfig.defaultLinks.size() > 0) {
                         if (UNIVERSAL_SETTINGS.has(DEFAULT_LINKS)) {
                             UNIVERSAL_SETTINGS.remove(DEFAULT_LINKS);
@@ -509,11 +537,30 @@ public class Home_Screen extends JFrame {
                     }
                 }
 
+                if (dialogDefaultNetworkConfig != null) { // if there are some default networks to be configured...
+                    if (dialogDefaultNetworkConfig.defaultNetworks.size() > 0) {
+                        if (UNIVERSAL_SETTINGS.has(DEFAULT_NETWORKS)) {
+                            UNIVERSAL_SETTINGS.remove(DEFAULT_NETWORKS);
+                        }
+                        ArrayList<String> networks = new ArrayList<>();
+                        for (NetworkHelper network : dialogDefaultNetworkConfig.defaultNetworks) {
+                            networks.add(network.forSettings());
+                        }
+                        UNIVERSAL_SETTINGS.put(DEFAULT_NETWORKS, networks);
+                    }
+                }
+
                 // saving the settings...
                 saveSettings();
             }
         });
         // ==================================== ALL EVENT LISTENERS ENDS ===============================================
+    }
+
+    private void instantiateConnectionDialog() {
+        if (dialogConnection == null) {
+            dialogConnection = new Dialog_Connection();
+        }
     }
 
     private void instantiateLinkDialog() {
@@ -539,6 +586,13 @@ public class Home_Screen extends JFrame {
             dialogDefaultLinkConfig = new Dialog_DefaultLinkConfig(new ArrayList<>());
         }
         dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
+    }
+
+    private void instantiateDefaultNetworkConfig() {
+        if (dialogDefaultNetworkConfig == null) {
+            dialogDefaultNetworkConfig = new Dialog_DefaultNetworkConfig(new ArrayList<>());
+        }
+        dialogDefaultNetworkConfig.defaultNetworks = getDefaultNetworks();
     }
 
     private void createFile() {
