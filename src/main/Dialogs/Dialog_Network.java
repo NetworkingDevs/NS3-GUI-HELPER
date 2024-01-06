@@ -23,14 +23,17 @@ public class Dialog_Network extends JFrame {
     public static final String COMPONENT_COMBO_BOX = "Network_ComboBox";
     public static final String COMPONENT_OVERVIEW_LABEL = "Network_OverviewLabel";
 
+    private static boolean SHOW_DEFAULT = false;
+
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;
-    public ArrayList<NetworkHelper> links; // changed this to public on 08/12/23 for accessibility...
+    public ArrayList<NetworkHelper> links, defaultNetworks;; // changed this to public on 08/12/23 for accessibility...
     private int lastID = 0;
     Dialog_Helper dialogHelper;
 
     public Dialog_Network(Map<String, JComponent> components) {
         this.helpfulComponents = components;
+        this.defaultNetworks = new ArrayList<>();
         this.links = new ArrayList<>();
         this.dialogHelper = new Dialog_Helper(this);
 
@@ -48,6 +51,35 @@ public class Dialog_Network extends JFrame {
                 updateOverviewTxt();
             }
         });
+    }
+
+    public void showNetworks() {
+        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
+        if (SHOW_DEFAULT) {
+            for (NetworkHelper link : defaultNetworks) {
+                ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
+            }
+        }
+        for (NetworkHelper link : links) {
+            ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
+        }
+    }
+
+    public void setDefaultNetworks(ArrayList<NetworkHelper> links) {
+        this.defaultNetworks = links;
+    }
+
+    public void showDefaultNetworks(boolean show) {
+        SHOW_DEFAULT = show;
+        this.showNetworks();
+    }
+
+    public ArrayList<NetworkHelper> getAllNetworks() {
+        ArrayList<NetworkHelper> networks = this.links;
+        if (this.defaultNetworks.size() > 0) {
+            networks.addAll(this.defaultNetworks);
+        }
+        return networks;
     }
 
     private void addNetwork() {

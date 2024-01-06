@@ -107,7 +107,7 @@
               <forms/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value="Alias name"/>
             </properties>
           </component>
           <component id="5875e" class="javax.swing.JTextField" binding="textField_alias">

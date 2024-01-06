@@ -74,6 +74,14 @@ public class Dialog_Link extends JFrame {
         this.showLinks();
     }
 
+    public ArrayList<LinkHelper> getAllLinks() {
+        ArrayList<LinkHelper> links = this.links;
+        if (defaultLinks.size() > 0) {
+            links.addAll(defaultLinks);
+        }
+        return links;
+    }
+
     private void addLink() {
         LinkHelper link = new LinkHelper(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString());
         this.links.add(link);
