@@ -20,6 +20,7 @@ public class ApplicationSettingsHelper {
     public static String OUTPUT_PATH = "outputPath";
     public static String FILE_NAME = "fileName";
     public static String DEFAULT_LINKS = "defaultLinks";
+    public static String DEFAULT_NETWORKS = "defaultNetworks";
 
     public static JSONObject UNIVERSAL_SETTINGS = new JSONObject();
     public static String OutputPath = System.getProperty("user.dir");
@@ -54,6 +55,10 @@ public class ApplicationSettingsHelper {
         return UNIVERSAL_SETTINGS.has(DEFAULT_LINKS);
     }
 
+    public static boolean hasDefaultNetworks() {
+        return UNIVERSAL_SETTINGS.has(DEFAULT_NETWORKS);
+    }
+
     public static ArrayList<LinkHelper> getDefaultLinks() {
         ArrayList<LinkHelper> links = new ArrayList<>();
         if (hasDefaultLinks()) {
@@ -71,5 +76,24 @@ public class ApplicationSettingsHelper {
 
         DebuggingHelper.Debugln("Returning the links as array list.");
         return links;
+    }
+
+    public static ArrayList<NetworkHelper> getDefaultNetworks() {
+        ArrayList<NetworkHelper> networks = new ArrayList<>();
+        if (hasDefaultNetworks()) {
+            for (Object data : ((JSONArray)UNIVERSAL_SETTINGS.get(DEFAULT_NETWORKS))) {
+                String[] params = data.toString().split("\\|");
+                for (String str : params) {
+                    DebuggingHelper.Debugln("Str : "+str);
+                }
+                networks.add(new NetworkHelper(0, params[0], params[1], params[2]));
+            }
+            DebuggingHelper.Debugln("Yes! Universal Settings has Default Networks!");
+        } else {
+            DebuggingHelper.Debugln("No! Universal Settings has no default Networks!");
+        }
+
+        DebuggingHelper.Debugln("Returning the networks as array list.");
+        return networks;
     }
 }
