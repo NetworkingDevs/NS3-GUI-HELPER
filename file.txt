@@ -1,1 +1,0 @@
-{"fileName":"","defaultNetworks":["54.0.0.0|255.0.0.0|net1","55.0.0.0|255.0.0.0|net2"],"defaultLinks":["link1|2|100|MB/s","link2|5|100|KB/s","link3|1|1|GB/s"],"outputPath":""}
