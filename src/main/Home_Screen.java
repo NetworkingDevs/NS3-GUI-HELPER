@@ -232,51 +232,80 @@ public class Home_Screen extends JFrame {
         this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Ring - 3 Nodes"));
         this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Mesh - 4 Nodes"));
         this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Star - 5 Nodes"));
-        this.MenusOrder.add(SCENARIOS_MENU);
+        // this.MenusOrder.add(SCENARIOS_MENU);
 
         // for settings menu...
         this.menuMapping.put(SETTINGS_MENU, new JMenu("Settings"));
         this.menuItemsListMapping.put(SETTINGS_MENU, new ArrayList<>());
         this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Link Config"));
         this.menuItemsListMapping.get(SETTINGS_MENU).get(0).addActionListener(e -> {
-            instantiateDefaultLinkConfig();
-            dialogDefaultLinkConfig.setVisible(true);
-            dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
-            dialogDefaultLinkConfig.showLinksAgain();
+            instantiateLinkDialog();
+            if (Dialog_Link.SHOW_DEFAULT) {
+                int choice = dialogHelper.showConfirmationDialog("Your default links will be hidden temporarily!\nHowever, you can make them visible again.\nYou want to continue?","Warning!");
+                if (choice == JOptionPane.YES_OPTION) {
+                    instantiateDefaultLinkConfig();
+                    dialogDefaultLinkConfig.setVisible(true);
+                    dialogDefaultLinkConfig.showLinksAgain();
+                    dialogLink.showDefaultLinks(false);
+                    menuItemsListMapping.get(SETTINGS_MENU).get(1).setText("Show default links");
+                    menuItemsListMapping.get(SETTINGS_MENU).get(1).setIcon(null);
+                }
+            } else {
+                instantiateDefaultLinkConfig();
+                dialogDefaultLinkConfig.setVisible(true);
+                dialogDefaultLinkConfig.showLinksAgain();
+            }
         });
         this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Show default links"));
         this.menuItemsListMapping.get(SETTINGS_MENU).get(1).addActionListener(new ActionListener() {
-            boolean iconVis = false;
+            boolean iconVis = (menuItemsListMapping.get(SETTINGS_MENU).get(1).getIcon()==null)?(false):(true);
             JMenuItem THIS = menuItemsListMapping.get(SETTINGS_MENU).get(1);
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                iconVis = (THIS.getIcon()==null)?(false):(true);
                 instantiateDefaultLinkConfig();
                 instantiateLinkDialog();
-                dialogLink.setDefaultLinks(dialogDefaultLinkConfig.defaultLinks);
-                if (iconVis) {
-                    DebuggingHelper.Debugln("Hiding the default links!");
-                    THIS.setIcon(null);
-                    THIS.setText("Show default links");
-                    dialogLink.showDefaultLinks(false);
+                if (dialogDefaultLinkConfig.defaultLinks.size() == 0) {
+                    dialogHelper.showWarningMsg("None default links are configured!", "Warning!");
                 } else {
-                    DebuggingHelper.Debugln("Showing the default links!");
-                    THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
-                    THIS.setText("Hide default links");
-                    dialogLink.showDefaultLinks(true);
-                    dialogHelper.showInformationMsg("Default links are visible!", "Success!");
+                    dialogLink.setDefaultLinks(dialogDefaultLinkConfig.defaultLinks);
+                    if (iconVis) {
+                        DebuggingHelper.Debugln("Hiding the default links!");
+                        THIS.setIcon(null);
+                        THIS.setText("Show default links");
+                        dialogLink.showDefaultLinks(false);
+                    } else {
+                        DebuggingHelper.Debugln("Showing the default links!");
+                        THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
+                        THIS.setText("Hide default links");
+                        dialogLink.showDefaultLinks(true);
+                        dialogHelper.showInformationMsg("Default links are visible!", "Success!");
+                    }
+                    iconVis = !iconVis;
                 }
-                iconVis = !iconVis;
             }
         });
         this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default Network Config"));
         this.menuItemsListMapping.get(SETTINGS_MENU).get(2).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                instantiateDefaultNetworkConfig();
-                dialogDefaultNetworkConfig.setVisible(true);
-                dialogDefaultNetworkConfig.defaultNetworks = getDefaultNetworks();
-                dialogDefaultNetworkConfig.showNetworksAgain();
+                instantiateNetworkDialog();
+                if (Dialog_Network.SHOW_DEFAULT) {
+                    int choice = dialogHelper.showConfirmationDialog("Your default networks will be hidden temporarily!\nHowever, you can make them visible again.\nYou want to continue?","Warning!");
+                    if (choice == JOptionPane.YES_OPTION) {
+                        instantiateDefaultNetworkConfig();
+                        dialogDefaultNetworkConfig.setVisible(true);
+                        dialogDefaultNetworkConfig.showNetworksAgain();
+                        dialogNetwork.showDefaultNetworks(false);
+                        menuItemsListMapping.get(SETTINGS_MENU).get(3).setText("Show default networks");
+                        menuItemsListMapping.get(SETTINGS_MENU).get(3).setIcon(null);
+                    }
+                } else {
+                    instantiateDefaultNetworkConfig();
+                    dialogDefaultNetworkConfig.setVisible(true);
+                    dialogDefaultNetworkConfig.showNetworksAgain();
+                }
             }
         });
         this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Show default networks"));
@@ -286,22 +315,27 @@ public class Home_Screen extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                iconVis = (THIS.getIcon()==null)?(false):(true);
                 instantiateNetworkDialog();
                 instantiateDefaultNetworkConfig();
-                dialogNetwork.setDefaultNetworks(dialogDefaultNetworkConfig.defaultNetworks);
-                if (iconVis) {
-                    DebuggingHelper.Debugln("Hiding the default networks!");
-                    THIS.setIcon(null);
-                    THIS.setText("Show default networks");
-                    dialogNetwork.showDefaultNetworks(false);
+                if (dialogDefaultNetworkConfig.defaultNetworks.size() == 0) {
+                    dialogHelper.showWarningMsg("None default networks are configured!", "Warning!");
                 } else {
-                    DebuggingHelper.Debugln("Showing the default networks!");
-                    THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
-                    THIS.setText("Hide default networks");
-                    dialogNetwork.showDefaultNetworks(true);
-                    dialogHelper.showInformationMsg("Default networks are visible!", "Success!");
+                    dialogNetwork.setDefaultNetworks(dialogDefaultNetworkConfig.defaultNetworks);
+                    if (iconVis) {
+                        DebuggingHelper.Debugln("Hiding the default networks!");
+                        THIS.setIcon(null);
+                        THIS.setText("Show default networks");
+                        dialogNetwork.showDefaultNetworks(false);
+                    } else {
+                        DebuggingHelper.Debugln("Showing the default networks!");
+                        THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
+                        THIS.setText("Hide default networks");
+                        dialogNetwork.showDefaultNetworks(true);
+                        dialogHelper.showInformationMsg("Default networks are visible!", "Success!");
+                    }
+                    iconVis = !iconVis;
                 }
-                iconVis = !iconVis;
             }
         });
         this.MenusOrder.add(SETTINGS_MENU);
@@ -585,17 +619,33 @@ public class Home_Screen extends JFrame {
         if (dialogDefaultLinkConfig == null) {
             dialogDefaultLinkConfig = new Dialog_DefaultLinkConfig(new ArrayList<>());
         }
-        dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
+        if (hasDefaultLinks()) {
+            dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
+        }
     }
 
     private void instantiateDefaultNetworkConfig() {
         if (dialogDefaultNetworkConfig == null) {
             dialogDefaultNetworkConfig = new Dialog_DefaultNetworkConfig(new ArrayList<>());
         }
-        dialogDefaultNetworkConfig.defaultNetworks = getDefaultNetworks();
+        if (hasDefaultNetworks()) {
+            dialogDefaultNetworkConfig.defaultNetworks = getDefaultNetworks();
+        }
     }
 
     private void createFile() {
+        if (this.lbl_server.getText().equalsIgnoreCase("Server Index :  Not configured")) {
+            if (dialogHelper.showConfirmationDialog("There are no servers in the topology!\nDo you want to continue?","Warning!") == JOptionPane.NO_OPTION) {
+                return;
+            }
+        }
+
+        if (this.lbl_client.getText().equalsIgnoreCase("Client Index  : Not configured")) {
+            if (dialogHelper.showConfirmationDialog("There are no clients in the topology!","Warning!")==JOptionPane.NO_OPTION) {
+                return;
+            }
+        }
+
         String path = UNIVERSAL_SETTINGS.getString(OUTPUT_PATH)+"\\"+UNIVERSAL_SETTINGS.getString(FILE_NAME)+".txt";
 
         Map<String, String> otherFields = new HashMap<>();
