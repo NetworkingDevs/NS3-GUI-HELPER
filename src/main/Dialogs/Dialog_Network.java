@@ -23,7 +23,7 @@ public class Dialog_Network extends JFrame {
     public static final String COMPONENT_COMBO_BOX = "Network_ComboBox";
     public static final String COMPONENT_OVERVIEW_LABEL = "Network_OverviewLabel";
 
-    private static boolean SHOW_DEFAULT = false;
+    public static boolean SHOW_DEFAULT = false;
 
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;

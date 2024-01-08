@@ -24,7 +24,7 @@ public class Dialog_Link extends JFrame {
     public static final String COMPONENT_COMBO_BOX = "Link_ComboBox";
     public static final String COMPONENT_OVERVIEW_LABEL = "Link_OverviewLabel";
 
-    private static boolean SHOW_DEFAULT = false;
+    public static boolean SHOW_DEFAULT = false;
 
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;
