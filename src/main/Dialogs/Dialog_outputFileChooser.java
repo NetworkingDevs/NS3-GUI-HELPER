@@ -41,10 +41,24 @@ public class Dialog_outputFileChooser extends JFrame {
 
     public void setPath(String value) {
         this.textField_outputPath.setText(value);
+        if (!textField_outputPath.getText().equalsIgnoreCase(System.getProperty("user.dir"))) {
+            this.chkBox_outputPath.setSelected(false);
+            this.textField_outputPath.setEnabled(true);
+        } else {
+            this.chkBox_outputPath.setSelected(true);
+            this.textField_outputPath.setEnabled(false);
+        }
     }
 
     public void setFileName(String value) {
         this.textField_fileName.setText(value);
+        if (!textField_fileName.getText().equalsIgnoreCase("output")) {
+            this.chkBox_fileName.setSelected(false);
+            this.textField_fileName.setEnabled(true);
+        } else {
+            this.chkBox_fileName.setSelected(true);
+            this.textField_fileName.setEnabled(false);
+        }
     }
 
     public String getOutputPath() {
@@ -61,6 +75,11 @@ public class Dialog_outputFileChooser extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textField_outputPath.setEnabled(!chkBox_outputPath.isSelected());
+                if (chkBox_outputPath.isSelected()) {
+                    if (!textField_outputPath.getText().equalsIgnoreCase(System.getProperty("user.dir"))) {
+                        textField_outputPath.setText(System.getProperty("user.dir"));
+                    }
+                }
             }
         });
 
@@ -69,6 +88,11 @@ public class Dialog_outputFileChooser extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textField_fileName.setEnabled(!chkBox_fileName.isSelected());
+                if (chkBox_fileName.isSelected()) {
+                    if (!textField_fileName.getText().equalsIgnoreCase("output")) {
+                        textField_fileName.setText("output");
+                    }
+                }
             }
         });
 
