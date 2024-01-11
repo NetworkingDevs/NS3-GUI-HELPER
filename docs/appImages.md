@@ -8,6 +8,9 @@ layout: default
 
 # Application Images
 - I've included a sneak peek of the final desktop application, granting you an immediate glimpse of its functionality and satisfying your curiosity to witness it in action.
+  <marquee direction="left" height="100px" style="color: red; font-weight: bold; font-style: italic;">
+  This images belongs to very first release of this application. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fore latest updates and sneak peek, checkout <a href="https://github.com/NetworkingDevs/NS3-GUI-HELPER/discussions/8">here<a>!
+  </marquee>
 
 ## Main Screen
 - The primary interface of the application features a selection menu allowing users to choose their desired networking topology for code generation. Additionally, it requires users to specify a valid path where the generated code file will be stored.
