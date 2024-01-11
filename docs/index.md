@@ -19,11 +19,12 @@ layout: default
 ## GUI Code Generator
 - In NS3, coding in C/C++ is a requirement for simulation tasks, which may pose a challenge for students or researchers
   who are relatively new to NS3 and still in the early stages of learning.
-- To enhance code comprehension and expedite the learning process, I've developed an application that facilitates the generation of code for fundamental networking topologies outlined below.
-  - Point To Point Topology
-  - Ring Topology
-  - Mesh Topology
-  - Star Topology
+- To enhance code comprehension and expedite the learning process, I've developed an application that facilitates the generation of code for fundamental networking topologies.
 
-## Be a part of community! <sup>NEW</sup>
+## Be a part of community!
 - [GitHub Discussion](https://github.com/HenilMistry/NS3-GUI-HELPER/discussions)
+
+## Updates <sup>NEW</sup>
+<marquee direction="left" height="100px">
+  Checkout <a href="https://github.com/NetworkingDevs/NS3-GUI-HELPER/releases/tag/v1.0.0"> Latest Release v1.0.0 </a>! The First Major Update!! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Working on feature update. Throw your ides <a href="https://github.com/NetworkingDevs/NS3-GUI-HELPER/discussions/10">here</a>! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Your chance to be a maintainer to this repository! <a href="https://github.com/NetworkingDevs/NS3-GUI-HELPER/discussions/7">Checkout here</a>! &nbsp;&nbsp;&nbsp;&nbsp;  
+</marquee>
