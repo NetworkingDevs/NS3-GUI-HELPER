@@ -9,6 +9,9 @@ NS3 GUI Helper is an open-source tool designed to simplify the code generation p
 
 - <b>Configurability:</b> Customize simulation parameters, scenarios, and network configurations effortlessly using the GUI controls.
 
+# Important Note
+Please note that NS3 GUI Helper is specifically designed to work with IntelliJ IDEA IDE. Using any other IDE may result in compatibility issues and break the functionality of the project.
+
 # Getting Started
 ## Prerequisites
 - Java Development Kit (JDK) installed on your system.
