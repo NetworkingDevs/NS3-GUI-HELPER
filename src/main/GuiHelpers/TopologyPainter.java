@@ -1,6 +1,5 @@
 package GuiHelpers;
 
-import org.w3c.dom.Node;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -10,7 +9,7 @@ public class TopologyPainter extends Canvas {
     private static int DEFAULT_HEIGHT = 500;
     private static int SERVER_NODE = -1;
     private static int CLIENT_NODE = -1;
-    private static NodeHelper HIGHLIGHT = new NodeHelper(0,0, 30, "SERVER", Color.black);
+    private static NodeRenderer HIGHLIGHT = new NodeRenderer(0,0, 30, "SERVER", Color.black);
     // below is the grid configuration...
     public int[][] GRID_X0 = new int[][] {{0,0},{100,0},{100,100},{0,100}};
     public int[][] GRID_X1 = new int[][] {{200,0},{300,0},{300,100},{200,100}};
@@ -25,14 +24,14 @@ public class TopologyPainter extends Canvas {
     public int GRID_SIZE = 4, GRID_INDEX = 0; // GRID_INDEX will range from 0 to GRID_SIZE
 
     int width, height;
-    ArrayList<NodeHelper> nodes;
-    ArrayList<P2PLinkHelper> links;
+    ArrayList<NodeRenderer> nodes;
+    ArrayList<P2PLinkRederer> links;
 
-    public TopologyPainter(ArrayList<NodeHelper> n, ArrayList<P2PLinkHelper> l) {
+    public TopologyPainter(ArrayList<NodeRenderer> n, ArrayList<P2PLinkRederer> l) {
         this(n,l,DEFAULT_WIDTH,DEFAULT_HEIGHT);
     }
 
-    public TopologyPainter(ArrayList<NodeHelper> n, ArrayList<P2PLinkHelper> l, int w, int h) {
+    public TopologyPainter(ArrayList<NodeRenderer> n, ArrayList<P2PLinkRederer> l, int w, int h) {
         // initializing components...
         this.nodes = new ArrayList<>();
         this.nodes.addAll(n);
@@ -94,20 +93,20 @@ public class TopologyPainter extends Canvas {
         return point;
     }
 
-    public void addNode(NodeHelper node) {
+    public void addNode(NodeRenderer node) {
         this.nodes.add(node);
     }
 
-    public void addLink(P2PLinkHelper link) {
+    public void addLink(P2PLinkRederer link) {
         this.links.add(link);
     }
 
-    public void addAndPrintNode(NodeHelper node) {
+    public void addAndPrintNode(NodeRenderer node) {
         this.addNode(node);
         this.repaint();
     }
 
-    public void addAndPrintLink(P2PLinkHelper link) {
+    public void addAndPrintLink(P2PLinkRederer link) {
         this.addLink(link);
         this.repaint();
     }
@@ -136,7 +135,7 @@ public class TopologyPainter extends Canvas {
         this.repaint();
     }
 
-    private boolean checkCollisionWithNode(NodeHelper n, int x, int y) {
+    private boolean checkCollisionWithNode(NodeRenderer n, int x, int y) {
         int distance = (int) Math.sqrt(Math.pow(n.xPos - x,2) + Math.pow(n.yPos - y, 2));
         // System.out.println("Distance : "+distance); // just for testing...
         if (distance < n.radius) {
@@ -153,19 +152,19 @@ public class TopologyPainter extends Canvas {
         return (int) (Math.random() * (high - low)) + low;
     }
 
-    public ArrayList<NodeHelper> getNodes() {
+    public ArrayList<NodeRenderer> getNodes() {
         return nodes;
     }
 
-    public void setNodes(ArrayList<NodeHelper> nodes) {
+    public void setNodes(ArrayList<NodeRenderer> nodes) {
         this.nodes = nodes;
     }
 
-    public ArrayList<P2PLinkHelper> getLinks() {
+    public ArrayList<P2PLinkRederer> getLinks() {
         return links;
     }
 
-    public void setLinks(ArrayList<P2PLinkHelper> links) {
+    public void setLinks(ArrayList<P2PLinkRederer> links) {
         this.links = links;
     }
 }

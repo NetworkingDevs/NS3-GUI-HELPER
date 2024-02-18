@@ -10,7 +10,7 @@
 package Dialogs;
 
 import Helpers.DebuggingHelper;
-import Helpers.NetworkHelper;
+import Netowkrs.Network;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
@@ -38,11 +38,11 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
     private JScrollPane JScrollPane_network_manager;
     private JPanel JPanel_networks;
 
-    public ArrayList<NetworkHelper> defaultNetworks;
+    public ArrayList<Network> defaultNetworks;
     Dialog_Helper dialogHelper;
     int editIndex = -1;
 
-    public Dialog_DefaultNetworkConfig(ArrayList<NetworkHelper> networks) {
+    public Dialog_DefaultNetworkConfig(ArrayList<Network> networks) {
         // ==================== BASIC CONF. ====================
         this.setContentPane(this.JPanel_main);
         this.setTitle("Default Network Configuration");
@@ -58,9 +58,9 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
 
         if (DebuggingHelper.TESTING_STATUS) {
             this.defaultNetworks = new ArrayList<>();
-            this.defaultNetworks.add(new NetworkHelper(0, "54.0.0.0", "255.0.0.0", "Net1"));
-            this.defaultNetworks.add(new NetworkHelper(1, "55.0.0.0", "255.0.0.0", "Net2"));
-            this.defaultNetworks.add(new NetworkHelper(2, "56.0.0.0", "255.0.0.0", "Net3"));
+            this.defaultNetworks.add(new Network(0, "54.0.0.0", "255.0.0.0", "Net1"));
+            this.defaultNetworks.add(new Network(1, "55.0.0.0", "255.0.0.0", "Net2"));
+            this.defaultNetworks.add(new Network(2, "56.0.0.0", "255.0.0.0", "Net3"));
             this.showNetworksAgain();
         } else {
             this.defaultNetworks = networks;
@@ -129,7 +129,7 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
 
     private void showNetworkSettings(int index) {
         this.editIndex = index;
-        NetworkHelper selectedNetwork = this.defaultNetworks.get(index);
+        Network selectedNetwork = this.defaultNetworks.get(index);
         this.textField_netid.setText(selectedNetwork.netId);
         this.textField_netmask.setText(selectedNetwork.netMask);
         this.textField_alias.setText(selectedNetwork.name);
@@ -203,7 +203,7 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
                     editIndex = -1;
                     dialogHelper.showInformationMsg("N/W has been updated successfully!", "Success!");
                 } else {
-                    defaultNetworks.add(new NetworkHelper(defaultNetworks.size(), textField_netid.getText(), textField_netmask.getText(), textField_alias.getText()));
+                    defaultNetworks.add(new Network(defaultNetworks.size(), textField_netid.getText(), textField_netmask.getText(), textField_alias.getText()));
                     dialogHelper.showInformationMsg("N/W has been added successfully!", "Success!");
                 }
                 showNetworksAgain();

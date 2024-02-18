@@ -10,8 +10,8 @@
 package Dialogs;
 
 import Helpers.DebuggingHelper;
-import Helpers.LinkHelper;
-import StatusHelper.LinkType;
+import Links.NetworkLink;
+import Links.P2P;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
@@ -43,11 +43,11 @@ public class Dialog_DefaultLinkConfig extends JFrame {
     private JComboBox comboBox_linkType;
     private JCheckBox checkBox_enablePcap;
 
-    public ArrayList<LinkHelper> defaultLinks;
+    public ArrayList<NetworkLink> defaultLinks;
     Dialog_Helper dialogHelper;
     int editIndex = -1;
 
-    public Dialog_DefaultLinkConfig(ArrayList<LinkHelper> links) {
+    public Dialog_DefaultLinkConfig(ArrayList<NetworkLink> links) {
         // ==================== BASIC CONF. ====================
         this.setContentPane(this.JPanel_main);
         this.setTitle("Default Link Configuration");
@@ -63,9 +63,9 @@ public class Dialog_DefaultLinkConfig extends JFrame {
 
         if (DebuggingHelper.TESTING_STATUS) {
             this.defaultLinks = new ArrayList<>();
-//            this.defaultLinks.add(new LinkHelper(0, "link1", "3","500","MB/s", LinkType.LINK_P2P));
-//            this.defaultLinks.add(new LinkHelper(1, "link2", "2","1","GB/s", LinkType.LINK_P2P));
-//            this.defaultLinks.add(new LinkHelper(2, "link3", "1","500","KB/s", LinkType.LINK_P2P));
+//            this.defaultLinks.add(new NetworkLink(0, "link1", "3","500","MB/s", LinkType.LINK_P2P));
+//            this.defaultLinks.add(new NetworkLink(1, "link2", "2","1","GB/s", LinkType.LINK_P2P));
+//            this.defaultLinks.add(new NetworkLink(2, "link3", "1","500","KB/s", LinkType.LINK_P2P));
             this.showLinksAgain();
         } else {
             this.defaultLinks = links;
@@ -134,11 +134,11 @@ public class Dialog_DefaultLinkConfig extends JFrame {
 
     private void showLinkSettings(int index) {
         this.editIndex = index;
-        LinkHelper selectedLink = this.defaultLinks.get(index);
-        this.textField_delay.setText(selectedLink.delay);
-        this.textField_dataRate.setText(selectedLink.dataRate);
-        this.textField_alias.setText(selectedLink.name);
-        this.comboBox_datarateModifier.setSelectedIndex(this.getDataRateIndex(selectedLink.speedModifier));
+        NetworkLink selectedLink = this.defaultLinks.get(index);
+        this.textField_delay.setText(selectedLink.getDataRate());
+        this.textField_dataRate.setText(selectedLink.getDataRate());
+        this.textField_alias.setText(selectedLink.getName());
+        this.comboBox_datarateModifier.setSelectedIndex(this.getDataRateIndex(selectedLink.getSpeedModifier()));
         DebuggingHelper.Debugln("All fields have been changed to selected link!");
     }
 
@@ -214,10 +214,10 @@ public class Dialog_DefaultLinkConfig extends JFrame {
                 DebuggingHelper.Debugln("Clicked on save button!");
                 if (editIndex > -1) {
 //                    defaultLinks.get(editIndex).linkType =
-                    defaultLinks.get(editIndex).delay = textField_delay.getText();
-                    defaultLinks.get(editIndex).dataRate = textField_dataRate.getText();
-                    defaultLinks.get(editIndex).name = textField_alias.getText();
-                    defaultLinks.get(editIndex).speedModifier = comboBox_datarateModifier.getSelectedItem().toString();
+                    defaultLinks.get(editIndex).setDelay(textField_delay.getText());
+                    defaultLinks.get(editIndex).setDataRate(textField_dataRate.getText());
+                    defaultLinks.get(editIndex).setName(textField_alias.getText());
+                    defaultLinks.get(editIndex).setSpeedModifier(comboBox_datarateModifier.getSelectedItem().toString());
                     editIndex = -1;
                     dialogHelper.showInformationMsg("Link has been updated successfully!", "Success!");
                 } else {
@@ -231,8 +231,8 @@ public class Dialog_DefaultLinkConfig extends JFrame {
                             type = LinkType.LINK_P2P;
                             break;
                     } */
-                    // defaultLinks.add(new LinkHelper(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), type));
-                    defaultLinks.add(new LinkHelper(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString()));
+                    // defaultLinks.add(new NetworkLink(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), type));
+                    defaultLinks.add(new P2P(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString()));
                     dialogHelper.showInformationMsg("Link has been added successfully!", "Success!");
                 }
                 showLinksAgain();

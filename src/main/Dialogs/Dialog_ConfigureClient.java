@@ -42,7 +42,7 @@ public class Dialog_ConfigureClient extends JFrame {
         // initializing the components...
         this.setContentPane(this.JPanel_main);
         this.setTitle("Client Configuration");
-        this.setSize(400,250);
+        this.setSize(400,275);
         this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

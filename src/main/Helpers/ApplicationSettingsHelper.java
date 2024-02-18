@@ -10,6 +10,10 @@
 package Helpers;
 
 import FileHandler.FileReaderWriter;
+import Links.NetworkLink;
+import Links.P2P;
+
+import Netowkrs.Network;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -59,15 +63,15 @@ public class ApplicationSettingsHelper {
         return UNIVERSAL_SETTINGS.has(DEFAULT_NETWORKS);
     }
 
-    public static ArrayList<LinkHelper> getDefaultLinks() {
-        ArrayList<LinkHelper> links = new ArrayList<>();
+    public static ArrayList<NetworkLink> getDefaultLinks() {
+        ArrayList<NetworkLink> links = new ArrayList<>();
         if (hasDefaultLinks()) {
             for (Object data : ((JSONArray)UNIVERSAL_SETTINGS.get(DEFAULT_LINKS))) {
                 String[] params = data.toString().split("\\|");
                 for (String str : params) {
                     DebuggingHelper.Debugln("Str : "+str);
                 }
-                links.add(new LinkHelper(0, params[0], params[1], params[2], params[3]));
+                links.add(new P2P(0, params[0], params[1], params[2], params[3]));
             }
             DebuggingHelper.Debugln("Yes! Universal Settings has Default Links!");
         } else {
@@ -78,15 +82,15 @@ public class ApplicationSettingsHelper {
         return links;
     }
 
-    public static ArrayList<NetworkHelper> getDefaultNetworks() {
-        ArrayList<NetworkHelper> networks = new ArrayList<>();
+    public static ArrayList<Network> getDefaultNetworks() {
+        ArrayList<Network> networks = new ArrayList<>();
         if (hasDefaultNetworks()) {
             for (Object data : ((JSONArray)UNIVERSAL_SETTINGS.get(DEFAULT_NETWORKS))) {
                 String[] params = data.toString().split("\\|");
                 for (String str : params) {
                     DebuggingHelper.Debugln("Str : "+str);
                 }
-                networks.add(new NetworkHelper(0, params[0], params[1], params[2]));
+                networks.add(new Network(0, params[0], params[1], params[2]));
             }
             DebuggingHelper.Debugln("Yes! Universal Settings has Default Networks!");
         } else {

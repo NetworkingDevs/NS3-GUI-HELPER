@@ -1,6 +1,7 @@
 package Dialogs;
 
-import Helpers.LinkHelper;
+import Links.NetworkLink;
+import Links.P2P;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +32,7 @@ public class Dialog_Link extends JFrame {
 
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;
-    public ArrayList<LinkHelper> links, defaultLinks; // changed this to public on 08/12/23 for accessibility...
+    public ArrayList<NetworkLink> links, defaultLinks; // changed this to public on 08/12/23 for accessibility...
     Dialog_Helper dialogHelper;
 
     public Dialog_Link(Map<String, JComponent> components) {
@@ -42,7 +43,7 @@ public class Dialog_Link extends JFrame {
 
         this.setContentPane(this.JPanel_main);
         this.setTitle("Create Link");
-        this.setSize(400,200);
+        this.setSize(400,245);
         this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -59,16 +60,16 @@ public class Dialog_Link extends JFrame {
     public void showLinks() {
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
-            for (LinkHelper link : defaultLinks) {
+            for (NetworkLink link : defaultLinks) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
             }
         }
-        for (LinkHelper link : links) {
+        for (NetworkLink link : links) {
             ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
         }
     }
 
-    public void setDefaultLinks(ArrayList<LinkHelper> links) {
+    public void setDefaultLinks(ArrayList<NetworkLink> links) {
         this.defaultLinks = links;
     }
 
@@ -77,8 +78,8 @@ public class Dialog_Link extends JFrame {
         this.showLinks();
     }
 
-    public ArrayList<LinkHelper> getAllLinks() {
-        ArrayList<LinkHelper> links = this.links;
+    public ArrayList<NetworkLink> getAllLinks() {
+        ArrayList<NetworkLink> links = this.links;
         if (defaultLinks.size() > 0) {
             links.addAll(defaultLinks);
         }
@@ -86,7 +87,7 @@ public class Dialog_Link extends JFrame {
     }
 
     private void addLink() {
-        LinkHelper link = new LinkHelper(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString());
+        NetworkLink link = new P2P(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString());
         this.links.add(link);
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.links.get(this.links.size()-1));
         this.dialogHelper.showInformationMsg("Link Added Successfully with name : "+this.textField_name.getText().toString(),"Success");

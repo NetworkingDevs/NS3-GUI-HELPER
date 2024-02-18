@@ -1,12 +1,12 @@
 import Dialogs.*;
 import FileHandler.CodeGenerator;
 import FileHandler.FileReaderWriter;
-import GuiHelpers.NodeHelper;
-import GuiHelpers.P2PLinkHelper;
+import GuiHelpers.NodeRenderer;
+import GuiHelpers.P2PLinkRederer;
 import GuiHelpers.TopologyPainter;
 import Helpers.DebuggingHelper;
-import Helpers.LinkHelper;
-import Helpers.NetworkHelper;
+import Netowkrs.Network;
+import Links.NetworkLink;
 import StatusHelper.ToolStatus;
 
 import javax.imageio.ImageIO;
@@ -361,7 +361,7 @@ public class Home_Screen extends JFrame {
                     // if tool is 'node' tool then...
                     case TOOL_NODE : {
                         // create a new node at given point...
-                        NodeHelper node = new NodeHelper(e.getX()-10, e.getY()-10, 20,String.valueOf(painter.getNodes().size()));
+                        NodeRenderer node = new NodeRenderer(e.getX()-10, e.getY()-10, 20,String.valueOf(painter.getNodes().size()));
                         // add that node to painter for painting on canvas...
                         painter.addAndPrintNode(node);
                     } break;
@@ -386,7 +386,7 @@ public class Home_Screen extends JFrame {
                         if (collision >= 0 && clicks%2==0) {
                             // if collision then change the information label, increment the no. of clicks and open a device configuration dialog box...
                             lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
-                            painter.addAndPrintLink(new P2PLinkHelper(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
+                            painter.addAndPrintLink(new P2PLinkRederer(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
                             successfulClick = true;
                             DebuggingHelper.Debugln(firstNode+" "+collision);
                             instantiateConnectionDialog();
@@ -564,7 +564,7 @@ public class Home_Screen extends JFrame {
                             UNIVERSAL_SETTINGS.remove(DEFAULT_LINKS);
                         }
                         ArrayList<String> links = new ArrayList<>();
-                        for (LinkHelper link : dialogDefaultLinkConfig.defaultLinks) {
+                        for (NetworkLink link : dialogDefaultLinkConfig.defaultLinks) {
                             links.add(link.forSettings());
                         }
                         UNIVERSAL_SETTINGS.put(DEFAULT_LINKS, links);
@@ -577,7 +577,7 @@ public class Home_Screen extends JFrame {
                             UNIVERSAL_SETTINGS.remove(DEFAULT_NETWORKS);
                         }
                         ArrayList<String> networks = new ArrayList<>();
-                        for (NetworkHelper network : dialogDefaultNetworkConfig.defaultNetworks) {
+                        for (Network network : dialogDefaultNetworkConfig.defaultNetworks) {
                             networks.add(network.forSettings());
                         }
                         UNIVERSAL_SETTINGS.put(DEFAULT_NETWORKS, networks);

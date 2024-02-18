@@ -1,7 +1,6 @@
 package Dialogs;
 
-import Helpers.LinkHelper;
-import Helpers.NetworkHelper;
+import Netowkrs.Network;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -27,7 +26,7 @@ public class Dialog_Network extends JFrame {
 
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;
-    public ArrayList<NetworkHelper> links, defaultNetworks;; // changed this to public on 08/12/23 for accessibility...
+    public ArrayList<Network> links, defaultNetworks;; // changed this to public on 08/12/23 for accessibility...
     private int lastID = 0;
     Dialog_Helper dialogHelper;
 
@@ -56,16 +55,16 @@ public class Dialog_Network extends JFrame {
     public void showNetworks() {
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
-            for (NetworkHelper link : defaultNetworks) {
+            for (Network link : defaultNetworks) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
             }
         }
-        for (NetworkHelper link : links) {
+        for (Network link : links) {
             ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
         }
     }
 
-    public void setDefaultNetworks(ArrayList<NetworkHelper> links) {
+    public void setDefaultNetworks(ArrayList<Network> links) {
         this.defaultNetworks = links;
     }
 
@@ -74,8 +73,8 @@ public class Dialog_Network extends JFrame {
         this.showNetworks();
     }
 
-    public ArrayList<NetworkHelper> getAllNetworks() {
-        ArrayList<NetworkHelper> networks = this.links;
+    public ArrayList<Network> getAllNetworks() {
+        ArrayList<Network> networks = this.links;
         if (this.defaultNetworks.size() > 0) {
             networks.addAll(this.defaultNetworks);
         }
@@ -83,7 +82,7 @@ public class Dialog_Network extends JFrame {
     }
 
     private void addNetwork() {
-        NetworkHelper network = new NetworkHelper(lastID++, this.textField_netid.getText().toString(), this.textField_netmask.getText().toString(), this.textField_network_name.getText().toString());
+        Network network = new Network(lastID++, this.textField_netid.getText().toString(), this.textField_netmask.getText().toString(), this.textField_network_name.getText().toString());
         this.links.add(network);
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.links.get(this.links.size()-1));
         this.dialogHelper.showInformationMsg("Network Added Successfully with name : "+this.textField_network_name.getText().toString(),"Success");
