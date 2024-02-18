@@ -26,9 +26,8 @@
 hs_err_pid*
 replay_pid*
 
-.code
-.code-workspace
-.idea
+/target/
+/out/
 
-target/
-out/
+output.txt
+file.txt
