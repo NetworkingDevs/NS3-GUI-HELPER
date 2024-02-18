@@ -13,7 +13,13 @@ public class NetworkHelper {
         this.name = name;
     }
 
+    @Override
     public String toString() {
         return this.name+" - "+this.netId+"/"+this.netMask;
+    }
+
+    // for storing in file for settings...
+    public String forSettings() {
+        return this.netId+"|"+this.netMask+"|"+this.name;
     }
 }

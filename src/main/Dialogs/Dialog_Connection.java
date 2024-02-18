@@ -1,5 +1,6 @@
 package Dialogs;
 
+import Helpers.DebuggingHelper;
 import Helpers.DeviceHelper;
 import Helpers.LinkHelper;
 import Helpers.NetworkHelper;
@@ -69,7 +70,7 @@ public class Dialog_Connection extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 devices.add(new DeviceHelper(links.get(comboBox_links.getSelectedIndex()), networks.get(comboBox_networks.getSelectedIndex()), String.valueOf(nodeA), String.valueOf(nodeB)));
                 for (DeviceHelper d : devices) {
-                    System.out.println(d);
+                    DebuggingHelper.Debugln(d.toString());
                 }
                 setVisible(false);
             }

@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public class TopologyPainter extends Canvas {
     private static int DEFAULT_WIDTH = 500;
     private static int DEFAULT_HEIGHT = 500;
+    private static int SERVER_NODE = -1;
+    private static int CLIENT_NODE = -1;
+    private static NodeHelper HIGHLIGHT = new NodeHelper(0,0, 30, "SERVER", Color.black);
     // below is the grid configuration...
     public int[][] GRID_X0 = new int[][] {{0,0},{100,0},{100,100},{0,100}};
     public int[][] GRID_X1 = new int[][] {{200,0},{300,0},{300,100},{200,100}};
@@ -41,13 +44,32 @@ public class TopologyPainter extends Canvas {
 
     @Override
     public void paint(Graphics g) {
-       super.paint(g);
-       for (NodeHelper node : this.nodes) {
-           node.paintNode(g);
-       }
-       for (P2PLinkHelper link : this.links) {
-           link.paintLink(g);
-       }
+        super.paint(g);
+
+        g.clearRect(0,0,this.width,this.height);
+
+        for (int i=0; i<this.nodes.size(); i++) {
+            if (SERVER_NODE == i) {
+                HIGHLIGHT.label = "SERVER";
+                HIGHLIGHT.color = Color.black;
+                HIGHLIGHT.xPos = this.nodes.get(i).xPos - 5;
+                HIGHLIGHT.yPos = this.nodes.get(i).yPos - 5;
+                HIGHLIGHT.paintNode(g);
+            }
+
+            if (CLIENT_NODE == i) {
+                HIGHLIGHT.label = "CLIENT";
+                HIGHLIGHT.color = Color.black;
+                HIGHLIGHT.xPos = this.nodes.get(i).xPos - 5;
+                HIGHLIGHT.yPos = this.nodes.get(i).yPos - 5;
+                HIGHLIGHT.paintNode(g);
+            }
+            this.nodes.get(i).paintNode(g);
+        }
+
+        for (int i=0; i<this.links.size(); i++) {
+            this.links.get(i).paintLink(g);
+        }
     }
 
     @Override
@@ -101,6 +123,17 @@ public class TopologyPainter extends Canvas {
         }
 
         return index;
+    }
+
+    public void enableView() {
+        this.enableView(-1,-1);
+    }
+
+    public void enableView(int s, int c) {
+        SERVER_NODE = s;
+        CLIENT_NODE = c;
+        System.out.println("Server : "+s+" client : "+c);
+        this.repaint();
     }
 
     private boolean checkCollisionWithNode(NodeHelper n, int x, int y) {

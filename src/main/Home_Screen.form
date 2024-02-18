@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Home_Screen">
+  <grid id="27dc6" binding="JPanel_main" layout-manager="FormLayout">
+    <rowspec value="center:375px:grow"/>
+    <colspec value="fill:d:grow(2.0)"/>
+    <colspec value="fill:d:grow"/>
+    <constraints>
+      <xy x="20" y="20" width="800" height="600"/>
+    </constraints>
+    <properties>
+      <maximumSize width="1000" height="1000"/>
+      <minimumSize width="800" height="600"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="29010" binding="JPanel_main_left" layout-manager="FormLayout">
+        <rowspec value="center:18px:noGrow"/>
+        <rowspec value="center:d:grow"/>
+        <rowspec value="top:4dlu:grow"/>
+        <rowspec value="center:max(d;4px):grow"/>
+        <colspec value="fill:d:grow(3.0)"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <minimumSize width="600" height="600"/>
+          <preferredSize width="550" height="655"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="6dc2e" class="javax.swing.JLabel" binding="lbl_info">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <font name="Arial Black" size="14" style="2"/>
+              <foreground color="-4521977"/>
+              <iconTextGap value="8"/>
+              <maximumSize width="198" height="40"/>
+              <preferredSize width="198" height="30"/>
+              <text value="Select the tool to make your toplogy!"/>
+              <verticalAlignment value="0"/>
+              <visible value="true"/>
+            </properties>
+          </component>
+          <scrollpane id="6e6ee" binding="JScrollPane_canvas">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <maximumSize width="1000" height="1000"/>
+              <preferredSize width="550" height="600"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </scrollpane>
+          <component id="59925" class="javax.swing.JButton" binding="btn_generateCode">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false"/>
+            </constraints>
+            <properties>
+              <text value="Generate Code"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="4b6ab" binding="JPanel_main_right" layout-manager="FormLayout">
+        <rowspec value="center:d:grow"/>
+        <colspec value="fill:d:grow"/>
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties>
+          <maximumSize width="1000" height="1000"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="651f7" binding="JScrollPane_forConfigJPanel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <horizontalScrollBarPolicy value="30"/>
+              <preferredSize width="200" height="600"/>
+              <verticalScrollBarPolicy value="22"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="616a2" binding="JPanel_configTopology" layout-manager="FormLayout">
+                <rowspec value="center:110px:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <colspec value="fill:d:grow"/>
+                <constraints/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="93830" binding="JPanel_tools" layout-manager="FormLayout">
+                    <rowspec value="center:d:grow"/>
+                    <rowspec value="center:61px:grow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <colspec value="fill:d:grow"/>
+                    <colspec value="left:4dlu:noGrow"/>
+                    <colspec value="fill:max(d;4px):grow"/>
+                    <colspec value="left:4dlu:noGrow"/>
+                    <colspec value="fill:max(d;4px):grow"/>
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <minimumSize width="175" height="300"/>
+                      <preferredSize width="175" height="300"/>
+                      <verifyInputWhenFocusTarget value="true"/>
+                      <visible value="true"/>
+                    </properties>
+                    <border type="etched" title="Tools">
+                      <font name="Arial Black" size="14" style="1"/>
+                      <title-color color="-14566617"/>
+                    </border>
+                    <children>
+                      <component id="2ed7d" class="javax.swing.JButton" binding="btn_tool_node">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Button"/>
+                          <toolTipText value="Node Tool"/>
+                        </properties>
+                      </component>
+                      <component id="78056" class="javax.swing.JButton" binding="btn_tool_p2pConn">
+                        <constraints>
+                          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Button"/>
+                          <toolTipText value="P2P Connection Tool"/>
+                        </properties>
+                      </component>
+                      <component id="fac35" class="javax.swing.JButton" binding="btn_tool_view">
+                        <constraints>
+                          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Button"/>
+                          <toolTipText value="View Tool"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="f548" binding="JPanel_configTopo" layout-manager="FormLayout">
+                    <rowspec value="center:d:grow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <colspec value="fill:d:grow"/>
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties/>
+                    <border type="etched" title="Configure Topology">
+                      <font name="Arial Black" size="14" style="1"/>
+                      <title-color color="-14566617"/>
+                    </border>
+                    <children>
+                      <grid id="8e106" binding="JPanel_grp_link" layout-manager="FormLayout">
+                        <rowspec value="center:d:noGrow"/>
+                        <colspec value="fill:d:grow"/>
+                        <colspec value="left:4dlu:noGrow"/>
+                        <colspec value="fill:max(d;4px):grow"/>
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="60403" class="javax.swing.JLabel" binding="lbl_link">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <forms/>
+                            </constraints>
+                            <properties>
+                              <text value="Links"/>
+                            </properties>
+                          </component>
+                          <component id="2659e" class="javax.swing.JButton" binding="btn_addLink">
+                            <constraints>
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <forms/>
+                            </constraints>
+                            <properties>
+                              <text value="Add Link"/>
+                              <toolTipText value="Click to add new link"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                      <component id="2dc40" class="javax.swing.JComboBox" binding="comboBox_links">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                      <grid id="4c51" binding="JPanel_grp_network" layout-manager="FormLayout">
+                        <rowspec value="center:d:noGrow"/>
+                        <colspec value="fill:d:grow"/>
+                        <colspec value="left:4dlu:noGrow"/>
+                        <colspec value="fill:max(d;4px):grow"/>
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="171b" class="javax.swing.JLabel" binding="lbl_network">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <forms/>
+                            </constraints>
+                            <properties>
+                              <text value="Network"/>
+                            </properties>
+                          </component>
+                          <component id="f84ed" class="javax.swing.JButton" binding="btn_addNetwork">
+                            <constraints>
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <forms/>
+                            </constraints>
+                            <properties>
+                              <text value="Add Network"/>
+                              <toolTipText value="Click to add new network"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                      <component id="fd322" class="javax.swing.JComboBox" binding="comboBox_networks">
+                        <constraints>
+                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties/>
+                      </component>
+                      <component id="53eb" class="javax.swing.JButton" binding="btn_serverConfig">
+                        <constraints>
+                          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Server Configuration"/>
+                          <toolTipText value="Click to configure server node!"/>
+                        </properties>
+                      </component>
+                      <component id="219a5" class="javax.swing.JButton" binding="btn_clientConfig">
+                        <constraints>
+                          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Client Configuration"/>
+                          <toolTipText value="Click to configure client"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="77ee5" binding="JPanel_utils" layout-manager="FormLayout">
+                    <rowspec value="center:d:grow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <colspec value="fill:d:grow"/>
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties/>
+                    <border type="etched" title="Utilities">
+                      <font name="Arial Black" size="14" style="1"/>
+                      <title-color color="-14566617"/>
+                    </border>
+                    <children>
+                      <component id="46a46" class="javax.swing.JCheckBox" binding="chkBox_wireshark">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Wireshark"/>
+                        </properties>
+                      </component>
+                      <component id="443f6" class="javax.swing.JCheckBox" binding="chkBox_netanim">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="NetAnim"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="9c904" binding="JPanel_overview" layout-manager="FormLayout">
+                    <rowspec value="center:d:grow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <colspec value="fill:d:grow"/>
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties/>
+                    <border type="etched" title="Overview">
+                      <font name="Arial Black" size="14" style="1"/>
+                      <title-color color="-14566617"/>
+                    </border>
+                    <children>
+                      <component id="a03c1" class="javax.swing.JLabel" binding="lbl_server">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Server Index :  Not configured"/>
+                        </properties>
+                      </component>
+                      <component id="44471" class="javax.swing.JLabel" binding="lbl_client">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Client Index  : Not configured"/>
+                        </properties>
+                      </component>
+                      <component id="43965" class="javax.swing.JLabel" binding="lbl_links">
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Links :  None created"/>
+                        </properties>
+                      </component>
+                      <component id="5a743" class="javax.swing.JLabel" binding="lbl_networks">
+                        <constraints>
+                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Networks : None created"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
