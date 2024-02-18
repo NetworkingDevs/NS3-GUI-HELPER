@@ -19,6 +19,9 @@ public class Dialog_Link extends JFrame {
     private JLabel lbl_name;
     private JTextField textField_name;
     private JButton btn_buildLink;
+    private JLabel lbl_linkType;
+    private JComboBox comboBox_linkType;
+    private JCheckBox chkBox_enablePcap;
 
     // mention all the components that have to be taken here....
     public static final String COMPONENT_COMBO_BOX = "Link_ComboBox";

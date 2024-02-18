@@ -11,6 +11,7 @@ package Dialogs;
 
 import Helpers.DebuggingHelper;
 import Helpers.LinkHelper;
+import StatusHelper.LinkType;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
@@ -38,6 +39,9 @@ public class Dialog_DefaultLinkConfig extends JFrame {
     private JPanel JPanel_lower;
     private JScrollPane JScrollPane_linkManager;
     private JPanel JPanel_links;
+    private JLabel lbl_linkType;
+    private JComboBox comboBox_linkType;
+    private JCheckBox checkBox_enablePcap;
 
     public ArrayList<LinkHelper> defaultLinks;
     Dialog_Helper dialogHelper;
@@ -59,9 +63,9 @@ public class Dialog_DefaultLinkConfig extends JFrame {
 
         if (DebuggingHelper.TESTING_STATUS) {
             this.defaultLinks = new ArrayList<>();
-            this.defaultLinks.add(new LinkHelper(0, "link1", "3","500","MB/s"));
-            this.defaultLinks.add(new LinkHelper(1, "link2", "2","1","GB/s"));
-            this.defaultLinks.add(new LinkHelper(2, "link3", "1","500","KB/s"));
+//            this.defaultLinks.add(new LinkHelper(0, "link1", "3","500","MB/s", LinkType.LINK_P2P));
+//            this.defaultLinks.add(new LinkHelper(1, "link2", "2","1","GB/s", LinkType.LINK_P2P));
+//            this.defaultLinks.add(new LinkHelper(2, "link3", "1","500","KB/s", LinkType.LINK_P2P));
             this.showLinksAgain();
         } else {
             this.defaultLinks = links;
@@ -209,6 +213,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 DebuggingHelper.Debugln("Clicked on save button!");
                 if (editIndex > -1) {
+//                    defaultLinks.get(editIndex).linkType =
                     defaultLinks.get(editIndex).delay = textField_delay.getText();
                     defaultLinks.get(editIndex).dataRate = textField_dataRate.getText();
                     defaultLinks.get(editIndex).name = textField_alias.getText();
@@ -216,6 +221,17 @@ public class Dialog_DefaultLinkConfig extends JFrame {
                     editIndex = -1;
                     dialogHelper.showInformationMsg("Link has been updated successfully!", "Success!");
                 } else {
+                    // logic to see what's the type of channel has been selected...
+                    /* LinkType type;
+                    switch (comboBox_linkType.getSelectedIndex()) {
+                        case 1:
+                            type = LinkType.LINK_CSMA;
+                            break;
+                        default:
+                            type = LinkType.LINK_P2P;
+                            break;
+                    } */
+                    // defaultLinks.add(new LinkHelper(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), type));
                     defaultLinks.add(new LinkHelper(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString()));
                     dialogHelper.showInformationMsg("Link has been added successfully!", "Success!");
                 }
