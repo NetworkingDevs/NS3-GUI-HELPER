@@ -4,8 +4,8 @@ import Dialogs.Dialog_ConfigureClient;
 import Dialogs.Dialog_ConfigureServer;
 import Dialogs.Dialog_Connection;
 import Dialogs.Dialog_Link;
-import Helpers.DeviceHelper;
-import Helpers.LinkHelper;
+import Devices.Device;
+import Links.NetworkLink;
 
 import java.util.Map;
 
@@ -67,7 +67,7 @@ public class CodeGenerator {
         String serverPrimaryIndex = new String();
         boolean serverPrimaryConfigured = false;
 
-        for(DeviceHelper device : this.dialogConnection.devices) {
+        for(Device device : this.dialogConnection.devices) {
             nodesGrp = nodesGrp.concat(device.getNodesGroup()+",");
             if (!serverPrimaryConfigured) {
                 if (device.nodeA.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
@@ -84,24 +84,24 @@ public class CodeGenerator {
         }
         nodesGrp = nodesGrp.substring(0,nodesGrp.length()-1);
 
-        for (DeviceHelper device : this.dialogConnection.devices) {
+        for (Device device : this.dialogConnection.devices) {
             nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
         }
 
-        for (LinkHelper link : this.dialogLink.getAllLinks()) {
-            linkConfigCode = linkConfigCode.concat(link.getLinkConfigCode()+"\n");
+        for (NetworkLink link : this.dialogLink.getAllLinks()) {
+            linkConfigCode = linkConfigCode.concat(link.toCode()+"\n");
         }
 
-        for (DeviceHelper device : this.dialogConnection.devices) {
+        for (Device device : this.dialogConnection.devices) {
             devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
         }
         devicesGrp = devicesGrp.substring(0,devicesGrp.length()-1);
 
-        for (DeviceHelper device : this.dialogConnection.devices) {
+        for (Device device : this.dialogConnection.devices) {
             deviceConfigCode = deviceConfigCode.concat(device.getDeviceConfCode());
         }
 
-        for (DeviceHelper device : this.dialogConnection.devices) {
+        for (Device device : this.dialogConnection.devices) {
             ipConfigCode = ipConfigCode.concat(device.getIPConfCode()+"\n");
         }
         // variable parameters configuration ends ======================================================================

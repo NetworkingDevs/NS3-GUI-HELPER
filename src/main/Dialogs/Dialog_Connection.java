@@ -1,9 +1,9 @@
 package Dialogs;
 
 import Helpers.DebuggingHelper;
-import Helpers.DeviceHelper;
-import Helpers.LinkHelper;
-import Helpers.NetworkHelper;
+import Devices.Device;
+import Links.NetworkLink;
+import Netowkrs.Network;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -25,9 +25,9 @@ public class Dialog_Connection extends JFrame {
 
     // for serving the functionality....
     public int nodeA, nodeB;
-    public ArrayList<LinkHelper> links;
-    public ArrayList<NetworkHelper> networks;
-    public ArrayList<DeviceHelper> devices;
+    public ArrayList<NetworkLink> links;
+    public ArrayList<Network> networks;
+    public ArrayList<Device> devices;
 
     Image img;
     {
@@ -39,10 +39,10 @@ public class Dialog_Connection extends JFrame {
     }
 
     public Dialog_Connection() {
-        this(0,0,new ArrayList<LinkHelper>(), new ArrayList<NetworkHelper>());
+        this(0,0,new ArrayList<NetworkLink>(), new ArrayList<Network>());
     }
 
-    public Dialog_Connection(int a, int b, ArrayList<LinkHelper> l, ArrayList<NetworkHelper> n) {
+    public Dialog_Connection(int a, int b, ArrayList<NetworkLink> l, ArrayList<Network> n) {
         // initializing this component....
         this.setContentPane(this.JPanel_main);
         this.setTitle("Configure Connection");
@@ -68,8 +68,18 @@ public class Dialog_Connection extends JFrame {
         btn_configureConnection.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                devices.add(new DeviceHelper(links.get(comboBox_links.getSelectedIndex()), networks.get(comboBox_networks.getSelectedIndex()), String.valueOf(nodeA), String.valueOf(nodeB)));
-                for (DeviceHelper d : devices) {
+                devices.add(
+                    new Device
+                    (
+                        links.get
+                        (
+                            comboBox_links.getSelectedIndex()
+                        ),
+                        networks.get(comboBox_networks.getSelectedIndex()), 
+                        String.valueOf(nodeA), String.valueOf(nodeB)
+                    )
+                );
+                for (Device d : devices) {
                     DebuggingHelper.Debugln(d.toString());
                 }
                 setVisible(false);
@@ -84,16 +94,16 @@ public class Dialog_Connection extends JFrame {
             this.lbl_deviceInfo.setText("Connection between node "+this.nodeA+" and node "+this.nodeB);
             this.comboBox_links.removeAllItems();
             this.comboBox_networks.removeAllItems();
-            for (LinkHelper link : this.links) {
+            for (NetworkLink link : this.links) {
                 this.comboBox_links.addItem(link);
             }
-            for (NetworkHelper n : this.networks) {
+            for (Network n : this.networks) {
                 this.comboBox_networks.addItem(n);
             }
         }
     }
 
-    public void showDialog(ArrayList<LinkHelper> l, ArrayList<NetworkHelper> n, int a, int b) {
+    public void showDialog(ArrayList<NetworkLink> l, ArrayList<Network> n, int a, int b) {
         this.nodeA = a;
         this.nodeB = b;
         this.setLinks(l);
@@ -101,11 +111,11 @@ public class Dialog_Connection extends JFrame {
         this.setVisible(true);
     }
 
-    public void setLinks(ArrayList<LinkHelper> links) {
+    public void setLinks(ArrayList<NetworkLink> links) {
         this.links = links;
     }
 
-    public void setNetworks(ArrayList<NetworkHelper> networks) {
+    public void setNetworks(ArrayList<Network> networks) {
         this.networks = networks;
     }
 }
