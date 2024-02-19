@@ -1,9 +1,10 @@
 import Dialogs.*;
 import FileHandler.CodeGenerator;
 import FileHandler.FileReaderWriter;
-import GuiHelpers.NodeRenderer;
-import GuiHelpers.P2PLinkRederer;
-import GuiHelpers.TopologyPainter;
+import GuiRenderers.CsmaLinkPainter;
+import GuiRenderers.NodePainter;
+import GuiRenderers.P2pLinkPainter;
+import GuiRenderers.TopologyPainter;
 import Helpers.DebuggingHelper;
 import Netowkrs.Network;
 import Links.NetworkLink;
@@ -65,6 +66,7 @@ public class Home_Screen extends JFrame {
     JMenuBar menuBar; // this is a menu bar
     Map<String, JMenu> menuMapping; // this is a mapping (from string to each menu), for ease in coding...
     Map<String, ArrayList<JMenuItem>> menuItemsListMapping; // this is a mapping (from string to list of each menu's item's list)
+    ArrayList<Integer> nodesInCsma = new ArrayList<>();
 
     // Images for tools and other buttons...
     Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected;
@@ -164,12 +166,14 @@ public class Home_Screen extends JFrame {
         }
     }
 
-    private boolean checkIfLinkCanBeAdded() {
+    private boolean checkIfLinkCanBeAdded(ToolStatus toolStatus) {
+        instantiateLinkDialog();
+        DebuggingHelper.Debugln(dialogLink.getP2pLinkCount()+" CSMA Link Count : "+dialogLink.getCsmaLinkCount());
         // link tool selection is invalid in below conditions...
         if (this.painter.getNodes().size() == 0) { // if there are no node...
             this.dialogHelper.showWarningMsg("Please add some nodes to make a connection!", "Warning");
             return false;
-        } else if (dialogLink==null || (dialogLink.links.size() == 0 && dialogLink.defaultLinks.size() == 0)) { // if there are no links...
+        } else if ((toolStatus == ToolStatus.TOOL_LINK)?(dialogLink.getP2pLinkCount()==0):((toolStatus == ToolStatus.TOOL_LINK_CSMA)?(dialogLink.getCsmaLinkCount()==0):(false))) { // if there are no links...
             this.dialogHelper.showWarningMsg("Please create at least one link before making a connection!", "Warning");
             return false;
         } else if (dialogNetwork==null || (dialogNetwork.links.size() == 0 && dialogNetwork.defaultNetworks.size() == 0)) { // if there are no network settings made...
@@ -356,6 +360,26 @@ public class Home_Screen extends JFrame {
     private void setUpEventListeners()
     {
         // ========================================= ALL EVENT LISTENERS ===============================================
+        this.painter.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                DebuggingHelper.Debugln("Key pressed : "+e.getKeyCode());
+                if (e.getKeyCode() == 32 && toolStatus==ToolStatus.TOOL_LINK_CSMA) {
+                    // render the CSMA link...
+                    painter.addAndPrintLink(new CsmaLinkPainter(nodesInCsma,painter.getNodes()));
+                    // instantiate connection dialog...
+                    instantiateConnectionDialog();
+                    // get to the device dialog and...
+                    dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(),nodesInCsma,toolStatus);
+                    // empty the nodes list...
+                    nodesInCsma = new ArrayList<>();
+                    // empty the reference nodes list...
+                    painter.setReferenceNodes(new ArrayList<>());
+                }
+            }
+        });
+
         // record each mouse click on canvas...
         // do accordingly...
         this.painter.addMouseListener(new MouseAdapter() {
@@ -367,7 +391,7 @@ public class Home_Screen extends JFrame {
                     // if tool is 'node' tool then...
                     case TOOL_NODE : {
                         // create a new node at given point...
-                        NodeRenderer node = new NodeRenderer(e.getX()-10, e.getY()-10, 20,String.valueOf(painter.getNodes().size()));
+                        NodePainter node = new NodePainter(e.getX()-10, e.getY()-10, 20,String.valueOf(painter.getNodes().size()));
                         // add that node to painter for painting on canvas...
                         painter.addAndPrintNode(node);
                     } break;
@@ -392,7 +416,7 @@ public class Home_Screen extends JFrame {
                         if (collision >= 0 && clicks%2==0) {
                             // if collision then change the information label, increment the no. of clicks and open a device configuration dialog box...
                             lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
-                            painter.addAndPrintLink(new P2PLinkRederer(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
+                            painter.addAndPrintLink(new P2pLinkPainter(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
                             successfulClick = true;
                             DebuggingHelper.Debugln(firstNode+" "+collision);
                             instantiateConnectionDialog();
@@ -403,6 +427,17 @@ public class Home_Screen extends JFrame {
                             firstNode = -1;
                         }
                         incrementClicks(successfulClick);
+                    } break;
+
+                    case TOOL_LINK_CSMA: {
+                       int collision = -1;
+
+                       collision = painter.pointCollideWithAny(e.getX(), e.getY());
+                       DebuggingHelper.Debugln("Collision : "+collision);
+                       if (collision >= 0 && !nodesInCsma.contains(collision)) {
+                            nodesInCsma.add(collision);
+                            painter.addAndPrintRefNode(new NodePainter(painter.getNodes().get(collision).xPos-5, painter.getNodes().get(collision).yPos-5,30,"",Color.GREEN));
+                       }
                     } break;
 
                 }
@@ -423,9 +458,20 @@ public class Home_Screen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // check condition if there exists at least one link and warn if not present...(pending)
-                if (checkIfLinkCanBeAdded()) {
+                if (checkIfLinkCanBeAdded(ToolStatus.TOOL_LINK)) {
                     lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
                     toolStatus = ToolStatus.TOOL_LINK;
+                }
+            }
+        });
+
+        // action to be performed when csma link tool is selected...
+        btn_tool_csmaConn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (checkIfLinkCanBeAdded(ToolStatus.TOOL_LINK_CSMA)) {
+                    lbl_info.setText("CSMA Connection Tool Selected : To create a link, click on nodes then click spacebar!");
+                    toolStatus = ToolStatus.TOOL_LINK_CSMA;
                 }
             }
         });
