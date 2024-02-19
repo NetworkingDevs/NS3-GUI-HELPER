@@ -12,8 +12,10 @@ package Helpers;
 import FileHandler.FileReaderWriter;
 import Links.NetworkLink;
 import Links.P2P;
+import Links.CSMA;
 
 import Netowkrs.Network;
+import StatusHelper.LinkType;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -71,7 +73,11 @@ public class ApplicationSettingsHelper {
                 for (String str : params) {
                     DebuggingHelper.Debugln("Str : "+str);
                 }
-                links.add(new P2P(0, params[0], params[1], params[2], params[3]));
+                if (params[params.length-1].equalsIgnoreCase(NetworkLink.LABEL_CSMA)) {
+                    links.add(new CSMA(links.size(), params[0], params[1], params[2], params[3], ((params[4].equalsIgnoreCase("Y"))?(true):(false))));
+                } else { // default or p2p case...
+                    links.add(new P2P(links.size(), params[0], params[1], params[2], params[3], ((params[4].equalsIgnoreCase("Y"))?(true):(false))));
+                }
             }
             DebuggingHelper.Debugln("Yes! Universal Settings has Default Links!");
         } else {
