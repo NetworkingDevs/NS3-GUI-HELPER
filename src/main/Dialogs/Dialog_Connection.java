@@ -4,6 +4,8 @@ import Helpers.DebuggingHelper;
 import Devices.Device;
 import Links.NetworkLink;
 import Netowkrs.Network;
+import StatusHelper.LinkType;
+import StatusHelper.ToolStatus;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -12,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Dialog_Connection extends JFrame {
     private JPanel JPanel_main;
@@ -25,6 +28,7 @@ public class Dialog_Connection extends JFrame {
 
     // for serving the functionality....
     public int nodeA, nodeB;
+    public ArrayList<Integer> nodes;
     public ArrayList<NetworkLink> links;
     public ArrayList<Network> networks;
     public ArrayList<Device> devices;
@@ -87,15 +91,24 @@ public class Dialog_Connection extends JFrame {
         });
     }
 
-    @Override
-    public void setVisible(boolean b) {
+    public void setVisible(boolean b, ToolStatus selectedTool) {
         super.setVisible(b);
         if (b) {
-            this.lbl_deviceInfo.setText("Connection between node "+this.nodeA+" and node "+this.nodeB);
+            LinkType type;
+            if (selectedTool == ToolStatus.TOOL_LINK) {
+                this.lbl_deviceInfo.setText("Connection between node "+this.nodeA+" and node "+this.nodeB);
+                type = LinkType.LINK_P2P;
+            } else { // assumed to be CSMA...
+                type = LinkType.LINK_CSMA;
+                String list_nodes = this.nodes.stream().map(Object::toString).collect(Collectors.joining(", "));
+                this.lbl_deviceInfo.setText("CSMA Connection between nodes : "+list_nodes);
+            }
             this.comboBox_links.removeAllItems();
             this.comboBox_networks.removeAllItems();
             for (NetworkLink link : this.links) {
-                this.comboBox_links.addItem(link);
+                if (type == link.getLinkType()) {
+                    this.comboBox_links.addItem(link);
+                }
             }
             for (Network n : this.networks) {
                 this.comboBox_networks.addItem(n);
@@ -103,12 +116,16 @@ public class Dialog_Connection extends JFrame {
         }
     }
 
-    public void showDialog(ArrayList<NetworkLink> l, ArrayList<Network> n, int a, int b) {
-        this.nodeA = a;
-        this.nodeB = b;
+    public void showDialog(ArrayList<NetworkLink> l, ArrayList<Network> n,ArrayList<Integer> nodes, ToolStatus selectedTool) {
+        if (selectedTool == ToolStatus.TOOL_LINK) {
+            this.nodeA = nodes.get(0);
+            this.nodeB = nodes.get(1);
+        } else {
+            this.nodes = nodes;
+        }
         this.setLinks(l);
         this.setNetworks(n);
-        this.setVisible(true);
+        this.setVisible(true, selectedTool);
     }
 
     public void setLinks(ArrayList<NetworkLink> links) {
