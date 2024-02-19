@@ -41,6 +41,7 @@ public class Dialog_outputFileChooser extends JFrame {
 
     public void setPath(String value) {
         this.textField_outputPath.setText(value);
+        this.outputPath = value;
         if (!textField_outputPath.getText().equalsIgnoreCase(System.getProperty("user.dir"))) {
             this.chkBox_outputPath.setSelected(false);
             this.textField_outputPath.setEnabled(true);
@@ -52,6 +53,7 @@ public class Dialog_outputFileChooser extends JFrame {
 
     public void setFileName(String value) {
         this.textField_fileName.setText(value);
+        this.fileName = value;
         if (!textField_fileName.getText().equalsIgnoreCase("output")) {
             this.chkBox_fileName.setSelected(false);
             this.textField_fileName.setEnabled(true);
