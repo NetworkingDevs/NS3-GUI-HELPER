@@ -1,7 +1,9 @@
 package Dialogs;
 
+import Links.CSMA;
 import Links.NetworkLink;
 import Links.P2P;
+import StatusHelper.LinkType;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -87,7 +89,12 @@ public class Dialog_Link extends JFrame {
     }
 
     private void addLink() {
-        NetworkLink link = new P2P(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString());
+        NetworkLink link;
+        if (NetworkLink.getLinkType(comboBox_linkType.getSelectedIndex())== LinkType.LINK_CSMA) {
+            link = new CSMA(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString(), chkBox_enablePcap.isSelected());
+        } else { // default case or P2P Link...
+            link = new P2P(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString(), chkBox_enablePcap.isSelected());
+        }
         this.links.add(link);
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.links.get(this.links.size()-1));
         this.dialogHelper.showInformationMsg("Link Added Successfully with name : "+this.textField_name.getText().toString(),"Success");
