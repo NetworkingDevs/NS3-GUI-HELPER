@@ -1,5 +1,6 @@
 package Dialogs;
 
+import Helpers.DebuggingHelper;
 import Links.CSMA;
 import Links.NetworkLink;
 import Links.P2P;
@@ -62,13 +63,14 @@ public class Dialog_Link extends JFrame {
     public void showLinks() {
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
-            for (NetworkLink link : defaultLinks) {
+            for (NetworkLink link : this.defaultLinks) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
             }
         }
-        for (NetworkLink link : links) {
+        for (NetworkLink link : this.links) {
             ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
         }
+        DebuggingHelper.Debugln("Showing links of canvas, size of links : "+this.links.size());
     }
 
     public void setDefaultLinks(ArrayList<NetworkLink> links) {
@@ -81,11 +83,11 @@ public class Dialog_Link extends JFrame {
     }
 
     public ArrayList<NetworkLink> getAllLinks() {
-        ArrayList<NetworkLink> links = this.links;
-        if (defaultLinks.size() > 0) {
-            links.addAll(defaultLinks);
-        }
-        return links;
+        ArrayList<NetworkLink> allLinks = new ArrayList<>();
+        allLinks.addAll(this.links);
+        allLinks.addAll(this.defaultLinks);
+        DebuggingHelper.Debugln("Making a single list of all link, size of allLinks : "+allLinks.size()+" and size of default allLinks : "+defaultLinks.size());
+        return allLinks;
     }
 
     private void addLink() {
@@ -102,5 +104,43 @@ public class Dialog_Link extends JFrame {
 
     private void updateOverviewTxt() {
         ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Links : "+(this.links.size())+" links created");
+    }
+
+    public int getP2pLinkCount() {
+        int count = 0;
+        if (this.links.size() > 0) {
+            for(int i=0; i<this.links.size(); i++) {
+                if (this.links.get(i).getLinkType() == LinkType.LINK_P2P) {
+                    count++;
+                }
+            }
+        }
+        if (this.defaultLinks.size() > 0) {
+            for(int i=0; i<this.defaultLinks.size(); i++) {
+                if (this.defaultLinks.get(i).getLinkType() == LinkType.LINK_P2P) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int getCsmaLinkCount() {
+        int count = 0;
+        if (this.links.size() > 0) {
+            for(int i=0; i<this.links.size(); i++) {
+                if (this.links.get(i).getLinkType() == LinkType.LINK_CSMA) {
+                    count++;
+                }
+            }
+        }
+        if (this.defaultLinks.size() > 0) {
+            for(int i=0; i<this.defaultLinks.size(); i++) {
+                if (this.defaultLinks.get(i).getLinkType() == LinkType.LINK_CSMA) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }
