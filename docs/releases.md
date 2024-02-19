@@ -2,7 +2,7 @@
 layout: default
 ---
 
-| [Home](./index.html) | [Final Product](./appImages.html) | [Manul](./manual.html) | Releases  |
+| [Home](./index.html) | [Final Product](./appImages.html) | [Manual](./manual.html) | Releases  |
 |:---------------------|:----------------------------------|------------------------|-----------|
 | This Page            | To Final Product                  | To User Manual         | This page |
 
