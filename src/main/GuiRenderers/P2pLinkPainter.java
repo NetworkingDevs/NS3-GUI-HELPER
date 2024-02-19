@@ -1,24 +1,25 @@
-package GuiHelpers;
+package GuiRenderers;
 
 import java.awt.*;
 
-public class P2PLinkRederer {
-    public NodeRenderer nodeA,nodeB;
+public class P2pLinkPainter implements CanvasPainter {
+    public NodePainter nodeA,nodeB;
     public Color linkColor;
 
     private static Color DEFAULT_LINK_COLOR = Color.black;
 
-    public P2PLinkRederer(NodeRenderer a, NodeRenderer b) {
+    public P2pLinkPainter(NodePainter a, NodePainter b) {
         this(a, b, DEFAULT_LINK_COLOR);
     }
 
-    public P2PLinkRederer(NodeRenderer a, NodeRenderer b, Color color) {
+    public P2pLinkPainter(NodePainter a, NodePainter b, Color color) {
         this.nodeA = a;
         this.nodeB = b;
         this.linkColor = color;
     }
 
-    public void paintLink(Graphics g) {
+    @Override
+    public void paint(Graphics g) {
         int adjustA = this.nodeA.radius/2;
         int adjustB = this.nodeB.radius/2;
         g.setColor(this.linkColor);

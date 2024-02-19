@@ -1,8 +1,8 @@
-package GuiHelpers;
+package GuiRenderers;
 
 import java.awt.*;
 
-public class NodeRenderer {
+public class NodePainter implements CanvasPainter {
     public int xPos;
     public int yPos;
     public int radius;
@@ -12,15 +12,15 @@ public class NodeRenderer {
     private static Color DEFAULT_FILL_COLOR = Color.RED;
     private static int DEFAULT_RADIUS = 20;
 
-    public NodeRenderer(int x, int y, String label) {
+    public NodePainter(int x, int y, String label) {
         this(x,y,DEFAULT_RADIUS,label,DEFAULT_FILL_COLOR);
     }
 
-    public NodeRenderer(int x, int y, int r, String label) {
+    public NodePainter(int x, int y, int r, String label) {
         this(x,y,r,label,DEFAULT_FILL_COLOR);
     }
 
-    public NodeRenderer(int x, int y, int r, String label, Color fill) {
+    public NodePainter(int x, int y, int r, String label, Color fill) {
             this.xPos = x;
             this.yPos = y;
             this.radius = r;
@@ -28,7 +28,8 @@ public class NodeRenderer {
             this.color = fill;
     }
 
-    public void paintNode(Graphics g) {
+    @Override
+    public void paint(Graphics g) {
         g.setColor(this.color);
         g.fillOval(this.xPos,this.yPos,this.radius,this.radius);
         g.drawString(this.label,this.xPos,this.yPos);
