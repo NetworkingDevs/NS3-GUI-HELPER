@@ -10,38 +10,40 @@ public class CSMA implements NetworkLink{
     public String dataRate;
     public String speedModifier;
     public LinkType linkType;
+    public boolean enablePcap;
 
-    public CSMA(int id,String name,String delay,String dataRate,String speedModifier) {
+    public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap) {
         this.id  = id;
         this.name = name;
         this.delay = delay;
         this.dataRate = dataRate;
         this.speedModifier = speedModifier;
+        this.enablePcap = enablePcap;
         this.linkType = LinkType.LINK_CSMA;
     }
 
     @Override
     public String toString() {    
-        return this.name+" CSMA - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
+        return this.name+" (CSMA) - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
     }
 
     // for storing in file for settings...
     @Override
     public String forSettings() {
-        return "CSMA|"+this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier;
+        return this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier+"|"+((this.enablePcap)?"Y":"N")+"|CSMA";
     }
 
     /**
      * Example:
-     *  PointToPointHelper pointToPoint;
-     *  pointToPoint.SetDeviceAttribute("DataRate", StringValue("500Mbps"));
-     *  pointToPoint.SetChannelAttribute("Delay", StringValue("2ms"));
+     *  CsmaHelper csma;
+     *  csma.SetChannelAttribute("DataRate", StringValue("500Mbps"));
+     *  csma.SetChannelAttribute("Delay", TimeValue(NanoSeconds(6560)));
      * */
     @Override
     public String toCode() {
         String line1, line2, line3;
-        line1 = "PointToPointHelper p2p"+this.name+";";
-        line2 = "csma"+getName().replace(" ", "_")+".SetDeviceAttribute(\"DataRate\",StringValue(\""+(this.dataRate+this.speedModifier)+"\"));";
+        line1 = "CsmaHelper csma"+this.getName().replace(" ", "_")+";";
+        line2 = "csma"+getName().replace(" ", "_")+".SetChannelAttribute(\"DataRate\",StringValue(\""+(this.dataRate+this.speedModifier)+"\"));";
         line3 = "csma"+getName().replace(" ", "_")+".SetChannelAttribute(\"Delay\",StringValue(\""+this.delay+"ms\"));";
         return line1+"\n"+line2+"\n"+line3;
     }
@@ -106,5 +108,13 @@ public class CSMA implements NetworkLink{
         this.linkType = linkType;
     }
 
+    @Override
+    public boolean getEnablePcap() {
+        return enablePcap;
+    }
 
+    @Override
+    public void setEnablePcap(boolean enablePcap) {
+        this.enablePcap = enablePcap;
+    }
 }

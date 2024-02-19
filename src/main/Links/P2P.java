@@ -10,25 +10,27 @@ public class P2P implements NetworkLink{
     public String dataRate;
     public String speedModifier;
     public LinkType linkType;
+    public boolean enablePcap;
 
-    public P2P(int id,String name,String delay,String dataRate,String speedModifier) {
+    public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap) {
         this.id  = id;
         this.name = name;
         this.delay = delay;
         this.dataRate = dataRate;
         this.speedModifier = speedModifier;
+        this.enablePcap = enablePcap;
         this.linkType = LinkType.LINK_P2P;
     }
 
     @Override
     public String toString() {    
-        return this.name+" P2P - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
+        return this.name+" (P2P) - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
     }
 
     // for storing in file for settings...
     @Override
     public String forSettings() {
-        return "P2P|"+this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier;
+        return this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier+"|"+((this.enablePcap)?("Y"):"N")+"|P2P";
     }
 
     /**
@@ -109,5 +111,13 @@ public class P2P implements NetworkLink{
         this.linkType = linkType;
     }
 
+    @Override
+    public boolean getEnablePcap() {
+        return enablePcap;
+    }
 
+    @Override
+    public void setEnablePcap(boolean enablePcap) {
+        this.enablePcap = enablePcap;
+    }
 }
