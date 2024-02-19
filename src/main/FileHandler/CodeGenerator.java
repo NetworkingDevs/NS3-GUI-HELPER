@@ -5,8 +5,11 @@ import Dialogs.Dialog_ConfigureServer;
 import Dialogs.Dialog_Connection;
 import Dialogs.Dialog_Link;
 import Devices.Device;
+import Helpers.DebuggingHelper;
 import Links.NetworkLink;
+import StatusHelper.LinkType;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class CodeGenerator {
@@ -67,11 +70,12 @@ public class CodeGenerator {
         String serverPrimaryIndex = new String();
         boolean serverPrimaryConfigured = false;
 
+        DebuggingHelper.Debugln("Devices : "+this.dialogConnection.devices.size()+" CSMA Devices : "+this.dialogConnection.devices_csma.size());
         for(Device device : this.dialogConnection.devices) {
             nodesGrp = nodesGrp.concat(device.getNodesGroup()+",");
             if (!serverPrimaryConfigured) {
                 if (device.nodeA.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
-                    primaryServerGrp = device.nodesGroup;
+                    primaryServerGrp = "interfaces"+device.nodesGroup;
                     serverPrimaryIndex = "0";
                     serverPrimaryConfigured = true;
                 } else if (device.nodeB.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex()) == 0) {
@@ -82,9 +86,28 @@ public class CodeGenerator {
                 // System.out.println("Primary Index : "+serverPrimaryIndex+" Primary Group : "+primaryServerGrp);
             }
         }
+
+        for (Device device : this.dialogConnection.devices_csma) {
+            nodesGrp = nodesGrp.concat(device.getNodesGroup()+",");
+            if (!serverPrimaryConfigured) {
+                ArrayList<Integer> nodes = new ArrayList<>();
+                nodes.addAll(device.nodes);
+                for (int j=0; j<nodes.size(); j++) {
+                    int i = nodes.get(j);
+                    if (String.valueOf(i).compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
+                        primaryServerGrp = "csmaInterfaces"+device.CSMA_INDEX;
+                        serverPrimaryIndex = String.valueOf(j);
+                        serverPrimaryConfigured = true;
+                    }
+                }
+            }
+        }
         nodesGrp = nodesGrp.substring(0,nodesGrp.length()-1);
 
         for (Device device : this.dialogConnection.devices) {
+            nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
+        }
+        for (Device device : this.dialogConnection.devices_csma) {
             nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
         }
 
@@ -95,13 +118,22 @@ public class CodeGenerator {
         for (Device device : this.dialogConnection.devices) {
             devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
         }
+        for (Device device : this.dialogConnection.devices_csma) {
+            devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
+        }
         devicesGrp = devicesGrp.substring(0,devicesGrp.length()-1);
 
         for (Device device : this.dialogConnection.devices) {
             deviceConfigCode = deviceConfigCode.concat(device.getDeviceConfCode());
         }
+        for (Device device : this.dialogConnection.devices_csma) {
+            deviceConfigCode = deviceConfigCode.concat(device.getDeviceConfCode());
+        }
 
         for (Device device : this.dialogConnection.devices) {
+            ipConfigCode = ipConfigCode.concat(device.getIPConfCode()+"\n");
+        }
+        for (Device device : this.dialogConnection.devices_csma) {
             ipConfigCode = ipConfigCode.concat(device.getIPConfCode()+"\n");
         }
         // variable parameters configuration ends ======================================================================
@@ -112,6 +144,7 @@ public class CodeGenerator {
                 #include "ns3/internet-module.h"
                 #include "ns3/network-module.h"
                 #include "ns3/point-to-point-module.h"
+                #include "ns3/csma-module.h"
                 """
                 + netAnimModuleString +
                 """
@@ -185,7 +218,7 @@ public class CodeGenerator {
                     .0));
                    
                     // step-7 = client configuration
-                    UdpEchoClientHelper echoClient(interfaces"""+ primaryServerGrp +"""
+                    UdpEchoClientHelper echoClient("""+ primaryServerGrp +"""
                     .GetAddress("""+ serverPrimaryIndex + """
                 ),"""+ this.dialogConfigureServer.getPortNumber() +"""
                     );
