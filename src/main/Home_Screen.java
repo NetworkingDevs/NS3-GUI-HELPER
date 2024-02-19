@@ -59,18 +59,22 @@ public class Home_Screen extends JFrame {
     private JLabel lbl_client;
     private JLabel lbl_links;
     private JLabel lbl_networks;
+    private JScrollPane JScrollPane_forTools;
+    private JPanel JPanel_tools_buttons;
+    private JButton btn_tool_csmaConn;
     JMenuBar menuBar; // this is a menu bar
     Map<String, JMenu> menuMapping; // this is a mapping (from string to each menu), for ease in coding...
     Map<String, ArrayList<JMenuItem>> menuItemsListMapping; // this is a mapping (from string to list of each menu's item's list)
 
     // Images for tools and other buttons...
-    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_viewTool, icon_selected;
+    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected;
 
     {
         try {
             imgInfo = ImageIO.read(getClass().getClassLoader().getResource("info.png"));
             icon_nodeTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_node.png"));
             icon_p2pLinkTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_p2pLink.png"));
+            icon_csmaLinkTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_csmaLink.png"));
             icon_viewTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_view.png"));
             icon_selected = ImageIO.read(getClass().getClassLoader().getResource("icon_selected.png"));
         } catch (IOException e) {
@@ -113,11 +117,13 @@ public class Home_Screen extends JFrame {
         this.lbl_info.setPreferredSize(new Dimension(550,50));
         this.lbl_info.setIcon(new ImageIcon(imgInfo.getScaledInstance(20,20,Image.SCALE_SMOOTH)));
 
-        this.btn_tool_node.setIcon(new ImageIcon(icon_nodeTool.getScaledInstance(50,50, Image.SCALE_SMOOTH)));
+        this.btn_tool_node.setIcon(new ImageIcon(icon_nodeTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
         this.btn_tool_node.setText("");
-        this.btn_tool_p2pConn.setIcon(new ImageIcon(icon_p2pLinkTool.getScaledInstance(50,50, Image.SCALE_SMOOTH)));
+        this.btn_tool_p2pConn.setIcon(new ImageIcon(icon_p2pLinkTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
         this.btn_tool_p2pConn.setText("");
-        this.btn_tool_view.setIcon(new ImageIcon(icon_viewTool.getScaledInstance(50,50, Image.SCALE_SMOOTH)));
+        this.btn_tool_csmaConn.setIcon(new ImageIcon(icon_csmaLinkTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
+        this.btn_tool_csmaConn.setText("");
+        this.btn_tool_view.setIcon(new ImageIcon(icon_viewTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
         this.btn_tool_view.setText("");
 
         this.dialogHelper = new Dialog_Helper(this.JPanel_main);
@@ -390,7 +396,10 @@ public class Home_Screen extends JFrame {
                             successfulClick = true;
                             DebuggingHelper.Debugln(firstNode+" "+collision);
                             instantiateConnectionDialog();
-                            dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(),firstNode,collision);
+                            ArrayList<Integer> nodes = new ArrayList<>();
+                            nodes.add(firstNode);
+                            nodes.add(collision);
+                            dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(),nodes, toolStatus);
                             firstNode = -1;
                         }
                         incrementClicks(successfulClick);

@@ -104,14 +104,8 @@
                 <border type="none"/>
                 <children>
                   <grid id="93830" binding="JPanel_tools" layout-manager="FormLayout">
-                    <rowspec value="center:d:grow"/>
-                    <rowspec value="center:61px:grow"/>
-                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="fill:d:grow"/>
                     <colspec value="fill:d:grow"/>
-                    <colspec value="left:4dlu:noGrow"/>
-                    <colspec value="fill:max(d;4px):grow"/>
-                    <colspec value="left:4dlu:noGrow"/>
-                    <colspec value="fill:max(d;4px):grow"/>
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                       <forms/>
@@ -128,36 +122,63 @@
                       <title-color color="-14566617"/>
                     </border>
                     <children>
-                      <component id="2ed7d" class="javax.swing.JButton" binding="btn_tool_node">
+                      <scrollpane id="b9cb1" binding="JScrollPane_forTools">
                         <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                          <forms/>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <forms defaultalign-horz="false" defaultalign-vert="false"/>
                         </constraints>
                         <properties>
-                          <text value="Button"/>
-                          <toolTipText value="Node Tool"/>
+                          <horizontalScrollBarPolicy value="32"/>
+                          <verticalScrollBarPolicy value="21"/>
                         </properties>
-                      </component>
-                      <component id="78056" class="javax.swing.JButton" binding="btn_tool_p2pConn">
-                        <constraints>
-                          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                          <forms/>
-                        </constraints>
-                        <properties>
-                          <text value="Button"/>
-                          <toolTipText value="P2P Connection Tool"/>
-                        </properties>
-                      </component>
-                      <component id="fac35" class="javax.swing.JButton" binding="btn_tool_view">
-                        <constraints>
-                          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                          <forms/>
-                        </constraints>
-                        <properties>
-                          <text value="Button"/>
-                          <toolTipText value="View Tool"/>
-                        </properties>
-                      </component>
+                        <border type="none"/>
+                        <children>
+                          <grid id="5ad91" binding="JPanel_tools_buttons" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="b698c" class="javax.swing.JButton" binding="btn_tool_node">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Button"/>
+                                  <toolTipText value="Node Tool"/>
+                                </properties>
+                              </component>
+                              <component id="9529d" class="javax.swing.JButton" binding="btn_tool_p2pConn">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Button"/>
+                                  <toolTipText value="P2P Link Tool"/>
+                                </properties>
+                              </component>
+                              <component id="e11d2" class="javax.swing.JButton" binding="btn_tool_view">
+                                <constraints>
+                                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Button"/>
+                                  <toolTipText value="View Tool"/>
+                                </properties>
+                              </component>
+                              <component id="65429" class="javax.swing.JButton" binding="btn_tool_csmaConn">
+                                <constraints>
+                                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Button"/>
+                                  <toolTipText value="CSMA Link Tool"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                        </children>
+                      </scrollpane>
                     </children>
                   </grid>
                   <grid id="f548" binding="JPanel_configTopo" layout-manager="FormLayout">
