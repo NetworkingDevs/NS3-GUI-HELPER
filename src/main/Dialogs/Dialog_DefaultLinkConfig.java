@@ -10,8 +10,10 @@
 package Dialogs;
 
 import Helpers.DebuggingHelper;
+import Links.CSMA;
 import Links.NetworkLink;
 import Links.P2P;
+import StatusHelper.LinkType;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
@@ -213,26 +215,21 @@ public class Dialog_DefaultLinkConfig extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 DebuggingHelper.Debugln("Clicked on save button!");
                 if (editIndex > -1) {
-//                    defaultLinks.get(editIndex).linkType =
+                    defaultLinks.get(editIndex).setLinkType(NetworkLink.getLinkType(comboBox_linkType.getSelectedIndex()));
                     defaultLinks.get(editIndex).setDelay(textField_delay.getText());
                     defaultLinks.get(editIndex).setDataRate(textField_dataRate.getText());
                     defaultLinks.get(editIndex).setName(textField_alias.getText());
                     defaultLinks.get(editIndex).setSpeedModifier(comboBox_datarateModifier.getSelectedItem().toString());
+                    defaultLinks.get(editIndex).setEnablePcap(checkBox_enablePcap.isSelected());
                     editIndex = -1;
                     dialogHelper.showInformationMsg("Link has been updated successfully!", "Success!");
                 } else {
                     // logic to see what's the type of channel has been selected...
-                    /* LinkType type;
-                    switch (comboBox_linkType.getSelectedIndex()) {
-                        case 1:
-                            type = LinkType.LINK_CSMA;
-                            break;
-                        default:
-                            type = LinkType.LINK_P2P;
-                            break;
-                    } */
-                    // defaultLinks.add(new NetworkLink(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), type));
-                    defaultLinks.add(new P2P(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString()));
+                    if (LinkType.LINK_CSMA == NetworkLink.getLinkType(comboBox_linkType.getSelectedIndex())) {
+                        defaultLinks.add(new CSMA(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), checkBox_enablePcap.isSelected()));
+                    } else {
+                        defaultLinks.add(new P2P(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), checkBox_enablePcap.isSelected()));
+                    }
                     dialogHelper.showInformationMsg("Link has been added successfully!", "Success!");
                 }
                 showLinksAgain();

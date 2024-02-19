@@ -149,7 +149,12 @@
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
               <forms/>
             </constraints>
-            <properties/>
+            <properties>
+              <model>
+                <item value="Point To Point"/>
+                <item value="CSMA"/>
+              </model>
+            </properties>
           </component>
           <component id="37f5e" class="javax.swing.JCheckBox" binding="checkBox_enablePcap">
             <constraints>
