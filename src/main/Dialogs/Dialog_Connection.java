@@ -32,6 +32,7 @@ public class Dialog_Connection extends JFrame {
     public ArrayList<NetworkLink> links;
     public ArrayList<Network> networks;
     public ArrayList<Device> devices;
+    public ArrayList<Device> devices_csma;
 
     Image img;
     {
@@ -62,6 +63,7 @@ public class Dialog_Connection extends JFrame {
         this.networks = new ArrayList<>();
         this.networks.addAll(n);
         this.devices = new ArrayList<>();
+        this.devices_csma = new ArrayList<>();
 
         this.lbl_deviceInfo.setText("Connection between node "+this.nodeA+" and node "+this.nodeB);
         Image scaledImg = img.getScaledInstance(30,30,Image.SCALE_SMOOTH);
@@ -72,17 +74,30 @@ public class Dialog_Connection extends JFrame {
         btn_configureConnection.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                devices.add(
-                    new Device
-                    (
-                        links.get
-                        (
-                            comboBox_links.getSelectedIndex()
-                        ),
-                        networks.get(comboBox_networks.getSelectedIndex()), 
-                        String.valueOf(nodeA), String.valueOf(nodeB)
-                    )
-                );
+                int index = -1;
+                for (int i=0; i<links.size(); i++) {
+                    if (links.get(i).toString().equals(comboBox_links.getSelectedItem().toString())) {
+                        index = i;
+                    }
+                }
+                DebuggingHelper.Debugln("Matched link : "+links.get(index).toString());
+                if (links.get(index).getLinkType()==LinkType.LINK_CSMA) {
+                    DebuggingHelper.Debugln("Adding CSMA devices...");
+                    devices_csma.add(new Device(links.get(index), networks.get(comboBox_networks.getSelectedIndex()), nodes, devices_csma.size()));
+                } else { // assumed to be point to point...
+                    DebuggingHelper.Debugln("Adding Point to point devices...");
+                    devices.add(
+                            new Device
+                                    (
+                                            links.get
+                                                    (
+                                                            index
+                                                    ),
+                                            networks.get(comboBox_networks.getSelectedIndex()),
+                                            String.valueOf(nodeA), String.valueOf(nodeB)
+                                    )
+                    );
+                }
                 for (Device d : devices) {
                     DebuggingHelper.Debugln(d.toString());
                 }
@@ -121,7 +136,8 @@ public class Dialog_Connection extends JFrame {
             this.nodeA = nodes.get(0);
             this.nodeB = nodes.get(1);
         } else {
-            this.nodes = nodes;
+            this.nodes = new ArrayList<>();
+            this.nodes.addAll(nodes);
         }
         this.setLinks(l);
         this.setNetworks(n);
