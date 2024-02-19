@@ -74,10 +74,9 @@ public class Dialog_Network extends JFrame {
     }
 
     public ArrayList<Network> getAllNetworks() {
-        ArrayList<Network> networks = this.links;
-        if (this.defaultNetworks.size() > 0) {
-            networks.addAll(this.defaultNetworks);
-        }
+        ArrayList<Network> networks = new ArrayList<>();
+        networks.addAll(this.links);
+        networks.addAll(this.defaultNetworks);
         return networks;
     }
 
