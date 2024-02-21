@@ -74,9 +74,9 @@ public class ApplicationSettingsHelper {
                     DebuggingHelper.Debugln("Str : "+str);
                 }
                 if (params[params.length-1].equalsIgnoreCase(NetworkLink.LABEL_CSMA)) {
-                    links.add(new CSMA(links.size(), params[0], params[1], params[2], params[3], ((params[4].equalsIgnoreCase("Y"))?(true):(false))));
+                    links.add(new CSMA(links.size(), params[0], params[1], params[2], params[3], ((params[4].equalsIgnoreCase("Y"))?(true):(false)), true));
                 } else { // default or p2p case...
-                    links.add(new P2P(links.size(), params[0], params[1], params[2], params[3], ((params[4].equalsIgnoreCase("Y"))?(true):(false))));
+                    links.add(new P2P(links.size(), params[0], params[1], params[2], params[3], ((params[4].equalsIgnoreCase("Y"))?(true):(false)), true));
                 }
             }
             DebuggingHelper.Debugln("Yes! Universal Settings has Default Links!");
