@@ -10,6 +10,7 @@
 package Dialogs;
 
 import Helpers.DebuggingHelper;
+import Links.NetworkLink;
 import Netowkrs.Network;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -17,11 +18,10 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
+
+import static Helpers.ApplicationSettingsHelper.*;
 
 public class Dialog_DefaultNetworkConfig extends JFrame {
     private JPanel JPanel_main;
@@ -41,6 +41,15 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
     public ArrayList<Network> defaultNetworks;
     Dialog_Helper dialogHelper;
     int editIndex = -1;
+
+    private static Dialog_DefaultNetworkConfig INSTANCE;
+
+    public static Dialog_DefaultNetworkConfig getInstance(ArrayList<Network> networks) {
+        if (INSTANCE==null) {
+            INSTANCE = new Dialog_DefaultNetworkConfig(networks);
+        }
+        return INSTANCE;
+    }
 
     public Dialog_DefaultNetworkConfig(ArrayList<Network> networks) {
         // ==================== BASIC CONF. ====================
@@ -203,11 +212,20 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
                     editIndex = -1;
                     dialogHelper.showInformationMsg("N/W has been updated successfully!", "Success!");
                 } else {
-                    defaultNetworks.add(new Network(defaultNetworks.size(), textField_netid.getText(), textField_netmask.getText(), textField_alias.getText()));
+                    defaultNetworks.add(new Network(defaultNetworks.size(), textField_netid.getText(), textField_netmask.getText(), textField_alias.getText(), true));
                     dialogHelper.showInformationMsg("N/W has been added successfully!", "Success!");
                 }
                 showNetworksAgain();
                 DebuggingHelper.Debugln("N/W have been changed and rendered successfully after clicking on save button!");
+            }
+        });
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                saveDefaultNetworks(defaultNetworks);
+                saveSettings();
+                editIndex = -1;
             }
         });
     }
