@@ -5,12 +5,19 @@ public class Network {
     public String netId;
     public String netMask;
     public String name;
+    public boolean isDefault;
 
     public Network(int id, String netId, String netMask, String name) {
         this.id = id;
         this.netId = netId;
         this.netMask = netMask;
         this.name = name;
+        this.isDefault = false;
+    }
+
+    public Network(int id, String netId, String netMask, String name, boolean isDefault) {
+        this(id,netId,netMask,name);
+        this.isDefault = isDefault;
     }
 
     @Override
