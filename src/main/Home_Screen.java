@@ -176,7 +176,7 @@ public class Home_Screen extends JFrame {
         } else if ((toolStatus == ToolStatus.TOOL_LINK)?(dialogLink.getP2pLinkCount()==0):((toolStatus == ToolStatus.TOOL_LINK_CSMA)?(dialogLink.getCsmaLinkCount()==0):(false))) { // if there are no links...
             this.dialogHelper.showWarningMsg("Please create at least one link before making a connection!", "Warning");
             return false;
-        } else if (dialogNetwork==null || (dialogNetwork.links.size() == 0 && dialogNetwork.defaultNetworks.size() == 0)) { // if there are no network settings made...
+        } else if (dialogNetwork==null || (dialogNetwork.getNetworkCount() == 0)) { // if there are no network settings made...
             this.dialogHelper.showWarningMsg("Please create at least one network before making a connection!", "Warning");
             return false;
         } else {
@@ -268,12 +268,12 @@ public class Home_Screen extends JFrame {
         });
         this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Show default links"));
         this.menuItemsListMapping.get(SETTINGS_MENU).get(1).addActionListener(new ActionListener() {
-            boolean iconVis = (menuItemsListMapping.get(SETTINGS_MENU).get(1).getIcon()==null)?(false):(true);
+            boolean iconVis = menuItemsListMapping.get(SETTINGS_MENU).get(1).getIcon()!=null;
             JMenuItem THIS = menuItemsListMapping.get(SETTINGS_MENU).get(1);
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                iconVis = (THIS.getIcon()==null)?(false):(true);
+                iconVis = (THIS.getIcon()!=null);
                 instantiateDefaultLinkConfig();
                 instantiateLinkDialog();
                 if (dialogDefaultLinkConfig.defaultLinks.size() == 0) {
@@ -613,31 +613,11 @@ public class Home_Screen extends JFrame {
                 super.windowClosing(e);
 
                 // pre-processing before saving the settings...
-                if (dialogDefaultLinkConfig != null) { // if there are some default links to be configured....
-                    if (dialogDefaultLinkConfig.defaultLinks.size() > 0) {
-                        if (UNIVERSAL_SETTINGS.has(DEFAULT_LINKS)) {
-                            UNIVERSAL_SETTINGS.remove(DEFAULT_LINKS);
-                        }
-                        ArrayList<String> links = new ArrayList<>();
-                        for (NetworkLink link : dialogDefaultLinkConfig.defaultLinks) {
-                            links.add(link.forSettings());
-                        }
-                        UNIVERSAL_SETTINGS.put(DEFAULT_LINKS, links);
-                    }
-                }
+                instantiateDefaultLinkConfig();
+                saveDefaultLinks(dialogDefaultLinkConfig.defaultLinks);
 
-                if (dialogDefaultNetworkConfig != null) { // if there are some default networks to be configured...
-                    if (dialogDefaultNetworkConfig.defaultNetworks.size() > 0) {
-                        if (UNIVERSAL_SETTINGS.has(DEFAULT_NETWORKS)) {
-                            UNIVERSAL_SETTINGS.remove(DEFAULT_NETWORKS);
-                        }
-                        ArrayList<String> networks = new ArrayList<>();
-                        for (Network network : dialogDefaultNetworkConfig.defaultNetworks) {
-                            networks.add(network.forSettings());
-                        }
-                        UNIVERSAL_SETTINGS.put(DEFAULT_NETWORKS, networks);
-                    }
-                }
+                instantiateDefaultNetworkConfig();
+                saveDefaultNetworks(dialogDefaultNetworkConfig.defaultNetworks);
 
                 // saving the settings...
                 saveSettings();
@@ -671,18 +651,14 @@ public class Home_Screen extends JFrame {
     }
 
     private void instantiateDefaultLinkConfig() {
-        if (dialogDefaultLinkConfig == null) {
-            dialogDefaultLinkConfig = new Dialog_DefaultLinkConfig(new ArrayList<>());
-        }
+        dialogDefaultLinkConfig = Dialog_DefaultLinkConfig.getInstance(new ArrayList<>());
         if (hasDefaultLinks()) {
             dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
         }
     }
 
     private void instantiateDefaultNetworkConfig() {
-        if (dialogDefaultNetworkConfig == null) {
-            dialogDefaultNetworkConfig = new Dialog_DefaultNetworkConfig(new ArrayList<>());
-        }
+        dialogDefaultNetworkConfig = Dialog_DefaultNetworkConfig.getInstance(new ArrayList<>());
         if (hasDefaultNetworks()) {
             dialogDefaultNetworkConfig.defaultNetworks = getDefaultNetworks();
         }
