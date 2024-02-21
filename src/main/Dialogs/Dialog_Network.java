@@ -26,13 +26,12 @@ public class Dialog_Network extends JFrame {
 
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;
-    public ArrayList<Network> links, defaultNetworks;; // changed this to public on 08/12/23 for accessibility...
+    public ArrayList<Network> links;; // changed this to public on 08/12/23 for accessibility...
     private int lastID = 0;
     Dialog_Helper dialogHelper;
 
     public Dialog_Network(Map<String, JComponent> components) {
         this.helpfulComponents = components;
-        this.defaultNetworks = new ArrayList<>();
         this.links = new ArrayList<>();
         this.dialogHelper = new Dialog_Helper(this);
 
@@ -55,17 +54,20 @@ public class Dialog_Network extends JFrame {
     public void showNetworks() {
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
-            for (Network link : defaultNetworks) {
+            for (Network link : links) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
             }
-        }
-        for (Network link : links) {
-            ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
+        } else {
+            for (Network link : links) {
+                if (!link.isDefault) {
+                    ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
+                }
+            }
         }
     }
 
     public void setDefaultNetworks(ArrayList<Network> links) {
-        this.defaultNetworks = links;
+        this.links.addAll(links);
     }
 
     public void showDefaultNetworks(boolean show) {
@@ -76,8 +78,11 @@ public class Dialog_Network extends JFrame {
     public ArrayList<Network> getAllNetworks() {
         ArrayList<Network> networks = new ArrayList<>();
         networks.addAll(this.links);
-        networks.addAll(this.defaultNetworks);
         return networks;
+    }
+
+    public int getNetworkCount() {
+        return this.links.size();
     }
 
     private void addNetwork() {
