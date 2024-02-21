@@ -23,8 +23,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-import static Helpers.ApplicationSettingsHelper.DEFAULT_LINKS;
-import static Helpers.ApplicationSettingsHelper.UNIVERSAL_SETTINGS;
+import static Helpers.ApplicationSettingsHelper.*;
 
 public class Dialog_DefaultLinkConfig extends JFrame {
     private JPanel JPanel_main;
@@ -48,6 +47,15 @@ public class Dialog_DefaultLinkConfig extends JFrame {
     public ArrayList<NetworkLink> defaultLinks;
     Dialog_Helper dialogHelper;
     int editIndex = -1;
+
+    private static Dialog_DefaultLinkConfig INSTANCE;
+
+    public static Dialog_DefaultLinkConfig getInstance(ArrayList<NetworkLink> links) {
+        if (INSTANCE==null) {
+            INSTANCE = new Dialog_DefaultLinkConfig(links);
+        }
+        return INSTANCE;
+    }
 
     public Dialog_DefaultLinkConfig(ArrayList<NetworkLink> links) {
         // ==================== BASIC CONF. ====================
@@ -242,14 +250,9 @@ public class Dialog_DefaultLinkConfig extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                if (UNIVERSAL_SETTINGS.has(DEFAULT_LINKS)) {
-                    UNIVERSAL_SETTINGS.remove(DEFAULT_LINKS);
-                }
-                ArrayList<String> links = new ArrayList<>();
-                for (NetworkLink link : defaultLinks) {
-                    links.add(link.forSettings());
-                }
-                UNIVERSAL_SETTINGS.put(DEFAULT_LINKS, links);
+                saveDefaultLinks(defaultLinks);
+                saveSettings();
+                editIndex = -1;
             }
         });
     }
