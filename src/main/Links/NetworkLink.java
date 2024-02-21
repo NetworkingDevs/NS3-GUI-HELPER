@@ -41,6 +41,10 @@ public interface NetworkLink {
     // for storing in file for settings...
     public String forSettings();
 
+    boolean isDefault();
+
+    void setDefault(boolean isDefault);
+
     /**
      * Example:
      *  PointToPointHelper pointToPoint;
