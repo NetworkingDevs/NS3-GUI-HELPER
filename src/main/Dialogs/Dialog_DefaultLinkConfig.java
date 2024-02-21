@@ -20,11 +20,11 @@ import com.jgoodies.forms.layout.RowSpec;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
+
+import static Helpers.ApplicationSettingsHelper.DEFAULT_LINKS;
+import static Helpers.ApplicationSettingsHelper.UNIVERSAL_SETTINGS;
 
 public class Dialog_DefaultLinkConfig extends JFrame {
     private JPanel JPanel_main;
@@ -103,6 +103,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
             btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    editIndex = -1;
                     DebuggingHelper.Debugln("Action command while clicking on delete button : "+e.getActionCommand());
                     int yes = dialogHelper.showConfirmationDialog("Do you really want to delete this link?", "Confirmation!");
                     if (yes == JOptionPane.YES_OPTION) {
@@ -137,10 +138,11 @@ public class Dialog_DefaultLinkConfig extends JFrame {
     private void showLinkSettings(int index) {
         this.editIndex = index;
         NetworkLink selectedLink = this.defaultLinks.get(index);
-        this.textField_delay.setText(selectedLink.getDataRate());
+        this.textField_delay.setText(selectedLink.getDelay());
         this.textField_dataRate.setText(selectedLink.getDataRate());
         this.textField_alias.setText(selectedLink.getName());
         this.comboBox_datarateModifier.setSelectedIndex(this.getDataRateIndex(selectedLink.getSpeedModifier()));
+        this.checkBox_enablePcap.setSelected(selectedLink.getEnablePcap());
         DebuggingHelper.Debugln("All fields have been changed to selected link!");
     }
 
@@ -226,14 +228,28 @@ public class Dialog_DefaultLinkConfig extends JFrame {
                 } else {
                     // logic to see what's the type of channel has been selected...
                     if (LinkType.LINK_CSMA == NetworkLink.getLinkType(comboBox_linkType.getSelectedIndex())) {
-                        defaultLinks.add(new CSMA(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), checkBox_enablePcap.isSelected()));
+                        defaultLinks.add(new CSMA(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), checkBox_enablePcap.isSelected(), true));
                     } else {
-                        defaultLinks.add(new P2P(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), checkBox_enablePcap.isSelected()));
+                        defaultLinks.add(new P2P(defaultLinks.size(), textField_alias.getText(), textField_delay.getText(), textField_dataRate.getText(), comboBox_datarateModifier.getSelectedItem().toString(), checkBox_enablePcap.isSelected(), true));
                     }
                     dialogHelper.showInformationMsg("Link has been added successfully!", "Success!");
                 }
                 showLinksAgain();
                 DebuggingHelper.Debugln("Links have been changed and rendered successfully after clicking on save button!");
+            }
+        });
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                if (UNIVERSAL_SETTINGS.has(DEFAULT_LINKS)) {
+                    UNIVERSAL_SETTINGS.remove(DEFAULT_LINKS);
+                }
+                ArrayList<String> links = new ArrayList<>();
+                for (NetworkLink link : defaultLinks) {
+                    links.add(link.forSettings());
+                }
+                UNIVERSAL_SETTINGS.put(DEFAULT_LINKS, links);
             }
         });
     }
