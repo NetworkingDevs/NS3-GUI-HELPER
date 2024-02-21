@@ -35,13 +35,12 @@ public class Dialog_Link extends JFrame {
 
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;
-    public ArrayList<NetworkLink> links, defaultLinks; // changed this to public on 08/12/23 for accessibility...
+    public ArrayList<NetworkLink> links; // changed this to public on 08/12/23 for accessibility...
     Dialog_Helper dialogHelper;
 
     public Dialog_Link(Map<String, JComponent> components) {
         this.helpfulComponents = components;
         this.links = new ArrayList<>();
-        this.defaultLinks = new ArrayList<>();
         this.dialogHelper = new Dialog_Helper(this);
 
         this.setContentPane(this.JPanel_main);
@@ -63,18 +62,36 @@ public class Dialog_Link extends JFrame {
     public void showLinks() {
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
-            for (NetworkLink link : this.defaultLinks) {
+            for(NetworkLink link : this.links) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
             }
+            DebuggingHelper.Debugln("Showing all the links on the canvas, size of links : "+this.links.size());
+        } else {
+            for (NetworkLink link : this.links) {
+                if (!link.isDefault()) {
+                    ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
+                    DebuggingHelper.Debugln(link.toString()+" is not a default link!");
+                } else {
+                    DebuggingHelper.Debugln(link.toString()+" is default link!");
+                }
+            }
+            DebuggingHelper.Debugln("Showing only the links which are not default, size of links : "+this.links.size());
         }
-        for (NetworkLink link : this.links) {
-            ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
-        }
-        DebuggingHelper.Debugln("Showing links of canvas, size of links : "+this.links.size());
     }
 
-    public void setDefaultLinks(ArrayList<NetworkLink> links) {
-        this.defaultLinks = links;
+    public void setDefaultLinks(ArrayList<NetworkLink> defaultLinks) {
+        for (NetworkLink defaultLink : defaultLinks) {
+            boolean alreadyExist = false;
+            for (NetworkLink link : this.links) {
+                if (link.toString().equalsIgnoreCase(defaultLink.toString())) {
+                    alreadyExist = true;
+                    break;
+                }
+            }
+            if (!alreadyExist) {
+                this.links.add(defaultLink);
+            }
+        }
     }
 
     public void showDefaultLinks(boolean show) {
@@ -85,25 +102,18 @@ public class Dialog_Link extends JFrame {
     public ArrayList<NetworkLink> getAllLinks() {
         ArrayList<NetworkLink> allLinks = new ArrayList<>();
         allLinks.addAll(this.links);
-        allLinks.addAll(this.defaultLinks);
-        DebuggingHelper.Debugln("Making a single list of all link, size of allLinks : "+allLinks.size()+" and size of default allLinks : "+defaultLinks.size());
+        DebuggingHelper.Debugln("Making a single list of all link, size of allLinks : "+allLinks.size());
         return allLinks;
     }
 
-    private void addLink() {
-        NetworkLink link;
-        if (NetworkLink.getLinkType(comboBox_linkType.getSelectedIndex())== LinkType.LINK_CSMA) {
-            link = new CSMA(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString(), chkBox_enablePcap.isSelected());
-        } else { // default case or P2P Link...
-            link = new P2P(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString(), chkBox_enablePcap.isSelected());
+    public ArrayList<NetworkLink> getAllDefaultLinks() {
+        ArrayList<NetworkLink> allDefaultLinks = new ArrayList<>();
+        for(NetworkLink link : this.links) {
+            if (link.isDefault()) {
+                allDefaultLinks.add(link);
+            }
         }
-        this.links.add(link);
-        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.links.get(this.links.size()-1));
-        this.dialogHelper.showInformationMsg("Link Added Successfully with name : "+this.textField_name.getText().toString(),"Success");
-    }
-
-    private void updateOverviewTxt() {
-        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Links : "+(this.links.size())+" links created");
+        return allDefaultLinks;
     }
 
     public int getP2pLinkCount() {
@@ -111,13 +121,6 @@ public class Dialog_Link extends JFrame {
         if (this.links.size() > 0) {
             for(int i=0; i<this.links.size(); i++) {
                 if (this.links.get(i).getLinkType() == LinkType.LINK_P2P) {
-                    count++;
-                }
-            }
-        }
-        if (this.defaultLinks.size() > 0) {
-            for(int i=0; i<this.defaultLinks.size(); i++) {
-                if (this.defaultLinks.get(i).getLinkType() == LinkType.LINK_P2P) {
                     count++;
                 }
             }
@@ -134,13 +137,22 @@ public class Dialog_Link extends JFrame {
                 }
             }
         }
-        if (this.defaultLinks.size() > 0) {
-            for(int i=0; i<this.defaultLinks.size(); i++) {
-                if (this.defaultLinks.get(i).getLinkType() == LinkType.LINK_CSMA) {
-                    count++;
-                }
-            }
-        }
         return count;
+    }
+
+    private void addLink() {
+        NetworkLink link;
+        if (NetworkLink.getLinkType(comboBox_linkType.getSelectedIndex())== LinkType.LINK_CSMA) {
+            link = new CSMA(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString(), chkBox_enablePcap.isSelected());
+        } else { // default case or P2P Link...
+            link = new P2P(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString(), chkBox_enablePcap.isSelected());
+        }
+        this.links.add(link);
+        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.links.get(this.links.size()-1));
+        this.dialogHelper.showInformationMsg("Link Added Successfully with name : "+this.textField_name.getText().toString(),"Success");
+    }
+
+    private void updateOverviewTxt() {
+        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Links : "+(this.links.size())+" links created");
     }
 }
