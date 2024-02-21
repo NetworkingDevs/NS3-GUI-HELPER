@@ -96,7 +96,7 @@ public class ApplicationSettingsHelper {
                 for (String str : params) {
                     DebuggingHelper.Debugln("Str : "+str);
                 }
-                networks.add(new Network(0, params[0], params[1], params[2]));
+                networks.add(new Network(0, params[0], params[1], params[2], true));
             }
             DebuggingHelper.Debugln("Yes! Universal Settings has Default Networks!");
         } else {
@@ -105,5 +105,31 @@ public class ApplicationSettingsHelper {
 
         DebuggingHelper.Debugln("Returning the networks as array list.");
         return networks;
+    }
+
+    public static void saveDefaultLinks(ArrayList<NetworkLink> links) {
+        if (links.size() > 0) {
+            if (UNIVERSAL_SETTINGS.has(DEFAULT_LINKS)) {
+                UNIVERSAL_SETTINGS.remove(DEFAULT_LINKS);
+            }
+            ArrayList<String> str_links = new ArrayList<>();
+            for (NetworkLink link : links) {
+                str_links.add(link.forSettings());
+            }
+            UNIVERSAL_SETTINGS.put(DEFAULT_LINKS, str_links);
+        }
+    }
+
+    public static void saveDefaultNetworks(ArrayList<Network> networks) {
+        if (networks.size() > 0) {
+            if (UNIVERSAL_SETTINGS.has(DEFAULT_NETWORKS)) {
+                UNIVERSAL_SETTINGS.remove(DEFAULT_NETWORKS);
+            }
+            ArrayList<String> str_networks = new ArrayList<>();
+            for (Network network : networks) {
+                str_networks.add(network.forSettings());
+            }
+            UNIVERSAL_SETTINGS.put(DEFAULT_NETWORKS, str_networks);
+        }
     }
 }
