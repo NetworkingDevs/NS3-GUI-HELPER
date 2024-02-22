@@ -38,6 +38,15 @@ public class Dialog_Link extends JFrame {
     public ArrayList<NetworkLink> links; // changed this to public on 08/12/23 for accessibility...
     Dialog_Helper dialogHelper;
 
+    private static Dialog_Link INSTANCE;
+
+    public static Dialog_Link getInstance(Map<String, JComponent> helpfulComponents) {
+        if (INSTANCE == null) {
+            INSTANCE = new Dialog_Link(helpfulComponents);
+        }
+        return INSTANCE;
+    }
+
     public Dialog_Link(Map<String, JComponent> components) {
         this.helpfulComponents = components;
         this.links = new ArrayList<>();

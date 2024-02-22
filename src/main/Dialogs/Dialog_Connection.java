@@ -43,6 +43,15 @@ public class Dialog_Connection extends JFrame {
         }
     }
 
+    private static Dialog_Connection INSTANCE;
+
+    public static Dialog_Connection getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Dialog_Connection();
+        }
+        return INSTANCE;
+    }
+
     public Dialog_Connection() {
         this(0,0,new ArrayList<NetworkLink>(), new ArrayList<Network>());
     }

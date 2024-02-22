@@ -627,27 +627,21 @@ public class Home_Screen extends JFrame {
     }
 
     private void instantiateConnectionDialog() {
-        if (dialogConnection == null) {
-            dialogConnection = new Dialog_Connection();
-        }
+        dialogConnection = Dialog_Connection.getInstance();
     }
 
     private void instantiateLinkDialog() {
-        if (dialogLink == null) {
-            Map<String, JComponent> helpfulComponents = new HashMap<>();
-            helpfulComponents.put(Dialog_Link.COMPONENT_COMBO_BOX, comboBox_links);
-            helpfulComponents.put(Dialog_Link.COMPONENT_OVERVIEW_LABEL, lbl_links);
-            dialogLink = new Dialog_Link(helpfulComponents);
-        }
+        Map<String, JComponent> helpfulComponents = new HashMap<>();
+        helpfulComponents.put(Dialog_Link.COMPONENT_COMBO_BOX, comboBox_links);
+        helpfulComponents.put(Dialog_Link.COMPONENT_OVERVIEW_LABEL, lbl_links);
+        dialogLink = Dialog_Link.getInstance(helpfulComponents);
     }
 
     private void instantiateNetworkDialog() {
-        if (dialogNetwork == null) {
-            Map<String, JComponent> helpfulComponents = new HashMap<>();
-            helpfulComponents.put(Dialog_Network.COMPONENT_COMBO_BOX, comboBox_networks);
-            helpfulComponents.put(Dialog_Network.COMPONENT_OVERVIEW_LABEL, lbl_networks);
-            dialogNetwork = new Dialog_Network(helpfulComponents);
-        }
+        Map<String, JComponent> helpfulComponents = new HashMap<>();
+        helpfulComponents.put(Dialog_Network.COMPONENT_COMBO_BOX, comboBox_networks);
+        helpfulComponents.put(Dialog_Network.COMPONENT_OVERVIEW_LABEL, lbl_networks);
+        dialogNetwork = Dialog_Network.getInstance(helpfulComponents);
     }
 
     private void instantiateDefaultLinkConfig() {

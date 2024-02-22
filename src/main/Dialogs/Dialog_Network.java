@@ -24,6 +24,15 @@ public class Dialog_Network extends JFrame {
 
     public static boolean SHOW_DEFAULT = false;
 
+    private static Dialog_Network INSTANCE;
+
+    public static Dialog_Network getInstance(Map<String, JComponent> helpfulComponents) {
+        if (INSTANCE == null) {
+            INSTANCE = new Dialog_Network(helpfulComponents);
+        }
+        return INSTANCE;
+    }
+
     // for serving the functionalities....
     Map<String, JComponent> helpfulComponents;
     public ArrayList<Network> links;; // changed this to public on 08/12/23 for accessibility...
