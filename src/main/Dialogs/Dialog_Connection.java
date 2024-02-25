@@ -160,4 +160,15 @@ public class Dialog_Connection extends JFrame {
     public void setNetworks(ArrayList<Network> networks) {
         this.networks = networks;
     }
+
+    public ArrayList<NetworkLink> getAllUsedLinks() {
+        ArrayList<NetworkLink> allUsedLinks = new ArrayList<>();
+        for (Device d : this.devices) {
+            allUsedLinks.add(d.linkSettings);
+        }
+        for (Device d : this.devices_csma) {
+            allUsedLinks.add(d.linkSettings);
+        }
+        return allUsedLinks;
+    }
 }
