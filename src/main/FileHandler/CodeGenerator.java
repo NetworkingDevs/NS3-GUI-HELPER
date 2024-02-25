@@ -111,7 +111,7 @@ public class CodeGenerator {
             nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
         }
 
-        for (NetworkLink link : this.dialogLink.getAllLinks()) {
+        for (NetworkLink link : this.dialogConnection.getAllUsedLinks()) {
             linkConfigCode = linkConfigCode.concat(link.toCode()+"\n");
         }
 
