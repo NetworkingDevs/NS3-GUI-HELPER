@@ -626,6 +626,8 @@ public class Home_Screen extends JFrame {
 
     private void instantiateConnectionDialog() {
         dialogConnection = Dialog_Connection.getInstance();
+        instantiateLinkDialog();
+        dialogConnection.addDialogLink(dialogLink);
     }
 
     private void instantiateLinkDialog() {
