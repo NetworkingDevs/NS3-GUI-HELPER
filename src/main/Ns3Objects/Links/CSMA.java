@@ -12,6 +12,7 @@ public class CSMA implements NetworkLink{
     public LinkType linkType;
     public boolean enablePcap;
     public boolean isDefault;
+    public boolean isUsed;
 
     public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap) {
         this.id  = id;
@@ -21,13 +22,19 @@ public class CSMA implements NetworkLink{
         this.speedModifier = speedModifier;
         this.enablePcap = enablePcap;
         this.linkType = LinkType.LINK_CSMA;
-        // this.isDefault = false;
+        this.isDefault = false;
+        this.isUsed = false;
     }
 
     // new constructor will support previous once...
     public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault) {
         this(id,name,delay,dataRate,speedModifier,enablePcap);
         this.isDefault = isDefault;
+    }
+
+    public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault, boolean isUsed) {
+        this(id,name,delay,dataRate,speedModifier,enablePcap,isDefault);
+        this.isUsed = isUsed;
     }
 
     @Override
@@ -49,6 +56,16 @@ public class CSMA implements NetworkLink{
     @Override
     public void setDefault(boolean isDefault) {
         this.isDefault = isDefault;
+    }
+
+    @Override
+    public boolean isUsed() {
+        return isUsed;
+    }
+
+    @Override
+    public void setUsed(boolean used) {
+        isUsed = used;
     }
 
     /**

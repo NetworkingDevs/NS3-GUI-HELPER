@@ -45,6 +45,10 @@ public interface NetworkLink {
 
     void setDefault(boolean isDefault);
 
+    boolean isUsed();
+
+    void setUsed(boolean isUsed);
+
     /**
      * Example:
      *  PointToPointHelper pointToPoint;

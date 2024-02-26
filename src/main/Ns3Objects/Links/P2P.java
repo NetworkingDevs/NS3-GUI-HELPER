@@ -12,6 +12,7 @@ public class P2P implements NetworkLink{
     public LinkType linkType;
     public boolean enablePcap;
     public boolean isDefault;
+    public boolean isUsed;
 
     public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap) {
         this.id  = id;
@@ -22,12 +23,18 @@ public class P2P implements NetworkLink{
         this.enablePcap = enablePcap;
         this.linkType = LinkType.LINK_P2P;
         this.isDefault = false;
+        this.isUsed = false;
     }
 
     // new constructor will support previous once...
     public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault) {
         this(id,name,delay,dataRate,speedModifier,enablePcap);
         this.isDefault = isDefault;
+    }
+
+    public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault, boolean isUsed) {
+        this(id,name,delay,dataRate,speedModifier,enablePcap,isDefault);
+        this.isUsed = isUsed;
     }
 
     @Override
@@ -49,6 +56,16 @@ public class P2P implements NetworkLink{
     @Override
     public void setDefault(boolean isDefault) {
         this.isDefault = isDefault;
+    }
+
+    @Override
+    public boolean isUsed() {
+        return isUsed;
+    }
+
+    @Override
+    public void setUsed(boolean used) {
+        isUsed = used;
     }
 
     /**
