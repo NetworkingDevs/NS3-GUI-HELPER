@@ -6,8 +6,6 @@ import GuiRenderers.NodePainter;
 import GuiRenderers.P2pLinkPainter;
 import GuiRenderers.TopologyPainter;
 import Helpers.DebuggingHelper;
-import Netowkrs.Network;
-import Links.NetworkLink;
 import StatusHelper.ToolStatus;
 
 import javax.imageio.ImageIO;

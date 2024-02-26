@@ -10,9 +10,9 @@
 package Dialogs;
 
 import Helpers.DebuggingHelper;
-import Links.CSMA;
-import Links.NetworkLink;
-import Links.P2P;
+import Ns3Objects.Links.CSMA;
+import Ns3Objects.Links.NetworkLink;
+import Ns3Objects.Links.P2P;
 import StatusHelper.LinkType;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;

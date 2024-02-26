@@ -1,4 +1,4 @@
-package Devices;
+package Ns3Objects.Devices;
 
 /**
  * Program name: DeviceHelper
@@ -10,11 +10,14 @@ package Devices;
  * Purpose: This class is just a storage template for Device...
  * */
 
- import Helpers.DebuggingHelper;
- import Links.*;
- import Netowkrs.Network;
- import StatusHelper.LinkType;;import java.lang.reflect.Array;
- import java.util.ArrayList;
+import Helpers.DebuggingHelper;
+import Ns3Objects.Links.NetworkLink;
+import Ns3Objects.Netowkrs.Network;
+import StatusHelper.LinkType;
+
+import java.util.ArrayList;
+
+;
 
 public class Device {
     public int CSMA_INDEX = 0;

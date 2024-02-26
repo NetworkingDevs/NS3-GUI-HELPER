@@ -1,8 +1,8 @@
-package Links;
+package Ns3Objects.Links;
 
 import StatusHelper.LinkType;
 
-public class P2P implements NetworkLink{
+public class CSMA implements NetworkLink{
     
     public int id;
     public String name;
@@ -13,32 +13,32 @@ public class P2P implements NetworkLink{
     public boolean enablePcap;
     public boolean isDefault;
 
-    public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap) {
+    public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap) {
         this.id  = id;
         this.name = name;
         this.delay = delay;
         this.dataRate = dataRate;
         this.speedModifier = speedModifier;
         this.enablePcap = enablePcap;
-        this.linkType = LinkType.LINK_P2P;
-        this.isDefault = false;
+        this.linkType = LinkType.LINK_CSMA;
+        // this.isDefault = false;
     }
 
     // new constructor will support previous once...
-    public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault) {
+    public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault) {
         this(id,name,delay,dataRate,speedModifier,enablePcap);
         this.isDefault = isDefault;
     }
 
     @Override
     public String toString() {    
-        return this.name+" (P2P) - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
+        return this.name+" (CSMA) - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
     }
 
     // for storing in file for settings...
     @Override
     public String forSettings() {
-        return this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier+"|"+((this.enablePcap)?("Y"):"N")+"|P2P";
+        return this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier+"|"+((this.enablePcap)?"Y":"N")+"|CSMA";
     }
 
     @Override
@@ -53,21 +53,18 @@ public class P2P implements NetworkLink{
 
     /**
      * Example:
-     *  PointToPointHelper pointToPoint;
-     *  pointToPoint.SetDeviceAttribute("DataRate", StringValue("500Mbps"));
-     *  pointToPoint.SetChannelAttribute("Delay", StringValue("2ms"));
+     *  CsmaHelper csma;
+     *  csma.SetChannelAttribute("DataRate", StringValue("500Mbps"));
+     *  csma.SetChannelAttribute("Delay", TimeValue(NanoSeconds(6560)));
      * */
     @Override
     public String toCode() {
         String line1, line2, line3;
-        line1 = "PointToPointHelper p2p"+this.name+";";
-        line2 = "p2p"+this.getName().replace(" ", "_")+".SetDeviceAttribute(\"DataRate\",StringValue(\""+(this.dataRate+this.speedModifier)+"\"));";
-        line3 = "p2p"+this.getName().replace(" ", "_")+".SetChannelAttribute(\"Delay\",StringValue(\""+this.delay+"ms\"));";
+        line1 = "CsmaHelper csma"+this.getName().replace(" ", "_")+";";
+        line2 = "csma"+getName().replace(" ", "_")+".SetChannelAttribute(\"DataRate\",StringValue(\""+(this.dataRate+this.speedModifier)+"\"));";
+        line3 = "csma"+getName().replace(" ", "_")+".SetChannelAttribute(\"Delay\",StringValue(\""+this.delay+"ms\"));";
         return line1+"\n"+line2+"\n"+line3;
     }
-
-
-
 
     @Override
     public int getId() {

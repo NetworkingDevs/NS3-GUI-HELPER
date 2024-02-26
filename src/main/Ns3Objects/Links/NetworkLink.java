@@ -1,4 +1,4 @@
-package Links;
+package Ns3Objects.Links;
 
 import StatusHelper.LinkType;
 

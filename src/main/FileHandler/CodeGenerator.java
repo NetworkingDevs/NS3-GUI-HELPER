@@ -4,10 +4,9 @@ import Dialogs.Dialog_ConfigureClient;
 import Dialogs.Dialog_ConfigureServer;
 import Dialogs.Dialog_Connection;
 import Dialogs.Dialog_Link;
-import Devices.Device;
+import Ns3Objects.Devices.Device;
 import Helpers.DebuggingHelper;
-import Links.NetworkLink;
-import StatusHelper.LinkType;
+import Ns3Objects.Links.NetworkLink;
 
 import java.util.ArrayList;
 import java.util.Map;

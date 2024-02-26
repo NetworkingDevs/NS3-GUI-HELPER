@@ -10,8 +10,7 @@
 package Dialogs;
 
 import Helpers.DebuggingHelper;
-import Links.NetworkLink;
-import Netowkrs.Network;
+import Ns3Objects.Netowkrs.Network;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;

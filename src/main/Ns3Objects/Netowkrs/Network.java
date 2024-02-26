@@ -1,4 +1,4 @@
-package Netowkrs;
+package Ns3Objects.Netowkrs;
 
 public class Network {
     public int id;

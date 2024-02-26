@@ -1,9 +1,9 @@
 package Dialogs;
 
 import Helpers.DebuggingHelper;
-import Devices.Device;
-import Links.NetworkLink;
-import Netowkrs.Network;
+import Ns3Objects.Devices.Device;
+import Ns3Objects.Links.NetworkLink;
+import Ns3Objects.Netowkrs.Network;
 import StatusHelper.LinkType;
 import StatusHelper.ToolStatus;
 

@@ -10,12 +10,11 @@
 package Helpers;
 
 import FileHandler.FileReaderWriter;
-import Links.NetworkLink;
-import Links.P2P;
-import Links.CSMA;
+import Ns3Objects.Links.NetworkLink;
+import Ns3Objects.Links.P2P;
+import Ns3Objects.Links.CSMA;
 
-import Netowkrs.Network;
-import StatusHelper.LinkType;
+import Ns3Objects.Netowkrs.Network;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
