@@ -14,6 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Dialog_Connection extends JFrame {
@@ -44,6 +46,7 @@ public class Dialog_Connection extends JFrame {
     }
 
     private static Dialog_Connection INSTANCE;
+    private Dialog_Link dialogLink;
 
     public static Dialog_Connection getInstance() {
         if (INSTANCE == null) {
@@ -89,6 +92,7 @@ public class Dialog_Connection extends JFrame {
                         index = i;
                     }
                 }
+                setAsUsedLink(links.get(index));
                 DebuggingHelper.Debugln("Matched link : "+links.get(index).toString());
                 if (links.get(index).getLinkType()==LinkType.LINK_CSMA) {
                     DebuggingHelper.Debugln("Adding CSMA devices...");
@@ -113,6 +117,18 @@ public class Dialog_Connection extends JFrame {
                 setVisible(false);
             }
         });
+    }
+
+    private void setAsUsedLink(NetworkLink link) {
+        for(NetworkLink l : dialogLink.links) {
+            if (link.toString().equals(l.toString())) {
+                l.setUsed(true);
+            }
+        }
+    }
+
+    public void addDialogLink(Dialog_Link dialogLink) {
+        this.dialogLink = dialogLink;
     }
 
     public void setVisible(boolean b, ToolStatus selectedTool) {
@@ -159,16 +175,5 @@ public class Dialog_Connection extends JFrame {
 
     public void setNetworks(ArrayList<Network> networks) {
         this.networks = networks;
-    }
-
-    public ArrayList<NetworkLink> getAllUsedLinks() {
-        ArrayList<NetworkLink> allUsedLinks = new ArrayList<>();
-        for (Device d : this.devices) {
-            allUsedLinks.add(d.linkSettings);
-        }
-        for (Device d : this.devices_csma) {
-            allUsedLinks.add(d.linkSettings);
-        }
-        return allUsedLinks;
     }
 }
