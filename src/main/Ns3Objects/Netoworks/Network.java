@@ -1,4 +1,4 @@
-package Ns3Objects.Netowkrs;
+package Ns3Objects.Netoworks;
 
 public class Network {
     public int id;

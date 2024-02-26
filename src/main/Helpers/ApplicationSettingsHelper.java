@@ -14,7 +14,7 @@ import Ns3Objects.Links.NetworkLink;
 import Ns3Objects.Links.P2P;
 import Ns3Objects.Links.CSMA;
 
-import Ns3Objects.Netowkrs.Network;
+import Ns3Objects.Netoworks.Network;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

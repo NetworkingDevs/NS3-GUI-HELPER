@@ -12,7 +12,7 @@ package Ns3Objects.Devices;
 
 import Helpers.DebuggingHelper;
 import Ns3Objects.Links.NetworkLink;
-import Ns3Objects.Netowkrs.Network;
+import Ns3Objects.Netoworks.Network;
 import StatusHelper.LinkType;
 
 import java.util.ArrayList;

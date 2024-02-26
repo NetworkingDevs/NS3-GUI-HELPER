@@ -3,7 +3,7 @@ package Dialogs;
 import Helpers.DebuggingHelper;
 import Ns3Objects.Devices.Device;
 import Ns3Objects.Links.NetworkLink;
-import Ns3Objects.Netowkrs.Network;
+import Ns3Objects.Netoworks.Network;
 import StatusHelper.LinkType;
 import StatusHelper.ToolStatus;
 
@@ -14,8 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Dialog_Connection extends JFrame {

@@ -1,6 +1,6 @@
 package Dialogs;
 
-import Ns3Objects.Netowkrs.Network;
+import Ns3Objects.Netoworks.Network;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
