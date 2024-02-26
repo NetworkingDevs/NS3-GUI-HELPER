@@ -76,14 +76,25 @@ public class P2P implements NetworkLink{
      * */
     @Override
     public String toCode() {
+        String name = getName().replace(" ","_");
         String line1, line2, line3;
-        line1 = "PointToPointHelper p2p"+this.name+";";
-        line2 = "p2p"+this.getName().replace(" ", "_")+".SetDeviceAttribute(\"DataRate\",StringValue(\""+(this.dataRate+this.speedModifier)+"\"));";
-        line3 = "p2p"+this.getName().replace(" ", "_")+".SetChannelAttribute(\"Delay\",StringValue(\""+this.delay+"ms\"));";
+        line1 = "PointToPointHelper p2p"+name+";";
+        line2 = "p2p"+this.name+".SetDeviceAttribute(\"DataRate\",StringValue(\""+(getDataRate()+getSpeedModifier())+"\"));";
+        line3 = "p2p"+this.name+".SetChannelAttribute(\"Delay\",StringValue(\""+getDelay()+"ms\"));";
         return line1+"\n"+line2+"\n"+line3;
     }
 
-
+    /**
+     * Example:
+     * p2pName.EnablePcapAll("Name");
+     * @return Equivalent code for ".EnablePcapAll()" method
+     */
+    @Override
+    public String getPacketCaptureAllCode() {
+        String name = getName().replace(" ","_");
+        String code = "p2p"+name+".EnablePcapAll(\""+name+"\");";
+        return code;
+    }
 
 
     @Override

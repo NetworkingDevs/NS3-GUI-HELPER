@@ -49,6 +49,8 @@ public interface NetworkLink {
 
     void setUsed(boolean isUsed);
 
+    public String getPacketCaptureAllCode();
+
     /**
      * Example:
      *  PointToPointHelper pointToPoint;

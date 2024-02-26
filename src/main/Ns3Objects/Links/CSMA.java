@@ -83,6 +83,18 @@ public class CSMA implements NetworkLink{
         return line1+"\n"+line2+"\n"+line3;
     }
 
+    /**
+     * Example:
+     * csmaName.EnablePcapAll("Name");
+     * @return Equivalent code for ".EnablePcapAll()" method
+     */
+    @Override
+    public String getPacketCaptureAllCode() {
+        String name = getName().replace(" ","_");
+        String code = "csma"+name+".EnablePcapAll(\""+name+"\");";
+        return code;
+    }
+
     @Override
     public int getId() {
         return this.id;
