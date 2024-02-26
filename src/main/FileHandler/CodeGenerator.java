@@ -47,13 +47,15 @@ public class CodeGenerator {
                 AnimationInterface anim(\"animation"""+topology+"""
                 .xml\"); 
                 """;
-        String wiresharkUtilityString = """
-                pointToPoint.EnablePcapAll("code");
-                """;
+        StringBuilder wiresharkUtilityString = new StringBuilder();
         int StopTimeServer = this.dialogConfigureServer.getStopTime();
         int StopTimeClient = this.dialogConfigureClient.getStopTime();
-        if (this.otherFields.get(UTILITY_WIRESHARK).compareToIgnoreCase(VALUE_FALSE) == 0) {
-            wiresharkUtilityString = "";
+        if (this.otherFields.get(UTILITY_WIRESHARK).compareToIgnoreCase(VALUE_TRUE) == 0) {
+            for(NetworkLink l : dialogLink.links) {
+                if (l.isUsed() && l.getEnablePcap()) {
+                    wiresharkUtilityString.append(l.getPacketCaptureAllCode()+"\n");
+                }
+            }
         }
         if (this.otherFields.get(UTILITY_NETANIM).compareToIgnoreCase(VALUE_FALSE) == 0) {
             netAnimModuleString = "";
