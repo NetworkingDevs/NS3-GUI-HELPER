@@ -13,6 +13,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -191,6 +195,28 @@ public class Home_Screen extends JFrame {
         return true;
     }
 
+    private static boolean openWebpage(URI uri) {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(uri);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    private static boolean openWebpage(URL url) {
+        try {
+            return openWebpage(url.toURI());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     private void setUpMenuBar() {
         // ========================================= MENU BAR CONF. ====================================================
         this.menuBar = new JMenuBar();
@@ -352,6 +378,16 @@ public class Home_Screen extends JFrame {
         this.menuMapping.put(HELP_MENU, new JMenu("Help"));
         this.menuItemsListMapping.put(HELP_MENU, new ArrayList<>());
         this.menuItemsListMapping.get(HELP_MENU).add(new JMenuItem("User Manual"));
+        this.menuItemsListMapping.get(HELP_MENU).get(0).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    openWebpage(new URL("https://networkingdevs.github.io/NS3-GUI-HELPER/manual.html"));
+                } catch (MalformedURLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
         this.MenusOrder.add(HELP_MENU);
 
 
