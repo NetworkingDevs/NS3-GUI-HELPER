@@ -23,6 +23,7 @@ public class Home_Screen extends JFrame {
     private final String FILE_MENU = "File";
     private final String SCENARIOS_MENU = "Scenarios";
     private final String SETTINGS_MENU = "Settings";
+    private final String HELP_MENU = "Help";
     private ArrayList<String> MenusOrder = new ArrayList<>();
     private final int MIN_WINDOW_WIDTH = 1090;
     private final int MIN_WINDOW_HEIGHT = 650;
@@ -347,6 +348,11 @@ public class Home_Screen extends JFrame {
             }
         });
         this.MenusOrder.add(SETTINGS_MENU);
+
+        this.menuMapping.put(HELP_MENU, new JMenu("Help"));
+        this.menuItemsListMapping.put(HELP_MENU, new ArrayList<>());
+        this.menuItemsListMapping.get(HELP_MENU).add(new JMenuItem("User Manual"));
+        this.MenusOrder.add(HELP_MENU);
 
 
         this.addMenuItemsToMenus();
