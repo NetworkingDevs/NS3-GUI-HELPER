@@ -31,4 +31,6 @@ layout: default
       - Easy to use GUI
       - Default storage for various components
       - Code generation for NS3
+      - Feature Updates
+        - Coming Soon V1.1.0 : New Tool Incoming! (Expected date : First Week Of March)
   

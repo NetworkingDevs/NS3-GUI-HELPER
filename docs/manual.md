@@ -8,6 +8,7 @@ layout: default
 
 # User's Manual
 - This serves as a convenient, step-by-step guide on seamlessly utilizing the application. It provides a user-friendly approach to facilitate a faster learning curve, aiding users in adapting easily to NS3 coding.
+- User Manual for Latest Release (v1.1.0). <a href="./Manual/pdfs/ManualV1.1.0.pdf" download> Click to see<sup>NEW</sup> </a>!
   <marquee direction="left" height="100px" style="color: red; font-weight: bold; font-style: italic;">
   This manual belongs to very first release of this application! Soon latest user manual will be shared here! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Sorry for the inconvenience caused, if any, in operating the application! 
   </marquee>
