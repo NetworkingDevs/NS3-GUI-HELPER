@@ -31,3 +31,6 @@ NS3 GUI Helper is licensed under the MIT License. See the LICENSE file for detai
 
 # Acknowledgments
 NS3 GUI Helper is made possible by the contributions of the open-source community. We extend our gratitude to all contributors.
+
+# Repo Visualization
+![Visualization of this repo](./diagram.svg)
