@@ -23,7 +23,7 @@ layout: default
     - Minor Bug Fixes and Patch Updates
       - <a href="./Releases/NS3-GUI V0.3.1.jar" download> Get Version 0.3.1</a> : With Minor Patch Updates
 
-  - <a href="./Releases/NS3-GUI V1.0.0.jar" download> Get Version 1.0.0<sup>NEW</sup> </a>
+  - <a href="./Releases/NS3-GUI V1.0.0.jar" download> Get Version 1.0.0 </a>
   
       - Released on 9<sup>th</sup> of January, 2024.
       - One page application
@@ -31,6 +31,8 @@ layout: default
       - Easy to use GUI
       - Default storage for various components
       - Code generation for NS3
-      - Feature Updates
-        - Coming Soon V1.1.0 : New Tool Incoming! (Expected date : First Week Of March)
+      - Feature Updates<sup>NEW</sup>
+        - Version 1.1.0<sup>NEW</sup> : Released on 29<sup>th</sup> Feb., 2024.
+          - <a href="./Manual/pdfs/ManualV1.1.0.pdf" download> User Manual </a>
+          - Get version 1.1.0
   
