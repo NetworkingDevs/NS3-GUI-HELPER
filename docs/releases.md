@@ -34,5 +34,11 @@ layout: default
       - Feature Updates<sup>NEW</sup>
         - Version 1.1.0<sup>NEW</sup> : Released on 29<sup>th</sup> Feb., 2024.
           - <a href="./Manual/pdfs/ManualV1.1.0.pdf" download> User Manual </a>
-          - Get version 1.1.0
+          - <a href="./Releases/NS3-GUI V1.1.0.jar" download>Get version 1.1.0 </a>
+          - What's new
+            - CSMA Link Tool
+            - Code Genarion Made Easy with Default Configurations
+            - Efficient Settings Management
+            - New Help Menu For Beginners
+            - Efficient Wireshark code Generation
   
