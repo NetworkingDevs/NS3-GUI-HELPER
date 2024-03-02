@@ -36,6 +36,9 @@ public class CodeGenerator {
         this.otherFields = other;
     }
 
+    /**
+     * This function is used for generating code for the topology
+     * */
     public void GenerateCode() {
         // some variable parameters configuration ======================================================================
         String topology = this.otherFields.get(NAME_OF_TOPOLOGY);

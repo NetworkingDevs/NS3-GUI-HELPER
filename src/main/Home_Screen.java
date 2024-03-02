@@ -23,15 +23,37 @@ import java.util.Map;
 
 import static Helpers.ApplicationSettingsHelper.*;
 
+/**
+ * This is the main entry class for the application, This will centrally responsible for
+ * all Dialog boxes management, Code Generation and Canvas renderings.
+ * */
 public class Home_Screen extends JFrame {
+    /**
+     * a constant string to track File menu's key
+     * */
     private final String FILE_MENU = "File";
-    private final String SCENARIOS_MENU = "Scenarios";
+    /**
+     * a constant string to track key of Settings menu
+     * */
     private final String SETTINGS_MENU = "Settings";
+    /**
+     * a constant string to track key of Help menu
+     * */
     private final String HELP_MENU = "Help";
+    /**
+     * an array list tp track the menu names (String) as key for menu bar
+     * */
     private ArrayList<String> MenusOrder = new ArrayList<>();
+    /**
+     * minimum window width
+     * */
     private final int MIN_WINDOW_WIDTH = 1090;
+    /**
+     * minimum window height
+     * */
     private final int MIN_WINDOW_HEIGHT = 650;
 
+    // UI Elements
     private JPanel JPanel_main;
     private JPanel JPanel_main_left;
     private JPanel JPanel_main_right;
@@ -66,12 +88,26 @@ public class Home_Screen extends JFrame {
     private JScrollPane JScrollPane_forTools;
     private JPanel JPanel_tools_buttons;
     private JButton btn_tool_csmaConn;
+    /**
+     * menu bar for the application
+     * */
     JMenuBar menuBar; // this is a menu bar
+    /**
+     * mapping of string keys to menu
+     * */
     Map<String, JMenu> menuMapping; // this is a mapping (from string to each menu), for ease in coding...
+    /**
+     * mapping of string keys to menu items for each menu
+     * */
     Map<String, ArrayList<JMenuItem>> menuItemsListMapping; // this is a mapping (from string to list of each menu's item's list)
+    /**
+     * to keep track of selected nodes in CSMA channel
+     * */
     ArrayList<Integer> nodesInCsma = new ArrayList<>();
 
-    // Images for tools and other buttons...
+    /**
+     * Images for the icons and other settings
+     * */
     Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected;
 
     {
@@ -88,22 +124,70 @@ public class Home_Screen extends JFrame {
     }
 
     // creating the variables for serving functionalities ==============================================================
+    /**
+     * a painter to draw elements and objects on the canvas
+     * */
     TopologyPainter painter = new TopologyPainter(new ArrayList<>(), new ArrayList<>(), 600, 600);
+    /**
+     * to keep the track of the selected tool
+     * */
     ToolStatus toolStatus;
+    /**
+     * to keep the track of the no. of clicks
+     * */
     private int clicks = 1;
+    /**
+     * to keep the track of the index of the first selected node
+     * */
     private int firstNode = -1;
+    /**
+     * to manage links created by the user
+     * */
     Dialog_Link dialogLink;
+    /**
+     * to manage the network settings created by the user
+     * */
     Dialog_Network dialogNetwork;
+    /**
+     * to make a connection (wired, common bus) between two nodes
+     * */
     Dialog_Connection dialogConnection;
+    /**
+     * to configure a single UDP Echo Server
+     * */
     Dialog_ConfigureServer dialogConfigureServer;
+    /**
+     * to configure a single UDP Echo client
+     * */
     Dialog_ConfigureClient dialogConfigureClient;
+    /**
+     * to manage the settings for output file that will be generated
+     * */
     Dialog_outputFileChooser dialogOutputFileChooser;
+    /**
+     * to show the alerts, information, warning and confirmation messages
+     * */
     Dialog_Helper dialogHelper;
+    /**
+     * to manage the default links
+     * */
     Dialog_DefaultLinkConfig dialogDefaultLinkConfig;
+    /**
+     * to manage the default network settings
+     * */
     Dialog_DefaultNetworkConfig dialogDefaultNetworkConfig;
+    /**
+     * for selecting the outPut path
+     * */
     String OutputPath;
+    /**
+     * for generating the equivalent NS-3 Script
+     * */
     CodeGenerator codeGenerator;
 
+    /**
+     * constructor that initializes the necessary objects, events, etc.
+     * */
     public Home_Screen() {
         // basic initialization of this component...
         // ========================================= BASIC CONF. =======================================================
@@ -149,12 +233,22 @@ public class Home_Screen extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * to add each menu to menu bar list
+     *
+     * @since 1.0.0
+     * */
     private void addMenusToMenuBar() {
         for (String menu : this.MenusOrder) { // adding each menu to menu bar...
             this.menuBar.add(this.menuMapping.get(menu));
         }
     }
 
+    /**
+     * to add each menu item to the menu
+     *
+     * @since 1.0.0
+     * */
     private void addMenuItemsToMenus() {
         for (Map.Entry<String, JMenu> menu : this.menuMapping.entrySet()) { // for each menu...
             for (JMenuItem item : this.menuItemsListMapping.get(menu.getKey())) { // adding each menu item...
@@ -163,12 +257,25 @@ public class Home_Screen extends JFrame {
         }
     }
 
+    /**
+     * to increment click if, clicked on rendered node
+     *
+     * @param successfulClick whether clicked on any of rendered node
+     * @since 0.3.0
+     * */
     private void incrementClicks(boolean successfulClick) {
         if (successfulClick) {
             clicks ++;
         }
     }
 
+    /**
+     * to check if, user is allowed to add new link
+     *
+     * @param toolStatus the current selected tool
+     * @return boolean variable showing, whether the user is allowed to add new link
+     * @since 0.3.0
+     * */
     private boolean checkIfLinkCanBeAdded(ToolStatus toolStatus) {
         instantiateLinkDialog();
         DebuggingHelper.Debugln(dialogLink.getP2pLinkCount()+" CSMA Link Count : "+dialogLink.getCsmaLinkCount());
@@ -187,6 +294,13 @@ public class Home_Screen extends JFrame {
         }
     }
 
+    /**
+     * it checks that whether there is any node rendered on the canvas
+     *
+     * @param msg The error message to show, in case no nodes are rendered
+     * @return boolean variable showcasing that whether there are any nodes on the canvas
+     * @since 0.3.0
+     * */
     private boolean checkIfNodesExists (String msg) {
         if (painter.getNodes().size() == 0) {
             this.dialogHelper.showErrorMsg(msg, "Error!");
@@ -195,6 +309,13 @@ public class Home_Screen extends JFrame {
         return true;
     }
 
+    /**
+     * to open a web page from the URI
+     *
+     * @param uri The URI of the webpage
+     * @return boolean variable showing that the URI exists or not
+     * @since 1.1.0
+     * */
     private static boolean openWebpage(URI uri) {
         Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
         if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -208,6 +329,14 @@ public class Home_Screen extends JFrame {
         return false;
     }
 
+    /**
+     * to open a web page from the URL
+     *
+     * @param url The URL of the file
+     * @return boolean variable showing that the URL exist or not
+     * @see Home_Screen#openWebpage(URI)
+     * @since 1.1.0
+     * */
     private static boolean openWebpage(URL url) {
         try {
             return openWebpage(url.toURI());
@@ -217,6 +346,13 @@ public class Home_Screen extends JFrame {
         return false;
     }
 
+    /**
+     * it will set up the menu bar for the application
+     *
+     * @see Home_Screen#addMenuItemsToMenus()
+     * @see Home_Screen#addMenusToMenuBar()
+     * @since 1.0.0
+     * */
     private void setUpMenuBar() {
         // ========================================= MENU BAR CONF. ====================================================
         this.menuBar = new JMenuBar();
@@ -259,15 +395,6 @@ public class Home_Screen extends JFrame {
         // step-4 : add menu to menu order
         this.MenusOrder.add(FILE_MENU);
         // following above 4 steps for each menu...
-
-        // for scenarios menu...
-        this.menuMapping.put(SCENARIOS_MENU, new JMenu("Scenarios"));
-        this.menuItemsListMapping.put(SCENARIOS_MENU, new ArrayList<>());
-        this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic P2P"));
-        this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Ring - 3 Nodes"));
-        this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Mesh - 4 Nodes"));
-        this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Star - 5 Nodes"));
-        // this.MenusOrder.add(SCENARIOS_MENU);
 
         // for settings menu...
         this.menuMapping.put(SETTINGS_MENU, new JMenu("Settings"));
@@ -397,6 +524,11 @@ public class Home_Screen extends JFrame {
         // ========================================= MENU BAR CONF. ====================================================
     }
 
+    /**
+     * to set up all events listeners
+     *
+     * @since 0.3.0
+     * */
     private void setUpEventListeners()
     {
         // ========================================= ALL EVENT LISTENERS ===============================================
@@ -666,12 +798,22 @@ public class Home_Screen extends JFrame {
         // ==================================== ALL EVENT LISTENERS ENDS ===============================================
     }
 
+    /**
+     * to instantiate the object for connection dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateConnectionDialog() {
         dialogConnection = Dialog_Connection.getInstance();
         instantiateLinkDialog();
         dialogConnection.addDialogLink(dialogLink);
     }
 
+    /**
+     * to instantiate the object for link dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateLinkDialog() {
         Map<String, JComponent> helpfulComponents = new HashMap<>();
         helpfulComponents.put(Dialog_Link.COMPONENT_COMBO_BOX, comboBox_links);
@@ -679,6 +821,11 @@ public class Home_Screen extends JFrame {
         dialogLink = Dialog_Link.getInstance(helpfulComponents);
     }
 
+    /**
+     * to instantiate the object for network dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateNetworkDialog() {
         Map<String, JComponent> helpfulComponents = new HashMap<>();
         helpfulComponents.put(Dialog_Network.COMPONENT_COMBO_BOX, comboBox_networks);
@@ -686,6 +833,11 @@ public class Home_Screen extends JFrame {
         dialogNetwork = Dialog_Network.getInstance(helpfulComponents);
     }
 
+    /**
+     * to instantiate the object for default link dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateDefaultLinkConfig() {
         dialogDefaultLinkConfig = Dialog_DefaultLinkConfig.getInstance(new ArrayList<>());
         if (hasDefaultLinks()) {
@@ -693,6 +845,11 @@ public class Home_Screen extends JFrame {
         }
     }
 
+    /**
+     * to instantiate the object for default network config dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateDefaultNetworkConfig() {
         dialogDefaultNetworkConfig = Dialog_DefaultNetworkConfig.getInstance(new ArrayList<>());
         if (hasDefaultNetworks()) {
@@ -700,6 +857,11 @@ public class Home_Screen extends JFrame {
         }
     }
 
+    /**
+     * to generate the NS-3 file for equivalent topology
+     *
+     * @since 0.0.0
+     * */
     private void createFile() {
         if (this.lbl_server.getText().equalsIgnoreCase("Server Index :  Not configured")) {
             if (dialogHelper.showConfirmationDialog("There are no servers in the topology!\nDo you want to continue?","Warning!") == JOptionPane.NO_OPTION) {
@@ -737,6 +899,9 @@ public class Home_Screen extends JFrame {
         this.dialogHelper.showInformationMsg("File has been generated successfully!\nAt : "+this.OutputPath, "Code Generated!");
     }
 
+    /**
+     * The entry point for the application
+     * */
     public static void main(String[] args) {
         new Home_Screen();
     }
