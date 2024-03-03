@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+/**
+ * to configure the connections
+ * */
 public class Dialog_Connection extends JFrame {
     private JPanel JPanel_main;
     private JLabel lbl_deviceInfo;
@@ -27,13 +30,34 @@ public class Dialog_Connection extends JFrame {
     private JButton btn_configureConnection;
 
     // for serving the functionality....
+    /**
+     * the index of first two nodes
+     * */
     public int nodeA, nodeB;
+    /**
+     * list of nodes in connection
+     * */
     public ArrayList<Integer> nodes;
+    /**
+     * list of link settings
+     * */
     public ArrayList<NetworkLink> links;
+    /**
+     * list of network settings
+     * */
     public ArrayList<Network> networks;
+    /**
+     * list of devices
+     * */
     public ArrayList<Device> devices;
+    /**
+     * list of devices containing CSMA devices
+     * */
     public ArrayList<Device> devices_csma;
 
+    /**
+     * the info image icon
+     * */
     Image img;
     {
         try {
@@ -43,9 +67,22 @@ public class Dialog_Connection extends JFrame {
         }
     }
 
+    /**
+     * the instance of this class
+     * */
     private static Dialog_Connection INSTANCE;
+    /**
+     * the link configuration dialog
+     * */
     private Dialog_Link dialogLink;
 
+
+    /**
+     * to get the instance of this class
+     *
+     * @return the instance of this class
+     * @since 0.3.0
+     * */
     public static Dialog_Connection getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new Dialog_Connection();
@@ -53,10 +90,26 @@ public class Dialog_Connection extends JFrame {
         return INSTANCE;
     }
 
+    /**
+     * to create the object of type Dialog_Connection
+     *
+     * @see Dialog_Connection#Dialog_Connection(int, int, ArrayList, ArrayList)
+     * @since 0.3.0
+     * */
     public Dialog_Connection() {
         this(0,0,new ArrayList<NetworkLink>(), new ArrayList<Network>());
     }
 
+    /**
+     * to create the object of type this class
+     *
+     * @param a index of first node
+     * @param b index of second mode
+     * @param l list of links settings
+     * @param n list of network settings
+     * @see Dialog_Connection#Dialog_Connection()
+     * @since 0.3.0
+     * */
     public Dialog_Connection(int a, int b, ArrayList<NetworkLink> l, ArrayList<Network> n) {
         // initializing this component....
         this.setContentPane(this.JPanel_main);
@@ -117,6 +170,12 @@ public class Dialog_Connection extends JFrame {
         });
     }
 
+    /**
+     * to make the link as used link
+     *
+     * @param link the link settings
+     * @since 1.1.0
+     * */
     private void setAsUsedLink(NetworkLink link) {
         for(NetworkLink l : dialogLink.links) {
             if (link.toString().equals(l.toString())) {
@@ -125,10 +184,22 @@ public class Dialog_Connection extends JFrame {
         }
     }
 
+    /**
+     * to add dialog for link configuration
+     *
+     * @param dialogLink the Dialog_Link's object
+     * */
     public void addDialogLink(Dialog_Link dialogLink) {
         this.dialogLink = dialogLink;
     }
 
+    /**
+     * to make this dialog visible again
+     *
+     * @param b the value indicating whether to show oe hide
+     * @param selectedTool the selected tool while this dialog is being visible, have no affect when b is false
+     * @since 0.3.0
+     * */
     public void setVisible(boolean b, ToolStatus selectedTool) {
         super.setVisible(b);
         if (b) {
@@ -154,6 +225,15 @@ public class Dialog_Connection extends JFrame {
         }
     }
 
+    /**
+     * it will show or hide the dialog
+     *
+     * @param l list of links
+     * @param n list of network settings
+     * @param nodes list of nodes
+     * @param selectedTool the selected tool
+     * @since 1.1.0
+     * */
     public void showDialog(ArrayList<NetworkLink> l, ArrayList<Network> n,ArrayList<Integer> nodes, ToolStatus selectedTool) {
         if (selectedTool == ToolStatus.TOOL_LINK) {
             this.nodeA = nodes.get(0);

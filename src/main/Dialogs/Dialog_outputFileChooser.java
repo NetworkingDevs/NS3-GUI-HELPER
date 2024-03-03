@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * For configuration of output file generation
+ * */
 public class Dialog_outputFileChooser extends JFrame {
     private JPanel JPanel_main;
     private JPanel JPanel_top;
@@ -18,10 +21,24 @@ public class Dialog_outputFileChooser extends JFrame {
     private JButton btn_save;
 
     // These are variable created for serving the functionalities....
+    /**
+     * the path where the output will be generated
+     * */
     String outputPath;
+    /**
+     * name of the file
+     * */
     String fileName;
+    /**
+     * dialog helper to show messages
+     * */
     Dialog_Helper dialogHelper;
 
+    /**
+     * to create an object of type Dialog_outputFileChooser
+     *
+     * @since 1.0.0
+     * */
     public Dialog_outputFileChooser() {
         // ==================== BASIC CONF. ====================
         this.setContentPane(this.JPanel_main);
@@ -39,6 +56,12 @@ public class Dialog_outputFileChooser extends JFrame {
         this.fileName = new String();
     }
 
+    /**
+     * to set the path of the file, act as placeholder
+     *
+     * @param value the value that is in the text box
+     * @since 1.0.0
+     * */
     public void setPath(String value) {
         this.textField_outputPath.setText(value);
         this.outputPath = value;
@@ -51,6 +74,12 @@ public class Dialog_outputFileChooser extends JFrame {
         }
     }
 
+    /**
+     * to set the file name, act as placeholder
+     *
+     * @param value the value that is in the text box
+     * @since 1.0.0
+     * */
     public void setFileName(String value) {
         this.textField_fileName.setText(value);
         this.fileName = value;
@@ -71,6 +100,9 @@ public class Dialog_outputFileChooser extends JFrame {
         return fileName;
     }
 
+    /**
+     * to set up all events
+     * */
     private void setUpEventListeners() {
         // action to perform when clicking on output path check box...
         chkBox_outputPath.addActionListener(new ActionListener() {

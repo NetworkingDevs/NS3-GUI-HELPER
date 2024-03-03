@@ -22,6 +22,9 @@ import java.util.ArrayList;
 
 import static Helpers.ApplicationSettingsHelper.*;
 
+/**
+ * Dialog to configure the default network settings
+ * */
 public class Dialog_DefaultNetworkConfig extends JFrame {
     private JPanel JPanel_main;
     private JPanel JPanel_top;
@@ -37,12 +40,30 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
     private JScrollPane JScrollPane_network_manager;
     private JPanel JPanel_networks;
 
+    /**
+     * list of network settings
+     * */
     public ArrayList<Network> defaultNetworks;
+    /**
+     * dialog helper
+     * */
     Dialog_Helper dialogHelper;
+    /**
+     * the index for editing the object
+     * */
     int editIndex = -1;
-
+    /**
+     * the instance of this class
+     * */
     private static Dialog_DefaultNetworkConfig INSTANCE;
 
+    /**
+     * to get the instance of this class
+     *
+     * @param networks the list of network settings
+     * @return the instance of this class
+     * @since 1.1.0
+     * */
     public static Dialog_DefaultNetworkConfig getInstance(ArrayList<Network> networks) {
         if (INSTANCE==null) {
             INSTANCE = new Dialog_DefaultNetworkConfig(networks);
@@ -50,6 +71,12 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
         return INSTANCE;
     }
 
+    /**
+     * to make the object of type Dialog_DefaultNetworkConfig
+     *
+     * @param networks the list of network settings
+     * @since 1.0.0
+     * */
     public Dialog_DefaultNetworkConfig(ArrayList<Network> networks) {
         // ==================== BASIC CONF. ====================
         this.setContentPane(this.JPanel_main);
@@ -80,6 +107,11 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
         this.setUpEventListeners();
     }
 
+    /**
+     * to show the network settings
+     *
+     * @since 1.0.0
+     * */
     public void showNetworks() {
         DebuggingHelper.Debugln("Rendering each nework in JPanel!");
         for (int i=0; i<this.defaultNetworks.size(); i++) {
@@ -125,6 +157,11 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
         }
     }
 
+    /**
+     * to show the network settings
+     *
+     * @since 1.0.0
+     * */
     public void showNetworksAgain() {
         DebuggingHelper.Debugln("Creating a new JPanel (after deleting last n/w / first time rendering)!");
         this.JPanel_networks = new JPanel();
@@ -135,6 +172,12 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
         DebuggingHelper.Debugln("Rendering new JPanel on JScrollPane!");
     }
 
+    /**
+     * to show the networks settings
+     *
+     * @param index the index of the network settings
+     * @since 1.0.0
+     * */
     private void showNetworkSettings(int index) {
         this.editIndex = index;
         Network selectedNetwork = this.defaultNetworks.get(index);
@@ -144,6 +187,11 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
         DebuggingHelper.Debugln("All fields have been changed to selected network!");
     }
 
+    /**
+     * to set up all events
+     *
+     * @since 1.0.0
+     * */
     private void setUpEventListeners() {
         // act as a placeholder
         this.textField_netid.addFocusListener(new FocusAdapter() {

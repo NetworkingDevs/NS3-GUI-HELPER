@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * to manage the configuration of one UDP Echo client
+ * */
 public class Dialog_ConfigureClient extends JFrame {
     private JPanel JPanel_main;
     private JLabel lbl_clientIndex;
@@ -23,16 +26,39 @@ public class Dialog_ConfigureClient extends JFrame {
     private JButton btn_save;
 
     // mention all the components that have to be taken here....
+    /**
+     * the key for overview label
+     * */
     public static final String COMPONENT_OVERVIEW_LABEL = "Server_OverviewLabel";
 
     // for serving the functionalities....
+    /**
+     * the map for helpful components
+     * */
     Map<String, JComponent> helpfulComponents;
 
     // for serving the functionalities...
+    /**
+     * the total no. of nodes
+     * */
     int totalNodes;
+    /**
+     * the client configuration settings
+     * */
     public ArrayList<String> settings;
+    /**
+     * dialog helper
+     * */
     Dialog_Helper dialogHelper;
 
+
+    /**
+     * to create the object of type Dialog_ConfigureClient Server
+     *
+     * @param n total no. of nodes
+     * @param helpfulComponents the map of helpful components
+     * @since 0.3.0
+     * */
     public Dialog_ConfigureClient(int n, Map<String, JComponent> helpfulComponents) {
         this.helpfulComponents = helpfulComponents;
         this.totalNodes = n;
@@ -69,6 +95,12 @@ public class Dialog_ConfigureClient extends JFrame {
         });
     }
 
+    /**
+     * to make the dialog visible with list of all nodes
+     *
+     * @param b whether to show or hide
+     * @since 0.3.0
+     * */
     @Override
     public void setVisible(boolean b) {
         super.setVisible(b);
@@ -79,39 +111,86 @@ public class Dialog_ConfigureClient extends JFrame {
         }
     }
 
+    /**
+     * to show dialog with nodes
+     *
+     * @param n the total nodes
+     * @since 0.3.0
+     * */
     public void showDialog(int n) {
         this.totalNodes = n;
         this.setVisible(true);
     }
 
+    /**
+     * to get the stop time of the client
+     *
+     * @since 1.0.0
+     * */
     public int getStopTime() {
         return Integer.parseInt(this.settings.get(1)) + Integer.parseInt(this.settings.get(2));
     }
 
+    /**
+     * to get the start time of the client
+     *
+     * @since 1.0.0
+     * */
     public String getStartTime() {
         return this.settings.get(1);
     }
 
+    /**
+     * to get the index of the client node
+     *
+     * @since 1.0.0
+     * */
     public String getClientIndex() {
         return this.settings.get(0);
     }
 
+    /**
+     * to get the MTU of the client
+     *
+     * @since 1.0.0
+     * */
     public String getMTU() {
         return this.settings.get(3);
     }
 
+    /**
+     * to get the interval of the client
+     *
+     * @since 1.0.0
+     * */
     public String getInterval() {
         return this.settings.get(4);
     }
 
+    /**
+     * to get the no. of packets for the client
+     *
+     * @since 1.0.0
+     * */
     public String getPackets() {
         return this.settings.get(5);
     }
 
+    /**
+     * to update the overview text
+     *
+     * @since 0.3.0
+     * */
     private void updateOverviewTxt() {
         ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Client Index : Configured node "+this.settings.get(0));
     }
 
+    /**
+     * to validate the input settings
+     *
+     * @return the boolean value indicating the validity of the inputs
+     * @since 0.3.0
+     * */
     private boolean validateInputs() {
 
         // start time validation...

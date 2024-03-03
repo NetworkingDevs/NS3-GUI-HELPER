@@ -25,6 +25,9 @@ import java.util.ArrayList;
 
 import static Helpers.ApplicationSettingsHelper.*;
 
+/**
+ * Dialog to configure the default link settings
+ * */
 public class Dialog_DefaultLinkConfig extends JFrame {
     private JPanel JPanel_main;
     private JPanel JPanel_uppper;
@@ -44,19 +47,42 @@ public class Dialog_DefaultLinkConfig extends JFrame {
     private JComboBox comboBox_linkType;
     private JCheckBox checkBox_enablePcap;
 
+    /**
+     * list of network settings
+     * */
     public ArrayList<NetworkLink> defaultLinks;
+    /**
+     * dialog helper
+     * */
     Dialog_Helper dialogHelper;
+    /**
+     * the index for editing the object
+     * */
     int editIndex = -1;
-
+    /**
+     * the instance of this class
+     * */
     private static Dialog_DefaultLinkConfig INSTANCE;
 
+    /**
+     * to get the instance of this class
+     *
+     * @param links the list of link settings
+     * @return the instance of this class
+     * @since 1.1.0
+     * */
     public static Dialog_DefaultLinkConfig getInstance(ArrayList<NetworkLink> links) {
         if (INSTANCE==null) {
             INSTANCE = new Dialog_DefaultLinkConfig(links);
         }
         return INSTANCE;
     }
-
+    /**
+     * to make the object of type Dialog_DefaultLinkConfig
+     *
+     * @param links the list of links settings
+     * @since 1.0.0
+     * */
     public Dialog_DefaultLinkConfig(ArrayList<NetworkLink> links) {
         // ==================== BASIC CONF. ====================
         this.setContentPane(this.JPanel_main);
@@ -87,6 +113,11 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         this.setUpEventListeners();
     }
 
+    /**
+     * to show the link settings
+     *
+     * @since 1.0.0
+     * */
     public void showLinks() {
         DebuggingHelper.Debugln("Rendering each link in JPanel!");
         for (int i=0; i<this.defaultLinks.size(); i++) {
@@ -133,6 +164,11 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         }
     }
 
+    /**
+     * to show the links settings
+     *
+     * @since 1.0.0
+     * */
     public void showLinksAgain() {
         DebuggingHelper.Debugln("Creating a new JPanel (after deleting last link / first time rendering)!");
         this.JPanel_links = new JPanel();
@@ -143,6 +179,12 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         DebuggingHelper.Debugln("Rendering new JPanel on JScrollPane!");
     }
 
+    /**
+     * to show the link settings
+     *
+     * @param index the index of the link settings
+     * @since 1.0.0
+     * */
     private void showLinkSettings(int index) {
         this.editIndex = index;
         NetworkLink selectedLink = this.defaultLinks.get(index);
@@ -154,6 +196,13 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         DebuggingHelper.Debugln("All fields have been changed to selected link!");
     }
 
+    /**
+     * to get the index of the speed modifier
+     *
+     * @param value the value of the speed modifier
+     * @return the equivalent index
+     * @since 1.0.0
+     * */
     private int getDataRateIndex(String value) {
         if (value.equals("KB/s")) {
             return 0;
@@ -164,6 +213,11 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         }
     }
 
+    /**
+     * to set up all events
+     *
+     * @since 1.0.0
+     * */
     private void setUpEventListeners() {
         // act as a placeholder
         this.textField_delay.addFocusListener(new FocusAdapter() {

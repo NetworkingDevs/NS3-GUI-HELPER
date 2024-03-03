@@ -8,6 +8,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * to manage network settings
+ * */
 public class Dialog_Network extends JFrame {
     private JPanel JPanel_main;
     private JLabel lbl_netId;
@@ -19,13 +22,29 @@ public class Dialog_Network extends JFrame {
     private JButton btn_makeNetwork;
 
     // mention all the components that have to be taken here....
+    /**
+     * key for the combo box
+     * */
     public static final String COMPONENT_COMBO_BOX = "Network_ComboBox";
+    /**
+     * key for the overview label
+     * */
     public static final String COMPONENT_OVERVIEW_LABEL = "Network_OverviewLabel";
-
+    /**
+     * to indicate that whether the default network settings are visible or not
+     * */
     public static boolean SHOW_DEFAULT = false;
-
+    /**
+     * the instance of this class
+     * */
     private static Dialog_Network INSTANCE;
 
+    /**
+     * to get the instance of this class
+     *
+     * @param helpfulComponents the components that should be managed
+     * @since 1.1.0
+     * */
     public static Dialog_Network getInstance(Map<String, JComponent> helpfulComponents) {
         if (INSTANCE == null) {
             INSTANCE = new Dialog_Network(helpfulComponents);
@@ -34,11 +53,30 @@ public class Dialog_Network extends JFrame {
     }
 
     // for serving the functionalities....
+    /**
+     * the map of helpful components
+     * */
     Map<String, JComponent> helpfulComponents;
+    /**
+     * network settings
+     * */
     public ArrayList<Network> links;; // changed this to public on 08/12/23 for accessibility...
+    /**
+     * the id of last inserted network settings
+     * */
     private int lastID = 0;
+    /**
+     * the dialog helper to show messages in dialog
+     * */
     Dialog_Helper dialogHelper;
 
+
+    /**
+     * to create the object of type Dialog_Network
+     *
+     * @param components the helpful components
+     * @since 0.3.0
+     * */
     public Dialog_Network(Map<String, JComponent> components) {
         this.helpfulComponents = components;
         this.links = new ArrayList<>();
@@ -60,6 +98,11 @@ public class Dialog_Network extends JFrame {
         });
     }
 
+    /**
+     * to show the available network settings
+     *
+     * @since 0.3.0
+     * */
     public void showNetworks() {
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
@@ -79,21 +122,44 @@ public class Dialog_Network extends JFrame {
         this.links.addAll(links);
     }
 
+    /**
+     * to make all default links visible
+     *
+     * @param show whether to show or hide default links
+     * @since 0.3.0
+     * */
     public void showDefaultNetworks(boolean show) {
         SHOW_DEFAULT = show;
         this.showNetworks();
     }
 
+    /**
+     * to get all the network settings
+     *
+     * @return the list of network settings
+     * @since 0.3.0
+     * */
     public ArrayList<Network> getAllNetworks() {
         ArrayList<Network> networks = new ArrayList<>();
         networks.addAll(this.links);
         return networks;
     }
 
+    /**
+     * to get the count of network settings
+     *
+     * @return the size of network settings
+     * @since 1.1.0
+     * */
     public int getNetworkCount() {
         return this.links.size();
     }
 
+    /**
+     * to add the network setting
+     *
+     * @since 0.3.0
+     * */
     private void addNetwork() {
         Network network = new Network(lastID++, this.textField_netid.getText().toString(), this.textField_netmask.getText().toString(), this.textField_network_name.getText().toString());
         this.links.add(network);
@@ -101,6 +167,11 @@ public class Dialog_Network extends JFrame {
         this.dialogHelper.showInformationMsg("Network Added Successfully with name : "+this.textField_network_name.getText().toString(),"Success");
     }
 
+    /**
+     * to update the overview text
+     *
+     * @since 0.3.0
+     * */
     private void updateOverviewTxt() {
         ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Networks : "+(this.links.size())+" networks created");
     }
