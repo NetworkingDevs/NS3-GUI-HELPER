@@ -1,12 +1,3 @@
-/**
- * Program name: Dialog_DefaultLinkConfig
- * Program date: 04-01-2024
- * Program owner: henil
- * Contributor:
- * Last Modified: 04-01-2024
- * <p>
- * Purpose: This class will manage creation and management of default links...
- */
 package Dialogs;
 
 import Helpers.DebuggingHelper;

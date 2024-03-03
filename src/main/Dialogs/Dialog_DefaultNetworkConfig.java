@@ -1,12 +1,3 @@
-/**
- * Program name: Dialog_DefaultNetworkCOnfig
- * Program date: 06-01-2024
- * Program owner: henil
- * Contributor:
- * Last Modified: 06-01-2024
- * <p>
- * Purpose:
- */
 package Dialogs;
 
 import Helpers.DebuggingHelper;
