@@ -1,12 +1,9 @@
 /**
- * Program name: ApplicationSettingsHelper
- * Program date: 05-01-2024
- * Program owner: henil
- * Contributor:
- * Last Modified: 05-01-2024
  * <p>
- * Purpose: This class will be used for managing the settings for application environment...
- */
+ *     The following package will be managing the helper functions,
+ *     to manage various operations for the applications.
+ * </p>
+ * */
 package Helpers;
 
 import FileHandler.FileReaderWriter;
@@ -20,21 +17,59 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+
+/**
+ * This class will be used for managing the settings for application environment
+ *
+ * @since 1.0.0
+ * */
 public class ApplicationSettingsHelper {
     // list of settings...
+    /**
+     * the file path for code generation
+     * */
     public static String OUTPUT_PATH = "outputPath";
+    /**
+     * for key of the file name
+     * */
     public static String FILE_NAME = "fileName";
+    /**
+     * for key of the default links
+     * */
     public static String DEFAULT_LINKS = "defaultLinks";
+    /**
+     * for default network settings
+     * */
     public static String DEFAULT_NETWORKS = "defaultNetworks";
 
+
+    /**
+     * for storing the settings of the application
+     * */
     public static JSONObject UNIVERSAL_SETTINGS = new JSONObject();
+    /**
+     * for getting the default output path for the file generation
+     * */
     public static String OutputPath = System.getProperty("user.dir");
 
     // static methods...
+    /**
+     * to enable the application with basic settings, for the first time
+     *
+     * @see ApplicationSettingsHelper#setUpSettings(String)
+     * @since 1.0.0
+     * */
     public static void setUpSettings() {
         setUpSettings(System.getProperty("user.dir"));
     }
 
+    /**
+     * to check the content of the settings file, restoring the settings from the file
+     *
+     * @param OutputPath the path of the file
+     * @see ApplicationSettingsHelper#setUpSettings()
+     * @since 1.0.0
+     * */
     public static void setUpSettings(String OutputPath) {
         UNIVERSAL_SETTINGS.put(FILE_NAME, "output");
         UNIVERSAL_SETTINGS.put(OUTPUT_PATH, OutputPath);
@@ -50,20 +85,43 @@ public class ApplicationSettingsHelper {
         }
     }
 
+    /**
+     * for saving the settings to the file
+     *
+     * @since 1.1.0
+     * */
     public static void saveSettings()
     {
         FileReaderWriter.writeUsingPath(UNIVERSAL_SETTINGS.toString(), OutputPath+"\\file.txt");
         DebuggingHelper.Debugln("Updated to file!! Settings has been saved in file!!");
     }
 
+    /**
+     * to check whether the settings object has default links
+     *
+     * @return boolean variable indicating presence of the default links
+     * @since 1.0.0
+     * */
     public static boolean hasDefaultLinks() {
         return UNIVERSAL_SETTINGS.has(DEFAULT_LINKS);
     }
 
+    /**
+     * to check whether the settings object has default networks
+     *
+     * @return boolean variable indicating presence of the default networks
+     * @since 1.0.0
+     * */
     public static boolean hasDefaultNetworks() {
         return UNIVERSAL_SETTINGS.has(DEFAULT_NETWORKS);
     }
 
+    /**
+     * to get the default links
+     *
+     * @return list of default links
+     * @since 1.0.0
+     * */
     public static ArrayList<NetworkLink> getDefaultLinks() {
         ArrayList<NetworkLink> links = new ArrayList<>();
         if (hasDefaultLinks()) {
@@ -87,6 +145,12 @@ public class ApplicationSettingsHelper {
         return links;
     }
 
+    /**
+     * to get the default networks
+     *
+     * @return list of default networks
+     * @since 1.0.0
+     * */
     public static ArrayList<Network> getDefaultNetworks() {
         ArrayList<Network> networks = new ArrayList<>();
         if (hasDefaultNetworks()) {
@@ -106,6 +170,11 @@ public class ApplicationSettingsHelper {
         return networks;
     }
 
+    /**
+     * to set the default links
+     *
+     * @since 1.1.0
+     * */
     public static void saveDefaultLinks(ArrayList<NetworkLink> links) {
         if (links.size() > 0) {
             if (UNIVERSAL_SETTINGS.has(DEFAULT_LINKS)) {
@@ -119,6 +188,11 @@ public class ApplicationSettingsHelper {
         }
     }
 
+    /**
+     * to set the default networks
+     *
+     * @since 1.1.0
+     * */
     public static void saveDefaultNetworks(ArrayList<Network> networks) {
         if (networks.size() > 0) {
             if (UNIVERSAL_SETTINGS.has(DEFAULT_NETWORKS)) {
