@@ -1,0 +1,18 @@
+digraph "E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_35171579173b78a988e056be08039195 {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", label="main", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_35171579173b78a988e056be08039195.html",tooltip=""]
+  subgraph clusterdir_620a29d5d8979678fc2e9a888cf81882 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_620a29d5d8979678fc2e9a888cf81882.html",tooltip=""]
+    dir_620a29d5d8979678fc2e9a888cf81882 [shape=plaintext, label="Ns3Objects"];
+  dir_4accf501a87dad86c48aa68e5ec91f40 [label="Devices", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_4accf501a87dad86c48aa68e5ec91f40.html",tooltip=""];
+  dir_3d24a3d35c2bf132b82c760059db4a40 [label="Links", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_3d24a3d35c2bf132b82c760059db4a40.html",tooltip=""];
+  dir_df59361400d6b14128aa63ee1d0a1e27 [label="Netoworks", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_df59361400d6b14128aa63ee1d0a1e27.html",tooltip=""];
+  }
+  }
+}

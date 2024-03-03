@@ -2,9 +2,9 @@
 layout: default
 ---
 
-| Home      | [Final Product](./appImages.html) | [Manul](./manual.html) | [Releases](./releases.html) |
-|:----------|:----------------------------------|------------------------|-----------------------------|
-| This Page | To Final Product                  | To User Manual         | For latest updates          |
+| Home      | [Final Product](./appImages.html) | [Manul](./manual.html) | [Releases](./releases.html) | [Doxygen](./assets/index.html) |
+|:----------|:----------------------------------|------------------------|-----------------------------|--------------------------------|
+| This Page | To Final Product                  | To User Manual         | For latest updates          | For Doxygen                    |
 
 # NS3 - GUI Code Generator
 

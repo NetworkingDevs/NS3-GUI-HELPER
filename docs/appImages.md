@@ -2,9 +2,9 @@
 layout: default
 ---
 
-| [Home](./index.html) | Final Product | [Manual](./manual.html) | [Releases](./releases.html) |
-|:---------------------|:--------------|-------------------------|-----------------------------|
-| To Home Page         | This Page     | To User Manual          | For latest updates          |
+| [Home](./index.html) | Final Product | [Manual](./manual.html) | [Releases](./releases.html) | [Doxygen](./doxygen/index.html) |
+|:---------------------|:--------------|-------------------------|-----------------------------| --- |
+| To Home Page         | This Page     | To User Manual          | For latest updates          | To Doxygen |
 
 # Application Images
 - We've included a sneak peek of the final desktop application, granting you an immediate glimpse of its functionality and satisfying your curiosity to witness it in action.

@@ -1,0 +1,14 @@
+digraph "Helpers.ApplicationSettingsHelper.saveSettings"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="Helpers.ApplicationSettings\lHelper.saveSettings",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Helpers.DebuggingHelper.\lDebugln",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_helpers_1_1_debugging_helper.html#ac446f43e6c9df2e528e55c235b25cd6c",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="FileHandler.FileReaderWriter.write\lUsingPath",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_file_handler_1_1_file_reader_writer.html#a950a54620ce2588c0baa4e4bfc4e32fa",tooltip=" "];
+  Node3 -> Node2 [id="edge3_Node000003_Node000002",color="steelblue1",style="solid",tooltip=" "];
+}

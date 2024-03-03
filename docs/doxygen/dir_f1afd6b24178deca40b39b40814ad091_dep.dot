@@ -1,0 +1,16 @@
+digraph "E:/Project/Networking Projects/NS3-GUI/src"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_834f9325439744b111f145c42f9bb399 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="NS3-GUI", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_834f9325439744b111f145c42f9bb399.html",tooltip=""]
+  subgraph clusterdir_f1afd6b24178deca40b39b40814ad091 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_f1afd6b24178deca40b39b40814ad091.html",tooltip=""]
+    dir_f1afd6b24178deca40b39b40814ad091 [shape=plaintext, label="src"];
+  dir_35171579173b78a988e056be08039195 [label="main", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_35171579173b78a988e056be08039195.html",tooltip=""];
+  }
+  }
+}
