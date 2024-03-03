@@ -11,23 +11,73 @@ import Ns3Objects.Links.NetworkLink;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * This class will be responsible for generating the code
+ * for the equivalent topology
+ * */
 public class CodeGenerator {
 
     // map fields can be declared here....
+    /**
+     * a key value for netanim utility
+     * */
     public static final String UTILITY_NETANIM = "netanim";
+    /**
+     * a key value for the wireshark utility
+     * */
     public static final String UTILITY_WIRESHARK = "wireshark";
+    /**
+     * a key value for the name of the topology
+     * */
     public static final String NAME_OF_TOPOLOGY = "custom";
+    /**
+     * key value for total nodes
+     * */
     public static final String TOTAL_NODES = "nodes";
+    /**
+     * a key value for reading the true value representing
+     * */
     public static final String VALUE_TRUE = "t";
+    /**
+     * a key value for reading the false value representing
+     * */
     public static final String VALUE_FALSE = "f";
 
+    /**
+     * server configuration dialog box
+     * */
     private Dialog_ConfigureServer dialogConfigureServer;
+    /**
+     * client configuration dialog box
+     * */
     private Dialog_ConfigureClient dialogConfigureClient;
+    /**
+     * dialog for connection
+     * */
     private Dialog_Connection dialogConnection;
+    /**
+     * dialog for link
+     * */
     private Dialog_Link dialogLink;
+    /**
+     * map to filter out some extra fields
+     * */
     private Map<String, String> otherFields;
+    /**
+     * final code
+     * */
     protected String code;
 
+    /**
+     * to make an object of type CodeGenerator
+     *
+     * @param s server configuration dialog
+     * @param c client configuration dialog
+     * @param conn connection dialog
+     * @param link link dialog
+     * @param other map of extra fileds
+     * @since 0.3.0
+     * */
     public CodeGenerator(Dialog_ConfigureServer s, Dialog_ConfigureClient c, Dialog_Connection conn, Dialog_Link link, Map<String, String> other) {
         this.dialogConfigureServer = s;
         this.dialogConfigureClient = c;

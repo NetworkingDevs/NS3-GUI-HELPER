@@ -4,23 +4,75 @@ package GuiRenderers;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * for painting the objects on the canvas
+ * this will be centrally responsible entity
+ * */
 public class TopologyPainter extends Canvas {
+    /**
+     * the default width of the canvas
+     * */
     private static int DEFAULT_WIDTH = 500;
+    /**
+     * the default height of the canvas
+     * */
     private static int DEFAULT_HEIGHT = 500;
+    /**
+     * the index of server node
+     * */
     private static int SERVER_NODE = -1;
+    /**
+     * the index of client node
+     * */
     private static int CLIENT_NODE = -1;
+    /**
+     * the static node for highlighting of the client and server nodes
+     * */
     private static NodePainter HIGHLIGHT = new NodePainter(0,0, 30, "SERVER", Color.black);
 
+    /**
+     * width and height of the canvas
+     * */
     int width, height;
+    /**
+     * the list of node, that will be painted on the canvas
+     * */
     ArrayList<NodePainter> nodes;
+    /**
+     * the point to point links that will be painted on the canvas
+     * */
     ArrayList<P2pLinkPainter> links;
+    /**
+     * the CSMA links that will be painted on the canvas
+     * */
     ArrayList<CsmaLinkPainter> links_csma;
+    /**
+     * the reference nodes, shown while adding CSMA link
+     * */
     ArrayList<NodePainter> referenceNodes;
 
+    /**
+     * to create an object of type Topology Painter
+     *
+     * @param n list of nodes
+     * @param l list of links
+     * @see TopologyPainter#TopologyPainter(ArrayList, ArrayList, int, int)
+     * @since 0.3.0
+     * */
     public TopologyPainter(ArrayList<NodePainter> n, ArrayList<P2pLinkPainter> l) {
         this(n,l,DEFAULT_WIDTH,DEFAULT_HEIGHT);
     }
 
+    /**
+     * to create an object of type Topology Painter
+     *
+     * @param n list of nodes
+     * @param l list of links
+     * @param w the width of the canvas
+     * @param h the height of the canvas
+     * @see TopologyPainter#TopologyPainter(ArrayList, ArrayList)
+     * @since 0.3.0
+     * */
     public TopologyPainter(ArrayList<NodePainter> n, ArrayList<P2pLinkPainter> l, int w, int h) {
         // initializing components...
         this.nodes = new ArrayList<>();
@@ -33,6 +85,12 @@ public class TopologyPainter extends Canvas {
         this.height = h;
     }
 
+    /**
+     * to paint the objects on the canvas
+     *
+     * @param g the graphics in the CANVAS
+     * @since 0.3.0
+     * */
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -80,42 +138,101 @@ public class TopologyPainter extends Canvas {
         return new Dimension(500,500);
     }
 
+    /**
+     * to add nodes for painting
+     *
+     * @param node the node to be added
+     * @since 0.3.0
+     * */
     public void addNode(NodePainter node) {
         this.nodes.add(node);
     }
 
+    /**
+     * to add the P2P link for painting
+     *
+     * @param link the link to be added
+     * @see TopologyPainter#addLink(CsmaLinkPainter)
+     * @since 0.3.0
+     * */
     public void addLink(P2pLinkPainter link) {
         this.links.add(link);
     }
 
+    /**
+     * to add the CSMA link for painting
+     *
+     * @param link the link to be added
+     * @see TopologyPainter#addLink(P2pLinkPainter)
+     * @since 0.3.0
+     * */
     public void addLink(CsmaLinkPainter link) {
         this.links_csma.add(link);
     }
 
+    /**
+     * to add the reference node
+     *
+     * @param node the node to be added
+     * @since 1.1.0
+     * */
     public void addRefNode(NodePainter node) {
         this.referenceNodes.add(node);
     }
 
+    /**
+     * to add the reference node and directly painting
+     *
+     * @param node the node to be added
+     * @since 1.1.0
+     * */
     public void addAndPrintRefNode(NodePainter node) {
         this.addRefNode(node);
         this.repaint();
     }
 
+    /**
+     * to add the node and direct painting
+     *
+     * @param node the node to be added
+     * @since 0.3.0
+     * */
     public void addAndPrintNode(NodePainter node) {
         this.addNode(node);
         this.repaint();
     }
 
+    /**
+     * to add the link and direct painting
+     *
+     * @param link the link to be added
+     * @since 0.3.0
+     * */
     public void addAndPrintLink(CsmaLinkPainter link) {
         this.addLink(link);
         this.repaint();
     }
 
+    /**
+     * to add the link and direct painting
+     *
+     * @param link the link to be added
+     * @since 0.3.0
+     * */
     public void addAndPrintLink(P2pLinkPainter link) {
         this.addLink(link);
         this.repaint();
     }
 
+    /**
+     * to get the index of node, with which the mouse is collided
+     *
+     * @param x x-position of the mouse
+     * @param y y-position of the mouse
+     * @return the integer value, representing the index of the first collided node,
+     *          and it will return -1, in case not collided with any of the node
+     * @since 0.3.0
+     * */
     public int pointCollideWithAny(int x, int y) {
         int index = -1;
 
@@ -129,10 +246,13 @@ public class TopologyPainter extends Canvas {
         return index;
     }
 
-    public void enableView() {
-        this.enableView(-1,-1);
-    }
-
+    /**
+     * to enabling highlighting of the server and client node
+     *
+     * @param s server index
+     * @param c client index
+     * @since 1.0.0
+     * */
     public void enableView(int s, int c) {
         SERVER_NODE = s;
         CLIENT_NODE = c;
@@ -140,6 +260,16 @@ public class TopologyPainter extends Canvas {
         this.repaint();
     }
 
+    /**
+     * to check that whether the node is collided with the mouse position
+     *
+     * @param n Node
+     * @param x x-position of the mouse
+     * @param y y-position of the mouse
+     * @return The boolean value, showing that whether the node is colliding or not
+     * @see TopologyPainter#pointCollideWithAny(int, int)
+     * @since 0.3.0
+     * */
     private boolean checkCollisionWithNode(NodePainter n, int x, int y) {
         int distance = (int) Math.sqrt(Math.pow(n.xPos - x,2) + Math.pow(n.yPos - y, 2));
         // System.out.println("Distance : "+distance); // just for testing...

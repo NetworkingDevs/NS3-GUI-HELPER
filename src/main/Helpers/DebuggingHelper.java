@@ -23,7 +23,7 @@ public class DebuggingHelper {
      * true.
      * 
      * @param value the string that you need to print on the command line
-     * @see DebuggingHelper#Debugln(String) 
+     * @see DebuggingHelper#Debugln(String)
      * @see DebuggingHelper#DEBUG_STATUS 
      * @since 1.0.0
      * */
