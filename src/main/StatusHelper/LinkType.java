@@ -12,5 +12,5 @@ package StatusHelper;
  * enum type for identification of link type
  * */
 public enum LinkType {
-    LINK_P2P, LINK_CSMA
+    LINK_P2P, LINK_CSMA, LINK_WIFI
 }
