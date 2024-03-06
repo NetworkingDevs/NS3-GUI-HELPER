@@ -97,6 +97,56 @@ public class Device {
     public String getDeviceConfCode() {
         if(this.linkSettings.getLinkType() == LinkType.LINK_CSMA) {
             return "\ncsmaDevices"+CSMA_INDEX+" = csma"+this.linkSettings.getName()+".Install(csmaNodes"+CSMA_INDEX+");";
+        } else if (this.linkSettings.getLinkType() == LinkType.LINK_WIFI) {
+            String devConfigCode = """
+                    \nmac_"""
+                    + this.linkSettings.getName() +
+                    """
+                    .SetType("ns3::ApWifiMac","Ssid",SsidValue(ssid_"""
+                    + this.linkSettings.getName() +
+                    """
+                    ));
+                    NetDeviceContainer apDev_"""
+                    + this.linkSettings.getName() +
+                    """
+                     = wifi_"""
+                    + this.linkSettings.getName() +
+                    """
+                    .Install(phy_"""
+                    + this.linkSettings.getName() +
+                    """
+                    ,mac_"""
+                    + this.linkSettings.getName() +
+                    """
+                    ,wifiApNodes_"""
+                    + this.linkSettings.getName() +
+                    """
+                    );
+                    mac_"""
+                    + this.linkSettings.getName() +
+                    """
+                    .SetType("ns3::StaWifiMac","Ssid",SsidValue(ssid_"""
+                    + this.linkSettings.getName() +
+                    """
+                    ));
+                    NetDeviceContainer staDev_"""
+                    + this.linkSettings.getName() +
+                    """
+                     = wifi_"""
+                    + this.linkSettings.getName() +
+                    """
+                    .Install(phy_"""
+                    + this.linkSettings.getName() +
+                    """
+                    ,mac_"""
+                    + this.linkSettings.getName() +
+                    """
+                    ,wifiStaNodes_"""
+                    + this.linkSettings.getName() +
+                    """
+                    );
+                    """;
+            return devConfigCode;
         } else { // assumed to be point to point link...
             return "\ndevices"+this.nodesGroup+" = p2p"+this.linkSettings.getName()+".Install(nodes"+this.nodesGroup+");";
         }
@@ -125,11 +175,27 @@ public class Device {
      * */
     public String getIPConfCode() {
         String firstLine = "", secondLine = "";
+        firstLine = "address.SetBase(\""+this.networkSettings.netId+"\",\""+this.networkSettings.netMask+"\");";
         if (this.linkSettings.getLinkType() == LinkType.LINK_CSMA) {
-            firstLine = "address.SetBase(\""+this.networkSettings.netId+"\",\""+this.networkSettings.netMask+"\");";
             secondLine = "Ipv4InterfaceContainer csmaInterfaces"+CSMA_INDEX+" = "+"address.Assign(csmaDevices"+CSMA_INDEX+");";
+        } else if (this.linkSettings.getLinkType() == LinkType.LINK_WIFI) {
+            secondLine = """
+                    Ipv4InterfaceContainer interfacesSta_"""
+                    + this.linkSettings.getName() +
+                    """
+                     = address.Assign(staDev_"""
+                    + this.linkSettings.getName() +
+                    """
+                    );
+                    Ipv4InterfaceContainer interfacesAp_"""
+                    + this.linkSettings.getName() +
+                    """
+                     = address.Assign(apDev_"""
+                    + this.linkSettings.getName() +
+                    """
+                    );
+                    """;
         } else {
-            firstLine = "address.SetBase(\""+this.networkSettings.netId+"\",\""+this.networkSettings.netMask+"\");";
             secondLine = "Ipv4InterfaceContainer interfaces"+this.nodesGroup+" = "+"address.Assign(devices"+this.nodesGroup+");";
         }
         return "\n"+firstLine+"\n"+secondLine+"\n";
@@ -158,6 +224,8 @@ public class Device {
         if (this.linkSettings.getLinkType()==LinkType.LINK_CSMA) {
             DebuggingHelper.Debugln("Generating nodes group for csma nodes...");
             return "csmaNodes"+CSMA_INDEX;
+        } else if (this.linkSettings.getLinkType()==LinkType.LINK_WIFI) {
+            return "wifiStaNodes_"+this.linkSettings.getName()+", wifiApNodes_"+this.linkSettings.getName();
         } else { // assumed to be point to point...
             return "nodes"+this.nodesGroup;
         }
@@ -217,6 +285,11 @@ public class Device {
             for(int i : this.nodes) {
                 line1 = line1.concat("\ncsmaNodes"+this.CSMA_INDEX+".Add(allNodes.Get("+i+"));");
             }
+        } else if (this.linkSettings.getLinkType()==LinkType.LINK_WIFI) {
+            line1 = "wifiApNodes_"+this.linkSettings.getName()+".Add(allNodes.Get("+this.nodes.get(0)+"));";
+            for (int i=1; i<this.nodes.size(); i++) {
+                line1 = line1.concat("\nwifiStaNodes_"+this.linkSettings.getName()+".Add(allNodes.Get("+this.nodes.get(i)+"));");
+            }
         } else { // assumed to be point to point...
             line1 = this.getNodesGroup()+".Add(allNodes.Get("+this.nodeA+"));";
             line2 = this.getNodesGroup()+".Add(allNodes.Get("+this.nodeB+"));";
@@ -231,6 +304,13 @@ public class Device {
      * */
     @Override
     public String toString() {
-        return "Device connecting : "+nodeA+" and "+nodeB;
+        String info = "Device connecting : "+nodeA+" and "+nodeB;
+        if (this.linkSettings.getLinkType()!=LinkType.LINK_P2P) {
+            info = "Device connecting : ";
+            for (int i : this.nodes) {
+                info = info.concat(i+", ");
+            }
+        }
+        return info;
     }
 }

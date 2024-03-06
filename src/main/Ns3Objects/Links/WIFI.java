@@ -322,7 +322,10 @@ public class WIFI implements NetworkLink  {
                 + this.ssid +
                 """
                 \");
-                phy_name.SetChannel(channel_"""
+                phy_"""
+                + alias_name +
+        """
+                .SetChannel(channel_"""
                 + alias_name +
                 """
                 .Create());
@@ -333,7 +336,10 @@ public class WIFI implements NetworkLink  {
                 + this.standard +
                 """
                 );
-                wifi_name.SetRemoteStationManager(\""""
+                wifi_"""
+                + alias_name +
+        """
+                .SetRemoteStationManager(\""""
                 + this.remoteStationManager +
                 """
                 \");
