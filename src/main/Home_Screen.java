@@ -859,6 +859,7 @@ public class Home_Screen extends JFrame {
         dialogConnection = Dialog_Connection.getInstance();
         instantiateLinkDialog();
         dialogConnection.addDialogLink(dialogLink);
+        dialogConnection.addDialogLink(dialogWiFiLink);
     }
 
     /**
@@ -956,7 +957,7 @@ public class Home_Screen extends JFrame {
 
         otherFields.put(CodeGenerator.NAME_OF_TOPOLOGY, "Custom");
         otherFields.put(CodeGenerator.TOTAL_NODES, String.valueOf(this.painter.getNodes().size()));
-        this.codeGenerator = new CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink,otherFields);
+        this.codeGenerator = new CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink,dialogWiFiLink,otherFields);
         this.codeGenerator.GenerateCode();
         FileReaderWriter.writeUsingPath(this.codeGenerator.getCode(), path);
 
