@@ -10,7 +10,7 @@ public class P2P implements NetworkLink{
     /**
      * for unique identity
      * */
-    public int id;
+    private int id;
     /**
      * for alias name
      * */
@@ -30,19 +30,19 @@ public class P2P implements NetworkLink{
     /**
      * for link type
      * */
-    public LinkType linkType;
+    private LinkType linkType;
     /**
      * for enabling packet capture of entire link
      * */
-    public boolean enablePcap;
+    private boolean enablePcap;
     /**
      * for selecting as default link
      * */
-    public boolean isDefault;
+    private boolean isDefault;
     /**
      * for marking as used link
      * */
-    public boolean isUsed;
+    private boolean isUsed;
 
     /**
      * to instantiate the object of type P2P
