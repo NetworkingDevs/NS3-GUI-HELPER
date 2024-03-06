@@ -1,6 +1,8 @@
 package GuiRenderers;
 
 
+import Ns3Objects.Links.WIFI;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -47,6 +49,10 @@ public class TopologyPainter extends Canvas {
      * */
     ArrayList<CsmaLinkPainter> links_csma;
     /**
+     * the Wi-Fi links that will be painted on the canvas
+     * */
+    ArrayList<WifiLinkPainter> links_wifi;
+    /**
      * the reference nodes, shown while adding CSMA link
      * */
     ArrayList<NodePainter> referenceNodes;
@@ -80,6 +86,7 @@ public class TopologyPainter extends Canvas {
         this.links = new ArrayList<>();
         this.links.addAll(l);
         this.links_csma = new ArrayList<>();
+        this.links_wifi = new ArrayList<>();
         this.referenceNodes = new ArrayList<>();
         this.width = w;
         this.height = h;
@@ -131,11 +138,16 @@ public class TopologyPainter extends Canvas {
         for(int i=0; i<this.links_csma.size(); i++) {
             this.links_csma.get(i).paint(g);
         }
+
+        // painting wi-fi links...
+        for(int i=0; i<this.links_wifi.size(); i++) {
+            this.links_wifi.get(i).paint(g);
+        }
     }
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(500,500);
+        return new Dimension(this.width,this.height);
     }
 
     /**
@@ -168,6 +180,16 @@ public class TopologyPainter extends Canvas {
      * */
     public void addLink(CsmaLinkPainter link) {
         this.links_csma.add(link);
+    }
+
+    /**
+     * to add the Wi-Fi link for painting
+     *
+     * @param link the link to be added
+     * @since 1.2.0
+     * */
+    public void addLink(WifiLinkPainter link) {
+        this.links_wifi.add(link);
     }
 
     /**
@@ -220,6 +242,17 @@ public class TopologyPainter extends Canvas {
      * @since 0.3.0
      * */
     public void addAndPrintLink(P2pLinkPainter link) {
+        this.addLink(link);
+        this.repaint();
+    }
+
+    /**
+     * to add the link and direct painting
+     *
+     * @param link the link to be added
+     * @since 1.2.0
+     * */
+    public void addAndPrintLink(WifiLinkPainter link) {
         this.addLink(link);
         this.repaint();
     }
