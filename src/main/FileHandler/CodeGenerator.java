@@ -1,12 +1,10 @@
 package FileHandler;
 
-import Dialogs.Dialog_ConfigureClient;
-import Dialogs.Dialog_ConfigureServer;
-import Dialogs.Dialog_Connection;
-import Dialogs.Dialog_Link;
+import Dialogs.*;
 import Ns3Objects.Devices.Device;
 import Helpers.DebuggingHelper;
 import Ns3Objects.Links.NetworkLink;
+import StatusHelper.LinkType;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -60,6 +58,10 @@ public class CodeGenerator {
      * */
     private Dialog_Link dialogLink;
     /**
+     * dialog for wi-fi links
+     */
+    private Dialog_WiFiLink dialogWiFiLink;
+    /**
      * map to filter out some extra fields
      * */
     private Map<String, String> otherFields;
@@ -78,11 +80,12 @@ public class CodeGenerator {
      * @param other map of extra fileds
      * @since 0.3.0
      * */
-    public CodeGenerator(Dialog_ConfigureServer s, Dialog_ConfigureClient c, Dialog_Connection conn, Dialog_Link link, Map<String, String> other) {
+    public CodeGenerator(Dialog_ConfigureServer s, Dialog_ConfigureClient c, Dialog_Connection conn, Dialog_Link link, Dialog_WiFiLink dialogWiFiLink, Map<String, String> other) {
         this.dialogConfigureServer = s;
         this.dialogConfigureClient = c;
         this.dialogConnection = conn;
         this.dialogLink = link;
+        this.dialogWiFiLink = dialogWiFiLink;
         this.otherFields = other;
     }
 
@@ -149,8 +152,18 @@ public class CodeGenerator {
                 for (int j=0; j<nodes.size(); j++) {
                     int i = nodes.get(j);
                     if (String.valueOf(i).compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
-                        primaryServerGrp = "csmaInterfaces"+device.CSMA_INDEX;
-                        serverPrimaryIndex = String.valueOf(j);
+                        if (device.linkSettings.getLinkType() == LinkType.LINK_CSMA) {
+                            primaryServerGrp = "csmaInterfaces"+device.CSMA_INDEX;
+                            serverPrimaryIndex = String.valueOf(j);
+                        } else { // assumed to be wi-fi
+                            if (device.nodes.get(0).equals(String.valueOf(j))) {
+                                primaryServerGrp = "interfacesAp_"+device.linkSettings.getName();
+                                serverPrimaryIndex = String.valueOf(j);
+                            } else {
+                                primaryServerGrp = "interfacesSta_"+device.linkSettings.getName();
+                                serverPrimaryIndex = String.valueOf(j-1);
+                            }
+                        }
                         serverPrimaryConfigured = true;
                     }
                 }
@@ -170,14 +183,24 @@ public class CodeGenerator {
                 linkConfigCode = linkConfigCode.concat(link.toCode()+"\n");
             }
         }
+        for (NetworkLink link : this.dialogWiFiLink.links) {
+            if (link.isUsed()) {
+                linkConfigCode = linkConfigCode.concat(link.toCode()+"\n");
+            }
+        }
 
         for (Device device : this.dialogConnection.devices) {
             devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
         }
         for (Device device : this.dialogConnection.devices_csma) {
-            devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
+            if (device.linkSettings.getLinkType()!=LinkType.LINK_WIFI) {
+                devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
+            }
         }
         devicesGrp = devicesGrp.substring(0,devicesGrp.length()-1);
+        if (devicesGrp.trim().length() > 0) {
+            devicesGrp = "NetDeviceContainer "+devicesGrp+";";
+        }
 
         for (Device device : this.dialogConnection.devices) {
             deviceConfigCode = deviceConfigCode.concat(device.getDeviceConfCode());
@@ -201,6 +224,10 @@ public class CodeGenerator {
                 #include "ns3/network-module.h"
                 #include "ns3/point-to-point-module.h"
                 #include "ns3/csma-module.h"
+                #include "ns3/mobility-module.h"
+                #include "ns3/ssid.h"
+                #include "ns3/yans-wifi-helper.h"
+                #include "ns3/wifi-standards.h"
                 """
                 + netAnimModuleString +
                 """
@@ -240,14 +267,16 @@ public class CodeGenerator {
                 """
                \s
                 // step-3 = creating devices
-                NetDeviceContainer   """
+                """
                 + devicesGrp +
                 """
-                ;
-                
                 """
                 + deviceConfigCode +
                 """
+                
+                MobilityHelper mobility;
+                mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
+                mobility.Install(allNodes);
                             
                 // step-4 = Install ip stack
                 InternetStackHelper stack;
