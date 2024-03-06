@@ -76,7 +76,10 @@ public class Dialog_Connection extends JFrame {
      * the link configuration dialog
      * */
     private Dialog_Link dialogLink;
-
+    /**
+     * the link configuration dialog for wi-fi links
+     * */
+    private Dialog_WiFiLink dialogWiFiLink;
 
     /**
      * to get the instance of this class
@@ -181,9 +184,18 @@ public class Dialog_Connection extends JFrame {
      * @since 1.1.0
      * */
     private void setAsUsedLink(NetworkLink link) {
+        boolean marked = false;
         for(NetworkLink l : dialogLink.links) {
             if (link.toString().equals(l.toString())) {
                 l.setUsed(true);
+                marked = true;
+            }
+        }
+        if (!marked) {
+            for(NetworkLink l : dialogWiFiLink.links) {
+                if (link.toString().equals(l.toString())) {
+                    l.setUsed(true);
+                }
             }
         }
     }
@@ -195,6 +207,15 @@ public class Dialog_Connection extends JFrame {
      * */
     public void addDialogLink(Dialog_Link dialogLink) {
         this.dialogLink = dialogLink;
+    }
+
+    /**
+     * to add dialog for link configuration
+     *
+     * @param dialogLink the Dialog_WifiLink's object
+     * */
+    public void addDialogLink(Dialog_WiFiLink dialogLink) {
+        this.dialogWiFiLink = dialogLink;
     }
 
     /**
