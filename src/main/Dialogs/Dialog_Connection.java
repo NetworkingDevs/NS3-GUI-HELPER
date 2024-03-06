@@ -9,6 +9,7 @@ import StatusHelper.ToolStatus;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -148,6 +149,9 @@ public class Dialog_Connection extends JFrame {
                 if (links.get(index).getLinkType()==LinkType.LINK_CSMA) {
                     DebuggingHelper.Debugln("Adding CSMA devices...");
                     devices_csma.add(new Device(links.get(index), networks.get(comboBox_networks.getSelectedIndex()), nodes, devices_csma.size()));
+                } else if (links.get(index).getLinkType() == LinkType.LINK_WIFI) {
+                    DebuggingHelper.Debugln("Adding Wi-Fi devices...");
+                    devices_csma.add(new Device(links.get(index), networks.get(comboBox_networks.getSelectedIndex()), nodes, devices_csma.size()));
                 } else { // assumed to be point to point...
                     DebuggingHelper.Debugln("Adding Point to point devices...");
                     devices.add(
@@ -207,7 +211,12 @@ public class Dialog_Connection extends JFrame {
             if (selectedTool == ToolStatus.TOOL_LINK) {
                 this.lbl_deviceInfo.setText("Connection between node "+this.nodeA+" and node "+this.nodeB);
                 type = LinkType.LINK_P2P;
-            } else { // assumed to be CSMA...
+            } else if (selectedTool == ToolStatus.TOOL_LINK_WIFI) {
+                type = LinkType.LINK_WIFI;
+                String list_nodes = this.nodes.stream().map(Object::toString).collect(Collectors.joining(", "));
+                this.lbl_deviceInfo.setText("Wi-Fi Connection between : "+list_nodes);
+            }
+            else { // assumed to be CSMA...
                 type = LinkType.LINK_CSMA;
                 String list_nodes = this.nodes.stream().map(Object::toString).collect(Collectors.joining(", "));
                 this.lbl_deviceInfo.setText("CSMA Connection between nodes : "+list_nodes);
@@ -215,6 +224,7 @@ public class Dialog_Connection extends JFrame {
             this.comboBox_links.removeAllItems();
             this.comboBox_networks.removeAllItems();
             for (NetworkLink link : this.links) {
+                DebuggingHelper.Debugln("Type : "+link.getLinkType());
                 if (type == link.getLinkType()) {
                     this.comboBox_links.addItem(link);
                 }
