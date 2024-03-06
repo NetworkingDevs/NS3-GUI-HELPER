@@ -63,7 +63,7 @@ public class Dialog_ConfigureServer extends JFrame {
         // initializing the components...
         this.setContentPane(this.JPanel_main);
         this.setTitle("Server Configuration");
-        this.setSize(400,200);
+        this.setSize(400,225);
         this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
