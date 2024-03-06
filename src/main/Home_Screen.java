@@ -1,10 +1,7 @@
 import Dialogs.*;
 import FileHandler.CodeGenerator;
 import FileHandler.FileReaderWriter;
-import GuiRenderers.CsmaLinkPainter;
-import GuiRenderers.NodePainter;
-import GuiRenderers.P2pLinkPainter;
-import GuiRenderers.TopologyPainter;
+import GuiRenderers.*;
 import Helpers.DebuggingHelper;
 import StatusHelper.ToolStatus;
 
@@ -88,6 +85,12 @@ public class Home_Screen extends JFrame {
     private JScrollPane JScrollPane_forTools;
     private JPanel JPanel_tools_buttons;
     private JButton btn_tool_csmaConn;
+    private JButton btn_tool_wifiConn;
+    private JPanel JPanel_grp_wifiLinks;
+    private JLabel lbl_wifi;
+    private JButton btn_addWiFiLink;
+    private JComboBox comboBox_wifiLinks;
+    private JLabel lbl_wifi_links;
     /**
      * menu bar for the application
      * */
@@ -103,12 +106,12 @@ public class Home_Screen extends JFrame {
     /**
      * to keep track of selected nodes in CSMA channel
      * */
-    ArrayList<Integer> nodesInCsma = new ArrayList<>();
+    ArrayList<Integer> nodesSelected = new ArrayList<>();
 
     /**
      * Images for the icons and other settings
      * */
-    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected;
+    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected, icon_wifiLinkTool;
 
     {
         try {
@@ -118,6 +121,7 @@ public class Home_Screen extends JFrame {
             icon_csmaLinkTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_csmaLink.png"));
             icon_viewTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_view.png"));
             icon_selected = ImageIO.read(getClass().getClassLoader().getResource("icon_selected.png"));
+            icon_wifiLinkTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_wifiLink.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -127,7 +131,7 @@ public class Home_Screen extends JFrame {
     /**
      * a painter to draw elements and objects on the canvas
      * */
-    TopologyPainter painter = new TopologyPainter(new ArrayList<>(), new ArrayList<>(), 600, 600);
+    TopologyPainter painter = new TopologyPainter(new ArrayList<>(), new ArrayList<>(), 800, 800);
     /**
      * to keep the track of the selected tool
      * */
@@ -144,6 +148,10 @@ public class Home_Screen extends JFrame {
      * to manage links created by the user
      * */
     Dialog_Link dialogLink;
+    /**
+     * to manage wi-fi links created by the user
+     * */
+    Dialog_WiFiLink dialogWiFiLink;
     /**
      * to manage the network settings created by the user
      * */
@@ -212,6 +220,8 @@ public class Home_Screen extends JFrame {
         this.btn_tool_p2pConn.setText("");
         this.btn_tool_csmaConn.setIcon(new ImageIcon(icon_csmaLinkTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
         this.btn_tool_csmaConn.setText("");
+        this.btn_tool_wifiConn.setIcon(new ImageIcon(icon_wifiLinkTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
+        this.btn_tool_wifiConn.setText("");
         this.btn_tool_view.setIcon(new ImageIcon(icon_viewTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
         this.btn_tool_view.setText("");
 
@@ -278,12 +288,13 @@ public class Home_Screen extends JFrame {
      * */
     private boolean checkIfLinkCanBeAdded(ToolStatus toolStatus) {
         instantiateLinkDialog();
+        instantiateWifiLinkDialog();
         DebuggingHelper.Debugln(dialogLink.getP2pLinkCount()+" CSMA Link Count : "+dialogLink.getCsmaLinkCount());
         // link tool selection is invalid in below conditions...
         if (this.painter.getNodes().size() == 0) { // if there are no node...
             this.dialogHelper.showWarningMsg("Please add some nodes to make a connection!", "Warning");
             return false;
-        } else if ((toolStatus == ToolStatus.TOOL_LINK)?(dialogLink.getP2pLinkCount()==0):((toolStatus == ToolStatus.TOOL_LINK_CSMA)?(dialogLink.getCsmaLinkCount()==0):(false))) { // if there are no links...
+        } else if ((toolStatus == ToolStatus.TOOL_LINK)?(dialogLink.getP2pLinkCount()==0):((toolStatus == ToolStatus.TOOL_LINK_CSMA)?(dialogLink.getCsmaLinkCount()==0):(((toolStatus == ToolStatus.TOOL_LINK_WIFI)?(dialogWiFiLink.getLinkCount() == 0):(false))))) { // if there are no links...
             this.dialogHelper.showWarningMsg("Please create at least one link before making a connection!", "Warning");
             return false;
         } else if (dialogNetwork==null || (dialogNetwork.getNetworkCount() == 0)) { // if there are no network settings made...
@@ -537,17 +548,34 @@ public class Home_Screen extends JFrame {
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
                 DebuggingHelper.Debugln("Key pressed : "+e.getKeyCode());
-                if (e.getKeyCode() == 32 && toolStatus==ToolStatus.TOOL_LINK_CSMA) {
-                    // render the CSMA link...
-                    painter.addAndPrintLink(new CsmaLinkPainter(nodesInCsma,painter.getNodes()));
-                    // instantiate connection dialog...
-                    instantiateConnectionDialog();
-                    // get to the device dialog and...
-                    dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(),nodesInCsma,toolStatus);
-                    // empty the nodes list...
-                    nodesInCsma = new ArrayList<>();
-                    // empty the reference nodes list...
-                    painter.setReferenceNodes(new ArrayList<>());
+                if (e.getKeyCode() == 32) {
+                    switch (toolStatus) {
+                        case TOOL_LINK_CSMA : {
+                            // render the CSMA link...
+                            painter.addAndPrintLink(new CsmaLinkPainter(nodesSelected,painter.getNodes()));
+                            // instantiate connection dialog...
+                            instantiateConnectionDialog();
+                            // get to the device dialog and...
+                            dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(), nodesSelected,toolStatus);
+                            // empty the nodes list...
+                            nodesSelected = new ArrayList<>();
+                            // empty the reference nodes list...
+                            painter.setReferenceNodes(new ArrayList<>());
+                        } break;
+
+                        case TOOL_LINK_WIFI : {
+                            // render the wi-fi link
+                            painter.addAndPrintLink(new WifiLinkPainter(nodesSelected,painter.getNodes()));
+                            // instantiate connection dialog
+                            instantiateConnectionDialog();
+                            // get the device dialog
+                            dialogConnection.showDialog(dialogWiFiLink.getAllLinks(),dialogNetwork.getAllNetworks(), nodesSelected,toolStatus);
+                            // empty the nodes list
+                            nodesSelected = new ArrayList<>();
+                            // empty the reference node list
+                            painter.setReferenceNodes(new ArrayList<>());
+                        }
+                    }
                 }
             }
         });
@@ -601,13 +629,13 @@ public class Home_Screen extends JFrame {
                         incrementClicks(successfulClick);
                     } break;
 
-                    case TOOL_LINK_CSMA: {
+                    case TOOL_LINK_CSMA, TOOL_LINK_WIFI: {
                        int collision = -1;
 
                        collision = painter.pointCollideWithAny(e.getX(), e.getY());
                        DebuggingHelper.Debugln("Collision : "+collision);
-                       if (collision >= 0 && !nodesInCsma.contains(collision)) {
-                            nodesInCsma.add(collision);
+                       if (collision >= 0 && !nodesSelected.contains(collision)) {
+                            nodesSelected.add(collision);
                             painter.addAndPrintRefNode(new NodePainter(painter.getNodes().get(collision).xPos-5, painter.getNodes().get(collision).yPos-5,30,"",Color.GREEN));
                        }
                     } break;
@@ -686,6 +714,17 @@ public class Home_Screen extends JFrame {
             }
         });
 
+        btn_tool_wifiConn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (checkIfLinkCanBeAdded(ToolStatus.TOOL_LINK_WIFI)) {
+                    lbl_info.setText("Wi-Fi Connection Tool : Select the AP node first, then select the remaining nodes, and press the spacebar.");
+                    toolStatus = ToolStatus.TOOL_LINK_WIFI;
+                }
+            }
+        });
+
         // action to be performed when Add Link button is pressed...
         btn_addLink.addActionListener(new ActionListener() {
             @Override
@@ -695,6 +734,19 @@ public class Home_Screen extends JFrame {
                 } else { // first time instantiation....
                     instantiateLinkDialog();
                     dialogLink.setVisible(true);
+                }
+            }
+        });
+
+        // action to be performed when add Wi-Fi link button is clicked.
+        btn_addWiFiLink.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (dialogWiFiLink != null) {
+                    dialogWiFiLink.setVisible(true);
+                } else {
+                    instantiateWifiLinkDialog();
+                    dialogWiFiLink.setVisible(true);
                 }
             }
         });
@@ -822,6 +874,18 @@ public class Home_Screen extends JFrame {
     }
 
     /**
+     * to instantiate the object for wi-fi link dialog
+     *
+     * @since 1.2.0
+     * */
+    private void instantiateWifiLinkDialog() {
+        Map<String, JComponent> helpfulComponents = new HashMap<>();
+        helpfulComponents.put(Dialog_WiFiLink.COMPONENT_COMBO_BOX,comboBox_wifiLinks);
+        helpfulComponents.put(Dialog_WiFiLink.COMPONENT_OVERVIEW_LABEL, lbl_wifi_links);
+        dialogWiFiLink = Dialog_WiFiLink.getInstance(helpfulComponents);
+    }
+
+    /**
      * to instantiate the object for network dialog
      *
      * @since 1.0.0
@@ -903,6 +967,21 @@ public class Home_Screen extends JFrame {
      * The entry point for the application
      * */
     public static void main(String[] args) {
+        try {
+            for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
+        }
         new Home_Screen();
     }
 }
