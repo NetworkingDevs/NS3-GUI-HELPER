@@ -1,6 +1,7 @@
 package Dialogs;
 
 import Helpers.LoggingHelper;
+import Helpers.PlaceHolderHelper;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,6 +24,18 @@ public class Dialog_ConfigureServer extends JFrame {
     private JTextField textField_upTime;
     private JButton btn_save;
 
+    /**
+     * placeholder for port number
+     * */
+    private static String PLACEHOLDER_PORT = "Enter the port number";
+    /**
+     * placeholder for start time
+     * */
+    private static String PLACEHOLDER_START_TIME = "Enter start time";
+    /**
+     * placeholder for uptime
+     * */
+    private static String PLACEHOLDER_UP_TIME = "Enter total up time";
     // mention all the components that have to be taken here....
     /**
      * the key for overview label
@@ -70,6 +83,10 @@ public class Dialog_ConfigureServer extends JFrame {
         this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
+        PlaceHolderHelper.addPlaceHolder(textField_portNo,PLACEHOLDER_PORT);
+        PlaceHolderHelper.addPlaceHolder(textField_startTime,PLACEHOLDER_START_TIME);
+        PlaceHolderHelper.addPlaceHolder(textField_upTime,PLACEHOLDER_UP_TIME);
 
         // action to be performed when clicking on save settings button...
         btn_save.addActionListener(new ActionListener() {

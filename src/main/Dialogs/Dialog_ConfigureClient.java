@@ -1,6 +1,7 @@
 package Dialogs;
 
 import Helpers.LoggingHelper;
+import Helpers.PlaceHolderHelper;
 import org.jetbrains.annotations.Debug;
 
 import javax.swing.*;
@@ -28,6 +29,26 @@ public class Dialog_ConfigureClient extends JFrame {
     private JTextField textField_packets;
     private JButton btn_save;
 
+    /**
+     * placeholder for start time
+     * */
+    private static String PLACEHOLDER_START_TIME = "Enter start time";
+    /**
+     * placeholder for uptime
+     * */
+    private static String PLACEHOLDER_UP_TIME = "Enter total up time";
+    /**
+     * placeholder for MTU
+     * */
+    private static String PLACEHOLDER_MTU = "Enter the MTU";
+    /**
+     * placeholder for interval between two packets
+     * */
+    private static String PLACEHOLDER_INTERVAL = "Enter the interval";
+    /**
+     * placeholder for total packets to be sent
+     * */
+    private static String PLACEHOLDER_TOT_PACKETS = "Enter total packets";
     // mention all the components that have to be taken here....
     /**
      * the key for overview label
@@ -76,6 +97,12 @@ public class Dialog_ConfigureClient extends JFrame {
         this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
+        PlaceHolderHelper.addPlaceHolder(textField_startTime,PLACEHOLDER_START_TIME);
+        PlaceHolderHelper.addPlaceHolder(textField_upTime,PLACEHOLDER_UP_TIME);
+        PlaceHolderHelper.addPlaceHolder(textField_mtu,PLACEHOLDER_MTU);
+        PlaceHolderHelper.addPlaceHolder(textField_interval,PLACEHOLDER_INTERVAL);
+        PlaceHolderHelper.addPlaceHolder(textField_packets,PLACEHOLDER_TOT_PACKETS);
 
         // action to be performed when clicking on save settings button...
         btn_save.addActionListener(new ActionListener() {

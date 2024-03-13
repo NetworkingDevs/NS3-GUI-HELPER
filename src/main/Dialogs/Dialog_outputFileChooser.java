@@ -1,6 +1,7 @@
 package Dialogs;
 
 import Helpers.LoggingHelper;
+import Helpers.PlaceHolderHelper;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,6 +24,14 @@ public class Dialog_outputFileChooser extends JFrame {
     private JButton btn_save;
 
     // These are variable created for serving the functionalities....
+    /**
+     * The placeholder for output path
+     * */
+    private static String PLACEHOLDER_OUTPUT_PATH = "Enter path for output path";
+    /**
+     * The placeholder for file name
+     * */
+    private static String PLACEHOLDER_FILE_NAME = "Enter name for output file";
     /**
      * the path where the output will be generated
      * */
@@ -57,6 +66,9 @@ public class Dialog_outputFileChooser extends JFrame {
         this.textField_fileName.setText("output");
         this.outputPath = new String();
         this.fileName = new String();
+
+        PlaceHolderHelper.addPlaceHolder(textField_outputPath,PLACEHOLDER_OUTPUT_PATH);
+        PlaceHolderHelper.addPlaceHolder(textField_fileName,PLACEHOLDER_FILE_NAME);
     }
 
     /**

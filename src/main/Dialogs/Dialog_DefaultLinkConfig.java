@@ -1,6 +1,7 @@
 package Dialogs;
 
 import Helpers.LoggingHelper;
+import Helpers.PlaceHolderHelper;
 import Ns3Objects.Links.CSMA;
 import Ns3Objects.Links.NetworkLink;
 import Ns3Objects.Links.P2P;
@@ -38,6 +39,18 @@ public class Dialog_DefaultLinkConfig extends JFrame {
     private JComboBox comboBox_linkType;
     private JCheckBox checkBox_enablePcap;
 
+    /**
+     * placeholder for delay
+     * */
+    private static String PLACEHOLDER_DELAY = "Enter delay (in ms)";
+    /**
+     * placeholder for data rate
+     * */
+    private static String PLACEHOLDER_DATA_RATE = "Enter data rate";
+    /**
+     * placeholder for alias name
+     * */
+    private static String PLACEHOLDER_ALIAS_NAME = "Enter alias name";
     /**
      * list of network settings
      * */
@@ -96,6 +109,9 @@ public class Dialog_DefaultLinkConfig extends JFrame {
             this.showLinks();
         }
 
+        PlaceHolderHelper.addPlaceHolder(textField_delay,PLACEHOLDER_DELAY);
+        PlaceHolderHelper.addPlaceHolder(textField_dataRate,PLACEHOLDER_DATA_RATE);
+        PlaceHolderHelper.addPlaceHolder(textField_alias,PLACEHOLDER_ALIAS_NAME);
         this.setUpEventListeners();
     }
 

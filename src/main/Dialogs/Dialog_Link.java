@@ -1,6 +1,7 @@
 package Dialogs;
 
 import Helpers.LoggingHelper;
+import Helpers.PlaceHolderHelper;
 import Ns3Objects.Links.CSMA;
 import Ns3Objects.Links.NetworkLink;
 import Ns3Objects.Links.P2P;
@@ -30,6 +31,18 @@ public class Dialog_Link extends JFrame {
     private JComboBox comboBox_linkType;
     private JCheckBox chkBox_enablePcap;
 
+    /**
+     * placeholder for delay
+     * */
+    private static String PLACEHOLDER_DELAY = "Enter Delay (in ms)";
+    /**
+     * placeholder for data rate
+     * */
+    private static String PLACEHOLDER_DATA_RATE = "Enter Data rate";
+    /**
+     * placeholder for alias name
+     * */
+    private static String PLACEHOLDER_ALIAS_NAME = "Enter name";
     // mention all the components that have to be taken here....
     /**
      * the key for the combo box
@@ -102,6 +115,10 @@ public class Dialog_Link extends JFrame {
                 updateOverviewTxt();
             }
         });
+
+        PlaceHolderHelper.addPlaceHolder(textField_delay,PLACEHOLDER_DELAY);
+        PlaceHolderHelper.addPlaceHolder(textField_speed,PLACEHOLDER_DATA_RATE);
+        PlaceHolderHelper.addPlaceHolder(textField_name,PLACEHOLDER_ALIAS_NAME);
     }
 
     /**

@@ -1,6 +1,7 @@
 package Dialogs;
 
 import Helpers.LoggingHelper;
+import Helpers.PlaceHolderHelper;
 import Ns3Objects.Netoworks.Network;
 
 import javax.swing.*;
@@ -23,6 +24,18 @@ public class Dialog_Network extends JFrame {
     private JButton btn_makeNetwork;
 
     // mention all the components that have to be taken here....
+    /**
+     * placeholder fdr net id
+     * */
+    private static String PLACEHOLDER_NET_ID = "Enter NetID";
+    /**
+     * placeholder for subnet mask
+     * */
+    private static String PLACEHOLDER_SUBNET_MASK = "Enter Subnet mask";
+    /**
+     * placeholder for alias name
+     * */
+    private static String PLACEHOLDER_ALIAS_NAME = "Enter Name";
     /**
      * key for the combo box
      * */
@@ -101,6 +114,10 @@ public class Dialog_Network extends JFrame {
                 updateOverviewTxt();
             }
         });
+
+        PlaceHolderHelper.addPlaceHolder(textField_netid,PLACEHOLDER_NET_ID);
+        PlaceHolderHelper.addPlaceHolder(textField_netmask,PLACEHOLDER_SUBNET_MASK);
+        PlaceHolderHelper.addPlaceHolder(textField_network_name,PLACEHOLDER_ALIAS_NAME);
     }
 
     /**

@@ -1,6 +1,7 @@
 package Dialogs;
 
 import Helpers.LoggingHelper;
+import Helpers.PlaceHolderHelper;
 import Ns3Objects.Netoworks.Network;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -31,6 +32,18 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
     private JScrollPane JScrollPane_network_manager;
     private JPanel JPanel_networks;
 
+    /**
+     * placeholder for net id
+     * */
+    private static String PLACEHOLDER_NET_ID = "Enter NetID";
+    /**
+     * placeholder for subnet mask
+     * */
+    private static String PLACEHOLDER_SUBNET_MASK = "Enter netmask";
+    /**
+     * placeholder for alias name
+     * */
+    private static String PLACEHOLDER_ALIAS_NAME = "Enter alias name";
     /**
      * list of network settings
      * */
@@ -90,6 +103,9 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
             this.showNetworks();
         }
 
+        PlaceHolderHelper.addPlaceHolder(textField_netid,PLACEHOLDER_NET_ID);
+        PlaceHolderHelper.addPlaceHolder(textField_netmask,PLACEHOLDER_SUBNET_MASK);
+        PlaceHolderHelper.addPlaceHolder(textField_alias,PLACEHOLDER_ALIAS_NAME);
         this.setUpEventListeners();
     }
 
