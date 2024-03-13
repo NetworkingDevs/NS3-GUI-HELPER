@@ -1,5 +1,7 @@
 package GuiRenderers;
 
+import Helpers.LoggingHelper;
+
 import java.awt.*;
 
 /**
@@ -43,6 +45,7 @@ public class P2pLinkPainter implements CanvasPainter {
      * @since 0.3.0
      * */
     public P2pLinkPainter(NodePainter a, NodePainter b, Color color) {
+        LoggingHelper.Log("Creating object of type P2pLinkPainter");
         this.nodeA = a;
         this.nodeB = b;
         this.linkColor = color;
@@ -56,6 +59,7 @@ public class P2pLinkPainter implements CanvasPainter {
      * */
     @Override
     public void paint(Graphics g) {
+        LoggingHelper.LogFunction("P2P Link Painter : Painting on canvas!");
         int adjustA = this.nodeA.radius/2;
         int adjustB = this.nodeB.radius/2;
         g.setColor(this.linkColor);

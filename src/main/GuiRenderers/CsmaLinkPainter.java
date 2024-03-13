@@ -1,5 +1,7 @@
 package GuiRenderers;
 
+import Helpers.LoggingHelper;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -40,6 +42,7 @@ public class CsmaLinkPainter implements CanvasPainter {
      * @since 1.1.0
      * */
     public CsmaLinkPainter(ArrayList<Integer> nodeList, ArrayList<NodePainter> nodes, Color color) {
+        LoggingHelper.Log("Creating object of type CsmaLinkPainter");
         this.nodes = nodes;
         this.nodeList = nodeList;
         this.linkColor = color;
@@ -65,6 +68,7 @@ public class CsmaLinkPainter implements CanvasPainter {
      * */
     @Override
     public void paint(Graphics g) {
+        LoggingHelper.LogFunction("Csma Link Paiting : Painting on canvas!");
         int adjustA = 0, adjustB = 0;
         NodePainter nodeA, nodeB;
         for(int i=0; i<=nodeList.size()-2; i++) {

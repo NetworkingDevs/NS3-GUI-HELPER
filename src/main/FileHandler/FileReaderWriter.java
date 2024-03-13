@@ -6,7 +6,7 @@
  * */
 package FileHandler;
 
-import Helpers.DebuggingHelper;
+import Helpers.LoggingHelper;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -29,14 +29,15 @@ public class FileReaderWriter {
      * @since 1.0.0
      * */
     public static void writeUsingPath(String data, String path) {
-        DebuggingHelper.Debugln("Using FileWriter directly!");
+        LoggingHelper.LogDebug("Using FileWriter directly!");
         try {
             FileWriter writer = new FileWriter(path);
             writer.write(data);
-            DebuggingHelper.Debugln("Writing Completed to file! "+path);
+            LoggingHelper.LogDebug("Writing Completed to file! "+path);
             writer.close();
-            DebuggingHelper.Debugln("File has been closed After successful write!!");
+            LoggingHelper.LogDebug("File has been closed After successful write!!");
         } catch (IOException e) {
+            LoggingHelper.LogError("Error in write using path");
             throw new RuntimeException(e);
         }
     }
@@ -49,14 +50,15 @@ public class FileReaderWriter {
      * @since 1.0.0
      * */
     public static void writeUsingURL(String data, URL url) {
-        DebuggingHelper.Debugln("Using URL to write to the file!");
+        LoggingHelper.LogDebug("Using URL to write to the file!");
         try {
             FileWriter writer = new FileWriter(url.getPath());
             writer.write(data);
-            DebuggingHelper.Debugln("Writing completed to file at url : "+url.toString());
+            LoggingHelper.LogDebug("Writing completed to file at url : "+url.toString());
             writer.close();
-            DebuggingHelper.Debugln("File has been closed After successful write!!");
+            LoggingHelper.LogDebug("File has been closed After successful write!!");
         } catch (IOException e) {
+            LoggingHelper.LogError("Error in write using URL");
             throw new RuntimeException(e);
         }
     }
@@ -71,12 +73,13 @@ public class FileReaderWriter {
     public static String readUsingPath(String path) {
         String data = new String();
         try {
-            DebuggingHelper.Debugln("Reading from file : "+path.toString());
+            LoggingHelper.LogDebug("Reading from file : "+path.toString());
             data = new String(Files.readAllBytes(Paths.get(path)));
         } catch (IOException e) {
+            LoggingHelper.LogError("Error in read using path");
             throw new RuntimeException(e);
         }
-        DebuggingHelper.Debugln("The data is : "+data);
+        LoggingHelper.LogDebug("The data is : "+data);
         return data;
     }
 
@@ -93,13 +96,13 @@ public class FileReaderWriter {
     public static String readIfEmptyUsingPath(String data, String path) {
         String settings = "{}";
         if (isFileEmpty(path)) {
-            DebuggingHelper.Debugln("File is empty! Writing default settings!!");
+            LoggingHelper.LogDebug("File is empty! Writing default settings!!");
             writeUsingPath(data, path);
         } else {
-            DebuggingHelper.Debugln("FIle is not empty! Loading the settings!");
+            LoggingHelper.LogDebug("FIle is not empty! Loading the settings!");
              settings = readUsingPath(path);
         }
-        DebuggingHelper.Debugln("The data is : "+settings);
+        LoggingHelper.LogDebug("The data is : "+settings);
         return settings;
     }
 
@@ -111,7 +114,7 @@ public class FileReaderWriter {
      * @since 1.0.0
      * */
     private static boolean isFileEmpty(String path) {
-        DebuggingHelper.Debugln("Getting the file length...");
+        LoggingHelper.LogDebug("Getting the file length...");
         return ((new File(path).length()) <= 0);
     }
 

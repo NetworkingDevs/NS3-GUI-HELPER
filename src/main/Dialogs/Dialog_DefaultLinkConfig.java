@@ -1,6 +1,6 @@
 package Dialogs;
 
-import Helpers.DebuggingHelper;
+import Helpers.LoggingHelper;
 import Ns3Objects.Links.CSMA;
 import Ns3Objects.Links.NetworkLink;
 import Ns3Objects.Links.P2P;
@@ -63,7 +63,9 @@ public class Dialog_DefaultLinkConfig extends JFrame {
      * @since 1.1.0
      * */
     public static Dialog_DefaultLinkConfig getInstance(ArrayList<NetworkLink> links) {
+        LoggingHelper.LogInfo("Checking for the available instance of Dialog_DefaultLinkConfig");
         if (INSTANCE==null) {
+            LoggingHelper.LogDebug("The instance for Dialog_DefaultLinkConfig was not available!");
             INSTANCE = new Dialog_DefaultLinkConfig(links);
         }
         return INSTANCE;
@@ -75,6 +77,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
      * @since 1.0.0
      * */
     public Dialog_DefaultLinkConfig(ArrayList<NetworkLink> links) {
+        LoggingHelper.Log("Creating object of type Dialog_DefaultLinkConfig");
         // ==================== BASIC CONF. ====================
         this.setContentPane(this.JPanel_main);
         this.setTitle("Default Link Configuration");
@@ -88,17 +91,9 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         this.JScrollPane_linkManager.setViewportView(this.JPanel_links);
         this.dialogHelper = new Dialog_Helper(this);
 
-        if (DebuggingHelper.TESTING_STATUS) {
-            this.defaultLinks = new ArrayList<>();
-//            this.defaultLinks.add(new NetworkLink(0, "link1", "3","500","MB/s", LinkType.LINK_P2P));
-//            this.defaultLinks.add(new NetworkLink(1, "link2", "2","1","GB/s", LinkType.LINK_P2P));
-//            this.defaultLinks.add(new NetworkLink(2, "link3", "1","500","KB/s", LinkType.LINK_P2P));
-            this.showLinksAgain();
-        } else {
-            this.defaultLinks = links;
-            if (this.defaultLinks.size() > 0) {
-                this.showLinks();
-            }
+        this.defaultLinks = links;
+        if (this.defaultLinks.size() > 0) {
+            this.showLinks();
         }
 
         this.setUpEventListeners();
@@ -110,9 +105,9 @@ public class Dialog_DefaultLinkConfig extends JFrame {
      * @since 1.0.0
      * */
     public void showLinks() {
-        DebuggingHelper.Debugln("Rendering each link in JPanel!");
+        LoggingHelper.LogFunction("Dialog Default Link : Rendering each link in JPanel!");
         for (int i=0; i<this.defaultLinks.size(); i++) {
-            DebuggingHelper.Debugln("Rendering link : "+i);
+            LoggingHelper.LogDebug("Rendering link : "+i);
             // making a label...
             JLabel lbl = new JLabel(this.defaultLinks.get(i).toString());
 
@@ -122,7 +117,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
             btnUpdate.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    DebuggingHelper.Debugln("Action command while clicking on edit button : "+e.getActionCommand());
+                    LoggingHelper.LogDebug("Action command while clicking on edit button : "+e.getActionCommand());
                     // set all the link params to configuration form...
                     showLinkSettings(Integer.parseInt(e.getActionCommand()));
                 }
@@ -134,12 +129,12 @@ public class Dialog_DefaultLinkConfig extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     editIndex = -1;
-                    DebuggingHelper.Debugln("Action command while clicking on delete button : "+e.getActionCommand());
+                    LoggingHelper.LogDebug("Action command while clicking on delete button : "+e.getActionCommand());
                     int yes = dialogHelper.showConfirmationDialog("Do you really want to delete this link?", "Confirmation!");
                     if (yes == JOptionPane.YES_OPTION) {
-                        DebuggingHelper.Debugln("User chose to delete link with index : "+e.getActionCommand());
+                        LoggingHelper.LogDebug("User chose to delete link with index : "+e.getActionCommand());
                         defaultLinks.remove(Integer.parseInt(e.getActionCommand()));
-                        DebuggingHelper.Debugln("Deleted link from default link!");
+                        LoggingHelper.LogDebug("Deleted link from default link!");
                         showLinksAgain();
                     }
                 }
@@ -151,7 +146,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
             this.JPanel_links.add(btnUpdate, new CellConstraints().xy(2,i+1));
             this.JPanel_links.add(btn, new CellConstraints().xy(3, i+1));
 
-            DebuggingHelper.Debugln("Link "+i+" Rendered!");
+            LoggingHelper.LogDebug("Link "+i+" Rendered!");
         }
     }
 
@@ -161,13 +156,13 @@ public class Dialog_DefaultLinkConfig extends JFrame {
      * @since 1.0.0
      * */
     public void showLinksAgain() {
-        DebuggingHelper.Debugln("Creating a new JPanel (after deleting last link / first time rendering)!");
+        LoggingHelper.LogDebug("Dialog Default Link : Creating a new JPanel (after deleting last link / first time rendering)!");
         this.JPanel_links = new JPanel();
         this.JPanel_links.setLayout(new FormLayout("fill:pref:grow, fill:pref:grow, fill:pref:grow"));
         this.JPanel_links.setSize(new Dimension(400, 500));
         this.JScrollPane_linkManager.setViewportView(this.JPanel_links);
         this.showLinks();
-        DebuggingHelper.Debugln("Rendering new JPanel on JScrollPane!");
+        LoggingHelper.LogDebug("Rendering new JPanel on JScrollPane!");
     }
 
     /**
@@ -177,6 +172,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
      * @since 1.0.0
      * */
     private void showLinkSettings(int index) {
+        LoggingHelper.LogFunction("Dialog Default Link : show Link Settings called!");
         this.editIndex = index;
         NetworkLink selectedLink = this.defaultLinks.get(index);
         this.textField_delay.setText(selectedLink.getDelay());
@@ -184,7 +180,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         this.textField_alias.setText(selectedLink.getName());
         this.comboBox_datarateModifier.setSelectedIndex(this.getDataRateIndex(selectedLink.getSpeedModifier()));
         this.checkBox_enablePcap.setSelected(selectedLink.getEnablePcap());
-        DebuggingHelper.Debugln("All fields have been changed to selected link!");
+        LoggingHelper.LogDebug("All fields have been changed to selected link!");
     }
 
     /**
@@ -195,6 +191,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
      * @since 1.0.0
      * */
     private int getDataRateIndex(String value) {
+        LoggingHelper.LogFunction("Dialog Default Link : get Data Rate Index called!");
         if (value.equals("KB/s")) {
             return 0;
         } else if (value.equals("MB/s")) {
@@ -268,7 +265,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
         btn_save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DebuggingHelper.Debugln("Clicked on save button!");
+                LoggingHelper.LogFunction("Clicked on save button!");
                 if (editIndex > -1) {
                     defaultLinks.get(editIndex).setLinkType(NetworkLink.getLinkType(comboBox_linkType.getSelectedIndex()));
                     defaultLinks.get(editIndex).setDelay(textField_delay.getText());
@@ -288,7 +285,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
                     dialogHelper.showInformationMsg("Link has been added successfully!", "Success!");
                 }
                 showLinksAgain();
-                DebuggingHelper.Debugln("Links have been changed and rendered successfully after clicking on save button!");
+                LoggingHelper.LogDebug("Links have been changed and rendered successfully after clicking on save button!");
             }
         });
         this.addWindowListener(new WindowAdapter() {

@@ -18,6 +18,8 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:21.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:21.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:21.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.23.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.23.1" level="project" />
     <orderEntry type="library" name="Maven: com.intellij:forms_rt:7.0.3" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-commons:3.0" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-tree:3.0" level="project" />

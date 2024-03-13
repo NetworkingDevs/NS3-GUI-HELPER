@@ -1,5 +1,6 @@
 package Dialogs;
 
+import Helpers.LoggingHelper;
 import Ns3Objects.Netoworks.Network;
 
 import javax.swing.*;
@@ -46,7 +47,9 @@ public class Dialog_Network extends JFrame {
      * @since 1.1.0
      * */
     public static Dialog_Network getInstance(Map<String, JComponent> helpfulComponents) {
+        LoggingHelper.LogInfo("Checking for the instance of Dialog_Network");
         if (INSTANCE == null) {
+            LoggingHelper.LogDebug("The instance of Dialog_Network was not available.");
             INSTANCE = new Dialog_Network(helpfulComponents);
         }
         return INSTANCE;
@@ -78,6 +81,7 @@ public class Dialog_Network extends JFrame {
      * @since 0.3.0
      * */
     public Dialog_Network(Map<String, JComponent> components) {
+        LoggingHelper.Log("Creating object of type Dialog_Network!");
         this.helpfulComponents = components;
         this.links = new ArrayList<>();
         this.dialogHelper = new Dialog_Helper(this);
@@ -92,6 +96,7 @@ public class Dialog_Network extends JFrame {
         btn_makeNetwork.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogFunction("Adding a network settings!");
                 addNetwork();
                 updateOverviewTxt();
             }
@@ -103,7 +108,8 @@ public class Dialog_Network extends JFrame {
      *
      * @since 0.3.0
      * */
-    public void showNetworks() {
+    private void showNetworks() {
+        LoggingHelper.LogFunction("Dialog Network : show networks called!");
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
             for (Network link : links) {
@@ -119,6 +125,7 @@ public class Dialog_Network extends JFrame {
     }
 
     public void setDefaultNetworks(ArrayList<Network> links) {
+        LoggingHelper.LogFunction("Dialog Network : set default networks called!");
         this.links.addAll(links);
     }
 
@@ -129,6 +136,7 @@ public class Dialog_Network extends JFrame {
      * @since 0.3.0
      * */
     public void showDefaultNetworks(boolean show) {
+        LoggingHelper.LogFunction("Dialog Network : show default networks called!");
         SHOW_DEFAULT = show;
         this.showNetworks();
     }
@@ -140,6 +148,7 @@ public class Dialog_Network extends JFrame {
      * @since 0.3.0
      * */
     public ArrayList<Network> getAllNetworks() {
+        LoggingHelper.LogFunction("Dialog Network : get all networks called!");
         ArrayList<Network> networks = new ArrayList<>();
         networks.addAll(this.links);
         return networks;
@@ -152,6 +161,7 @@ public class Dialog_Network extends JFrame {
      * @since 1.1.0
      * */
     public int getNetworkCount() {
+        LoggingHelper.LogFunction("Dialog Network : get network count called!");
         return this.links.size();
     }
 
@@ -161,6 +171,7 @@ public class Dialog_Network extends JFrame {
      * @since 0.3.0
      * */
     private void addNetwork() {
+        LoggingHelper.LogFunction("Dialog Network : adding a network settings!");
         Network network = new Network(lastID++, this.textField_netid.getText().toString(), this.textField_netmask.getText().toString(), this.textField_network_name.getText().toString());
         this.links.add(network);
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.links.get(this.links.size()-1));
@@ -173,6 +184,7 @@ public class Dialog_Network extends JFrame {
      * @since 0.3.0
      * */
     private void updateOverviewTxt() {
+        LoggingHelper.LogLogic("Dialog Link : changing the overview text!");
         ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Networks : "+(this.links.size())+" networks created");
     }
 }

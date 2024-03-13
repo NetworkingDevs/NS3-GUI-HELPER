@@ -2,7 +2,7 @@ package FileHandler;
 
 import Dialogs.*;
 import Ns3Objects.Devices.Device;
-import Helpers.DebuggingHelper;
+import Helpers.LoggingHelper;
 import Ns3Objects.Links.NetworkLink;
 import StatusHelper.LinkType;
 
@@ -81,6 +81,7 @@ public class CodeGenerator {
      * @since 0.3.0
      * */
     public CodeGenerator(Dialog_ConfigureServer s, Dialog_ConfigureClient c, Dialog_Connection conn, Dialog_Link link, Dialog_WiFiLink dialogWiFiLink, Map<String, String> other) {
+        LoggingHelper.Log("Creating object of type CodeGenerator");
         this.dialogConfigureServer = s;
         this.dialogConfigureClient = c;
         this.dialogConnection = conn;
@@ -93,6 +94,7 @@ public class CodeGenerator {
      * This function is used for generating code for the topology
      * */
     public void GenerateCode() {
+        LoggingHelper.LogFunction("Generating code!");
         // some variable parameters configuration ======================================================================
         String topology = this.otherFields.get(NAME_OF_TOPOLOGY);
 
@@ -107,6 +109,7 @@ public class CodeGenerator {
         int StopTimeServer = this.dialogConfigureServer.getStopTime();
         int StopTimeClient = this.dialogConfigureClient.getStopTime();
         if (this.otherFields.get(UTILITY_WIRESHARK).compareToIgnoreCase(VALUE_TRUE) == 0) {
+            LoggingHelper.LogLogic("CodeGenerator : generating pcap for entire link which has enabled pcap and it is used!");
             for(NetworkLink l : dialogLink.links) {
                 if (l.isUsed() && l.getEnablePcap()) {
                     wiresharkUtilityString.append(l.getPacketCaptureAllCode()+"\n");
@@ -114,6 +117,7 @@ public class CodeGenerator {
             }
         }
         if (this.otherFields.get(UTILITY_NETANIM).compareToIgnoreCase(VALUE_FALSE) == 0) {
+            LoggingHelper.LogLogic("CodeGenerator : discarded the include for netanim module because utility is not selected!");
             netAnimModuleString = "";
             netanimUtilityString = "";
         }
@@ -127,15 +131,18 @@ public class CodeGenerator {
         String serverPrimaryIndex = new String();
         boolean serverPrimaryConfigured = false;
 
-        DebuggingHelper.Debugln("Devices : "+this.dialogConnection.devices.size()+" CSMA Devices : "+this.dialogConnection.devices_csma.size());
+        LoggingHelper.LogDebug("Devices : "+this.dialogConnection.devices.size()+" CSMA Devices : "+this.dialogConnection.devices_csma.size());
+        LoggingHelper.LogLogic("CodeGenerator : Generating nodes group!");
         for(Device device : this.dialogConnection.devices) {
             nodesGrp = nodesGrp.concat(device.getNodesGroup()+",");
             if (!serverPrimaryConfigured) {
                 if (device.nodeA.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
+                    LoggingHelper.LogLogic("CodeGenerator : primary server index and primary server group is found!");
                     primaryServerGrp = "interfaces"+device.nodesGroup;
                     serverPrimaryIndex = "0";
                     serverPrimaryConfigured = true;
                 } else if (device.nodeB.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex()) == 0) {
+                    LoggingHelper.LogLogic("CodeGenerator : primary server index and primary server group is found!");
                     primaryServerGrp = device.nodesGroup;
                     serverPrimaryIndex = "1";
                     serverPrimaryConfigured = true;
@@ -152,6 +159,7 @@ public class CodeGenerator {
                 for (int j=0; j<nodes.size(); j++) {
                     int i = nodes.get(j);
                     if (String.valueOf(i).compareToIgnoreCase(this.dialogConfigureServer.getServerIndex())==0) {
+                        LoggingHelper.LogLogic("CodeGenerator : primary server index and primary server group is found!");
                         if (device.linkSettings.getLinkType() == LinkType.LINK_CSMA) {
                             primaryServerGrp = "csmaInterfaces"+device.CSMA_INDEX;
                             serverPrimaryIndex = String.valueOf(j);
@@ -171,6 +179,7 @@ public class CodeGenerator {
         }
         nodesGrp = nodesGrp.substring(0,nodesGrp.length()-1);
 
+        LoggingHelper.LogLogic("CodeGenerator : generating code for nodes group!");
         for (Device device : this.dialogConnection.devices) {
             nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
         }
@@ -178,6 +187,7 @@ public class CodeGenerator {
             nodesGrpCode = nodesGrpCode.concat(device.getNodesGroupCode()+"\n");
         }
 
+        LoggingHelper.LogLogic("CodeGenerator : generating link configuration code for used links!");
         for (NetworkLink link : this.dialogLink.links) {
             if (link.isUsed()) {
                 linkConfigCode = linkConfigCode.concat(link.toCode()+"\n");
@@ -189,6 +199,7 @@ public class CodeGenerator {
             }
         }
 
+        LoggingHelper.LogLogic("CodeGenerator : generating device group!");
         for (Device device : this.dialogConnection.devices) {
             devicesGrp = devicesGrp.concat(device.getDevicesGroup()+",");
         }
@@ -202,6 +213,7 @@ public class CodeGenerator {
             devicesGrp = "NetDeviceContainer "+devicesGrp+";";
         }
 
+        LoggingHelper.LogLogic("CodeGenerator : generating device configuration code!");
         for (Device device : this.dialogConnection.devices) {
             deviceConfigCode = deviceConfigCode.concat(device.getDeviceConfCode());
         }
@@ -209,6 +221,7 @@ public class CodeGenerator {
             deviceConfigCode = deviceConfigCode.concat(device.getDeviceConfCode());
         }
 
+        LoggingHelper.LogLogic("CodeGenerator : generating ip configuration code!");
         for (Device device : this.dialogConnection.devices) {
             ipConfigCode = ipConfigCode.concat(device.getIPConfCode()+"\n");
         }
@@ -217,6 +230,7 @@ public class CodeGenerator {
         }
         // variable parameters configuration ends ======================================================================
 
+        LoggingHelper.LogLogic("CodeGenerator : generating full code via concatenation!");
         this.code = """
                 #include "ns3/applications-module.h"
                 #include "ns3/core-module.h"
@@ -335,6 +349,7 @@ public class CodeGenerator {
     }
 
     public String getCode() {
+        LoggingHelper.LogFunction("CodeGenerator : get code called!");
         return this.code;
     }
 

@@ -1,6 +1,6 @@
 package Dialogs;
 
-import Helpers.DebuggingHelper;
+import Helpers.LoggingHelper;
 import Ns3Objects.Links.CSMA;
 import Ns3Objects.Links.NetworkLink;
 import Ns3Objects.Links.P2P;
@@ -82,6 +82,7 @@ public class Dialog_Link extends JFrame {
      * @since 0.3.0
      * */
     public Dialog_Link(Map<String, JComponent> components) {
+        LoggingHelper.Log("Creating object of type Dialog_Link");
         this.helpfulComponents = components;
         this.links = new ArrayList<>();
         this.dialogHelper = new Dialog_Helper(this);
@@ -96,6 +97,7 @@ public class Dialog_Link extends JFrame {
         btn_buildLink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogFunction("Dialog Link : Adding a link!");
                 addLink();
                 updateOverviewTxt();
             }
@@ -107,27 +109,29 @@ public class Dialog_Link extends JFrame {
      *
      * @since 0.3.0
      * */
-    public void showLinks() {
+    private void showLinks() {
+        LoggingHelper.LogFunction("Dialog Link : show links called!");
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
             for(NetworkLink link : this.links) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
             }
-            DebuggingHelper.Debugln("Showing all the links on the canvas, size of links : "+this.links.size());
+            LoggingHelper.LogDebug("Showing all the links on the canvas, size of links : "+this.links.size());
         } else {
             for (NetworkLink link : this.links) {
                 if (!link.isDefault()) {
                     ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
-                    DebuggingHelper.Debugln(link.toString()+" is not a default link!");
+                    LoggingHelper.LogDebug(link.toString()+" is not a default link!");
                 } else {
-                    DebuggingHelper.Debugln(link.toString()+" is default link!");
+                    LoggingHelper.LogDebug(link.toString()+" is default link!");
                 }
             }
-            DebuggingHelper.Debugln("Showing only the links which are not default, size of links : "+this.links.size());
+            LoggingHelper.LogDebug("Showing only the links which are not default, size of links : "+this.links.size());
         }
     }
 
     public void setDefaultLinks(ArrayList<NetworkLink> defaultLinks) {
+        LoggingHelper.LogFunction("Dialog Link : set Default Links called!");
         for (NetworkLink defaultLink : defaultLinks) {
             boolean alreadyExist = false;
             for (NetworkLink link : this.links) {
@@ -149,6 +153,7 @@ public class Dialog_Link extends JFrame {
      * @since 0.3.0
      * */
     public void showDefaultLinks(boolean show) {
+        LoggingHelper.LogFunction("Dialog Link : show Default Link is called!");
         SHOW_DEFAULT = show;
         this.showLinks();
     }
@@ -160,9 +165,10 @@ public class Dialog_Link extends JFrame {
      * @since 0.3.0
      * */
     public ArrayList<NetworkLink> getAllLinks() {
+        LoggingHelper.LogFunction("Dialog Link : get All Links called!");
         ArrayList<NetworkLink> allLinks = new ArrayList<>();
         allLinks.addAll(this.links);
-        DebuggingHelper.Debugln("Making a single list of all link, size of allLinks : "+allLinks.size());
+        LoggingHelper.LogDebug("Making a single list of all link, size of allLinks : "+allLinks.size());
         return allLinks;
     }
 
@@ -173,6 +179,7 @@ public class Dialog_Link extends JFrame {
      * @since 1.1.0
      * */
     public int getP2pLinkCount() {
+        LoggingHelper.LogFunction("Dialog Link : get p2p link count called!");
         int count = 0;
         if (this.links.size() > 0) {
             for(int i=0; i<this.links.size(); i++) {
@@ -191,6 +198,7 @@ public class Dialog_Link extends JFrame {
      * @since 1.1.0
      * */
     public int getCsmaLinkCount() {
+        LoggingHelper.LogFunction("Dialog Link : get csma link count called!");
         int count = 0;
         if (this.links.size() > 0) {
             for(int i=0; i<this.links.size(); i++) {
@@ -208,6 +216,7 @@ public class Dialog_Link extends JFrame {
      * @since 0.3.0
      * */
     private void addLink() {
+        LoggingHelper.LogFunction("Dialog Link : adding a link!");
         NetworkLink link;
         if (NetworkLink.getLinkType(comboBox_linkType.getSelectedIndex())== LinkType.LINK_CSMA) {
             link = new CSMA(this.links.size(), this.textField_name.getText().toString(), this.textField_delay.getText().toString(), this.textField_speed.getText().toString(), this.comboBox_speedModifier.getSelectedItem().toString(), chkBox_enablePcap.isSelected());
@@ -225,6 +234,7 @@ public class Dialog_Link extends JFrame {
      * @since 0.3.0
      * */
     private void updateOverviewTxt() {
+        LoggingHelper.LogInfo("Dialog Link : updating overview text!");
         ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Links : "+(this.links.size())+" links created");
     }
 }

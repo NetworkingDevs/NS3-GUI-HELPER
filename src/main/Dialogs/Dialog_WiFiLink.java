@@ -1,18 +1,14 @@
 package Dialogs;
 
-import Helpers.DebuggingHelper;
+import Helpers.LoggingHelper;
 import Helpers.PlaceHolderHelper;
-import Ns3Objects.Links.CSMA;
 import Ns3Objects.Links.NetworkLink;
-import Ns3Objects.Links.P2P;
 import Ns3Objects.Links.WIFI;
-import StatusHelper.LinkType;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -75,7 +71,9 @@ public class Dialog_WiFiLink extends JFrame {
      * @since 1.2.0
      * */
     public static Dialog_WiFiLink getInstance(Map<String, JComponent> helpfulComponents) {
+        LoggingHelper.LogLogic("Checking for the instance of Dialog_WiFiLink");
         if (INSTANCE == null) {
+            LoggingHelper.LogDebug("The instance for Dialog_WiFiLink was not available!");
             INSTANCE = new Dialog_WiFiLink(helpfulComponents);
         }
         return INSTANCE;
@@ -88,6 +86,7 @@ public class Dialog_WiFiLink extends JFrame {
      * @since 1.2.0
      * */
     public Dialog_WiFiLink(Map<String, JComponent> components) {
+        LoggingHelper.Log("Creating object of type Dialog_WiFiLink");
         this.helpfulComponents = components;
         this.links = new ArrayList<>();
         this.dialogHelper = new Dialog_Helper(this);
@@ -101,6 +100,7 @@ public class Dialog_WiFiLink extends JFrame {
         btn_save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogFunction("Dialog WiFiLink : adding a wi-fi link!");
                 addLink();
                 updateOverviewTxt();
             }
@@ -109,12 +109,15 @@ public class Dialog_WiFiLink extends JFrame {
         checkBox_genDefault.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogFunction("Dialog WiFiLink : generating the default link!");
                 if (checkBox_genDefault.isSelected()) {
+                    LoggingHelper.LogDebug("Dialog WiFiLink : checkbox is selected!");
                     comboBox_standard.setSelectedIndex(0);
                     comboBox_stationManager.setSelectedIndex(2);
                     textField_ssid.setText("test_ssid_"+links.size());
                     textField_alias.setText("test_link_"+links.size());
                 } else {
+                    LoggingHelper.LogDebug("Dialog WiFiLink : checkbox is not selected!");
                     comboBox_stationManager.setSelectedIndex(0);
                     textField_alias.setText("Enter Alias name");
                     textField_ssid.setText("Enter SSID");
@@ -130,23 +133,24 @@ public class Dialog_WiFiLink extends JFrame {
      *
      * @since 1.2.0
      * */
-    public void showLinks() {
+    private void showLinks() {
+        LoggingHelper.LogFunction("Dialog WiFiLink : showing the links!");
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
             for(NetworkLink link : this.links) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
             }
-            DebuggingHelper.Debugln("Showing all the wifi links on the canvas, size of links : "+this.links.size());
+            LoggingHelper.LogDebug("Showing all the wifi links on the canvas, size of links : "+this.links.size());
         } else {
             for (NetworkLink link : this.links) {
                 if (!link.isDefault()) {
                     ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
-                    DebuggingHelper.Debugln(link.toString()+" is not a default link!");
+                    LoggingHelper.LogDebug(link.toString()+" is not a default link!");
                 } else {
-                    DebuggingHelper.Debugln(link.toString()+" is default link!");
+                    LoggingHelper.LogDebug(link.toString()+" is default link!");
                 }
             }
-            DebuggingHelper.Debugln("Showing only the links which are not default, size of links : "+this.links.size());
+            LoggingHelper.LogDebug("Showing only the links which are not default, size of links : "+this.links.size());
         }
     }
 
@@ -157,6 +161,7 @@ public class Dialog_WiFiLink extends JFrame {
      * @since 1.2.0
      * */
     public void showDefaultLinks(boolean show) {
+        LoggingHelper.LogFunction("Dialog WiFiLink : show default links called!");
         SHOW_DEFAULT = show;
         this.showLinks();
     }
@@ -168,13 +173,15 @@ public class Dialog_WiFiLink extends JFrame {
      * @since 1.2.0
      * */
     public ArrayList<NetworkLink> getAllLinks() {
+        LoggingHelper.LogFunction("Dialog WiFiLink : get all links called!");
         ArrayList<NetworkLink> allLinks = new ArrayList<>();
         allLinks.addAll(this.links);
-        DebuggingHelper.Debugln("Making a single list of all link, size of allLinks : "+allLinks.size());
+        LoggingHelper.LogDebug("Making a single list of all link, size of allLinks : "+allLinks.size());
         return allLinks;
     }
 
     public void setDefaultLinks(ArrayList<NetworkLink> defaultLinks) {
+        LoggingHelper.LogFunction("Dialog WiFiLink : set default links called!");
         for (NetworkLink defaultLink : defaultLinks) {
             boolean alreadyExist = false;
             for (NetworkLink link : this.links) {
@@ -196,6 +203,7 @@ public class Dialog_WiFiLink extends JFrame {
      * @since 1.2.0
      * */
     public int getLinkCount() {
+        LoggingHelper.LogFunction("Dialog WiFiLink : get link count called!");
         return this.links.size();
     }
 
@@ -205,6 +213,7 @@ public class Dialog_WiFiLink extends JFrame {
      * @since 1.2.0
      * */
     private void addLink() {
+        LoggingHelper.LogFunction("Dialog WiFiLink : adding a wi-fi link!");
         NetworkLink link = new WIFI(this.links.size(), this.textField_alias.getText(),(String) this.comboBox_standard.getSelectedItem(), (String) this.comboBox_stationManager.getSelectedItem(), this.textField_ssid.getText(), this.checkBox_enablePcap.isSelected());
         this.links.add(link);
         ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.links.get(this.links.size()-1));
@@ -223,6 +232,7 @@ public class Dialog_WiFiLink extends JFrame {
      * @since 1.2.0
      * */
     private void updateOverviewTxt() {
+        LoggingHelper.LogInfo("Dialog WiFiLink : updating the overview text!");
         ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Wi-Fi Links : "+(this.links.size())+" links created");
     }
 

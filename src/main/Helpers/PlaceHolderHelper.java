@@ -18,6 +18,7 @@ public class PlaceHolderHelper {
      * @since 1.2.0
      * */
     public static void addPlaceHolder(JTextField textField, String placeholder) {
+        LoggingHelper.LogInfo("adding an place holder : "+placeholder);
         textField.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {

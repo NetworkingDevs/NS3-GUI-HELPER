@@ -1,5 +1,7 @@
 package GuiRenderers;
 
+import Helpers.LoggingHelper;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -44,12 +46,14 @@ public class WifiLinkPainter implements CanvasPainter {
      * @since 1.2.0
      * */
     public WifiLinkPainter(ArrayList<Integer> nodeList, ArrayList<NodePainter> nodes) {
+        LoggingHelper.Log("Creating object of type WiFiLinkPainter");
         this.nodeList = nodeList;
         this.nodes = nodes;
     }
 
     @Override
     public void paint(Graphics g) {
+        LoggingHelper.LogFunction("WiFiLink Painter : Painting on canvas!");
         NodePainter AccessPointNode =  this.nodes.get(this.nodeList.get(0));
         g.drawImage(icon_ap, AccessPointNode.xPos, AccessPointNode.yPos, AccessPointNode.radius, AccessPointNode.radius, new JFrame());
         for (int i=1; i<this.nodeList.size(); i++) {

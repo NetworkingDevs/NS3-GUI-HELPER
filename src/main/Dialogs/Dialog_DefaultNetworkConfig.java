@@ -1,6 +1,6 @@
 package Dialogs;
 
-import Helpers.DebuggingHelper;
+import Helpers.LoggingHelper;
 import Ns3Objects.Netoworks.Network;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
@@ -56,7 +56,9 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
      * @since 1.1.0
      * */
     public static Dialog_DefaultNetworkConfig getInstance(ArrayList<Network> networks) {
+        LoggingHelper.LogInfo("Checking for the instance of Dialog_DefaultNetworkConfig");
         if (INSTANCE==null) {
+            LoggingHelper.LogDebug("The instance for Dialog_DefaultNetworkConfig was not available!");
             INSTANCE = new Dialog_DefaultNetworkConfig(networks);
         }
         return INSTANCE;
@@ -69,6 +71,7 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
      * @since 1.0.0
      * */
     public Dialog_DefaultNetworkConfig(ArrayList<Network> networks) {
+        LoggingHelper.Log("Creating object of type Dialog_DefaultNetworkConfig");
         // ==================== BASIC CONF. ====================
         this.setContentPane(this.JPanel_main);
         this.setTitle("Default Network Configuration");
@@ -82,17 +85,9 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
         this.JScrollPane_network_manager.setViewportView(this.JPanel_networks);
         this.dialogHelper = new Dialog_Helper(this);
 
-        if (DebuggingHelper.TESTING_STATUS) {
-            this.defaultNetworks = new ArrayList<>();
-            this.defaultNetworks.add(new Network(0, "54.0.0.0", "255.0.0.0", "Net1"));
-            this.defaultNetworks.add(new Network(1, "55.0.0.0", "255.0.0.0", "Net2"));
-            this.defaultNetworks.add(new Network(2, "56.0.0.0", "255.0.0.0", "Net3"));
-            this.showNetworksAgain();
-        } else {
-            this.defaultNetworks = networks;
-            if (this.defaultNetworks.size() > 0) {
-                this.showNetworks();
-            }
+        this.defaultNetworks = networks;
+        if (this.defaultNetworks.size() > 0) {
+            this.showNetworks();
         }
 
         this.setUpEventListeners();
@@ -104,9 +99,9 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
      * @since 1.0.0
      * */
     public void showNetworks() {
-        DebuggingHelper.Debugln("Rendering each nework in JPanel!");
+        LoggingHelper.LogFunction("Dialog Default Network : Rendering each network in JPanel!");
         for (int i=0; i<this.defaultNetworks.size(); i++) {
-            DebuggingHelper.Debugln("Rendering network : "+i);
+            LoggingHelper.LogDebug("Rendering network : "+i);
             // making a label...
             JLabel lbl = new JLabel(this.defaultNetworks.get(i).toString());
 
@@ -116,7 +111,7 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
             btnUpdate.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    DebuggingHelper.Debugln("Action command while clicking on edit button : "+e.getActionCommand());
+                    LoggingHelper.LogDebug("Action command while clicking on edit button : "+e.getActionCommand());
                     // set all the n/w params to configuration form...
                     showNetworkSettings(Integer.parseInt(e.getActionCommand()));
                 }
@@ -127,12 +122,12 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
             btn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    DebuggingHelper.Debugln("Action command while clicking on delete button : "+e.getActionCommand());
+                    LoggingHelper.LogDebug("Action command while clicking on delete button : "+e.getActionCommand());
                     int yes = dialogHelper.showConfirmationDialog("Do you really want to delete this network?", "Confirmation!");
                     if (yes == JOptionPane.YES_OPTION) {
-                        DebuggingHelper.Debugln("User chose to delete network with index : "+e.getActionCommand());
+                        LoggingHelper.LogDebug("User chose to delete network with index : "+e.getActionCommand());
                         defaultNetworks.remove(Integer.parseInt(e.getActionCommand()));
-                        DebuggingHelper.Debugln("Deleted Network from default networks!");
+                        LoggingHelper.LogDebug("Deleted Network from default networks!");
                         showNetworksAgain();
                     }
                 }
@@ -144,7 +139,7 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
             this.JPanel_networks.add(btnUpdate, new CellConstraints().xy(2,i+1));
             this.JPanel_networks.add(btn, new CellConstraints().xy(3, i+1));
 
-            DebuggingHelper.Debugln("Network "+i+" Rendered!");
+            LoggingHelper.LogDebug("Network "+i+" Rendered!");
         }
     }
 
@@ -154,13 +149,13 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
      * @since 1.0.0
      * */
     public void showNetworksAgain() {
-        DebuggingHelper.Debugln("Creating a new JPanel (after deleting last n/w / first time rendering)!");
+        LoggingHelper.LogFunction("Dialog Default Network : Creating a new JPanel (after deleting last n/w / first time rendering)!");
         this.JPanel_networks = new JPanel();
         this.JPanel_networks.setLayout(new FormLayout("fill:pref:grow, fill:pref:grow, fill:pref:grow"));
         this.JPanel_networks.setSize(new Dimension(400, 500));
         this.JScrollPane_network_manager.setViewportView(this.JPanel_networks);
         this.showNetworks();
-        DebuggingHelper.Debugln("Rendering new JPanel on JScrollPane!");
+        LoggingHelper.LogDebug("Rendering new JPanel on JScrollPane!");
     }
 
     /**
@@ -170,12 +165,13 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
      * @since 1.0.0
      * */
     private void showNetworkSettings(int index) {
+        LoggingHelper.LogFunction("Dialog Default Network : show Network Settings called!");
         this.editIndex = index;
         Network selectedNetwork = this.defaultNetworks.get(index);
         this.textField_netid.setText(selectedNetwork.netId);
         this.textField_netmask.setText(selectedNetwork.netMask);
         this.textField_alias.setText(selectedNetwork.name);
-        DebuggingHelper.Debugln("All fields have been changed to selected network!");
+        LoggingHelper.LogDebug("All fields have been changed to selected network!");
     }
 
     /**
@@ -242,7 +238,7 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
         btn_save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DebuggingHelper.Debugln("Clicked on save button!");
+                LoggingHelper.LogFunction("Dialog Default Network : Clicked on save button!");
                 if (editIndex > -1) {
                     defaultNetworks.get(editIndex).netId = textField_netid.getText();
                     defaultNetworks.get(editIndex).netMask = textField_netmask.getText();
@@ -254,7 +250,7 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
                     dialogHelper.showInformationMsg("N/W has been added successfully!", "Success!");
                 }
                 showNetworksAgain();
-                DebuggingHelper.Debugln("N/W have been changed and rendered successfully after clicking on save button!");
+                LoggingHelper.LogDebug("N/W have been changed and rendered successfully after clicking on save button!");
             }
         });
         this.addWindowListener(new WindowAdapter() {

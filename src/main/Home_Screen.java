@@ -2,7 +2,8 @@ import Dialogs.*;
 import FileHandler.CodeGenerator;
 import FileHandler.FileReaderWriter;
 import GuiRenderers.*;
-import Helpers.DebuggingHelper;
+import Helpers.LoggingHelper;
+import StatusHelper.LogLevel;
 import StatusHelper.ToolStatus;
 
 import javax.imageio.ImageIO;
@@ -289,7 +290,7 @@ public class Home_Screen extends JFrame {
     private boolean checkIfLinkCanBeAdded(ToolStatus toolStatus) {
         instantiateLinkDialog();
         instantiateWifiLinkDialog();
-        DebuggingHelper.Debugln(dialogLink.getP2pLinkCount()+" CSMA Link Count : "+dialogLink.getCsmaLinkCount());
+        LoggingHelper.LogDebug(dialogLink.getP2pLinkCount()+" CSMA Link Count : "+dialogLink.getCsmaLinkCount());
         // link tool selection is invalid in below conditions...
         if (this.painter.getNodes().size() == 0) { // if there are no node...
             this.dialogHelper.showWarningMsg("Please add some nodes to make a connection!", "Warning");
@@ -391,12 +392,12 @@ public class Home_Screen extends JFrame {
                         @Override
                         public void componentHidden(ComponentEvent e) {
                             super.componentHidden(e);
-                            DebuggingHelper.Debugln("Output settings has been altered!");
+                            LoggingHelper.LogDebug("Output settings has been altered!");
                             UNIVERSAL_SETTINGS.remove(OUTPUT_PATH);
                             UNIVERSAL_SETTINGS.put(OUTPUT_PATH, dialogOutputFileChooser.getOutputPath());
                             UNIVERSAL_SETTINGS.remove(FILE_NAME);
                             UNIVERSAL_SETTINGS.put(FILE_NAME, dialogOutputFileChooser.getFileName());
-                            DebuggingHelper.Debugln("Updated JSON : " + UNIVERSAL_SETTINGS.toString());
+                            LoggingHelper.LogDebug("Updated JSON : " + UNIVERSAL_SETTINGS.toString());
                         }
                     });
                     dialogOutputFileChooser.setVisible(true);
@@ -444,12 +445,12 @@ public class Home_Screen extends JFrame {
                 } else {
                     dialogLink.setDefaultLinks(dialogDefaultLinkConfig.defaultLinks);
                     if (iconVis) {
-                        DebuggingHelper.Debugln("Hiding the default links!");
+                        LoggingHelper.LogDebug("Hiding the default links!");
                         THIS.setIcon(null);
                         THIS.setText("Show default links");
                         dialogLink.showDefaultLinks(false);
                     } else {
-                        DebuggingHelper.Debugln("Showing the default links!");
+                        LoggingHelper.LogDebug("Showing the default links!");
                         THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
                         THIS.setText("Hide default links");
                         dialogLink.showDefaultLinks(true);
@@ -496,12 +497,12 @@ public class Home_Screen extends JFrame {
                 } else {
                     dialogNetwork.setDefaultNetworks(dialogDefaultNetworkConfig.defaultNetworks);
                     if (iconVis) {
-                        DebuggingHelper.Debugln("Hiding the default networks!");
+                        LoggingHelper.LogDebug("Hiding the default networks!");
                         THIS.setIcon(null);
                         THIS.setText("Show default networks");
                         dialogNetwork.showDefaultNetworks(false);
                     } else {
-                        DebuggingHelper.Debugln("Showing the default networks!");
+                        LoggingHelper.LogDebug("Showing the default networks!");
                         THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
                         THIS.setText("Hide default networks");
                         dialogNetwork.showDefaultNetworks(true);
@@ -547,7 +548,7 @@ public class Home_Screen extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
-                DebuggingHelper.Debugln("Key pressed : "+e.getKeyCode());
+                LoggingHelper.LogDebug("Key pressed : "+e.getKeyCode());
                 if (e.getKeyCode() == 32) {
                     switch (toolStatus) {
                         case TOOL_LINK_CSMA : {
@@ -586,7 +587,7 @@ public class Home_Screen extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                DebuggingHelper.Debugln("Clicked at x : "+e.getX()+" y : "+e.getY());
+                LoggingHelper.LogDebug("Clicked at x : "+e.getX()+" y : "+e.getY());
                 switch (toolStatus) {
                     // if tool is 'node' tool then...
                     case TOOL_NODE : {
@@ -603,7 +604,7 @@ public class Home_Screen extends JFrame {
                         // for first successful click....
                         // check if collision with any node...
                         collision = painter.pointCollideWithAny(e.getX(), e.getY());
-                        DebuggingHelper.Debugln("Collision : "+collision+" Clicks : "+clicks);
+                        LoggingHelper.LogDebug("Collision : "+collision+" Clicks : "+clicks);
                         if (collision >= 0 && clicks%2!=0) {
                             // if collision then change the information label and increment the no. of clicks...
                             firstNode = collision;
@@ -618,7 +619,7 @@ public class Home_Screen extends JFrame {
                             lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
                             painter.addAndPrintLink(new P2pLinkPainter(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
                             successfulClick = true;
-                            DebuggingHelper.Debugln(firstNode+" "+collision);
+                            LoggingHelper.LogDebug(firstNode+" "+collision);
                             instantiateConnectionDialog();
                             ArrayList<Integer> nodes = new ArrayList<>();
                             nodes.add(firstNode);
@@ -633,7 +634,7 @@ public class Home_Screen extends JFrame {
                        int collision = -1;
 
                        collision = painter.pointCollideWithAny(e.getX(), e.getY());
-                       DebuggingHelper.Debugln("Collision : "+collision);
+                       LoggingHelper.LogDebug("Collision : "+collision);
                        if (collision >= 0 && !nodesSelected.contains(collision)) {
                             nodesSelected.add(collision);
                             painter.addAndPrintRefNode(new NodePainter(painter.getNodes().get(collision).xPos-5, painter.getNodes().get(collision).yPos-5,30,"",Color.GREEN));
@@ -969,6 +970,7 @@ public class Home_Screen extends JFrame {
      * */
     public static void main(String[] args) {
         try {
+            // setting the UI theme, if it exists
             for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
@@ -983,6 +985,35 @@ public class Home_Screen extends JFrame {
         } catch (UnsupportedLookAndFeelException e) {
             throw new RuntimeException(e);
         }
+        // enabling logger
+        new LoggingHelper();
+        // starting application
         new Home_Screen();
+        // filtering the arguments...
+        for (String a : args) {
+            // enabling log level
+            switch (a.trim().replace("-","").toUpperCase()) {
+                case "ERROR":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_ERROR);
+                    break;
+                case "DEBUG":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_DEBUG);
+                    break;
+                case "INFO":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_INFO);
+                    break;
+                case "FUNCTION":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_FUNCTION);
+                    break;
+                case "LOGIC":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_LOGIC);
+                    break;
+                case "LOGALL":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_ALL);
+                default:
+                    LoggingHelper.setLogLevel(LogLevel.LOG_NONE);
+                    break;
+            }
+        }
     }
 }

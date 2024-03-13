@@ -7,7 +7,7 @@
  * */
 package Ns3Objects.Devices;
 
-import Helpers.DebuggingHelper;
+import Helpers.LoggingHelper;
 import Ns3Objects.Links.NetworkLink;
 import Ns3Objects.Netoworks.Network;
 import StatusHelper.LinkType;
@@ -222,7 +222,7 @@ public class Device {
      * */
     public String getNodesGroup() {
         if (this.linkSettings.getLinkType()==LinkType.LINK_CSMA) {
-            DebuggingHelper.Debugln("Generating nodes group for csma nodes...");
+            LoggingHelper.LogDebug("Generating nodes group for csma nodes...");
             return "csmaNodes"+CSMA_INDEX;
         } else if (this.linkSettings.getLinkType()==LinkType.LINK_WIFI) {
             return "wifiStaNodes_"+this.linkSettings.getName()+", wifiApNodes_"+this.linkSettings.getName();
@@ -280,7 +280,7 @@ public class Device {
      * */
     public String getNodesGroupCode() {
         String line1 = "", line2 = "";
-        DebuggingHelper.Debugln("Link Info from Device : "+this.linkSettings.toString());
+        LoggingHelper.LogDebug("Link Info from Device : "+this.linkSettings.toString());
         if (this.linkSettings.getLinkType()==LinkType.LINK_CSMA) {
             for(int i : this.nodes) {
                 line1 = line1.concat("\ncsmaNodes"+this.CSMA_INDEX+".Add(allNodes.Get("+i+"));");

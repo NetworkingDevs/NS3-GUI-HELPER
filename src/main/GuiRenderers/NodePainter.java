@@ -1,5 +1,7 @@
 package GuiRenderers;
 
+import Helpers.LoggingHelper;
+
 import java.awt.*;
 
 /**
@@ -79,11 +81,12 @@ public class NodePainter implements CanvasPainter {
      * @since 0.3.0
      * */
     public NodePainter(int x, int y, int r, String label, Color fill) {
-            this.xPos = x;
-            this.yPos = y;
-            this.radius = r;
-            this.label = label;
-            this.color = fill;
+        LoggingHelper.Log("Creating object of type NodePainter");
+        this.xPos = x;
+        this.yPos = y;
+        this.radius = r;
+        this.label = label;
+        this.color = fill;
     }
 
     /**
@@ -94,6 +97,7 @@ public class NodePainter implements CanvasPainter {
      * */
     @Override
     public void paint(Graphics g) {
+        LoggingHelper.LogFunction("Node Painter : Painting on the canvas!");
         g.setColor(this.color);
         g.fillOval(this.xPos,this.yPos,this.radius,this.radius);
         g.drawString(this.label,this.xPos,this.yPos);

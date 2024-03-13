@@ -7,6 +7,8 @@
  * */
 package Dialogs;
 
+import Helpers.LoggingHelper;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -27,7 +29,8 @@ public class Dialog_Helper {
      * @since 1.0.0
      * */
     public Dialog_Helper(Component component) {
-         this.anyParentComponent = component;
+        LoggingHelper.Log("Crating object : Dialog_Helper");
+        this.anyParentComponent = component;
     }
 
     /**
@@ -39,6 +42,7 @@ public class Dialog_Helper {
      * @since 1.0.0
      * */
     public int showConfirmationDialog(String msg, String title) {
+        LoggingHelper.LogFunction("Showing confirmation dialog for message : "+msg);
         return JOptionPane.showConfirmDialog(this.anyParentComponent, msg, title, JOptionPane.YES_NO_OPTION);
     }
 
@@ -50,6 +54,7 @@ public class Dialog_Helper {
      * @since 1.0.0
      * */
     public void showWarningMsg(String msg, String title) {
+        LoggingHelper.LogFunction("Showing warning dialog for message : "+msg);
         this.showDialog(msg, title, JOptionPane.WARNING_MESSAGE);
     }
 
@@ -61,6 +66,7 @@ public class Dialog_Helper {
      * @since 1.0.0
      * */
     public void showInformationMsg(String msg, String title) {
+        LoggingHelper.LogFunction("Showing information dialog for message : "+msg);
         this.showDialog(msg, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -72,6 +78,7 @@ public class Dialog_Helper {
      * @since 1.0.0
      * */
     public void showErrorMsg(String msg, String title) {
+        LoggingHelper.LogFunction("Showing error dialog for message : "+msg);
         this.showDialog(msg, title, JOptionPane.ERROR_MESSAGE);
     }
 

@@ -1,5 +1,7 @@
 package Dialogs;
 
+import Helpers.LoggingHelper;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,6 +57,7 @@ public class Dialog_ConfigureServer extends JFrame {
      * @since 0.3.0
      * */
     public Dialog_ConfigureServer(int n, Map<String, JComponent> helpfulComponents) {
+        LoggingHelper.Log("Creating object of type Dialog_ConfigureServer");
         this.totalNodes = n;
         this.helpfulComponents = helpfulComponents;
         this.settings = new ArrayList<>();
@@ -72,6 +75,7 @@ public class Dialog_ConfigureServer extends JFrame {
         btn_save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogFunction("Saving the server configurations!");
                 // validate inputs...
                 if (validateInputs()) {
                     // and if all are valid then save settings...
@@ -94,6 +98,7 @@ public class Dialog_ConfigureServer extends JFrame {
      * @since 0.3.0
      * */
     private void updateOverviewTxt() {
+        LoggingHelper.Log("Configure Server : Changing the overview label!");
         ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Server Index : Configured node "+this.settings.get(0));
     }
 
@@ -104,6 +109,7 @@ public class Dialog_ConfigureServer extends JFrame {
      * @since 0.3.0
      * */
     private boolean validateInputs() {
+        LoggingHelper.LogFunction("Configure Server : Validating all inputs");
         // port number validation...
         if (!textField_portNo.getText().chars().allMatch(Character::isDigit) || textField_portNo.getText().toString().length() == 0) {
             this.dialogHelper.showErrorMsg("Please enter valid port number!", "Error!");
@@ -135,6 +141,7 @@ public class Dialog_ConfigureServer extends JFrame {
     public void setVisible(boolean b) {
         super.setVisible(b);
         if (b) {
+            LoggingHelper.LogFunction("Configure Server : Populating the dropdown items for all nodes.");
             for (int i=0; i<this.totalNodes; i++) {
                 this.comboBox_serverInex.addItem("Node "+i);
             }
@@ -148,6 +155,7 @@ public class Dialog_ConfigureServer extends JFrame {
      * @since 0.3.0
      * */
     public void showDialog(int n) {
+        LoggingHelper.LogInfo("Configure Server : Setting total nodes!");
         this.totalNodes = n;
         this.setVisible(true);
     }
@@ -158,6 +166,7 @@ public class Dialog_ConfigureServer extends JFrame {
      * @since 1.0.0
      * */
     public int getStopTime() {
+        LoggingHelper.Log("Configure Server : Get Stop Time Called!");
         return Integer.parseInt(this.settings.get(2)) + Integer.parseInt(this.settings.get(3));
     }
 
@@ -167,6 +176,7 @@ public class Dialog_ConfigureServer extends JFrame {
      * @since 1.0.0
      * */
     public String getServerIndex() {
+        LoggingHelper.Log("Configure Server : Get server index Called!");
         return this.settings.get(0);
     }
 
@@ -176,6 +186,7 @@ public class Dialog_ConfigureServer extends JFrame {
      * @since 1.0.0
      * */
     public String getPortNumber() {
+        LoggingHelper.Log("Configure Server : Get port number Called!");
         return this.settings.get(1);
     }
 
@@ -185,6 +196,7 @@ public class Dialog_ConfigureServer extends JFrame {
      * @since 1.0.0
      * */
     public String getStartTime() {
+        LoggingHelper.Log("Configure Server : Get start time Called!");
         return this.settings.get(2);
     }
 }

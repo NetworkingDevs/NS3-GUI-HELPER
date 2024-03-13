@@ -1,5 +1,8 @@
 package Dialogs;
 
+import Helpers.LoggingHelper;
+import org.jetbrains.annotations.Debug;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,6 +63,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 0.3.0
      * */
     public Dialog_ConfigureClient(int n, Map<String, JComponent> helpfulComponents) {
+        LoggingHelper.Log("Creating object of type Dialog_ConfigureClient");
         this.helpfulComponents = helpfulComponents;
         this.totalNodes = n;
         this.settings = new ArrayList<>();
@@ -77,6 +81,7 @@ public class Dialog_ConfigureClient extends JFrame {
         btn_save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogFunction("Saving the client configurations!");
                 // validate inputs...
                 if (validateInputs()) {
                     // and if all are valid then save settings...
@@ -105,6 +110,7 @@ public class Dialog_ConfigureClient extends JFrame {
     public void setVisible(boolean b) {
         super.setVisible(b);
         if (b) {
+            LoggingHelper.LogFunction("Configure CLinet : Populating the dropdown items for all nodes.");
             for (int i=0; i<this.totalNodes; i++) {
                 this.comboBox_clientIndex.addItem("Node "+i);
             }
@@ -118,6 +124,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 0.3.0
      * */
     public void showDialog(int n) {
+        LoggingHelper.LogInfo("Configure Client : Setting total nodes!");
         this.totalNodes = n;
         this.setVisible(true);
     }
@@ -128,6 +135,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 1.0.0
      * */
     public int getStopTime() {
+        LoggingHelper.Log("Configure Client : Get Stop Time Called!");
         return Integer.parseInt(this.settings.get(1)) + Integer.parseInt(this.settings.get(2));
     }
 
@@ -137,6 +145,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 1.0.0
      * */
     public String getStartTime() {
+        LoggingHelper.Log("Configure Client : Get Start Time Called!");
         return this.settings.get(1);
     }
 
@@ -146,6 +155,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 1.0.0
      * */
     public String getClientIndex() {
+        LoggingHelper.Log("Configure Client : Get Client Index Called!");
         return this.settings.get(0);
     }
 
@@ -155,6 +165,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 1.0.0
      * */
     public String getMTU() {
+        LoggingHelper.Log("Configure Client : Get MTU Called!");
         return this.settings.get(3);
     }
 
@@ -164,6 +175,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 1.0.0
      * */
     public String getInterval() {
+        LoggingHelper.Log("Configure Client : Get Interval Called!");
         return this.settings.get(4);
     }
 
@@ -173,6 +185,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 1.0.0
      * */
     public String getPackets() {
+        LoggingHelper.Log("Configure Client : Get Packets Called!");
         return this.settings.get(5);
     }
 
@@ -182,6 +195,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 0.3.0
      * */
     private void updateOverviewTxt() {
+        LoggingHelper.Log("Configure Client : Changing the overview label!");
         ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Client Index : Configured node "+this.settings.get(0));
     }
 
@@ -192,6 +206,7 @@ public class Dialog_ConfigureClient extends JFrame {
      * @since 0.3.0
      * */
     private boolean validateInputs() {
+        LoggingHelper.LogFunction("Configure Client : Validating all inputs");
 
         // start time validation...
         if (!textField_startTime.getText().chars().allMatch(Character::isDigit) || textField_startTime.getText().toString().length() == 0) {
