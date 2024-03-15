@@ -11,6 +11,7 @@ import Ns3Objects.Links.NetworkLink;
 import Ns3Objects.Links.P2P;
 import Ns3Objects.Links.CSMA;
 
+import Ns3Objects.Links.WIFI;
 import Ns3Objects.Netoworks.Network;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -37,6 +38,10 @@ public class ApplicationSettingsHelper {
      * for key of the default links
      * */
     public static String DEFAULT_LINKS = "defaultLinks";
+    /**
+     * for key of the default wi-fi links
+     * */
+    public static String DEFAULT_WIFI_LINKS = "defaultWiFiLinks";
     /**
      * for default network settings
      * */
@@ -110,6 +115,17 @@ public class ApplicationSettingsHelper {
     }
 
     /**
+     * to check whether the settings object has default wi-fi links
+     *
+     * @return boolean value indicating presence of the default links
+     * @since 1.2.0
+     * */
+    public static boolean hasDefaultWiFiLinks() {
+        LoggingHelper.LogFunction("Settings Helper : has Default wi-fi links called!");
+        return UNIVERSAL_SETTINGS.has(DEFAULT_WIFI_LINKS);
+    }
+
+    /**
      * to check whether the settings object has default networks
      *
      * @return boolean variable indicating presence of the default networks
@@ -144,6 +160,32 @@ public class ApplicationSettingsHelper {
             LoggingHelper.LogDebug("Yes! Universal Settings has Default Links!");
         } else {
             LoggingHelper.LogDebug("No! Universal Settings has no default links!");
+        }
+
+        LoggingHelper.LogDebug("Returning the links as array list.");
+        return links;
+    }
+
+    /**
+     * to get the default wi-fi links
+     *
+     * @return list of default wi-fi links
+     * @since 1.2.0
+     * */
+    public static ArrayList<WIFI> getDefaultWiFiLinks() {
+        LoggingHelper.LogFunction("Settings Helper : get default wi-fi links called!");
+        ArrayList<WIFI> links = new ArrayList<>();
+        if (hasDefaultWiFiLinks()) {
+            for (Object data : ((JSONArray)UNIVERSAL_SETTINGS.get(DEFAULT_WIFI_LINKS))) {
+                String[] params = data.toString().split("\\|");
+                for (String str : params) {
+                    LoggingHelper.LogDebug("Str : "+str);
+                }
+                links.add(new WIFI(links.size(),params[1],params[2],params[3],params[4],((params[5].equalsIgnoreCase("Y"))?(true):(false)), true));
+            }
+            LoggingHelper.LogDebug("Yes! Universal Settings has Default Wi-Fi Links!");
+        } else {
+            LoggingHelper.LogDebug("No! Universal Settings has no default Wi-Fi links!");
         }
 
         LoggingHelper.LogDebug("Returning the links as array list.");
@@ -192,6 +234,25 @@ public class ApplicationSettingsHelper {
                 str_links.add(link.forSettings());
             }
             UNIVERSAL_SETTINGS.put(DEFAULT_LINKS, str_links);
+        }
+    }
+
+    /**
+     * to set the default links
+     *
+     * @since 1.2.0
+     * */
+    public static void saveDefaultWiFiLinks(ArrayList<WIFI> links) {
+        LoggingHelper.LogFunction("Settings Helper : save default wi-fi links called!");
+        if (links.size() > 0) {
+            if (UNIVERSAL_SETTINGS.has(DEFAULT_WIFI_LINKS)) {
+                UNIVERSAL_SETTINGS.remove(DEFAULT_WIFI_LINKS);
+            }
+            ArrayList<String> str_links = new ArrayList<>();
+            for (NetworkLink link : links) {
+                str_links.add(link.forSettings());
+            }
+            UNIVERSAL_SETTINGS.put(DEFAULT_WIFI_LINKS, str_links);
         }
     }
 
