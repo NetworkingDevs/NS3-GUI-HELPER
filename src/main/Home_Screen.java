@@ -186,6 +186,10 @@ public class Home_Screen extends JFrame {
      * */
     Dialog_DefaultNetworkConfig dialogDefaultNetworkConfig;
     /**
+     * to manage the default wi-fi link settings
+     * */
+    Dialog_DefaultWiFiLinkConfig dialogDefaultWiFiLinkConfig;
+    /**
      * for selecting the outPut path
      * */
     String OutputPath;
@@ -507,6 +511,58 @@ public class Home_Screen extends JFrame {
                         THIS.setText("Hide default networks");
                         dialogNetwork.showDefaultNetworks(true);
                         dialogHelper.showInformationMsg("Default networks are visible!", "Success!");
+                    }
+                    iconVis = !iconVis;
+                }
+            }
+        });
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default WiFi Config"));
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(4).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                instantiateDefaultWiFiLinkConfig();
+                if (Dialog_WiFiLink.SHOW_DEFAULT) {
+                    int choice = dialogHelper.showConfirmationDialog("Your default links will be hidden temporarily!\nHowever, you can make them visible again.\nYou want to continue?","Warning!");
+                    if (choice == JOptionPane.YES_OPTION) {
+                        instantiateDefaultWiFiLinkConfig();
+                        dialogDefaultWiFiLinkConfig.setVisible(true);
+                        dialogDefaultWiFiLinkConfig.showLinksAgain();
+                        dialogWiFiLink.showDefaultLinks(false);
+                        menuItemsListMapping.get(SETTINGS_MENU).get(5).setText("Show Default WiFi Config");
+                        menuItemsListMapping.get(SETTINGS_MENU).get(5).setIcon(null);
+                    }
+                } else {
+                    instantiateDefaultWiFiLinkConfig();
+                    dialogDefaultWiFiLinkConfig.setVisible(true);
+                    dialogDefaultWiFiLinkConfig.showLinksAgain();
+                }
+            }
+        });
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Show Default WiFi Config"));
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(5).addActionListener(new ActionListener() {
+            boolean iconVis = menuItemsListMapping.get(SETTINGS_MENU).get(5).getIcon()!=null;
+            JMenuItem THIS = menuItemsListMapping.get(SETTINGS_MENU).get(5);
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                iconVis = (THIS.getIcon()!=null);
+                instantiateDefaultWiFiLinkConfig();
+                instantiateWifiLinkDialog();
+                if (dialogDefaultWiFiLinkConfig.defaultLinks.size() == 0) {
+                    dialogHelper.showWarningMsg("None default links are configured!", "Warning!");
+                } else {
+                    dialogWiFiLink.setDefaultLinks(dialogDefaultWiFiLinkConfig.defaultLinks);
+                    if (iconVis) {
+                        LoggingHelper.LogDebug("Hiding the default links!");
+                        THIS.setIcon(null);
+                        THIS.setText("Show Default WiFi Config");
+                        dialogWiFiLink.showDefaultLinks(false);
+                    } else {
+                        LoggingHelper.LogDebug("Showing the default links!");
+                        THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
+                        THIS.setText("Hide Default WiFi Config");
+                        dialogWiFiLink.showDefaultLinks(true);
+                        dialogHelper.showInformationMsg("Default links are visible!", "Success!");
                     }
                     iconVis = !iconVis;
                 }
@@ -908,6 +964,18 @@ public class Home_Screen extends JFrame {
         dialogDefaultLinkConfig = Dialog_DefaultLinkConfig.getInstance(new ArrayList<>());
         if (hasDefaultLinks()) {
             dialogDefaultLinkConfig.defaultLinks = getDefaultLinks();
+        }
+    }
+
+    /**
+     * to instantiate the object for default wi-fi link dialog
+     *
+     * @since 1.2.0
+     * */
+    private void instantiateDefaultWiFiLinkConfig() {
+        dialogDefaultWiFiLinkConfig = Dialog_DefaultWiFiLinkConfig.getInstance(new ArrayList<>());
+        if (hasDefaultWiFiLinks()) {
+            dialogDefaultWiFiLinkConfig.defaultLinks = getDefaultWiFiLinks();
         }
     }
 
