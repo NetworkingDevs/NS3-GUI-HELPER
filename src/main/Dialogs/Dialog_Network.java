@@ -202,6 +202,12 @@ public class Dialog_Network extends JFrame {
      * */
     private void updateOverviewTxt() {
         LoggingHelper.LogLogic("Dialog Link : changing the overview text!");
-        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Networks : "+(this.links.size())+" networks created");
+        int cnt = 0;
+        for (Network link : this.links) {
+            if (!link.isDefault) {
+                cnt++;
+            }
+        }
+        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Networks : "+(cnt)+" networks created");
     }
 }

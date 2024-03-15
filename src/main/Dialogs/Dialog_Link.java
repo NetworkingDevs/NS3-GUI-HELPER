@@ -252,6 +252,12 @@ public class Dialog_Link extends JFrame {
      * */
     private void updateOverviewTxt() {
         LoggingHelper.LogInfo("Dialog Link : updating overview text!");
-        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Links : "+(this.links.size())+" links created");
+        int cnt = 0;
+        for (NetworkLink link : this.links) {
+            if (!link.isDefault()) {
+                cnt ++;
+            }
+        }
+        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Links : "+(cnt)+" links created");
     }
 }

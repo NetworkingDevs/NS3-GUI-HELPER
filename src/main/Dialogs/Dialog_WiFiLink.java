@@ -180,7 +180,7 @@ public class Dialog_WiFiLink extends JFrame {
         return allLinks;
     }
 
-    public void setDefaultLinks(ArrayList<NetworkLink> defaultLinks) {
+    public void setDefaultLinks(ArrayList<WIFI> defaultLinks) {
         LoggingHelper.LogFunction("Dialog WiFiLink : set default links called!");
         for (NetworkLink defaultLink : defaultLinks) {
             boolean alreadyExist = false;
@@ -233,7 +233,13 @@ public class Dialog_WiFiLink extends JFrame {
      * */
     private void updateOverviewTxt() {
         LoggingHelper.LogInfo("Dialog WiFiLink : updating the overview text!");
-        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Wi-Fi Links : "+(this.links.size())+" links created");
+        int cnt = 0;
+        for (NetworkLink link : this.links) {
+            if (!link.isDefault()) {
+                cnt++;
+            }
+        }
+        ((JLabel)this.helpfulComponents.get(COMPONENT_OVERVIEW_LABEL)).setText("Wi-Fi Links : "+(cnt)+" links created");
     }
 
 }
