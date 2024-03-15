@@ -223,60 +223,6 @@ public class Dialog_DefaultLinkConfig extends JFrame {
      * @since 1.0.0
      * */
     private void setUpEventListeners() {
-        // act as a placeholder
-        this.textField_delay.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                super.focusGained(e);
-                if (textField_delay.getText().equals("Enter delay (in ms)")) {
-                    textField_delay.setText("");
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                super.focusLost(e);
-                if (textField_delay.getText().equals("")) {
-                    textField_delay.setText("Enter delay (in ms)");
-                }
-            }
-        });
-        // act as a placeholder
-        this.textField_dataRate.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                super.focusGained(e);
-                if (textField_dataRate.getText().equals("Enter data rate")) {
-                    textField_dataRate.setText("");
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                super.focusLost(e);
-                if (textField_dataRate.getText().equals("")) {
-                    textField_dataRate.setText("Enter data rate");
-                }
-            }
-        });
-        // act as a placeholder
-        this.textField_alias.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                super.focusGained(e);
-                if (textField_alias.getText().equals("Enter alias name")) {
-                    textField_alias.setText("");
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                super.focusLost(e);
-                if (textField_alias.getText().equals("")) {
-                    textField_alias.setText("Enter alias name");
-                }
-            }
-        });
         // action to be performed when clicking on save button....
         btn_save.addActionListener(new ActionListener() {
             @Override
