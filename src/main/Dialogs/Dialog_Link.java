@@ -102,7 +102,7 @@ public class Dialog_Link extends JFrame {
 
         this.setContentPane(this.JPanel_main);
         this.setTitle("Create Link");
-        this.setSize(400,245);
+        this.setSize(400,260);
         this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
