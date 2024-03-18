@@ -2,18 +2,61 @@ package Ns3Objects.Links;
 
 import StatusHelper.LinkType;
 
+/**
+ * to store the link of type CsmaHelper in terms of NS-3 Script
+ * */
 public class CSMA implements NetworkLink{
-    
-    public int id;
-    public String name;
-    public String delay;
-    public String dataRate;
-    public String speedModifier;
-    public LinkType linkType;
-    public boolean enablePcap;
-    public boolean isDefault;
-    public boolean isUsed;
 
+    /**
+     * for unique identity
+     * */
+    private int id;
+    /**
+     * for alias name
+     * */
+    public String name;
+    /**
+     * for delay in "ms"
+     * */
+    public String delay;
+    /**
+     * for data rate
+     * */
+    public String dataRate;
+    /**
+     * for speed modifier of link
+     * */
+    public String speedModifier;
+    /**
+     * for link type
+     * */
+    private LinkType linkType;
+    /**
+     * for enabling packet capture of entire link
+     * */
+    private boolean enablePcap;
+    /**
+     * for selecting as default link
+     * */
+    private boolean isDefault;
+    /**
+     * for marking as used link
+     * */
+    private boolean isUsed;
+
+    /**
+     * to instantiate the object of type CSMA
+     *
+     * @param id for identity
+     * @param name alias name
+     * @param delay delay value in ms
+     * @param dataRate for data rate
+     * @param speedModifier for speed modifier
+     * @param enablePcap for enabling packet capture of entire link
+     * @see P2P
+     * @see NetworkLink
+     * @since 1.1.0
+     * */
     public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap) {
         this.id  = id;
         this.name = name;
@@ -27,22 +70,63 @@ public class CSMA implements NetworkLink{
     }
 
     // new constructor will support previous once...
+    /**
+     * to instantiate the object of type CSMA
+     *
+     * @param id for identity
+     * @param name for alias
+     * @param delay for delay in ms
+     * @param dataRate for data rate of the link
+     * @param speedModifier for speed modifier
+     * @param enablePcap for enabling packet capture of entire link
+     * @param isDefault for setting as default link
+     * @see CSMA#CSMA(int, String, String, String, String, boolean)
+     * @see CSMA#CSMA(int, String, String, String, String, boolean, boolean, boolean)
+     * @since 1.1.0
+     * */
     public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault) {
         this(id,name,delay,dataRate,speedModifier,enablePcap);
         this.isDefault = isDefault;
     }
 
+    /**
+     * to instantiate the object of type CSMA
+     *
+     * @param id for identity
+     * @param name for alias
+     * @param delay for delay in ms
+     * @param dataRate for data rate of the link
+     * @param speedModifier for speed modifier
+     * @param enablePcap for enabling packet capture of entire link
+     * @param isDefault for setting as default link
+     * @param isUsed for marking as used link
+     * @see CSMA#CSMA(int, String, String, String, String, boolean)
+     * @see CSMA#CSMA(int, String, String, String, String, boolean, boolean)  CSMA
+     * @since 1.1.0
+     * */
     public CSMA(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault, boolean isUsed) {
         this(id,name,delay,dataRate,speedModifier,enablePcap,isDefault);
         this.isUsed = isUsed;
     }
 
+    /**
+     * to render the link information
+     *
+     * @return the link information
+     * @since 1.1.0
+     * */
     @Override
     public String toString() {    
         return this.name+" (CSMA) - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
     }
 
     // for storing in file for settings...
+    /**
+     * to generate the storage format in settings file
+     *
+     * @return storage format for settings file
+     * @since 1.1.0
+     * */
     @Override
     public String forSettings() {
         return this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier+"|"+((this.enablePcap)?"Y":"N")+"|CSMA";
@@ -69,10 +153,22 @@ public class CSMA implements NetworkLink{
     }
 
     /**
+     * <p>
+     *     to generate the link configuration code
+     * </p>
+     * <p>
+     *     <pre>
+     *         {@code
      * Example:
      *  CsmaHelper csma;
      *  csma.SetChannelAttribute("DataRate", StringValue("500Mbps"));
      *  csma.SetChannelAttribute("Delay", TimeValue(NanoSeconds(6560)));
+     *  }
+     *  </pre>
+     *</p>
+     *
+     * @return the link configuration code
+     * @since 1.1.0
      * */
     @Override
     public String toCode() {
@@ -84,9 +180,21 @@ public class CSMA implements NetworkLink{
     }
 
     /**
+     * <p>
+     *     to generate the code for
+     *     packet capture of entire link
+     * </p>
+     * <p>
+     *     <pre>
+     *         {@code
      * Example:
      * csmaName.EnablePcapAll("Name");
+     * }
+     * </pre>
+     * </p>
+     *
      * @return Equivalent code for ".EnablePcapAll()" method
+     * @since 1.1.0
      */
     @Override
     public String getPacketCaptureAllCode() {

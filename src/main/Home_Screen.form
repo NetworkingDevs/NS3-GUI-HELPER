@@ -15,9 +15,7 @@
     <children>
       <grid id="29010" binding="JPanel_main_left" layout-manager="FormLayout">
         <rowspec value="center:18px:noGrow"/>
-        <rowspec value="center:d:grow"/>
-        <rowspec value="top:4dlu:grow"/>
-        <rowspec value="center:max(d;4px):grow"/>
+        <rowspec value="center:578px:grow"/>
         <colspec value="fill:d:grow(3.0)"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -25,7 +23,7 @@
         </constraints>
         <properties>
           <minimumSize width="600" height="600"/>
-          <preferredSize width="550" height="655"/>
+          <preferredSize width="600" height="655"/>
         </properties>
         <border type="none"/>
         <children>
@@ -51,21 +49,14 @@
               <forms defaultalign-horz="false" defaultalign-vert="false"/>
             </constraints>
             <properties>
+              <horizontalScrollBarPolicy value="30"/>
               <maximumSize width="1000" height="1000"/>
-              <preferredSize width="550" height="600"/>
+              <preferredSize width="800" height="800"/>
+              <verticalScrollBarPolicy value="20"/>
             </properties>
             <border type="none"/>
             <children/>
           </scrollpane>
-          <component id="59925" class="javax.swing.JButton" binding="btn_generateCode">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <forms defaultalign-horz="false"/>
-            </constraints>
-            <properties>
-              <text value="Generate Code"/>
-            </properties>
-          </component>
         </children>
       </grid>
       <grid id="4b6ab" binding="JPanel_main_right" layout-manager="FormLayout">
@@ -76,7 +67,7 @@
           <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
-          <maximumSize width="1000" height="1000"/>
+          <maximumSize width="500" height="1000"/>
         </properties>
         <border type="none"/>
         <children>
@@ -95,6 +86,8 @@
               <grid id="616a2" binding="JPanel_configTopology" layout-manager="FormLayout">
                 <rowspec value="center:110px:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
                 <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
@@ -133,7 +126,7 @@
                         </properties>
                         <border type="none"/>
                         <children>
-                          <grid id="5ad91" binding="JPanel_tools_buttons" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                          <grid id="5ad91" binding="JPanel_tools_buttons" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                             <margin top="0" left="0" bottom="0" right="0"/>
                             <constraints/>
                             <properties/>
@@ -159,7 +152,7 @@
                               </component>
                               <component id="e11d2" class="javax.swing.JButton" binding="btn_tool_view">
                                 <constraints>
-                                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <text value="Button"/>
@@ -168,11 +161,20 @@
                               </component>
                               <component id="65429" class="javax.swing.JButton" binding="btn_tool_csmaConn">
                                 <constraints>
-                                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <text value="Button"/>
                                   <toolTipText value="CSMA Link Tool"/>
+                                </properties>
+                              </component>
+                              <component id="a2ea6" class="javax.swing.JButton" binding="btn_tool_wifiConn">
+                                <constraints>
+                                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Button"/>
+                                  <toolTipText value="Wi-Fi Connection Tool"/>
                                 </properties>
                               </component>
                             </children>
@@ -183,6 +185,10 @@
                   </grid>
                   <grid id="f548" binding="JPanel_configTopo" layout-manager="FormLayout">
                     <rowspec value="center:d:grow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
                     <rowspec value="top:4dlu:noGrow"/>
                     <rowspec value="center:max(d;4px):noGrow"/>
                     <rowspec value="top:4dlu:noGrow"/>
@@ -252,7 +258,7 @@
                         <colspec value="left:4dlu:noGrow"/>
                         <colspec value="fill:max(d;4px):grow"/>
                         <constraints>
-                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties/>
@@ -281,14 +287,14 @@
                       </grid>
                       <component id="fd322" class="javax.swing.JComboBox" binding="comboBox_networks">
                         <constraints>
-                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties/>
                       </component>
                       <component id="53eb" class="javax.swing.JButton" binding="btn_serverConfig">
                         <constraints>
-                          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties>
@@ -298,13 +304,53 @@
                       </component>
                       <component id="219a5" class="javax.swing.JButton" binding="btn_clientConfig">
                         <constraints>
-                          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties>
                           <text value="Client Configuration"/>
                           <toolTipText value="Click to configure client"/>
                         </properties>
+                      </component>
+                      <grid id="26602" binding="JPanel_grp_wifiLinks" layout-manager="FormLayout">
+                        <rowspec value="center:d:noGrow"/>
+                        <colspec value="fill:d:grow"/>
+                        <colspec value="left:4dlu:noGrow"/>
+                        <colspec value="fill:max(d;4px):grow"/>
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="f9530" class="javax.swing.JLabel" binding="lbl_wifi">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <forms/>
+                            </constraints>
+                            <properties>
+                              <text value="WiFi Links"/>
+                            </properties>
+                          </component>
+                          <component id="a5653" class="javax.swing.JButton" binding="btn_addWiFiLink">
+                            <constraints>
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <forms/>
+                            </constraints>
+                            <properties>
+                              <text value="Add WiFi Link"/>
+                              <toolTipText value="Click to add new link"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                      <component id="9d3a1" class="javax.swing.JComboBox" binding="comboBox_wifiLinks">
+                        <constraints>
+                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties/>
                       </component>
                     </children>
                   </grid>
@@ -355,6 +401,8 @@
                     <rowspec value="center:max(d;4px):noGrow"/>
                     <rowspec value="top:4dlu:noGrow"/>
                     <rowspec value="center:max(d;4px):noGrow"/>
+                    <rowspec value="top:4dlu:noGrow"/>
+                    <rowspec value="center:max(d;4px):noGrow"/>
                     <colspec value="fill:d:grow"/>
                     <constraints>
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -386,7 +434,7 @@
                       </component>
                       <component id="43965" class="javax.swing.JLabel" binding="lbl_links">
                         <constraints>
-                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties>
@@ -395,15 +443,33 @@
                       </component>
                       <component id="5a743" class="javax.swing.JLabel" binding="lbl_networks">
                         <constraints>
-                          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                           <forms/>
                         </constraints>
                         <properties>
                           <text value="Networks : None created"/>
                         </properties>
                       </component>
+                      <component id="bf19b" class="javax.swing.JLabel" binding="lbl_wifi_links">
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                          <forms/>
+                        </constraints>
+                        <properties>
+                          <text value="Wi-Fi Links : None Created"/>
+                        </properties>
+                      </component>
                     </children>
                   </grid>
+                  <component id="59925" class="javax.swing.JButton" binding="btn_generateCode">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Generate Code"/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
             </children>

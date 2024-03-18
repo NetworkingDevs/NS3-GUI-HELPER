@@ -2,18 +2,61 @@ package Ns3Objects.Links;
 
 import StatusHelper.LinkType;
 
+/**
+ * to store the link of type PointToPointHelper in terms of NS-3 Script
+ * */
 public class P2P implements NetworkLink{
-    
-    public int id;
-    public String name;
-    public String delay;
-    public String dataRate;
-    public String speedModifier;
-    public LinkType linkType;
-    public boolean enablePcap;
-    public boolean isDefault;
-    public boolean isUsed;
 
+    /**
+     * for unique identity
+     * */
+    private int id;
+    /**
+     * for alias name
+     * */
+    public String name;
+    /**
+     * for delay in "ms"
+     * */
+    public String delay;
+    /**
+     * for data rate
+     * */
+    public String dataRate;
+    /**
+     * for speed modifier of link
+     * */
+    public String speedModifier;
+    /**
+     * for link type
+     * */
+    private LinkType linkType;
+    /**
+     * for enabling packet capture of entire link
+     * */
+    private boolean enablePcap;
+    /**
+     * for selecting as default link
+     * */
+    private boolean isDefault;
+    /**
+     * for marking as used link
+     * */
+    private boolean isUsed;
+
+    /**
+     * to instantiate the object of type P2P
+     *
+     * @param id for identity
+     * @param name for alias
+     * @param delay for delay in ms
+     * @param dataRate for data rate of the link
+     * @param speedModifier for speed modifier
+     * @param enablePcap for enabling packet capture of entire link
+     * @see P2P#P2P(int, String, String, String, String, boolean, boolean, boolean)  P2P
+     * @see P2P#P2P(int, String, String, String, String, boolean, boolean)  P2P
+     * @since 0.3.0
+     * */
     public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap) {
         this.id  = id;
         this.name = name;
@@ -27,22 +70,63 @@ public class P2P implements NetworkLink{
     }
 
     // new constructor will support previous once...
+    /**
+     * to instantiate the object of type P2P
+     *
+     * @param id for identity
+     * @param name for alias
+     * @param delay for delay in ms
+     * @param dataRate for data rate of the link
+     * @param speedModifier for speed modifier
+     * @param enablePcap for enabling packet capture of entire link
+     * @param isDefault for setting as default link
+     * @see P2P#P2P(int, String, String, String, String, boolean, boolean, boolean)  P2P
+     * @see P2P#P2P(int, String, String, String, String, boolean)  P2P
+     * @since 0.3.0
+     * */
     public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault) {
         this(id,name,delay,dataRate,speedModifier,enablePcap);
         this.isDefault = isDefault;
     }
 
+    /**
+     * to instantiate the object of type P2P
+     *
+     * @param id for identity
+     * @param name for alias
+     * @param delay for delay in ms
+     * @param dataRate for data rate of the link
+     * @param speedModifier for speed modifier
+     * @param enablePcap for enabling packet capture of entire link
+     * @param isDefault for setting as default link
+     * @param isUsed for marking as used link
+     * @see P2P#P2P(int, String, String, String, String, boolean, boolean)  P2P
+     * @see P2P#P2P(int, String, String, String, String, boolean)  P2P
+     * @since 0.3.0
+     * */
     public P2P(int id,String name,String delay,String dataRate,String speedModifier, boolean enablePcap, boolean isDefault, boolean isUsed) {
         this(id,name,delay,dataRate,speedModifier,enablePcap,isDefault);
         this.isUsed = isUsed;
     }
 
+    /**
+     * to render the link information
+     *
+     * @return the link information
+     * @since 0.3.0
+     * */
     @Override
     public String toString() {    
         return this.name+" (P2P) - "+this.delay+"ms,"+this.dataRate+this.speedModifier;
     }
 
     // for storing in file for settings...
+    /**
+     * to generate the storage format in settings file
+     *
+     * @return storage format for settings file
+     * @since 0.3.0
+     * */
     @Override
     public String forSettings() {
         return this.name+"|"+this.delay+"|"+this.dataRate+"|"+this.speedModifier+"|"+((this.enablePcap)?("Y"):"N")+"|P2P";
@@ -69,10 +153,22 @@ public class P2P implements NetworkLink{
     }
 
     /**
+     * <p>
+     *     to generate the link configuration code
+     * </p>
+     * <p>
+     * <pre>
+     * {@code
      * Example:
      *  PointToPointHelper pointToPoint;
      *  pointToPoint.SetDeviceAttribute("DataRate", StringValue("500Mbps"));
      *  pointToPoint.SetChannelAttribute("Delay", StringValue("2ms"));
+     *  }
+     *  </pre>
+     * </p>
+     *
+     * @return the link configuration code
+     * @since 0.3.0
      * */
     @Override
     public String toCode() {
@@ -85,9 +181,20 @@ public class P2P implements NetworkLink{
     }
 
     /**
+     * <p>
+     *     to generate the code for packet capture of entire link
+     * </p>
+     * <p>
+     * <pre>
+     * {@code
      * Example:
      * p2pName.EnablePcapAll("Name");
+     * }
+     * </pre>
+     * </p>
+     *
      * @return Equivalent code for ".EnablePcapAll()" method
+     * @since 1.1.0
      */
     @Override
     public String getPacketCaptureAllCode() {

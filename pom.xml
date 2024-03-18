@@ -21,6 +21,17 @@
             <artifactId>javafx-swing</artifactId>
             <version>21.0.1</version>
         </dependency>
+        <!-- for logging and all that stuff -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.23.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.23.1</version>
+        </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>forms_rt</artifactId>

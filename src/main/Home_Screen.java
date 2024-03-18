@@ -1,11 +1,9 @@
 import Dialogs.*;
 import FileHandler.CodeGenerator;
 import FileHandler.FileReaderWriter;
-import GuiRenderers.CsmaLinkPainter;
-import GuiRenderers.NodePainter;
-import GuiRenderers.P2pLinkPainter;
-import GuiRenderers.TopologyPainter;
-import Helpers.DebuggingHelper;
+import GuiRenderers.*;
+import Helpers.LoggingHelper;
+import StatusHelper.LogLevel;
 import StatusHelper.ToolStatus;
 
 import javax.imageio.ImageIO;
@@ -23,15 +21,37 @@ import java.util.Map;
 
 import static Helpers.ApplicationSettingsHelper.*;
 
+/**
+ * This is the main entry class for the application, This will centrally responsible for
+ * all Dialog boxes management, Code Generation and Canvas renderings.
+ * */
 public class Home_Screen extends JFrame {
+    /**
+     * a constant string to track File menu's key
+     * */
     private final String FILE_MENU = "File";
-    private final String SCENARIOS_MENU = "Scenarios";
+    /**
+     * a constant string to track key of Settings menu
+     * */
     private final String SETTINGS_MENU = "Settings";
+    /**
+     * a constant string to track key of Help menu
+     * */
     private final String HELP_MENU = "Help";
+    /**
+     * an array list tp track the menu names (String) as key for menu bar
+     * */
     private ArrayList<String> MenusOrder = new ArrayList<>();
+    /**
+     * minimum window width
+     * */
     private final int MIN_WINDOW_WIDTH = 1090;
+    /**
+     * minimum window height
+     * */
     private final int MIN_WINDOW_HEIGHT = 650;
 
+    // UI Elements
     private JPanel JPanel_main;
     private JPanel JPanel_main_left;
     private JPanel JPanel_main_right;
@@ -66,13 +86,33 @@ public class Home_Screen extends JFrame {
     private JScrollPane JScrollPane_forTools;
     private JPanel JPanel_tools_buttons;
     private JButton btn_tool_csmaConn;
+    private JButton btn_tool_wifiConn;
+    private JPanel JPanel_grp_wifiLinks;
+    private JLabel lbl_wifi;
+    private JButton btn_addWiFiLink;
+    private JComboBox comboBox_wifiLinks;
+    private JLabel lbl_wifi_links;
+    /**
+     * menu bar for the application
+     * */
     JMenuBar menuBar; // this is a menu bar
+    /**
+     * mapping of string keys to menu
+     * */
     Map<String, JMenu> menuMapping; // this is a mapping (from string to each menu), for ease in coding...
+    /**
+     * mapping of string keys to menu items for each menu
+     * */
     Map<String, ArrayList<JMenuItem>> menuItemsListMapping; // this is a mapping (from string to list of each menu's item's list)
-    ArrayList<Integer> nodesInCsma = new ArrayList<>();
+    /**
+     * to keep track of selected nodes in CSMA channel
+     * */
+    ArrayList<Integer> nodesSelected = new ArrayList<>();
 
-    // Images for tools and other buttons...
-    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected;
+    /**
+     * Images for the icons and other settings
+     * */
+    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected, icon_wifiLinkTool;
 
     {
         try {
@@ -82,28 +122,85 @@ public class Home_Screen extends JFrame {
             icon_csmaLinkTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_csmaLink.png"));
             icon_viewTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_view.png"));
             icon_selected = ImageIO.read(getClass().getClassLoader().getResource("icon_selected.png"));
+            icon_wifiLinkTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_wifiLink.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     // creating the variables for serving functionalities ==============================================================
-    TopologyPainter painter = new TopologyPainter(new ArrayList<>(), new ArrayList<>(), 600, 600);
+    /**
+     * a painter to draw elements and objects on the canvas
+     * */
+    TopologyPainter painter = new TopologyPainter(new ArrayList<>(), new ArrayList<>(), 800, 800);
+    /**
+     * to keep the track of the selected tool
+     * */
     ToolStatus toolStatus;
+    /**
+     * to keep the track of the no. of clicks
+     * */
     private int clicks = 1;
+    /**
+     * to keep the track of the index of the first selected node
+     * */
     private int firstNode = -1;
+    /**
+     * to manage links created by the user
+     * */
     Dialog_Link dialogLink;
+    /**
+     * to manage wi-fi links created by the user
+     * */
+    Dialog_WiFiLink dialogWiFiLink;
+    /**
+     * to manage the network settings created by the user
+     * */
     Dialog_Network dialogNetwork;
+    /**
+     * to make a connection (wired, common bus) between two nodes
+     * */
     Dialog_Connection dialogConnection;
+    /**
+     * to configure a single UDP Echo Server
+     * */
     Dialog_ConfigureServer dialogConfigureServer;
+    /**
+     * to configure a single UDP Echo client
+     * */
     Dialog_ConfigureClient dialogConfigureClient;
+    /**
+     * to manage the settings for output file that will be generated
+     * */
     Dialog_outputFileChooser dialogOutputFileChooser;
+    /**
+     * to show the alerts, information, warning and confirmation messages
+     * */
     Dialog_Helper dialogHelper;
+    /**
+     * to manage the default links
+     * */
     Dialog_DefaultLinkConfig dialogDefaultLinkConfig;
+    /**
+     * to manage the default network settings
+     * */
     Dialog_DefaultNetworkConfig dialogDefaultNetworkConfig;
+    /**
+     * to manage the default wi-fi link settings
+     * */
+    Dialog_DefaultWiFiLinkConfig dialogDefaultWiFiLinkConfig;
+    /**
+     * for selecting the outPut path
+     * */
     String OutputPath;
+    /**
+     * for generating the equivalent NS-3 Script
+     * */
     CodeGenerator codeGenerator;
 
+    /**
+     * constructor that initializes the necessary objects, events, etc.
+     * */
     public Home_Screen() {
         // basic initialization of this component...
         // ========================================= BASIC CONF. =======================================================
@@ -128,6 +225,8 @@ public class Home_Screen extends JFrame {
         this.btn_tool_p2pConn.setText("");
         this.btn_tool_csmaConn.setIcon(new ImageIcon(icon_csmaLinkTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
         this.btn_tool_csmaConn.setText("");
+        this.btn_tool_wifiConn.setIcon(new ImageIcon(icon_wifiLinkTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
+        this.btn_tool_wifiConn.setText("");
         this.btn_tool_view.setIcon(new ImageIcon(icon_viewTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
         this.btn_tool_view.setText("");
 
@@ -149,12 +248,22 @@ public class Home_Screen extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * to add each menu to menu bar list
+     *
+     * @since 1.0.0
+     * */
     private void addMenusToMenuBar() {
         for (String menu : this.MenusOrder) { // adding each menu to menu bar...
             this.menuBar.add(this.menuMapping.get(menu));
         }
     }
 
+    /**
+     * to add each menu item to the menu
+     *
+     * @since 1.0.0
+     * */
     private void addMenuItemsToMenus() {
         for (Map.Entry<String, JMenu> menu : this.menuMapping.entrySet()) { // for each menu...
             for (JMenuItem item : this.menuItemsListMapping.get(menu.getKey())) { // adding each menu item...
@@ -163,20 +272,34 @@ public class Home_Screen extends JFrame {
         }
     }
 
+    /**
+     * to increment click if, clicked on rendered node
+     *
+     * @param successfulClick whether clicked on any of rendered node
+     * @since 0.3.0
+     * */
     private void incrementClicks(boolean successfulClick) {
         if (successfulClick) {
             clicks ++;
         }
     }
 
+    /**
+     * to check if, user is allowed to add new link
+     *
+     * @param toolStatus the current selected tool
+     * @return boolean variable showing, whether the user is allowed to add new link
+     * @since 0.3.0
+     * */
     private boolean checkIfLinkCanBeAdded(ToolStatus toolStatus) {
         instantiateLinkDialog();
-        DebuggingHelper.Debugln(dialogLink.getP2pLinkCount()+" CSMA Link Count : "+dialogLink.getCsmaLinkCount());
+        instantiateWifiLinkDialog();
+        LoggingHelper.LogDebug(dialogLink.getP2pLinkCount()+" CSMA Link Count : "+dialogLink.getCsmaLinkCount());
         // link tool selection is invalid in below conditions...
         if (this.painter.getNodes().size() == 0) { // if there are no node...
             this.dialogHelper.showWarningMsg("Please add some nodes to make a connection!", "Warning");
             return false;
-        } else if ((toolStatus == ToolStatus.TOOL_LINK)?(dialogLink.getP2pLinkCount()==0):((toolStatus == ToolStatus.TOOL_LINK_CSMA)?(dialogLink.getCsmaLinkCount()==0):(false))) { // if there are no links...
+        } else if ((toolStatus == ToolStatus.TOOL_LINK)?(dialogLink.getP2pLinkCount()==0):((toolStatus == ToolStatus.TOOL_LINK_CSMA)?(dialogLink.getCsmaLinkCount()==0):(((toolStatus == ToolStatus.TOOL_LINK_WIFI)?(dialogWiFiLink.getLinkCount() == 0):(false))))) { // if there are no links...
             this.dialogHelper.showWarningMsg("Please create at least one link before making a connection!", "Warning");
             return false;
         } else if (dialogNetwork==null || (dialogNetwork.getNetworkCount() == 0)) { // if there are no network settings made...
@@ -187,6 +310,13 @@ public class Home_Screen extends JFrame {
         }
     }
 
+    /**
+     * it checks that whether there is any node rendered on the canvas
+     *
+     * @param msg The error message to show, in case no nodes are rendered
+     * @return boolean variable showcasing that whether there are any nodes on the canvas
+     * @since 0.3.0
+     * */
     private boolean checkIfNodesExists (String msg) {
         if (painter.getNodes().size() == 0) {
             this.dialogHelper.showErrorMsg(msg, "Error!");
@@ -195,6 +325,13 @@ public class Home_Screen extends JFrame {
         return true;
     }
 
+    /**
+     * to open a web page from the URI
+     *
+     * @param uri The URI of the webpage
+     * @return boolean variable showing that the URI exists or not
+     * @since 1.1.0
+     * */
     private static boolean openWebpage(URI uri) {
         Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
         if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -208,6 +345,14 @@ public class Home_Screen extends JFrame {
         return false;
     }
 
+    /**
+     * to open a web page from the URL
+     *
+     * @param url The URL of the file
+     * @return boolean variable showing that the URL exist or not
+     * @see Home_Screen#openWebpage(URI)
+     * @since 1.1.0
+     * */
     private static boolean openWebpage(URL url) {
         try {
             return openWebpage(url.toURI());
@@ -217,6 +362,13 @@ public class Home_Screen extends JFrame {
         return false;
     }
 
+    /**
+     * it will set up the menu bar for the application
+     *
+     * @see Home_Screen#addMenuItemsToMenus()
+     * @see Home_Screen#addMenusToMenuBar()
+     * @since 1.0.0
+     * */
     private void setUpMenuBar() {
         // ========================================= MENU BAR CONF. ====================================================
         this.menuBar = new JMenuBar();
@@ -244,12 +396,12 @@ public class Home_Screen extends JFrame {
                         @Override
                         public void componentHidden(ComponentEvent e) {
                             super.componentHidden(e);
-                            DebuggingHelper.Debugln("Output settings has been altered!");
+                            LoggingHelper.LogDebug("Output settings has been altered!");
                             UNIVERSAL_SETTINGS.remove(OUTPUT_PATH);
                             UNIVERSAL_SETTINGS.put(OUTPUT_PATH, dialogOutputFileChooser.getOutputPath());
                             UNIVERSAL_SETTINGS.remove(FILE_NAME);
                             UNIVERSAL_SETTINGS.put(FILE_NAME, dialogOutputFileChooser.getFileName());
-                            DebuggingHelper.Debugln("Updated JSON : " + UNIVERSAL_SETTINGS.toString());
+                            LoggingHelper.LogDebug("Updated JSON : " + UNIVERSAL_SETTINGS.toString());
                         }
                     });
                     dialogOutputFileChooser.setVisible(true);
@@ -259,15 +411,6 @@ public class Home_Screen extends JFrame {
         // step-4 : add menu to menu order
         this.MenusOrder.add(FILE_MENU);
         // following above 4 steps for each menu...
-
-        // for scenarios menu...
-        this.menuMapping.put(SCENARIOS_MENU, new JMenu("Scenarios"));
-        this.menuItemsListMapping.put(SCENARIOS_MENU, new ArrayList<>());
-        this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic P2P"));
-        this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Ring - 3 Nodes"));
-        this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Mesh - 4 Nodes"));
-        this.menuItemsListMapping.get(SCENARIOS_MENU).add(new JMenuItem("Basic Star - 5 Nodes"));
-        // this.MenusOrder.add(SCENARIOS_MENU);
 
         // for settings menu...
         this.menuMapping.put(SETTINGS_MENU, new JMenu("Settings"));
@@ -306,12 +449,12 @@ public class Home_Screen extends JFrame {
                 } else {
                     dialogLink.setDefaultLinks(dialogDefaultLinkConfig.defaultLinks);
                     if (iconVis) {
-                        DebuggingHelper.Debugln("Hiding the default links!");
+                        LoggingHelper.LogDebug("Hiding the default links!");
                         THIS.setIcon(null);
                         THIS.setText("Show default links");
                         dialogLink.showDefaultLinks(false);
                     } else {
-                        DebuggingHelper.Debugln("Showing the default links!");
+                        LoggingHelper.LogDebug("Showing the default links!");
                         THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
                         THIS.setText("Hide default links");
                         dialogLink.showDefaultLinks(true);
@@ -358,16 +501,68 @@ public class Home_Screen extends JFrame {
                 } else {
                     dialogNetwork.setDefaultNetworks(dialogDefaultNetworkConfig.defaultNetworks);
                     if (iconVis) {
-                        DebuggingHelper.Debugln("Hiding the default networks!");
+                        LoggingHelper.LogDebug("Hiding the default networks!");
                         THIS.setIcon(null);
                         THIS.setText("Show default networks");
                         dialogNetwork.showDefaultNetworks(false);
                     } else {
-                        DebuggingHelper.Debugln("Showing the default networks!");
+                        LoggingHelper.LogDebug("Showing the default networks!");
                         THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
                         THIS.setText("Hide default networks");
                         dialogNetwork.showDefaultNetworks(true);
                         dialogHelper.showInformationMsg("Default networks are visible!", "Success!");
+                    }
+                    iconVis = !iconVis;
+                }
+            }
+        });
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Default WiFi Config"));
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(4).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                instantiateDefaultWiFiLinkConfig();
+                if (Dialog_WiFiLink.SHOW_DEFAULT) {
+                    int choice = dialogHelper.showConfirmationDialog("Your default links will be hidden temporarily!\nHowever, you can make them visible again.\nYou want to continue?","Warning!");
+                    if (choice == JOptionPane.YES_OPTION) {
+                        instantiateDefaultWiFiLinkConfig();
+                        dialogDefaultWiFiLinkConfig.setVisible(true);
+                        dialogDefaultWiFiLinkConfig.showLinksAgain();
+                        dialogWiFiLink.showDefaultLinks(false);
+                        menuItemsListMapping.get(SETTINGS_MENU).get(5).setText("Show Default WiFi Config");
+                        menuItemsListMapping.get(SETTINGS_MENU).get(5).setIcon(null);
+                    }
+                } else {
+                    instantiateDefaultWiFiLinkConfig();
+                    dialogDefaultWiFiLinkConfig.setVisible(true);
+                    dialogDefaultWiFiLinkConfig.showLinksAgain();
+                }
+            }
+        });
+        this.menuItemsListMapping.get(SETTINGS_MENU).add(new JMenuItem("Show Default WiFi Config"));
+        this.menuItemsListMapping.get(SETTINGS_MENU).get(5).addActionListener(new ActionListener() {
+            boolean iconVis = menuItemsListMapping.get(SETTINGS_MENU).get(5).getIcon()!=null;
+            JMenuItem THIS = menuItemsListMapping.get(SETTINGS_MENU).get(5);
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                iconVis = (THIS.getIcon()!=null);
+                instantiateDefaultWiFiLinkConfig();
+                instantiateWifiLinkDialog();
+                if (dialogDefaultWiFiLinkConfig.defaultLinks.size() == 0) {
+                    dialogHelper.showWarningMsg("None default links are configured!", "Warning!");
+                } else {
+                    dialogWiFiLink.setDefaultLinks(dialogDefaultWiFiLinkConfig.defaultLinks);
+                    if (iconVis) {
+                        LoggingHelper.LogDebug("Hiding the default links!");
+                        THIS.setIcon(null);
+                        THIS.setText("Show Default WiFi Config");
+                        dialogWiFiLink.showDefaultLinks(false);
+                    } else {
+                        LoggingHelper.LogDebug("Showing the default links!");
+                        THIS.setIcon(new ImageIcon(icon_selected.getScaledInstance(8, 8, Image.SCALE_SMOOTH)));
+                        THIS.setText("Hide Default WiFi Config");
+                        dialogWiFiLink.showDefaultLinks(true);
+                        dialogHelper.showInformationMsg("Default links are visible!", "Success!");
                     }
                     iconVis = !iconVis;
                 }
@@ -397,6 +592,11 @@ public class Home_Screen extends JFrame {
         // ========================================= MENU BAR CONF. ====================================================
     }
 
+    /**
+     * to set up all events listeners
+     *
+     * @since 0.3.0
+     * */
     private void setUpEventListeners()
     {
         // ========================================= ALL EVENT LISTENERS ===============================================
@@ -404,18 +604,35 @@ public class Home_Screen extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
-                DebuggingHelper.Debugln("Key pressed : "+e.getKeyCode());
-                if (e.getKeyCode() == 32 && toolStatus==ToolStatus.TOOL_LINK_CSMA) {
-                    // render the CSMA link...
-                    painter.addAndPrintLink(new CsmaLinkPainter(nodesInCsma,painter.getNodes()));
-                    // instantiate connection dialog...
-                    instantiateConnectionDialog();
-                    // get to the device dialog and...
-                    dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(),nodesInCsma,toolStatus);
-                    // empty the nodes list...
-                    nodesInCsma = new ArrayList<>();
-                    // empty the reference nodes list...
-                    painter.setReferenceNodes(new ArrayList<>());
+                LoggingHelper.LogDebug("Key pressed : "+e.getKeyCode());
+                if (e.getKeyCode() == 32) {
+                    switch (toolStatus) {
+                        case TOOL_LINK_CSMA : {
+                            // render the CSMA link...
+                            painter.addAndPrintLink(new CsmaLinkPainter(nodesSelected,painter.getNodes()));
+                            // instantiate connection dialog...
+                            instantiateConnectionDialog();
+                            // get to the device dialog and...
+                            dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(), nodesSelected,toolStatus);
+                            // empty the nodes list...
+                            nodesSelected = new ArrayList<>();
+                            // empty the reference nodes list...
+                            painter.setReferenceNodes(new ArrayList<>());
+                        } break;
+
+                        case TOOL_LINK_WIFI : {
+                            // render the wi-fi link
+                            painter.addAndPrintLink(new WifiLinkPainter(nodesSelected,painter.getNodes()));
+                            // instantiate connection dialog
+                            instantiateConnectionDialog();
+                            // get the device dialog
+                            dialogConnection.showDialog(dialogWiFiLink.getAllLinks(),dialogNetwork.getAllNetworks(), nodesSelected,toolStatus);
+                            // empty the nodes list
+                            nodesSelected = new ArrayList<>();
+                            // empty the reference node list
+                            painter.setReferenceNodes(new ArrayList<>());
+                        }
+                    }
                 }
             }
         });
@@ -426,7 +643,7 @@ public class Home_Screen extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                DebuggingHelper.Debugln("Clicked at x : "+e.getX()+" y : "+e.getY());
+                LoggingHelper.LogDebug("Clicked at x : "+e.getX()+" y : "+e.getY());
                 switch (toolStatus) {
                     // if tool is 'node' tool then...
                     case TOOL_NODE : {
@@ -443,7 +660,7 @@ public class Home_Screen extends JFrame {
                         // for first successful click....
                         // check if collision with any node...
                         collision = painter.pointCollideWithAny(e.getX(), e.getY());
-                        DebuggingHelper.Debugln("Collision : "+collision+" Clicks : "+clicks);
+                        LoggingHelper.LogDebug("Collision : "+collision+" Clicks : "+clicks);
                         if (collision >= 0 && clicks%2!=0) {
                             // if collision then change the information label and increment the no. of clicks...
                             firstNode = collision;
@@ -458,7 +675,7 @@ public class Home_Screen extends JFrame {
                             lbl_info.setText("Connection Tool Selected: To create a link, click on two nodes sequentially.");
                             painter.addAndPrintLink(new P2pLinkPainter(painter.getNodes().get(firstNode), painter.getNodes().get(collision)));
                             successfulClick = true;
-                            DebuggingHelper.Debugln(firstNode+" "+collision);
+                            LoggingHelper.LogDebug(firstNode+" "+collision);
                             instantiateConnectionDialog();
                             ArrayList<Integer> nodes = new ArrayList<>();
                             nodes.add(firstNode);
@@ -469,13 +686,13 @@ public class Home_Screen extends JFrame {
                         incrementClicks(successfulClick);
                     } break;
 
-                    case TOOL_LINK_CSMA: {
+                    case TOOL_LINK_CSMA, TOOL_LINK_WIFI: {
                        int collision = -1;
 
                        collision = painter.pointCollideWithAny(e.getX(), e.getY());
-                       DebuggingHelper.Debugln("Collision : "+collision);
-                       if (collision >= 0 && !nodesInCsma.contains(collision)) {
-                            nodesInCsma.add(collision);
+                       LoggingHelper.LogDebug("Collision : "+collision);
+                       if (collision >= 0 && !nodesSelected.contains(collision)) {
+                            nodesSelected.add(collision);
                             painter.addAndPrintRefNode(new NodePainter(painter.getNodes().get(collision).xPos-5, painter.getNodes().get(collision).yPos-5,30,"",Color.GREEN));
                        }
                     } break;
@@ -554,6 +771,17 @@ public class Home_Screen extends JFrame {
             }
         });
 
+        btn_tool_wifiConn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (checkIfLinkCanBeAdded(ToolStatus.TOOL_LINK_WIFI)) {
+                    lbl_info.setText("Wi-Fi Connection Tool : Select the AP node first, then select the remaining nodes, and press the spacebar.");
+                    toolStatus = ToolStatus.TOOL_LINK_WIFI;
+                }
+            }
+        });
+
         // action to be performed when Add Link button is pressed...
         btn_addLink.addActionListener(new ActionListener() {
             @Override
@@ -563,6 +791,19 @@ public class Home_Screen extends JFrame {
                 } else { // first time instantiation....
                     instantiateLinkDialog();
                     dialogLink.setVisible(true);
+                }
+            }
+        });
+
+        // action to be performed when add Wi-Fi link button is clicked.
+        btn_addWiFiLink.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (dialogWiFiLink != null) {
+                    dialogWiFiLink.setVisible(true);
+                } else {
+                    instantiateWifiLinkDialog();
+                    dialogWiFiLink.setVisible(true);
                 }
             }
         });
@@ -666,12 +907,23 @@ public class Home_Screen extends JFrame {
         // ==================================== ALL EVENT LISTENERS ENDS ===============================================
     }
 
+    /**
+     * to instantiate the object for connection dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateConnectionDialog() {
         dialogConnection = Dialog_Connection.getInstance();
         instantiateLinkDialog();
         dialogConnection.addDialogLink(dialogLink);
+        dialogConnection.addDialogLink(dialogWiFiLink);
     }
 
+    /**
+     * to instantiate the object for link dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateLinkDialog() {
         Map<String, JComponent> helpfulComponents = new HashMap<>();
         helpfulComponents.put(Dialog_Link.COMPONENT_COMBO_BOX, comboBox_links);
@@ -679,6 +931,23 @@ public class Home_Screen extends JFrame {
         dialogLink = Dialog_Link.getInstance(helpfulComponents);
     }
 
+    /**
+     * to instantiate the object for wi-fi link dialog
+     *
+     * @since 1.2.0
+     * */
+    private void instantiateWifiLinkDialog() {
+        Map<String, JComponent> helpfulComponents = new HashMap<>();
+        helpfulComponents.put(Dialog_WiFiLink.COMPONENT_COMBO_BOX,comboBox_wifiLinks);
+        helpfulComponents.put(Dialog_WiFiLink.COMPONENT_OVERVIEW_LABEL, lbl_wifi_links);
+        dialogWiFiLink = Dialog_WiFiLink.getInstance(helpfulComponents);
+    }
+
+    /**
+     * to instantiate the object for network dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateNetworkDialog() {
         Map<String, JComponent> helpfulComponents = new HashMap<>();
         helpfulComponents.put(Dialog_Network.COMPONENT_COMBO_BOX, comboBox_networks);
@@ -686,6 +955,11 @@ public class Home_Screen extends JFrame {
         dialogNetwork = Dialog_Network.getInstance(helpfulComponents);
     }
 
+    /**
+     * to instantiate the object for default link dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateDefaultLinkConfig() {
         dialogDefaultLinkConfig = Dialog_DefaultLinkConfig.getInstance(new ArrayList<>());
         if (hasDefaultLinks()) {
@@ -693,6 +967,23 @@ public class Home_Screen extends JFrame {
         }
     }
 
+    /**
+     * to instantiate the object for default wi-fi link dialog
+     *
+     * @since 1.2.0
+     * */
+    private void instantiateDefaultWiFiLinkConfig() {
+        dialogDefaultWiFiLinkConfig = Dialog_DefaultWiFiLinkConfig.getInstance(new ArrayList<>());
+        if (hasDefaultWiFiLinks()) {
+            dialogDefaultWiFiLinkConfig.defaultLinks = getDefaultWiFiLinks();
+        }
+    }
+
+    /**
+     * to instantiate the object for default network config dialog
+     *
+     * @since 1.0.0
+     * */
     private void instantiateDefaultNetworkConfig() {
         dialogDefaultNetworkConfig = Dialog_DefaultNetworkConfig.getInstance(new ArrayList<>());
         if (hasDefaultNetworks()) {
@@ -700,6 +991,11 @@ public class Home_Screen extends JFrame {
         }
     }
 
+    /**
+     * to generate the NS-3 file for equivalent topology
+     *
+     * @since 0.0.0
+     * */
     private void createFile() {
         if (this.lbl_server.getText().equalsIgnoreCase("Server Index :  Not configured")) {
             if (dialogHelper.showConfirmationDialog("There are no servers in the topology!\nDo you want to continue?","Warning!") == JOptionPane.NO_OPTION) {
@@ -730,14 +1026,62 @@ public class Home_Screen extends JFrame {
 
         otherFields.put(CodeGenerator.NAME_OF_TOPOLOGY, "Custom");
         otherFields.put(CodeGenerator.TOTAL_NODES, String.valueOf(this.painter.getNodes().size()));
-        this.codeGenerator = new CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink,otherFields);
+        this.codeGenerator = new CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink,dialogWiFiLink,otherFields);
         this.codeGenerator.GenerateCode();
         FileReaderWriter.writeUsingPath(this.codeGenerator.getCode(), path);
 
         this.dialogHelper.showInformationMsg("File has been generated successfully!\nAt : "+this.OutputPath, "Code Generated!");
     }
 
+    /**
+     * The entry point for the application
+     * */
     public static void main(String[] args) {
+        try {
+            // setting the UI theme, if it exists
+            for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
+        }
+        // enabling logger
+        new LoggingHelper();
+        // starting application
         new Home_Screen();
+        // filtering the arguments...
+        for (String a : args) {
+            // enabling log level
+            switch (a.trim().replace("-","").toUpperCase()) {
+                case "ERROR":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_ERROR);
+                    break;
+                case "DEBUG":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_DEBUG);
+                    break;
+                case "INFO":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_INFO);
+                    break;
+                case "FUNCTION":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_FUNCTION);
+                    break;
+                case "LOGIC":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_LOGIC);
+                    break;
+                case "LOGALL":
+                    LoggingHelper.setLogLevel(LogLevel.LOG_LEVEL_ALL);
+                default:
+                    LoggingHelper.setLogLevel(LogLevel.LOG_NONE);
+                    break;
+            }
+        }
     }
 }

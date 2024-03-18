@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Dialogs.Dialog_WiFiLink">
+  <grid id="27dc6" binding="JPanel_main" layout-manager="FormLayout">
+    <rowspec value="center:d:noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:d:noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <colspec value="fill:d:grow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:max(d;4px):grow"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="265"/>
+    </constraints>
+    <properties/>
+    <border type="bevel-lowered" title="Configure Wifi"/>
+    <children>
+      <component id="446c3" class="javax.swing.JLabel" binding="lbl_standard">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="WiFi Standard"/>
+        </properties>
+      </component>
+      <component id="dbc92" class="javax.swing.JComboBox" binding="comboBox_standard">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="WIFI_STANDARD_80211a"/>
+            <item value="WIFI_STANDARD_80211b"/>
+            <item value="WIFI_STANDARD_80211g"/>
+            <item value="WIFI_STANDARD_80211p"/>
+            <item value="WIFI_STANDARD_holland"/>
+            <item value="WIFI_STANDARD_80211n_2_4GHZ"/>
+            <item value="WIFI_STANDARD_80211n_5GHZ"/>
+            <item value="WIFI_STANDARD_80211ac"/>
+            <item value="WIFI_STANDARD_80211ax_2_4GHZ"/>
+            <item value="WIFI_STANDARD_80211ax_5GHZ"/>
+            <item value="WIFI_STANDARD_80211ax_6GHZ"/>
+          </model>
+        </properties>
+      </component>
+      <component id="667c0" class="javax.swing.JLabel" binding="lbl_stationManager">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Remote Station Manager"/>
+        </properties>
+      </component>
+      <component id="84c65" class="javax.swing.JComboBox" binding="comboBox_stationManager">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="ns3::ConstantRateWifiManager"/>
+            <item value="ns3::MinstreWifiManager"/>
+            <item value="ns3::AarfWifiManager"/>
+            <item value="ns3::HarfWifiManager"/>
+            <item value="ns3::IdealWifiManager"/>
+            <item value="ns3::RraaWifiManager"/>
+            <item value="ns3::ArfWifiManager"/>
+          </model>
+        </properties>
+      </component>
+      <component id="baead" class="javax.swing.JLabel" binding="lbl_ssid">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="SSID"/>
+        </properties>
+      </component>
+      <component id="2fb16" class="javax.swing.JTextField" binding="textField_ssid">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <text value="Enter SSID"/>
+        </properties>
+      </component>
+      <component id="a6e4a" class="javax.swing.JLabel" binding="lbl_alias">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Alias name"/>
+        </properties>
+      </component>
+      <component id="734f1" class="javax.swing.JTextField" binding="textField_alias">
+        <constraints>
+          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <text value="Enter Alias name"/>
+        </properties>
+      </component>
+      <component id="2ed79" class="javax.swing.JButton" binding="btn_save">
+        <constraints>
+          <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Add Link"/>
+        </properties>
+      </component>
+      <component id="d0020" class="javax.swing.JCheckBox" binding="checkBox_genDefault">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Generate With Default"/>
+        </properties>
+      </component>
+      <component id="8200c" class="javax.swing.JCheckBox" binding="checkBox_enablePcap">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Enable Packet Capture"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

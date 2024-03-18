@@ -1,9 +1,15 @@
 package Dialogs;
 
+import Helpers.LoggingHelper;
+import Helpers.PlaceHolderHelper;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * For configuration of output file generation
+ * */
 public class Dialog_outputFileChooser extends JFrame {
     private JPanel JPanel_main;
     private JPanel JPanel_top;
@@ -18,11 +24,34 @@ public class Dialog_outputFileChooser extends JFrame {
     private JButton btn_save;
 
     // These are variable created for serving the functionalities....
+    /**
+     * The placeholder for output path
+     * */
+    private static String PLACEHOLDER_OUTPUT_PATH = "Enter path for output path";
+    /**
+     * The placeholder for file name
+     * */
+    private static String PLACEHOLDER_FILE_NAME = "Enter name for output file";
+    /**
+     * the path where the output will be generated
+     * */
     String outputPath;
+    /**
+     * name of the file
+     * */
     String fileName;
+    /**
+     * dialog helper to show messages
+     * */
     Dialog_Helper dialogHelper;
 
+    /**
+     * to create an object of type Dialog_outputFileChooser
+     *
+     * @since 1.0.0
+     * */
     public Dialog_outputFileChooser() {
+        LoggingHelper.Log("Creating object of type Dialog_outputFileChooser");
         // ==================== BASIC CONF. ====================
         this.setContentPane(this.JPanel_main);
         this.setTitle("Output Configuration");
@@ -37,9 +66,19 @@ public class Dialog_outputFileChooser extends JFrame {
         this.textField_fileName.setText("output");
         this.outputPath = new String();
         this.fileName = new String();
+
+        PlaceHolderHelper.addPlaceHolder(textField_outputPath,PLACEHOLDER_OUTPUT_PATH);
+        PlaceHolderHelper.addPlaceHolder(textField_fileName,PLACEHOLDER_FILE_NAME);
     }
 
+    /**
+     * to set the path of the file, act as placeholder
+     *
+     * @param value the value that is in the text box
+     * @since 1.0.0
+     * */
     public void setPath(String value) {
+        LoggingHelper.LogFunction("Dialog File Chooser : set path called!");
         this.textField_outputPath.setText(value);
         this.outputPath = value;
         if (!textField_outputPath.getText().equalsIgnoreCase(System.getProperty("user.dir"))) {
@@ -51,7 +90,14 @@ public class Dialog_outputFileChooser extends JFrame {
         }
     }
 
+    /**
+     * to set the file name, act as placeholder
+     *
+     * @param value the value that is in the text box
+     * @since 1.0.0
+     * */
     public void setFileName(String value) {
+        LoggingHelper.LogFunction("Dialog File Chooser : set file name called!");
         this.textField_fileName.setText(value);
         this.fileName = value;
         if (!textField_fileName.getText().equalsIgnoreCase("output")) {
@@ -64,18 +110,25 @@ public class Dialog_outputFileChooser extends JFrame {
     }
 
     public String getOutputPath() {
+        LoggingHelper.LogFunction("Dialog File Chooser : get output path called!");
         return outputPath;
     }
 
     public String getFileName() {
+        LoggingHelper.LogFunction("Dialog File Chooser : get file name called!");
         return fileName;
     }
 
+    /**
+     * to set up all events
+     * */
     private void setUpEventListeners() {
+        LoggingHelper.LogFunction("Dialog File Chooser : setting up events!");
         // action to perform when clicking on output path check box...
         chkBox_outputPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogLogic("Dialog File Chooser : clicked on check box for output path setup");
                 textField_outputPath.setEnabled(!chkBox_outputPath.isSelected());
                 if (chkBox_outputPath.isSelected()) {
                     if (!textField_outputPath.getText().equalsIgnoreCase(System.getProperty("user.dir"))) {
@@ -89,6 +142,7 @@ public class Dialog_outputFileChooser extends JFrame {
         chkBox_fileName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogLogic("Dialog File Chooser : clicked on check box for file name");
                 textField_fileName.setEnabled(!chkBox_fileName.isSelected());
                 if (chkBox_fileName.isSelected()) {
                     if (!textField_fileName.getText().equalsIgnoreCase("output")) {
@@ -102,6 +156,7 @@ public class Dialog_outputFileChooser extends JFrame {
         btn_save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogLogic("Dialog File Chooser : clicked on save button");
                 outputPath = textField_outputPath.getText();
                 fileName = textField_fileName.getText();
                 dialogHelper.showInformationMsg("Settings has been saved!", "Success!");
