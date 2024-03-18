@@ -2,13 +2,13 @@
 layout: default
 ---
 
-| [Home](./index.md) | [Final Product](./appImages.html) | Manul |  [Releases](./releases.html)  | [Doxygen](./doxygen/index.html) |
+| [Home](./index.md) | [Final Product](./appImages.html) | Manul |  [Releases](./releases.html)  | [Doxygen](./doxygen/html/index.html) |
 |:-------------------|:----------------------------------|----------------------|--------------------|---|
 | To Home Page       | To Final Product                  | This Page            | For latest updates | To Doxygen |
 
 # User's Manual
 - This serves as a convenient, step-by-step guide on seamlessly utilizing the application. It provides a user-friendly approach to facilitate a faster learning curve, aiding users in adapting easily to NS3 coding.
-- User Manual for Latest Release (v1.1.0). <a href="./Manual/pdfs/ManualV1.1.0.pdf" download> Click to see<sup>NEW</sup> </a>!
+- User Manual for Latest Release (v1.2.0). <a href="./Releases/v1_2_0/Manual.pdf" download> Click to see<sup>NEW</sup> </a>!
   <marquee direction="left" height="100px" style="color: red; font-weight: bold; font-style: italic;">
   This manual (This page) belongs to very first release of this application! Soon latest user manual will be shared here! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Use above link to download latest User Manuals. 
   </marquee>

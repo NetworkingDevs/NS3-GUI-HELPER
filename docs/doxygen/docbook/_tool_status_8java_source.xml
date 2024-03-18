@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__tool_status_8java_source" xml:lang="en-US">
+<title>ToolStatus.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/StatusHelper/ToolStatus.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__tool_status_8java_source_1l00001"/>00001 <emphasis role="keyword">package&#32;</emphasis>StatusHelper;
+<anchor xml:id="__tool_status_8java_source_1l00002"/>00002 
+<anchor xml:id="__tool_status_8java_source_1l00006"/><link linkend="_enum_status_helper_1_1_tool_status">00006</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_enum_status_helper_1_1_tool_status">ToolStatus</link>&#32;{
+<anchor xml:id="__tool_status_8java_source_1l00007"/><link linkend="_enum_status_helper_1_1_tool_status_1a985cfa0db50a621cd946ca38e0b600fd">00007</link> &#32;&#32;&#32;&#32;TOOL_NODE,&#32;<link linkend="_enum_status_helper_1_1_tool_status_1a985cfa0db50a621cd946ca38e0b600fd">TOOL_LINK</link>,&#32;TOOL_VIEW,&#32;TOOL_LINK_CSMA,&#32;TOOL_LINK_WIFI
+<anchor xml:id="__tool_status_8java_source_1l00008"/><link linkend="_enum_status_helper_1_1_tool_status_1ab0f5c47d708655efbde7d1fca2062268">00008</link> }
+</programlisting></section>

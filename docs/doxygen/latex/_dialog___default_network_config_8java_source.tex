@@ -1,0 +1,230 @@
+\doxysection{Dialog\+\_\+\+Default\+Network\+Config.\+java}
+\label{_dialog___default_network_config_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_DefaultNetworkConfig.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_DefaultNetworkConfig.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Helpers.PlaceHolderHelper;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Ns3Objects.Netoworks.Network;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ com.jgoodies.forms.layout.CellConstraints;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ com.jgoodies.forms.layout.FormLayout;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ com.jgoodies.forms.layout.RowSpec;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ java.awt.event.*;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ Helpers.ApplicationSettingsHelper.*;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_DefaultNetworkConfig\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_top;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_top\_top;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_netId;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_netid;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_netmask;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_netmask;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_alias;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_alias;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_save;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_bottom;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}\ JScrollPane\ JScrollPane\_network\_manager;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_networks;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_NET\_ID\ =\ \textcolor{stringliteral}{"{}Enter\ NetID"{}};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_SUBNET\_MASK\ =\ \textcolor{stringliteral}{"{}Enter\ netmask"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_ALIAS\_NAME\ =\ \textcolor{stringliteral}{"{}Enter\ alias\ name"{}};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Network>\ defaultNetworks;}
+\DoxyCodeLine{00054\ \ \ \ \ Dialog\_Helper\ dialogHelper;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ editIndex\ =\ -\/1;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Dialog\_DefaultNetworkConfig\ INSTANCE;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Dialog\_DefaultNetworkConfig\ getInstance(ArrayList<Network>\ networks)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Checking\ for\ the\ instance\ of\ Dialog\_DefaultNetworkConfig"{}});}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (INSTANCE==\textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}The\ instance\ for\ Dialog\_DefaultNetworkConfig\ was\ not\ available!"{}});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ INSTANCE\ =\ \textcolor{keyword}{new}\ Dialog\_DefaultNetworkConfig(networks);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INSTANCE;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_DefaultNetworkConfig(ArrayList<Network>\ networks)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ Dialog\_DefaultNetworkConfig"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ====================\ BASIC\ CONF.\ ====================}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Default\ Network\ Configuration"{}});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ this.setSize(400,500);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.HIDE\_ON\_CLOSE);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ====================\ DONE\ BASIC\ CONF.\ ====================}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ this.JPanel\_networks.setLayout(\textcolor{keyword}{new}\ FormLayout(\textcolor{stringliteral}{"{}fill:pref:grow,\ fill:pref:grow,\ fill:pref:grow"{}}));}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ this.JScrollPane\_network\_manager.setViewportView(this.JPanel\_networks);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ this.dialogHelper\ =\ \textcolor{keyword}{new}\ Dialog\_Helper(\textcolor{keyword}{this});}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ this.defaultNetworks\ =\ networks;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.defaultNetworks.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ this.showNetworks();}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_netid,PLACEHOLDER\_NET\_ID);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_netmask,PLACEHOLDER\_SUBNET\_MASK);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_alias,PLACEHOLDER\_ALIAS\_NAME);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ this.setUpEventListeners();}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showNetworks()\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Default\ Network\ :\ Rendering\ each\ network\ in\ JPanel!"{}});}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<this.defaultNetworks.size();\ i++)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Rendering\ network\ :\ "{}}+i);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ making\ a\ label...}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ JLabel\ lbl\ =\ \textcolor{keyword}{new}\ JLabel(this.defaultNetworks.get(i).toString());}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ making\ edit\ button...}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ JButton\ btnUpdate\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Edit"{}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ btnUpdate.setActionCommand(String.valueOf(i));}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ btnUpdate.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Action\ command\ while\ clicking\ on\ edit\ button\ :\ "{}}+e.getActionCommand());}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ all\ the\ n/w\ params\ to\ configuration\ form...}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ showNetworkSettings(Integer.parseInt(e.getActionCommand()));}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ making\ a\ button\ for\ n/w\ deletion...}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ JButton\ btn\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Delete"{}});}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ btn.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Action\ command\ while\ clicking\ on\ delete\ button\ :\ "{}}+e.getActionCommand());}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ yes\ =\ dialogHelper.showConfirmationDialog(\textcolor{stringliteral}{"{}Do\ you\ really\ want\ to\ delete\ this\ network?"{}},\ \textcolor{stringliteral}{"{}Confirmation!"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (yes\ ==\ JOptionPane.YES\_OPTION)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}User\ chose\ to\ delete\ network\ with\ index\ :\ "{}}+e.getActionCommand());}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultNetworks.remove(Integer.parseInt(e.getActionCommand()));}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Deleted\ Network\ from\ default\ networks!"{}});}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ showNetworksAgain();}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ btn.setActionCommand(String.valueOf(i));}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ ((FormLayout)\ this.JPanel\_networks.getLayout()).appendRow(\textcolor{keyword}{new}\ RowSpec(\textcolor{stringliteral}{"{}pref"{}}));}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ this.JPanel\_networks.add(lbl,\ \textcolor{keyword}{new}\ CellConstraints().xy(1,\ i+1));}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ this.JPanel\_networks.add(btnUpdate,\ \textcolor{keyword}{new}\ CellConstraints().xy(2,i+1));}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ this.JPanel\_networks.add(btn,\ \textcolor{keyword}{new}\ CellConstraints().xy(3,\ i+1));}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Network\ "{}}+i+\textcolor{stringliteral}{"{}\ Rendered!"{}});}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showNetworksAgain()\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Default\ Network\ :\ Creating\ a\ new\ JPanel\ (after\ deleting\ last\ n/w\ /\ first\ time\ rendering)!"{}});}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ this.JPanel\_networks\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ this.JPanel\_networks.setLayout(\textcolor{keyword}{new}\ FormLayout(\textcolor{stringliteral}{"{}fill:pref:grow,\ fill:pref:grow,\ fill:pref:grow"{}}));}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ this.JPanel\_networks.setSize(\textcolor{keyword}{new}\ Dimension(400,\ 500));}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ this.JScrollPane\_network\_manager.setViewportView(this.JPanel\_networks);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ this.showNetworks();}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Rendering\ new\ JPanel\ on\ JScrollPane!"{}});}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ showNetworkSettings(\textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Default\ Network\ :\ show\ Network\ Settings\ called!"{}});}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ this.editIndex\ =\ index;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ Network\ selectedNetwork\ =\ this.defaultNetworks.get(index);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ this.textField\_netid.setText(selectedNetwork.netId);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ this.textField\_netmask.setText(selectedNetwork.netMask);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ this.textField\_alias.setText(selectedNetwork.name);}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}All\ fields\ have\ been\ changed\ to\ selected\ network!"{}});}
+\DoxyCodeLine{00191\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setUpEventListeners()\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ act\ as\ a\ placeholder}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ this.textField\_netid.addFocusListener(\textcolor{keyword}{new}\ FocusAdapter()\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ focusGained(FocusEvent\ e)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.focusGained(e);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textField\_netid.getText().equals(\textcolor{stringliteral}{"{}Enter\ NetID"{}}))\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_netid.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ focusLost(FocusEvent\ e)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.focusLost(e);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textField\_netid.getText().equals(\textcolor{stringliteral}{"{}"{}}))\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_netid.setText(\textcolor{stringliteral}{"{}Enter\ NetID"{}});}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ act\ as\ a\ placeholder}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ this.textField\_netmask.addFocusListener(\textcolor{keyword}{new}\ FocusAdapter()\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ focusGained(FocusEvent\ e)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.focusGained(e);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textField\_netmask.getText().equals(\textcolor{stringliteral}{"{}Enter\ netmask"{}}))\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_netmask.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ focusLost(FocusEvent\ e)\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.focusLost(e);}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textField\_netmask.getText().equals(\textcolor{stringliteral}{"{}"{}}))\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_netmask.setText(\textcolor{stringliteral}{"{}Enter\ netmask"{}});}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ act\ as\ a\ placeholder}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ this.textField\_alias.addFocusListener(\textcolor{keyword}{new}\ FocusAdapter()\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ focusGained(FocusEvent\ e)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.focusGained(e);}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textField\_alias.getText().equals(\textcolor{stringliteral}{"{}Enter\ alias\ name"{}}))\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_alias.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ focusLost(FocusEvent\ e)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.focusLost(e);}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textField\_alias.getText().equals(\textcolor{stringliteral}{"{}"{}}))\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_alias.setText(\textcolor{stringliteral}{"{}Enter\ alias\ name"{}});}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ clicking\ on\ save\ button....}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ btn\_save.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Default\ Network\ :\ Clicked\ on\ save\ button!"{}});}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (editIndex\ >\ -\/1)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultNetworks.get(editIndex).netId\ =\ textField\_netid.getText();}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultNetworks.get(editIndex).netMask\ =\ textField\_netmask.getText();}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultNetworks.get(editIndex).name\ =\ textField\_alias.getText();}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editIndex\ =\ -\/1;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}N/W\ has\ been\ updated\ successfully!"{}},\ \textcolor{stringliteral}{"{}Success!"{}});}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultNetworks.add(\textcolor{keyword}{new}\ Network(defaultNetworks.size(),\ textField\_netid.getText(),\ textField\_netmask.getText(),\ textField\_alias.getText(),\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}N/W\ has\ been\ added\ successfully!"{}},\ \textcolor{stringliteral}{"{}Success!"{}});}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ showNetworksAgain();}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}N/W\ have\ been\ changed\ and\ rendered\ successfully\ after\ clicking\ on\ save\ button!"{}});}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ this.addWindowListener(\textcolor{keyword}{new}\ WindowAdapter()\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ windowClosing(WindowEvent\ e)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.windowClosing(e);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saveDefaultNetworks(defaultNetworks);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saveSettings();}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editIndex\ =\ -\/1;}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00281\ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \}}
+
+\end{DoxyCode}

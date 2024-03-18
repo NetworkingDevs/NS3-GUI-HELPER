@@ -1,0 +1,50 @@
+\doxysection{Node\+Painter.\+java}
+\label{_node_painter_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/NodePainter.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/NodePainter.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }GuiRenderers;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }NodePainter\ \textcolor{keyword}{implements}\ CanvasPainter\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ xPos;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ yPos;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ radius;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}\ String\ label;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}\ Color\ color;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Color\ DEFAULT\_FILL\_COLOR\ =\ Color.RED;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ DEFAULT\_RADIUS\ =\ 20;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{public}\ NodePainter(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ String\ label)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}(x,y,DEFAULT\_RADIUS,label,DEFAULT\_FILL\_COLOR);}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{public}\ NodePainter(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ r,\ String\ label)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}(x,y,r,label,DEFAULT\_FILL\_COLOR);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{public}\ NodePainter(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ r,\ String\ label,\ Color\ fill)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ NodePainter"{}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ this.xPos\ =\ x;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ this.yPos\ =\ y;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ this.radius\ =\ r;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ this.label\ =\ label;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ this.color\ =\ fill;}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ \ \ \ \ @Override}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ paint(Graphics\ g)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Node\ Painter\ :\ Painting\ on\ the\ canvas!"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ g.setColor(this.color);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ g.fillOval(this.xPos,this.yPos,this.radius,this.radius);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ g.drawString(this.label,this.xPos,this.yPos);}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \}}
+\DoxyCodeLine{00107\ }
+
+\end{DoxyCode}

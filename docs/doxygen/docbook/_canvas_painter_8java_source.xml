@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__canvas_painter_8java_source" xml:lang="en-US">
+<title>CanvasPainter.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/CanvasPainter.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__canvas_painter_8java_source_1l00001"/>00001 
+<anchor xml:id="__canvas_painter_8java_source_1l00011"/><link linkend="_namespace_gui_renderers">00011</link> <emphasis role="keyword">package&#32;</emphasis>GuiRenderers;
+<anchor xml:id="__canvas_painter_8java_source_1l00012"/>00012 
+<anchor xml:id="__canvas_painter_8java_source_1l00013"/>00013 <emphasis role="keyword">import</emphasis>&#32;java.awt.*;
+<anchor xml:id="__canvas_painter_8java_source_1l00014"/>00014 
+<anchor xml:id="__canvas_painter_8java_source_1l00018"/><link linkend="_interface_gui_renderers_1_1_canvas_painter">00018</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">interface&#32;</emphasis><link linkend="_interface_gui_renderers_1_1_canvas_painter">CanvasPainter</link>&#32;{
+<anchor xml:id="__canvas_painter_8java_source_1l00022"/><link linkend="_interface_gui_renderers_1_1_canvas_painter_1a84d5c9562ee8ff11161ea8b2e5b115f5">00022</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_interface_gui_renderers_1_1_canvas_painter_1a84d5c9562ee8ff11161ea8b2e5b115f5">paint</link>(Graphics&#32;g);
+<anchor xml:id="__canvas_painter_8java_source_1l00023"/>00023 }
+</programlisting></section>

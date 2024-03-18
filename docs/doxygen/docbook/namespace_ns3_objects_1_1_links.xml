@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_ns3_objects_1_1_links" xml:lang="en-US">
+<title>Package Ns3Objects.Links</title>
+<indexterm><primary>Ns3Objects.Links</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a">CSMA</link></para>
+</listitem>
+            <listitem><para>interface <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p">P2P</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The following package includes the storage type for the various network links, point-to-point, common bus, etc. which represent PointToPointHelper, CsmaHelper in NS-3 Scripts</para>
+
+<para>They will be help in storing information and code generation </para>
+</section>
+</section>

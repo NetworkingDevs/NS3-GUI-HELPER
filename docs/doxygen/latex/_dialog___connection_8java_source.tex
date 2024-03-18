@@ -1,0 +1,220 @@
+\doxysection{Dialog\+\_\+\+Connection.\+java}
+\label{_dialog___connection_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_Connection.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_Connection.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Ns3Objects.Devices.Device;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Ns3Objects.Links.NetworkLink;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ Ns3Objects.Netoworks.Network;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ StatusHelper.LinkType;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ StatusHelper.ToolStatus;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{import}\ java.util.stream.Collectors;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_Connection\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_deviceInfo;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_group;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_link;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_links;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_network;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_networks;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_configureConnection;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ for\ serving\ the\ functionality....}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ nodeA,\ nodeB;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Integer>\ nodes;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NetworkLink>\ links;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Network>\ networks;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Device>\ devices;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Device>\ devices\_csma;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ Image\ img;}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ img\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}info.png"{}}));}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Dialog\_Connection\ INSTANCE;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{private}\ Dialog\_Link\ dialogLink;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{private}\ Dialog\_WiFiLink\ dialogWiFiLink;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Dialog\_Connection\ getInstance()\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Checking\ for\ available\ instance\ of\ Dialog\_Connection!"{}});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (INSTANCE\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}The\ instance\ for\ Dialog\_Connection\ was\ not\ available!"{}});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ INSTANCE\ =\ \textcolor{keyword}{new}\ Dialog\_Connection();}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INSTANCE;}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_Connection()\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}(0,0,\textcolor{keyword}{new}\ ArrayList<NetworkLink>(),\ \textcolor{keyword}{new}\ ArrayList<Network>());}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_Connection(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b,\ ArrayList<NetworkLink>\ l,\ ArrayList<Network>\ n)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ Dialog\_connection"{}});}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ initializing\ this\ component....}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Configure\ Connection"{}});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ this.setSize(400,200);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.HIDE\_ON\_CLOSE);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ this.nodeA\ =\ a;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ this.nodeB\ =\ b;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ this.links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ this.links.addAll(l);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ this.networks\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ this.networks.addAll(n);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ this.devices\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ this.devices\_csma\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ this.lbl\_deviceInfo.setText(\textcolor{stringliteral}{"{}Connection\ between\ node\ "{}}+this.nodeA+\textcolor{stringliteral}{"{}\ and\ node\ "{}}+this.nodeB);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ Image\ scaledImg\ =\ img.getScaledInstance(30,30,Image.SCALE\_SMOOTH);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ ImageIcon\ infoIcon\ =\ \textcolor{keyword}{new}\ ImageIcon(scaledImg);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ this.lbl\_deviceInfo.setIcon(infoIcon);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ perform\ when\ clicking\ on\ configure\ connection\ button...}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ btn\_configureConnection.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ Adding\ a\ connection!"{}});}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ -\/1;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<links.size();\ i++)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (links.get(i).toString().equals(comboBox\_links.getSelectedItem().toString()))\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ The\ link\ index\ :\ "{}}+index);}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setAsUsedLink(links.get(index));}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Matched\ link\ :\ "{}}+links.get(index).toString());}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (links.get(index).getLinkType()==LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Adding\ CSMA\ devices..."{}});}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ devices\_csma.add(\textcolor{keyword}{new}\ Device(links.get(index),\ networks.get(comboBox\_networks.getSelectedIndex()),\ nodes,\ devices\_csma.size()));}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (links.get(index).getLinkType()\ ==\ LinkType.LINK\_WIFI)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Adding\ Wi-\/Fi\ devices..."{}});}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ devices\_csma.add(\textcolor{keyword}{new}\ Device(links.get(index),\ networks.get(comboBox\_networks.getSelectedIndex()),\ nodes,\ devices\_csma.size()));}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ assumed\ to\ be\ point\ to\ point...}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Adding\ Point\ to\ point\ devices..."{}});}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ devices.add(}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Device}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ links.get}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ),}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ networks.get(comboBox\_networks.getSelectedIndex()),}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String.valueOf(nodeA),\ String.valueOf(nodeB)}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ d\ :\ devices)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(d.toString());}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setAsUsedLink(NetworkLink\ link)\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ Setting\ link\ as\ used\ link\ :\ "{}}+link.toString());}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ marked\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ Looking\ for\ point-\/to-\/point\ and\ CSMA\ links!"{}});}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(NetworkLink\ l\ :\ dialogLink.links)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (link.toString().equals(l.toString()))\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ Match\ found!"{}});}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l.setUsed(\textcolor{keyword}{true});}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ marked\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!marked)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ No\ match\ found!\ It\ is\ a\ wi-\/f-\/\ link."{}});}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(NetworkLink\ l\ :\ dialogWiFiLink.links)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (link.toString().equals(l.toString()))\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l.setUsed(\textcolor{keyword}{true});}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addDialogLink(Dialog\_Link\ dialogLink)\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ Adding\ an\ object\ of\ Dialog\_Link"{}});}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ this.dialogLink\ =\ dialogLink;}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addDialogLink(Dialog\_WiFiLink\ dialogLink)\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ Adding\ an\ object\ of\ Dialog\_WiFiLink"{}});}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ this.dialogWiFiLink\ =\ dialogLink;}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setVisible(\textcolor{keywordtype}{boolean}\ b,\ ToolStatus\ selectedTool)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ changing\ visibility!"{}});}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ super.setVisible(b);}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b)\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ LinkType\ type;}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (selectedTool\ ==\ ToolStatus.TOOL\_LINK)\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.lbl\_deviceInfo.setText(\textcolor{stringliteral}{"{}Connection\ between\ node\ "{}}+this.nodeA+\textcolor{stringliteral}{"{}\ and\ node\ "{}}+this.nodeB);}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ LinkType.LINK\_P2P;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (selectedTool\ ==\ ToolStatus.TOOL\_LINK\_WIFI)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ LinkType.LINK\_WIFI;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String\ list\_nodes\ =\ this.nodes.stream().map(Object::toString).collect(Collectors.joining(\textcolor{stringliteral}{"{},\ "{}}));}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.lbl\_deviceInfo.setText(\textcolor{stringliteral}{"{}Wi-\/Fi\ Connection\ between\ :\ "{}}+list\_nodes);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ assumed\ to\ be\ CSMA...}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ LinkType.LINK\_CSMA;}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String\ list\_nodes\ =\ this.nodes.stream().map(Object::toString).collect(Collectors.joining(\textcolor{stringliteral}{"{},\ "{}}));}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.lbl\_deviceInfo.setText(\textcolor{stringliteral}{"{}CSMA\ Connection\ between\ nodes\ :\ "{}}+list\_nodes);}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ this.comboBox\_links.removeAllItems();}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ this.comboBox\_networks.removeAllItems();}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Type\ :\ "{}}+link.getLinkType());}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ link.getLinkType())\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Matched!"{}});}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.comboBox\_links.addItem(link);}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Network\ n\ :\ this.networks)\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.comboBox\_networks.addItem(n);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showDialog(ArrayList<NetworkLink>\ l,\ ArrayList<Network>\ n,ArrayList<Integer>\ nodes,\ ToolStatus\ selectedTool)\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Connection\ :\ showDialog\ is\ called!"{}});}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (selectedTool\ ==\ ToolStatus.TOOL\_LINK)\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ this.nodeA\ =\ nodes.get(0);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ this.nodeB\ =\ nodes.get(1);}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ this.nodes\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ this.nodes.addAll(nodes);}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ this.setLinks(l);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ this.setNetworks(n);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{true},\ selectedTool);}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setLinks(ArrayList<NetworkLink>\ links)\ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ this.links\ =\ links;}
+\DoxyCodeLine{00296\ \ \ \ \ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setNetworks(ArrayList<Network>\ networks)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ this.networks\ =\ networks;}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,183 @@
+\doxysection{Dialog\+\_\+\+Configure\+Client.\+java}
+\label{_dialog___configure_client_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_ConfigureClient.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_ConfigureClient.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Helpers.PlaceHolderHelper;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ org.jetbrains.annotations.Debug;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_ConfigureClient\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_clientIndex;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_clientIndex;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_startTime;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_startTime;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_upTime;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_upTime;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_Mtu;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_mtu;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_interval;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_interval;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_packets;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_packets;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_save;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_START\_TIME\ =\ \textcolor{stringliteral}{"{}Enter\ start\ time"{}};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_UP\_TIME\ =\ \textcolor{stringliteral}{"{}Enter\ total\ up\ time"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_MTU\ =\ \textcolor{stringliteral}{"{}Enter\ the\ MTU"{}};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_INTERVAL\ =\ \textcolor{stringliteral}{"{}Enter\ the\ interval"{}};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_TOT\_PACKETS\ =\ \textcolor{stringliteral}{"{}Enter\ total\ packets"{}};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ mention\ all\ the\ components\ that\ have\ to\ be\ taken\ here....}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ COMPONENT\_OVERVIEW\_LABEL\ =\ \textcolor{stringliteral}{"{}Server\_OverviewLabel"{}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ for\ serving\ the\ functionalities....}}
+\DoxyCodeLine{00062\ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ for\ serving\ the\ functionalities...}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ totalNodes;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<String>\ settings;}
+\DoxyCodeLine{00076\ \ \ \ \ Dialog\_Helper\ dialogHelper;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_ConfigureClient(\textcolor{keywordtype}{int}\ n,\ Map<String,\ JComponent>\ helpfulComponents)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ Dialog\_ConfigureClient"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ this.helpfulComponents\ =\ helpfulComponents;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ this.totalNodes\ =\ n;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ this.settings\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ this.dialogHelper\ =\ \textcolor{keyword}{new}\ Dialog\_Helper(this.JPanel\_main);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ initializing\ the\ components...}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Client\ Configuration"{}});}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ this.setSize(400,300);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.HIDE\_ON\_CLOSE);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_startTime,PLACEHOLDER\_START\_TIME);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_upTime,PLACEHOLDER\_UP\_TIME);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_mtu,PLACEHOLDER\_MTU);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_interval,PLACEHOLDER\_INTERVAL);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_packets,PLACEHOLDER\_TOT\_PACKETS);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ clicking\ on\ save\ settings\ button...}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ btn\_save.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Saving\ the\ client\ configurations!"{}});}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ validate\ inputs...}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (validateInputs())\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ if\ all\ are\ valid\ then\ save\ settings...}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ settings\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ settings.add(String.valueOf(comboBox\_clientIndex.getSelectedIndex()));}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ settings.add(textField\_startTime.getText());}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ settings.add(textField\_upTime.getText());}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ settings.add(textField\_mtu.getText());}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ settings.add(textField\_interval.getText());}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ settings.add(textField\_packets.getText());}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ updateOverviewTxt();}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Client\ configuration\ settings\ has\ been\ saved!"{}},\ \textcolor{stringliteral}{"{}Action\ Completed!"{}});}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00136\ \ \ \ \ @Override}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setVisible(\textcolor{keywordtype}{boolean}\ b)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ super.setVisible(b);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Configure\ CLinet\ :\ Populating\ the\ dropdown\ items\ for\ all\ nodes."{}});}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<this.totalNodes;\ i++)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.comboBox\_clientIndex.addItem(\textcolor{stringliteral}{"{}Node\ "{}}+i);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showDialog(\textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Setting\ total\ nodes!"{}});}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ this.totalNodes\ =\ n;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getStopTime()\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Get\ Stop\ Time\ Called!"{}});}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Integer.parseInt(this.settings.get(1))\ +\ Integer.parseInt(this.settings.get(2));}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{public}\ String\ getStartTime()\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Get\ Start\ Time\ Called!"{}});}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.settings.get(1);}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{public}\ String\ getClientIndex()\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Get\ Client\ Index\ Called!"{}});}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.settings.get(0);}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{public}\ String\ getMTU()\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Get\ MTU\ Called!"{}});}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.settings.get(3);}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{public}\ String\ getInterval()\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Get\ Interval\ Called!"{}});}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.settings.get(4);}
+\DoxyCodeLine{00207\ \ \ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{public}\ String\ getPackets()\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Get\ Packets\ Called!"{}});}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.settings.get(5);}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ updateOverviewTxt()\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Changing\ the\ overview\ label!"{}});}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ ((JLabel)this.helpfulComponents.get(COMPONENT\_OVERVIEW\_LABEL)).setText(\textcolor{stringliteral}{"{}Client\ Index\ :\ Configured\ node\ "{}}+this.settings.get(0));}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ validateInputs()\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Configure\ Client\ :\ Validating\ all\ inputs"{}});}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ start\ time\ validation...}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_startTime.getText().chars().allMatch(Character::isDigit)\ ||\ textField\_startTime.getText().toString().length()\ ==\ 0)\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showErrorMsg(\textcolor{stringliteral}{"{}Please\ enter\ valid\ start\ time!"{}},\ \textcolor{stringliteral}{"{}Error!"{}});}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ up\ time\ validation...}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_upTime.getText().chars().allMatch(Character::isDigit)\ ||\ textField\_upTime.getText().toString().length()\ ==\ 0)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showErrorMsg(\textcolor{stringliteral}{"{}Please\ enter\ valid\ up\ time!"{}},\ \textcolor{stringliteral}{"{}Error!"{}});}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ mtu\ validation...}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_mtu.getText().chars().allMatch(Character::isDigit)\ ||\ textField\_mtu.getText().toString().length()\ ==\ 0)\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showErrorMsg(\textcolor{stringliteral}{"{}Please\ enter\ valid\ up\ MTU!"{}},\ \textcolor{stringliteral}{"{}Error!"{}});}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ interval\ validation...}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_interval.getText().chars().allMatch(Character::isDigit)\ ||\ textField\_interval.getText().toString().length()\ ==\ 0)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showErrorMsg(\textcolor{stringliteral}{"{}Please\ enter\ valid\ interval\ time!"{}},\ \textcolor{stringliteral}{"{}Error!"{}});}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ no.\ of\ packets...}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_packets.getText().chars().allMatch(Character::isDigit)\ ||\ textField\_packets.getText().toString().length()\ ==\ 0)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showErrorMsg(\textcolor{stringliteral}{"{}Please\ enter\ valid\ no.\ of\ packets!"{}},\ \textcolor{stringliteral}{"{}Error!"{}});}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \}}
+
+\end{DoxyCode}

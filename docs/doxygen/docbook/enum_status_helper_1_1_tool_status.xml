@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enum_status_helper_1_1_tool_status" xml:lang="en-US">
+<title>StatusHelper.ToolStatus Enum Reference</title>
+<indexterm><primary>StatusHelper.ToolStatus</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enum_status_helper_1_1_tool_status_1ab446d636c8dc19df2e99a8197332f76b">TOOL_NODE</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_tool_status_1a985cfa0db50a621cd946ca38e0b600fd">TOOL_LINK</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_tool_status_1a4f3102b5a7a682e156ed9434108acd2d">TOOL_VIEW</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_tool_status_1a59e5ad61fd0b1580192892c6f0bedf0b">TOOL_LINK_CSMA</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_tool_status_1ab0f5c47d708655efbde7d1fca2062268">TOOL_LINK_WIFI</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>enum type for identification of tool </para>
+<para>
+Definition at line <link linkend="__tool_status_8java_source_1l00006">6</link> of file <link linkend="__tool_status_8java_source">ToolStatus.java</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enum_status_helper_1_1_tool_status_1a985cfa0db50a621cd946ca38e0b600fd"/><section>
+    <title>TOOL_LINK</title>
+<indexterm><primary>TOOL_LINK</primary><secondary>StatusHelper.ToolStatus</secondary></indexterm>
+<indexterm><primary>StatusHelper.ToolStatus</primary><secondary>TOOL_LINK</secondary></indexterm>
+<para><computeroutput>StatusHelper.ToolStatus.TOOL_LINK</computeroutput></para><para>
+Definition at line <link linkend="__tool_status_8java_source_1l00007">7</link> of file <link linkend="__tool_status_8java_source">ToolStatus.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_tool_status_1a59e5ad61fd0b1580192892c6f0bedf0b"/><section>
+    <title>TOOL_LINK_CSMA</title>
+<indexterm><primary>TOOL_LINK_CSMA</primary><secondary>StatusHelper.ToolStatus</secondary></indexterm>
+<indexterm><primary>StatusHelper.ToolStatus</primary><secondary>TOOL_LINK_CSMA</secondary></indexterm>
+<para><computeroutput>StatusHelper.ToolStatus.TOOL_LINK_CSMA</computeroutput></para><para>
+Definition at line <link linkend="__tool_status_8java_source_1l00007">7</link> of file <link linkend="__tool_status_8java_source">ToolStatus.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_tool_status_1ab0f5c47d708655efbde7d1fca2062268"/><section>
+    <title>TOOL_LINK_WIFI</title>
+<indexterm><primary>TOOL_LINK_WIFI</primary><secondary>StatusHelper.ToolStatus</secondary></indexterm>
+<indexterm><primary>StatusHelper.ToolStatus</primary><secondary>TOOL_LINK_WIFI</secondary></indexterm>
+<para><computeroutput>StatusHelper.ToolStatus.TOOL_LINK_WIFI</computeroutput></para><para>
+Definition at line <link linkend="__tool_status_8java_source_1l00008">8</link> of file <link linkend="__tool_status_8java_source">ToolStatus.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_tool_status_1ab446d636c8dc19df2e99a8197332f76b"/><section>
+    <title>TOOL_NODE</title>
+<indexterm><primary>TOOL_NODE</primary><secondary>StatusHelper.ToolStatus</secondary></indexterm>
+<indexterm><primary>StatusHelper.ToolStatus</primary><secondary>TOOL_NODE</secondary></indexterm>
+<para><computeroutput>StatusHelper.ToolStatus.TOOL_NODE</computeroutput></para><para>
+Definition at line <link linkend="__tool_status_8java_source_1l00007">7</link> of file <link linkend="__tool_status_8java_source">ToolStatus.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_tool_status_1a4f3102b5a7a682e156ed9434108acd2d"/><section>
+    <title>TOOL_VIEW</title>
+<indexterm><primary>TOOL_VIEW</primary><secondary>StatusHelper.ToolStatus</secondary></indexterm>
+<indexterm><primary>StatusHelper.ToolStatus</primary><secondary>TOOL_VIEW</secondary></indexterm>
+<para><computeroutput>StatusHelper.ToolStatus.TOOL_VIEW</computeroutput></para><para>
+Definition at line <link linkend="__tool_status_8java_source_1l00007">7</link> of file <link linkend="__tool_status_8java_source">ToolStatus.java</link>.</para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/StatusHelper/<link linkend="__tool_status_8java">ToolStatus.java</link></section>
+</section>

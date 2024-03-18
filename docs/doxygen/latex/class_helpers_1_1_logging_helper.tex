@@ -1,0 +1,328 @@
+\doxysection{Helpers.\+Logging\+Helper Class Reference}
+\label{class_helpers_1_1_logging_helper}\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Logging\+Helper} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ set\+Log\+Level} (\textbf{ Log\+Level} level)
+\item 
+static \textbf{ Log\+Level} \textbf{ get\+Log\+Level} ()
+\item 
+static int \textbf{ get\+Log\+Level\+Priority} ()
+\item 
+static int \textbf{ get\+Log\+Level\+Priority} (\textbf{ Log\+Level} level)
+\item 
+static void \textbf{ Log\+Error} (String msg)
+\item 
+static void \textbf{ Log\+Debug} (String msg)
+\item 
+static void \textbf{ Log\+Info} (String msg)
+\item 
+static void \textbf{ Log\+Function} (String msg)
+\item 
+static void \textbf{ Log\+Logic} (String msg)
+\item 
+static void \textbf{ Log} (String msg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to enable the debugging for the application, it will help in quick turning on and off for debugging while observing from the command line
+
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 19} of file \textbf{ Logging\+Helper.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_helpers_1_1_logging_helper_a7cf0b8ef62ba5ac6dccada5974e051ea} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!LoggingHelper@{LoggingHelper}}
+\index{LoggingHelper@{LoggingHelper}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{LoggingHelper()}
+{\footnotesize\ttfamily Helpers.\+Logging\+Helper.\+Logging\+Helper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 61} of file \textbf{ Logging\+Helper.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_helpers_1_1_logging_helper_a61ac47dca0b5063df3ebb9147ff3c42e} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!getLogLevel@{getLogLevel}}
+\index{getLogLevel@{getLogLevel}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{getLogLevel()}
+{\footnotesize\ttfamily static \textbf{ Log\+Level} Helpers.\+Logging\+Helper.\+get\+Log\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to get the log level for the app
+
+\begin{DoxyReturn}{Returns}
+The log level for the application 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 87} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_a51ddbcbf2a37371d03323a78e7f917c9} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!getLogLevelPriority@{getLogLevelPriority}}
+\index{getLogLevelPriority@{getLogLevelPriority}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{getLogLevelPriority()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static int Helpers.\+Logging\+Helper.\+get\+Log\+Level\+Priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to get the priority number for current log level
+
+\begin{DoxyReturn}{Returns}
+The priority number for current log level 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 97} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_a6156ae0bc0b428de6a05760a786ebd09} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!getLogLevelPriority@{getLogLevelPriority}}
+\index{getLogLevelPriority@{getLogLevelPriority}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{getLogLevelPriority()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static int Helpers.\+Logging\+Helper.\+get\+Log\+Level\+Priority (\begin{DoxyParamCaption}\item[{\textbf{ Log\+Level}}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to get the priority number for the desired log level
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & the desired log level \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The priority number for the given log level 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 108} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_a9d59d12965cd365e86f6bb5d352f41c6} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!Log@{Log}}
+\index{Log@{Log}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{Log()}
+{\footnotesize\ttfamily static void Helpers.\+Logging\+Helper.\+Log (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to write the normal level log information
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg that will be printed as normal level log \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Logging\+Helper\+::\+Log\+Error(\+String) 
+
+Logging\+Helper\+::\+Log\+Debug(\+String) 
+
+Logging\+Helper\+::\+Log\+Info(\+String) 
+
+Logging\+Helper\+::\+Log\+Function(\+String) 
+
+Logging\+Helper\+::\+Log\+Logic(\+String) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 213} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_a32683f3291ffba570c040557f87e895e} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!LogDebug@{LogDebug}}
+\index{LogDebug@{LogDebug}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{LogDebug()}
+{\footnotesize\ttfamily static void Helpers.\+Logging\+Helper.\+Log\+Debug (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to write the debug level log information
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg that will be printed as debug level log \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Logging\+Helper\+::\+Log\+Error(\+String) 
+
+Logging\+Helper\+::\+Log\+Info(\+String) 
+
+Logging\+Helper\+::\+Log\+Function(\+String) 
+
+Logging\+Helper\+::\+Log\+Logic(\+String) 
+
+Logging\+Helper\+::\+Log(\+String) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 141} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_abb4c1bac3b19fa877b76cc797d2c6b7c} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!LogError@{LogError}}
+\index{LogError@{LogError}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{LogError()}
+{\footnotesize\ttfamily static void Helpers.\+Logging\+Helper.\+Log\+Error (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to write the error level log information
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg that will be printed as error level log \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Logging\+Helper\+::\+Log\+Debug(\+String) 
+
+Logging\+Helper\+::\+Log\+Info(\+String) 
+
+Logging\+Helper\+::\+Log\+Function(\+String) 
+
+Logging\+Helper\+::\+Log\+Logic(\+String) 
+
+Logging\+Helper\+::\+Log(\+String) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 123} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_a811f34f64ec058289a8c010dd747f50f} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!LogFunction@{LogFunction}}
+\index{LogFunction@{LogFunction}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{LogFunction()}
+{\footnotesize\ttfamily static void Helpers.\+Logging\+Helper.\+Log\+Function (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to write the function level log information
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg that will be printed as function level log \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Logging\+Helper\+::\+Log\+Error(\+String) 
+
+Logging\+Helper\+::\+Log\+Debug(\+String) 
+
+Logging\+Helper\+::\+Log\+Info(\+String) 
+
+Logging\+Helper\+::\+Log\+Logic(\+String) 
+
+Logging\+Helper\+::\+Log(\+String) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 177} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_a1f01a0d874cafdfea0780acfc5d2061f} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!LogInfo@{LogInfo}}
+\index{LogInfo@{LogInfo}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{LogInfo()}
+{\footnotesize\ttfamily static void Helpers.\+Logging\+Helper.\+Log\+Info (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to write the info level log information
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg that will be printed as info level log \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Logging\+Helper\+::\+Log\+Error(\+String) 
+
+Logging\+Helper\+::\+Log\+Debug(\+String) 
+
+Logging\+Helper\+::\+Log\+Function(\+String) 
+
+Logging\+Helper\+::\+Log\+Logic(\+String) 
+
+Logging\+Helper\+::\+Log(\+String) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 159} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_ab68b81908e2e6e6ebc0588f04eec1d27} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!LogLogic@{LogLogic}}
+\index{LogLogic@{LogLogic}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{LogLogic()}
+{\footnotesize\ttfamily static void Helpers.\+Logging\+Helper.\+Log\+Logic (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to write the logic level log information
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the msg that will be printed as logic level log \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Logging\+Helper\+::\+Log\+Error(\+String) 
+
+Logging\+Helper\+::\+Log\+Debug(\+String) 
+
+Logging\+Helper\+::\+Log\+Info(\+String) 
+
+Logging\+Helper\+::\+Log\+Function(\+String) 
+
+Logging\+Helper\+::\+Log(\+String) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 195} of file \textbf{ Logging\+Helper.\+java}.
+
+\label{class_helpers_1_1_logging_helper_a36d82e31b5a127deacbfb866b07c62a6} 
+\index{Helpers.LoggingHelper@{Helpers.LoggingHelper}!setLogLevel@{setLogLevel}}
+\index{setLogLevel@{setLogLevel}!Helpers.LoggingHelper@{Helpers.LoggingHelper}}
+\doxysubsubsection{setLogLevel()}
+{\footnotesize\ttfamily static void Helpers.\+Logging\+Helper.\+set\+Log\+Level (\begin{DoxyParamCaption}\item[{\textbf{ Log\+Level}}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to set the log level for the entire app
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & The desired log level \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 77} of file \textbf{ Logging\+Helper.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Helpers/\textbf{ Logging\+Helper.\+java}\end{DoxyCompactItemize}

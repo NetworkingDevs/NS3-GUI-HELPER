@@ -1,0 +1,177 @@
+\doxysection{Device.\+java}
+\label{_device_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Ns3Objects/Devices/Device.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Ns3Objects/Devices/Device.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{package\ }Ns3Objects.Devices;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ Ns3Objects.Links.NetworkLink;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ Ns3Objects.Netoworks.Network;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ StatusHelper.LinkType;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Device\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ CSMA\_INDEX\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}\ NetworkLink\ linkSettings;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}\ Network\ networkSettings;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{public}\ String\ nodesGroup;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{public}\ String\ nodeA,nodeB;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Integer>\ nodes;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{public}\ Device(NetworkLink\ linkSettings,\ Network\ networkSettings,\ ArrayList<Integer>\ nodes,\ \textcolor{keywordtype}{int}\ csma\_index)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ this.linkSettings\ =\ linkSettings;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ this.networkSettings\ =\ networkSettings;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ this.nodes\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ this.nodes.addAll(nodes);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ this.nodesGroup\ =\ String.valueOf(csma\_index);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ this.CSMA\_INDEX\ =\ csma\_index;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{public}\ Device(NetworkLink\ linkSettings,\ Network\ networkSettings,\ String\ nodeA,\ String\ nodeB)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ this.linkSettings\ =\ linkSettings;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ this.networkSettings\ =\ networkSettings;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ this.nodeA\ =\ nodeA;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ this.nodeB\ =\ nodeB;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ this.nodesGroup\ =\ nodeA+nodeB;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{public}\ String\ getDeviceConfCode()\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(this.linkSettings.getLinkType()\ ==\ LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)ncsmaDevices"{}}+CSMA\_INDEX+\textcolor{stringliteral}{"{}\ =\ csma"{}}+this.linkSettings.getName()+\textcolor{stringliteral}{"{}.Install(csmaNodes"{}}+CSMA\_INDEX+\textcolor{stringliteral}{"{});"{}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()\ ==\ LinkType.LINK\_WIFI)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ String\ devConfigCode\ =\ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)nmac\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .SetType("{}}ns3::ApWifiMac\textcolor{stringliteral}{"{},"{}}Ssid\textcolor{stringliteral}{"{},SsidValue(ssid\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ));}}
+\DoxyCodeLine{00109\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NetDeviceContainer\ apDev\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00112\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ wifi\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00115\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Install(phy\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00118\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,mac\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00121\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,wifiApNodes\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00124\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00125\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mac\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00128\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .SetType("{}}ns3::StaWifiMac\textcolor{stringliteral}{"{},"{}}Ssid\textcolor{stringliteral}{"{},SsidValue(ssid\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00131\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ));}}
+\DoxyCodeLine{00132\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NetDeviceContainer\ staDev\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00135\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ wifi\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00138\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .Install(phy\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00141\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,mac\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00144\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,wifiStaNodes\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00147\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00148\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ devConfigCode;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ assumed\ to\ be\ point\ to\ point\ link...}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)ndevices"{}}+this.nodesGroup+\textcolor{stringliteral}{"{}\ =\ p2p"{}}+this.linkSettings.getName()+\textcolor{stringliteral}{"{}.Install(nodes"{}}+this.nodesGroup+\textcolor{stringliteral}{"{});"{}};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{public}\ String\ getIPConfCode()\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ String\ firstLine\ =\ \textcolor{stringliteral}{"{}"{}},\ secondLine\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ firstLine\ =\ \textcolor{stringliteral}{"{}address.SetBase(\(\backslash\)"{}"{}}+this.networkSettings.netId+\textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}}+this.networkSettings.netMask+\textcolor{stringliteral}{"{}\(\backslash\)"{});"{}};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()\ ==\ LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ secondLine\ =\ \textcolor{stringliteral}{"{}Ipv4InterfaceContainer\ csmaInterfaces"{}}+CSMA\_INDEX+\textcolor{stringliteral}{"{}\ =\ "{}}+\textcolor{stringliteral}{"{}address.Assign(csmaDevices"{}}+CSMA\_INDEX+\textcolor{stringliteral}{"{});"{}};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()\ ==\ LinkType.LINK\_WIFI)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ secondLine\ =\ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00183\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Ipv4InterfaceContainer\ interfacesSta\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00186\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ address.Assign(staDev\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00189\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00190\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Ipv4InterfaceContainer\ interfacesAp\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00193\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ address.Assign(apDev\_"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.linkSettings.getName()\ +}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00196\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00197\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ secondLine\ =\ \textcolor{stringliteral}{"{}Ipv4InterfaceContainer\ interfaces"{}}+this.nodesGroup+\textcolor{stringliteral}{"{}\ =\ "{}}+\textcolor{stringliteral}{"{}address.Assign(devices"{}}+this.nodesGroup+\textcolor{stringliteral}{"{});"{}};}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}+firstLine+\textcolor{stringliteral}{"{}\(\backslash\)n"{}}+secondLine+\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{public}\ String\ getNodesGroup()\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()==LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Generating\ nodes\ group\ for\ csma\ nodes..."{}});}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}csmaNodes"{}}+CSMA\_INDEX;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()==LinkType.LINK\_WIFI)\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}wifiStaNodes\_"{}}+this.linkSettings.getName()+\textcolor{stringliteral}{"{},\ wifiApNodes\_"{}}+this.linkSettings.getName();}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ assumed\ to\ be\ point\ to\ point...}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}nodes"{}}+this.nodesGroup;}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{public}\ String\ getDevicesGroup()\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()==LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\ csmaDevices"{}}+CSMA\_INDEX;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ assumed\ to\ be\ point\ to\ point...}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\ devices"{}}+this.nodesGroup;}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ \ \ \ \ \}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keyword}{public}\ String\ getNodesGroupCode()\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ String\ line1\ =\ \textcolor{stringliteral}{"{}"{}},\ line2\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Link\ Info\ from\ Device\ :\ "{}}+this.linkSettings.toString());}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()==LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ :\ this.nodes)\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ line1\ =\ line1.concat(\textcolor{stringliteral}{"{}\(\backslash\)ncsmaNodes"{}}+this.CSMA\_INDEX+\textcolor{stringliteral}{"{}.Add(allNodes.Get("{}}+i+\textcolor{stringliteral}{"{}));"{}});}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()==LinkType.LINK\_WIFI)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ line1\ =\ \textcolor{stringliteral}{"{}wifiApNodes\_"{}}+this.linkSettings.getName()+\textcolor{stringliteral}{"{}.Add(allNodes.Get("{}}+this.nodes.get(0)+\textcolor{stringliteral}{"{}));"{}};}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=1;\ i<this.nodes.size();\ i++)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ line1\ =\ line1.concat(\textcolor{stringliteral}{"{}\(\backslash\)nwifiStaNodes\_"{}}+this.linkSettings.getName()+\textcolor{stringliteral}{"{}.Add(allNodes.Get("{}}+this.nodes.get(i)+\textcolor{stringliteral}{"{}));"{}});}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ assumed\ to\ be\ point\ to\ point...}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ line1\ =\ this.getNodesGroup()+\textcolor{stringliteral}{"{}.Add(allNodes.Get("{}}+this.nodeA+\textcolor{stringliteral}{"{}));"{}};}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ line2\ =\ this.getNodesGroup()+\textcolor{stringliteral}{"{}.Add(allNodes.Get("{}}+this.nodeB+\textcolor{stringliteral}{"{}));"{}};}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ line1+\textcolor{stringliteral}{"{}\(\backslash\)n"{}}+line2;}
+\DoxyCodeLine{00298\ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00305\ \ \ \ \ @Override}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{public}\ String\ toString()\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ String\ info\ =\ \textcolor{stringliteral}{"{}Device\ connecting\ :\ "{}}+nodeA+\textcolor{stringliteral}{"{}\ and\ "{}}+nodeB;}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.linkSettings.getLinkType()!=LinkType.LINK\_P2P)\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ info\ =\ \textcolor{stringliteral}{"{}Device\ connecting\ :\ "{}};}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ :\ this.nodes)\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ info\ =\ info.concat(i+\textcolor{stringliteral}{"{},\ "{}});}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ info;}
+\DoxyCodeLine{00315\ \ \ \ \ \}}
+\DoxyCodeLine{00316\ \}}
+
+\end{DoxyCode}

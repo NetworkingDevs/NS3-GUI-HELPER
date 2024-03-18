@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_751e2f0c569bd71e959325d283965bbb" xml:lang="en-US">
+<title>E:/Project/Networking Projects/NS3-GUI/src/main/Helpers Directory Reference</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Helpers Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__application_settings_helper_8java">ApplicationSettingsHelper.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__logging_helper_8java">LoggingHelper.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__place_holder_helper_8java">PlaceHolderHelper.java</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog___link" xml:lang="en-US">
+<title>Dialogs.Dialog_Link Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_Link</primary></indexterm>
+<para>Inheritance diagram for Dialogs.Dialog_Link:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dialogs_1_1_dialog___link.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog___link_1a7181dc4090d0f2fbe941790612ceaafc">Dialog_Link</link> (Map&lt; String, JComponent &gt; components)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___link_1a31cb7ab640066cbdabf0219c4945a40b">setDefaultLinks</link> (ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; defaultLinks)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___link_1aa943d4e92e43334da7c85b7cec85e743">showDefaultLinks</link> (boolean show)</para>
+</listitem>
+            <listitem><para>ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; <link linkend="_class_dialogs_1_1_dialog___link_1a31e8312a5d13667f5eaa2c412b197c15">getAllLinks</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_dialogs_1_1_dialog___link_1af39a57b73f4d9b4ae74375059cee06a4">getP2pLinkCount</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_dialogs_1_1_dialog___link_1a4652cf979dfd8cd62f47d53adbc037c6">getCsmaLinkCount</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_dialogs_1_1_dialog___link">Dialog_Link</link> <link linkend="_class_dialogs_1_1_dialog___link_1aa7c6695c605ab68ad745011801345b0a">getInstance</link> (Map&lt; String, JComponent &gt; helpfulComponents)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; <link linkend="_class_dialogs_1_1_dialog___link_1ac44712d607ee0ff9ba64ed86e1bd4c94">links</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final String <link linkend="_class_dialogs_1_1_dialog___link_1aa4376da19c280783bb6c2cf93dad69fd">COMPONENT_COMBO_BOX</link> = &quot;Link_ComboBox&quot;</para>
+</listitem>
+            <listitem><para>static final String <link linkend="_class_dialogs_1_1_dialog___link_1a231096ae4173c2561748b535da9ab704">COMPONENT_OVERVIEW_LABEL</link> = &quot;Link_OverviewLabel&quot;</para>
+</listitem>
+            <listitem><para>static boolean <link linkend="_class_dialogs_1_1_dialog___link_1a853150c73fa06868c2f6fb947844f799">SHOW_DEFAULT</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The dialog for management of links settings </para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00019">19</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1a7181dc4090d0f2fbe941790612ceaafc"/><section>
+    <title>Dialog_Link()</title>
+<indexterm><primary>Dialog_Link</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>Dialog_Link</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_Link.Dialog_Link (Map&lt; String, JComponent &gt; components)</computeroutput></para>
+<para>to create the object of type Dialog_Link</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>components</entry><entry>
+<para>the helpful components </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00097">97</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1a31e8312a5d13667f5eaa2c412b197c15"/><section>
+    <title>getAllLinks()</title>
+<indexterm><primary>getAllLinks</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>getAllLinks</secondary></indexterm>
+<para><computeroutput>ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; Dialogs.Dialog_Link.getAllLinks ( )</computeroutput></para>
+<para>to get all the link settings</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the list of link settings </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00184">184</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1a4652cf979dfd8cd62f47d53adbc037c6"/><section>
+    <title>getCsmaLinkCount()</title>
+<indexterm><primary>getCsmaLinkCount</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>getCsmaLinkCount</secondary></indexterm>
+<para><computeroutput>int Dialogs.Dialog_Link.getCsmaLinkCount ( )</computeroutput></para>
+<para>to get the count of CSMA Links</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the size of CSMA Link settings </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00217">217</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1aa7c6695c605ab68ad745011801345b0a"/><section>
+    <title>getInstance()</title>
+<indexterm><primary>getInstance</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>getInstance</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_dialogs_1_1_dialog___link">Dialog_Link</link> Dialogs.Dialog_Link.getInstance (Map&lt; String, JComponent &gt; helpfulComponents)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the instance of this class</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>helpfulComponents</entry><entry>
+<para>the components that should be managed </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00084">84</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1af39a57b73f4d9b4ae74375059cee06a4"/><section>
+    <title>getP2pLinkCount()</title>
+<indexterm><primary>getP2pLinkCount</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>getP2pLinkCount</secondary></indexterm>
+<para><computeroutput>int Dialogs.Dialog_Link.getP2pLinkCount ( )</computeroutput></para>
+<para>to get the count of P2P Links</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the size of P2P Link settings </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00198">198</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1a31cb7ab640066cbdabf0219c4945a40b"/><section>
+    <title>setDefaultLinks()</title>
+<indexterm><primary>setDefaultLinks</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>setDefaultLinks</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_Link.setDefaultLinks (ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; defaultLinks)</computeroutput></para><para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00150">150</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1aa943d4e92e43334da7c85b7cec85e743"/><section>
+    <title>showDefaultLinks()</title>
+<indexterm><primary>showDefaultLinks</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>showDefaultLinks</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_Link.showDefaultLinks (boolean show)</computeroutput></para>
+<para>to make all default links visible</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>show</entry><entry>
+<para>whether to show or hide default links </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00172">172</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1aa4376da19c280783bb6c2cf93dad69fd"/><section>
+    <title>COMPONENT_COMBO_BOX</title>
+<indexterm><primary>COMPONENT_COMBO_BOX</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>COMPONENT_COMBO_BOX</secondary></indexterm>
+<para><computeroutput>final String Dialogs.Dialog_Link.COMPONENT_COMBO_BOX = &quot;Link_ComboBox&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>the key for the combo box </para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00050">50</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1a231096ae4173c2561748b535da9ab704"/><section>
+    <title>COMPONENT_OVERVIEW_LABEL</title>
+<indexterm><primary>COMPONENT_OVERVIEW_LABEL</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>COMPONENT_OVERVIEW_LABEL</secondary></indexterm>
+<para><computeroutput>final String Dialogs.Dialog_Link.COMPONENT_OVERVIEW_LABEL = &quot;Link_OverviewLabel&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>the key for the overview label </para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00054">54</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1ac44712d607ee0ff9ba64ed86e1bd4c94"/><section>
+    <title>links</title>
+<indexterm><primary>links</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>links</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;<link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link>&gt; Dialogs.Dialog_Link.links</computeroutput></para>
+<para>link settings </para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00068">68</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___link_1a853150c73fa06868c2f6fb947844f799"/><section>
+    <title>SHOW_DEFAULT</title>
+<indexterm><primary>SHOW_DEFAULT</primary><secondary>Dialogs.Dialog_Link</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Link</primary><secondary>SHOW_DEFAULT</secondary></indexterm>
+<para><computeroutput>boolean Dialogs.Dialog_Link.SHOW_DEFAULT = false<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to indicate that whether the default network settings are visible or not </para>
+<para>
+Definition at line <link linkend="__dialog___link_8java_source_1l00058">58</link> of file <link linkend="__dialog___link_8java_source">Dialog_Link.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog___link_8java">Dialog_Link.java</link></section>
+</section>

@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog___default_link_config" xml:lang="en-US">
+<title>Dialogs.Dialog_DefaultLinkConfig Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_DefaultLinkConfig</primary></indexterm>
+<para>Inheritance diagram for Dialogs.Dialog_DefaultLinkConfig:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dialogs_1_1_dialog___default_link_config.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog___default_link_config_1a01d6bfb6d8c765973f018f3f0de6c5e5">Dialog_DefaultLinkConfig</link> (ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; links)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___default_link_config_1afa196cada62edbc92744f388fe3fd074">showLinks</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___default_link_config_1af69b806ef60a0a0ce86673b7f558a579">showLinksAgain</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_dialogs_1_1_dialog___default_link_config">Dialog_DefaultLinkConfig</link> <link linkend="_class_dialogs_1_1_dialog___default_link_config_1aca13eca2a360dd0d04489e809b04a000">getInstance</link> (ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; links)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; <link linkend="_class_dialogs_1_1_dialog___default_link_config_1a682b3c42f59fc7305508799602492889">defaultLinks</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Dialog to configure the default link settings </para>
+<para>
+Definition at line <link linkend="__dialog___default_link_config_8java_source_1l00023">23</link> of file <link linkend="__dialog___default_link_config_8java_source">Dialog_DefaultLinkConfig.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_link_config_1a01d6bfb6d8c765973f018f3f0de6c5e5"/><section>
+    <title>Dialog_DefaultLinkConfig()</title>
+<indexterm><primary>Dialog_DefaultLinkConfig</primary><secondary>Dialogs.Dialog_DefaultLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultLinkConfig</primary><secondary>Dialog_DefaultLinkConfig</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_DefaultLinkConfig.Dialog_DefaultLinkConfig (ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; links)</computeroutput></para>
+<para>to make the object of type Dialog_DefaultLinkConfig</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>links</entry><entry>
+<para>the list of links settings </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_link_config_8java_source_1l00092">92</link> of file <link linkend="__dialog___default_link_config_8java_source">Dialog_DefaultLinkConfig.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_link_config_1aca13eca2a360dd0d04489e809b04a000"/><section>
+    <title>getInstance()</title>
+<indexterm><primary>getInstance</primary><secondary>Dialogs.Dialog_DefaultLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultLinkConfig</primary><secondary>getInstance</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_dialogs_1_1_dialog___default_link_config">Dialog_DefaultLinkConfig</link> Dialogs.Dialog_DefaultLinkConfig.getInstance (ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; links)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the instance of this class</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>links</entry><entry>
+<para>the list of link settings </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the instance of this class </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_link_config_8java_source_1l00078">78</link> of file <link linkend="__dialog___default_link_config_8java_source">Dialog_DefaultLinkConfig.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_link_config_1afa196cada62edbc92744f388fe3fd074"/><section>
+    <title>showLinks()</title>
+<indexterm><primary>showLinks</primary><secondary>Dialogs.Dialog_DefaultLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultLinkConfig</primary><secondary>showLinks</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_DefaultLinkConfig.showLinks ( )</computeroutput></para>
+<para>to show the link settings</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_link_config_8java_source_1l00123">123</link> of file <link linkend="__dialog___default_link_config_8java_source">Dialog_DefaultLinkConfig.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_link_config_1af69b806ef60a0a0ce86673b7f558a579"/><section>
+    <title>showLinksAgain()</title>
+<indexterm><primary>showLinksAgain</primary><secondary>Dialogs.Dialog_DefaultLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultLinkConfig</primary><secondary>showLinksAgain</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_DefaultLinkConfig.showLinksAgain ( )</computeroutput></para>
+<para>to show the links settings</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_link_config_8java_source_1l00174">174</link> of file <link linkend="__dialog___default_link_config_8java_source">Dialog_DefaultLinkConfig.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_link_config_1a682b3c42f59fc7305508799602492889"/><section>
+    <title>defaultLinks</title>
+<indexterm><primary>defaultLinks</primary><secondary>Dialogs.Dialog_DefaultLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultLinkConfig</primary><secondary>defaultLinks</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;<link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link>&gt; Dialogs.Dialog_DefaultLinkConfig.defaultLinks</computeroutput></para>
+<para>list of network settings </para>
+<para>
+Definition at line <link linkend="__dialog___default_link_config_8java_source_1l00057">57</link> of file <link linkend="__dialog___default_link_config_8java_source">Dialog_DefaultLinkConfig.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog___default_link_config_8java">Dialog_DefaultLinkConfig.java</link></section>
+</section>

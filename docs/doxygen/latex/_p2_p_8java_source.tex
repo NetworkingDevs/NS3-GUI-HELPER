@@ -1,0 +1,164 @@
+\doxysection{P2\+P.\+java}
+\label{_p2_p_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Ns3Objects/Links/P2P.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Ns3Objects/Links/P2P.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Ns3Objects.Links;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ StatusHelper.LinkType;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }P2P\ \textcolor{keyword}{implements}\ NetworkLink\{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}\ String\ name;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}\ String\ delay;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}\ String\ dataRate;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}\ String\ speedModifier;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}\ LinkType\ linkType;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ enablePcap;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ isDefault;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ isUsed;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{public}\ P2P(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},String\ name,String\ delay,String\ dataRate,String\ speedModifier,\ \textcolor{keywordtype}{boolean}\ enablePcap)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ this.id\ \ =\ id;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ this.name\ =\ name;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ this.delay\ =\ delay;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ this.dataRate\ =\ dataRate;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ this.speedModifier\ =\ speedModifier;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ this.enablePcap\ =\ enablePcap;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ this.linkType\ =\ LinkType.LINK\_P2P;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ this.isDefault\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ this.isUsed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ new\ constructor\ will\ support\ previous\ once...}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{public}\ P2P(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},String\ name,String\ delay,String\ dataRate,String\ speedModifier,\ \textcolor{keywordtype}{boolean}\ enablePcap,\ \textcolor{keywordtype}{boolean}\ isDefault)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}(id,name,delay,dataRate,speedModifier,enablePcap);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ this.isDefault\ =\ isDefault;}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{public}\ P2P(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},String\ name,String\ delay,String\ dataRate,String\ speedModifier,\ \textcolor{keywordtype}{boolean}\ enablePcap,\ \textcolor{keywordtype}{boolean}\ isDefault,\ \textcolor{keywordtype}{boolean}\ isUsed)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}(id,name,delay,dataRate,speedModifier,enablePcap,isDefault);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ this.isUsed\ =\ isUsed;}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00118\ \ \ \ \ @Override}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{public}\ String\ toString()\ \{\ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.name+\textcolor{stringliteral}{"{}\ (P2P)\ -\/\ "{}}+this.delay+\textcolor{stringliteral}{"{}ms,"{}}+this.dataRate+this.speedModifier;}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ for\ storing\ in\ file\ for\ settings...}}
+\DoxyCodeLine{00130\ \ \ \ \ @Override}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{public}\ String\ forSettings()\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.name+\textcolor{stringliteral}{"{}|"{}}+this.delay+\textcolor{stringliteral}{"{}|"{}}+this.dataRate+\textcolor{stringliteral}{"{}|"{}}+this.speedModifier+\textcolor{stringliteral}{"{}|"{}}+((this.enablePcap)?(\textcolor{stringliteral}{"{}Y"{}}):\textcolor{stringliteral}{"{}N"{}})+\textcolor{stringliteral}{"{}|P2P"{}};}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ @Override}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isDefault()\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ isDefault;}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ @Override}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setDefault(\textcolor{keywordtype}{boolean}\ isDefault)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ this.isDefault\ =\ isDefault;}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ @Override}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ isUsed()\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ isUsed;}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ @Override}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setUsed(\textcolor{keywordtype}{boolean}\ used)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ isUsed\ =\ used;}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00173\ \ \ \ \ @Override}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{public}\ String\ toCode()\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ String\ name\ =\ getName().replace(\textcolor{stringliteral}{"{}\ "{}},\textcolor{stringliteral}{"{}\_"{}});}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ String\ line1,\ line2,\ line3;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ line1\ =\ \textcolor{stringliteral}{"{}PointToPointHelper\ p2p"{}}+name+\textcolor{stringliteral}{"{};"{}};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ line2\ =\ \textcolor{stringliteral}{"{}p2p"{}}+this.name+\textcolor{stringliteral}{"{}.SetDeviceAttribute(\(\backslash\)"{}DataRate\(\backslash\)"{},StringValue(\(\backslash\)"{}"{}}+(getDataRate()+getSpeedModifier())+\textcolor{stringliteral}{"{}\(\backslash\)"{}));"{}};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ line3\ =\ \textcolor{stringliteral}{"{}p2p"{}}+this.name+\textcolor{stringliteral}{"{}.SetChannelAttribute(\(\backslash\)"{}Delay\(\backslash\)"{},StringValue(\(\backslash\)"{}"{}}+getDelay()+\textcolor{stringliteral}{"{}ms\(\backslash\)"{}));"{}};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ line1+\textcolor{stringliteral}{"{}\(\backslash\)n"{}}+line2+\textcolor{stringliteral}{"{}\(\backslash\)n"{}}+line3;}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00199\ \ \ \ \ @Override}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{public}\ String\ getPacketCaptureAllCode()\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ String\ name\ =\ getName().replace(\textcolor{stringliteral}{"{}\ "{}},\textcolor{stringliteral}{"{}\_"{}});}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ String\ code\ =\ \textcolor{stringliteral}{"{}p2p"{}}+name+\textcolor{stringliteral}{"{}.EnablePcapAll(\(\backslash\)"{}"{}}+name+\textcolor{stringliteral}{"{}\(\backslash\)"{});"{}};}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ code;}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ @Override}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getId()\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.id;}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ @Override}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setId(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ this.id\ =\ id;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ @Override}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{public}\ String\ getName()\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.name;}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ @Override}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setName(String\ name)\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ this.name\ =\ name;}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ @Override}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{public}\ String\ getDelay()\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.delay;}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ @Override}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setDelay(String\ delay)\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ this.delay\ =\ delay;}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ @Override}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{public}\ String\ getDataRate()\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.dataRate;}
+\DoxyCodeLine{00240\ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ @Override}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setDataRate(String\ dataRate)\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ this.dataRate\ =\ dataRate;}
+\DoxyCodeLine{00245\ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ @Override}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{public}\ String\ getSpeedModifier()\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.speedModifier;}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ @Override}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setSpeedModifier(String\ speedModifier)\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ this.speedModifier\ =\ speedModifier;}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ @Override}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{public}\ LinkType\ getLinkType()\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.linkType;}
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ @Override}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setLinkType(LinkType\ linkType)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ this.linkType\ =\ linkType;}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ @Override}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{boolean}\ getEnablePcap()\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ enablePcap;}
+\DoxyCodeLine{00270\ \ \ \ \ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ @Override}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setEnablePcap(\textcolor{keywordtype}{boolean}\ enablePcap)\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ this.enablePcap\ =\ enablePcap;}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \}}
+
+\end{DoxyCode}

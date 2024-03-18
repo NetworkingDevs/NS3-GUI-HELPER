@@ -2,7 +2,7 @@
 layout: default
 ---
 
-| [Home](./index.html) | Final Product | [Manual](./manual.html) | [Releases](./releases.html) | [Doxygen](./doxygen/index.html) |
+| [Home](./index.html) | Final Product | [Manual](./manual.html) | [Releases](./releases.html) | [Doxygen](./doxygen/html/index.html) |
 |:---------------------|:--------------|-------------------------|-----------------------------| --- |
 | To Home Page         | This Page     | To User Manual          | For latest updates          | To Doxygen |
 

@@ -1,0 +1,80 @@
+\doxysection{File\+Reader\+Writer.\+java}
+\label{_file_reader_writer_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/FileHandler/FileReaderWriter.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/FileHandler/FileReaderWriter.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{package\ }FileHandler;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ java.io.File;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ java.io.FileWriter;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ java.net.URL;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ java.nio.file.Files;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ java.nio.file.Paths;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }FileReaderWriter\ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ writeUsingPath(String\ data,\ String\ path)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Using\ FileWriter\ directly!"{}});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ FileWriter\ writer\ =\ \textcolor{keyword}{new}\ FileWriter(path);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ writer.write(data);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Writing\ Completed\ to\ file!\ "{}}+path);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ writer.close();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}File\ has\ been\ closed\ After\ successful\ write!!"{}});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogError(\textcolor{stringliteral}{"{}Error\ in\ write\ using\ path"{}});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ writeUsingURL(String\ data,\ URL\ url)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Using\ URL\ to\ write\ to\ the\ file!"{}});}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ FileWriter\ writer\ =\ \textcolor{keyword}{new}\ FileWriter(url.getPath());}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ writer.write(data);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Writing\ completed\ to\ file\ at\ url\ :\ "{}}+url.toString());}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ writer.close();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}File\ has\ been\ closed\ After\ successful\ write!!"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogError(\textcolor{stringliteral}{"{}Error\ in\ write\ using\ URL"{}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ String\ readUsingPath(String\ path)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ String\ data\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Reading\ from\ file\ :\ "{}}+path.toString());}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ data\ =\ \textcolor{keyword}{new}\ String(Files.readAllBytes(Paths.get(path)));}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogError(\textcolor{stringliteral}{"{}Error\ in\ read\ using\ path"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}The\ data\ is\ :\ "{}}+data);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data;}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ String\ readIfEmptyUsingPath(String\ data,\ String\ path)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ String\ settings\ =\ \textcolor{stringliteral}{"{}\{\}"{}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isFileEmpty(path))\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}File\ is\ empty!\ Writing\ default\ settings!!"{}});}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ writeUsingPath(data,\ path);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}FIle\ is\ not\ empty!\ Loading\ the\ settings!"{}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ settings\ =\ readUsingPath(path);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}The\ data\ is\ :\ "{}}+settings);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ settings;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ isFileEmpty(String\ path)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Getting\ the\ file\ length..."{}});}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keyword}{new}\ File(path).length())\ <=\ 0);}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}

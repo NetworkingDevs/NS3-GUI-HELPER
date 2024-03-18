@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_gui_renderers_1_1_wifi_link_painter" xml:lang="en-US">
+<title>GuiRenderers.WifiLinkPainter Class Reference</title>
+<indexterm><primary>GuiRenderers.WifiLinkPainter</primary></indexterm>
+<para>Inheritance diagram for GuiRenderers.WifiLinkPainter:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gui_renderers_1_1_wifi_link_painter.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abb6de5b49b4a01d2f984208a99ef9b9d">WifiLinkPainter</link> (ArrayList&lt; Integer &gt; <link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a3a4b8e0924cec509585343399cf72fca">nodeList</link>, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; <link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abdf331fabccae33775a91d204ea34c25">nodes</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a587b799745d407a1f86f54db39bc19a8">paint</link> (Graphics g)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ArrayList&lt; Integer &gt; <link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a3a4b8e0924cec509585343399cf72fca">nodeList</link></para>
+</listitem>
+            <listitem><para>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; <link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abdf331fabccae33775a91d204ea34c25">nodes</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to manage and paint Wi-Fi Links </para>
+<para>
+Definition at line <link linkend="__wifi_link_painter_8java_source_1l00014">14</link> of file <link linkend="__wifi_link_painter_8java_source">WifiLinkPainter.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_wifi_link_painter_1abb6de5b49b4a01d2f984208a99ef9b9d"/><section>
+    <title>WifiLinkPainter()</title>
+<indexterm><primary>WifiLinkPainter</primary><secondary>GuiRenderers.WifiLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.WifiLinkPainter</primary><secondary>WifiLinkPainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.WifiLinkPainter.WifiLinkPainter (ArrayList&lt; Integer &gt; nodeList, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; nodes)</computeroutput></para>
+<para>to create the object of type CSMA Link</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>nodeList</entry><entry>
+<para>the index of node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>nodes</entry><entry>
+<para>the nodes </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__wifi_link_painter_8java_source_1l00048">48</link> of file <link linkend="__wifi_link_painter_8java_source">WifiLinkPainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_wifi_link_painter_1a587b799745d407a1f86f54db39bc19a8"/><section>
+    <title>paint()</title>
+<indexterm><primary>paint</primary><secondary>GuiRenderers.WifiLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.WifiLinkPainter</primary><secondary>paint</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.WifiLinkPainter.paint (Graphics g)</computeroutput></para>
+<para>to paint the object/element on the canvas </para>
+<para>
+Implements <link linkend="_interface_gui_renderers_1_1_canvas_painter_1a84d5c9562ee8ff11161ea8b2e5b115f5">GuiRenderers.CanvasPainter</link>.</para>
+<para>
+Definition at line <link linkend="__wifi_link_painter_8java_source_1l00055">55</link> of file <link linkend="__wifi_link_painter_8java_source">WifiLinkPainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_wifi_link_painter_1a3a4b8e0924cec509585343399cf72fca"/><section>
+    <title>nodeList</title>
+<indexterm><primary>nodeList</primary><secondary>GuiRenderers.WifiLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.WifiLinkPainter</primary><secondary>nodeList</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;Integer&gt; GuiRenderers.WifiLinkPainter.nodeList</computeroutput></para>
+<para>list of index of nodes which are part of CSMA channel </para>
+<para>
+Definition at line <link linkend="__wifi_link_painter_8java_source_1l00019">19</link> of file <link linkend="__wifi_link_painter_8java_source">WifiLinkPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_wifi_link_painter_1abdf331fabccae33775a91d204ea34c25"/><section>
+    <title>nodes</title>
+<indexterm><primary>nodes</primary><secondary>GuiRenderers.WifiLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.WifiLinkPainter</primary><secondary>nodes</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&gt; GuiRenderers.WifiLinkPainter.nodes</computeroutput></para>
+<para>the nodes which are part of CSMA channel </para>
+<para>
+Definition at line <link linkend="__wifi_link_painter_8java_source_1l00023">23</link> of file <link linkend="__wifi_link_painter_8java_source">WifiLinkPainter.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/<link linkend="__wifi_link_painter_8java">WifiLinkPainter.java</link></section>
+</section>

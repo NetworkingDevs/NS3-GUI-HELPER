@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog___configure_server" xml:lang="en-US">
+<title>Dialogs.Dialog_ConfigureServer Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary></indexterm>
+<para>Inheritance diagram for Dialogs.Dialog_ConfigureServer:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dialogs_1_1_dialog___configure_server.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog___configure_server_1a1138e0363b0367988d0ead6769876474">Dialog_ConfigureServer</link> (int n, Map&lt; String, JComponent &gt; helpfulComponents)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___configure_server_1a528b8aa2e2feff084d0ec3a1378e7b13">setVisible</link> (boolean b)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___configure_server_1ad363df277d2ff9e42ed97bf905dae2ed">showDialog</link> (int n)</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_dialogs_1_1_dialog___configure_server_1a7549a065a9c4de54851f92605e6cb48c">getStopTime</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog___configure_server_1a2502e250c234548ee0d5278a22eef2c5">getServerIndex</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog___configure_server_1a50f435a1d77075635b0104953868c350">getPortNumber</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog___configure_server_1a13b6134ae994884f42b1a8ae676dbfe8">getStartTime</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ArrayList&lt; String &gt; <link linkend="_class_dialogs_1_1_dialog___configure_server_1a1454f6d2cbc25db1f07f3205dfaee4d9">settings</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final String <link linkend="_class_dialogs_1_1_dialog___configure_server_1a984dbd98bf065acb5260ddd6e904448a">COMPONENT_OVERVIEW_LABEL</link> = &quot;Client_OverviewLabel&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to manage the configuration of one UDP Echo server </para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00015">15</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1a1138e0363b0367988d0ead6769876474"/><section>
+    <title>Dialog_ConfigureServer()</title>
+<indexterm><primary>Dialog_ConfigureServer</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>Dialog_ConfigureServer</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_ConfigureServer.Dialog_ConfigureServer (int n, Map&lt; String, JComponent &gt; helpfulComponents)</computeroutput></para>
+<para>to create the object of type Dialog_ConfigureServer</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>n</entry><entry>
+<para>total no. of nodes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>helpfulComponents</entry><entry>
+<para>the map of helpful components </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00072">72</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1a50f435a1d77075635b0104953868c350"/><section>
+    <title>getPortNumber()</title>
+<indexterm><primary>getPortNumber</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>getPortNumber</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_ConfigureServer.getPortNumber ( )</computeroutput></para>
+<para>to get the port number of the server</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00205">205</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1a2502e250c234548ee0d5278a22eef2c5"/><section>
+    <title>getServerIndex()</title>
+<indexterm><primary>getServerIndex</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>getServerIndex</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_ConfigureServer.getServerIndex ( )</computeroutput></para>
+<para>to get the index of the server node</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00195">195</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1a13b6134ae994884f42b1a8ae676dbfe8"/><section>
+    <title>getStartTime()</title>
+<indexterm><primary>getStartTime</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>getStartTime</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_ConfigureServer.getStartTime ( )</computeroutput></para>
+<para>to get the start time of the server</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00215">215</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1a7549a065a9c4de54851f92605e6cb48c"/><section>
+    <title>getStopTime()</title>
+<indexterm><primary>getStopTime</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>getStopTime</secondary></indexterm>
+<para><computeroutput>int Dialogs.Dialog_ConfigureServer.getStopTime ( )</computeroutput></para>
+<para>to get the stop time of the server</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00185">185</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1a528b8aa2e2feff084d0ec3a1378e7b13"/><section>
+    <title>setVisible()</title>
+<indexterm><primary>setVisible</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>setVisible</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_ConfigureServer.setVisible (boolean b)</computeroutput></para>
+<para>to make the dialog visible with list of all nodes</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>b</entry><entry>
+<para>whether to show or hide </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00158">158</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1ad363df277d2ff9e42ed97bf905dae2ed"/><section>
+    <title>showDialog()</title>
+<indexterm><primary>showDialog</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>showDialog</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_ConfigureServer.showDialog (int n)</computeroutput></para>
+<para>to show dialog with nodes</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>n</entry><entry>
+<para>the total nodes </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00174">174</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1a984dbd98bf065acb5260ddd6e904448a"/><section>
+    <title>COMPONENT_OVERVIEW_LABEL</title>
+<indexterm><primary>COMPONENT_OVERVIEW_LABEL</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>COMPONENT_OVERVIEW_LABEL</secondary></indexterm>
+<para><computeroutput>final String Dialogs.Dialog_ConfigureServer.COMPONENT_OVERVIEW_LABEL = &quot;Client_OverviewLabel&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>the key for overview label </para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00043">43</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_server_1a1454f6d2cbc25db1f07f3205dfaee4d9"/><section>
+    <title>settings</title>
+<indexterm><primary>settings</primary><secondary>Dialogs.Dialog_ConfigureServer</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureServer</primary><secondary>settings</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;String&gt; Dialogs.Dialog_ConfigureServer.settings</computeroutput></para>
+<para>the server configuration settings </para>
+<para>
+Definition at line <link linkend="__dialog___configure_server_8java_source_1l00059">59</link> of file <link linkend="__dialog___configure_server_8java_source">Dialog_ConfigureServer.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog___configure_server_8java">Dialog_ConfigureServer.java</link></section>
+</section>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enum_status_helper_1_1_link_type" xml:lang="en-US">
+<title>StatusHelper.LinkType Enum Reference</title>
+<indexterm><primary>StatusHelper.LinkType</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enum_status_helper_1_1_link_type_1a17a63e27f41780f1124e6c4324855f95">LINK_P2P</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_link_type_1ae2a842c884992ac31a56e0f1cc959f49">LINK_CSMA</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_link_type_1a212d32ea6d8d75c4ddbf7e0406fcaab7">LINK_WIFI</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>enum type for identification of link type </para>
+<para>
+Definition at line <link linkend="__link_type_8java_source_1l00014">14</link> of file <link linkend="__link_type_8java_source">LinkType.java</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enum_status_helper_1_1_link_type_1ae2a842c884992ac31a56e0f1cc959f49"/><section>
+    <title>LINK_CSMA</title>
+<indexterm><primary>LINK_CSMA</primary><secondary>StatusHelper.LinkType</secondary></indexterm>
+<indexterm><primary>StatusHelper.LinkType</primary><secondary>LINK_CSMA</secondary></indexterm>
+<para><computeroutput>StatusHelper.LinkType.LINK_CSMA</computeroutput></para><para>
+Definition at line <link linkend="__link_type_8java_source_1l00015">15</link> of file <link linkend="__link_type_8java_source">LinkType.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_link_type_1a17a63e27f41780f1124e6c4324855f95"/><section>
+    <title>LINK_P2P</title>
+<indexterm><primary>LINK_P2P</primary><secondary>StatusHelper.LinkType</secondary></indexterm>
+<indexterm><primary>StatusHelper.LinkType</primary><secondary>LINK_P2P</secondary></indexterm>
+<para><computeroutput>StatusHelper.LinkType.LINK_P2P</computeroutput></para><para>
+Definition at line <link linkend="__link_type_8java_source_1l00015">15</link> of file <link linkend="__link_type_8java_source">LinkType.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_link_type_1a212d32ea6d8d75c4ddbf7e0406fcaab7"/><section>
+    <title>LINK_WIFI</title>
+<indexterm><primary>LINK_WIFI</primary><secondary>StatusHelper.LinkType</secondary></indexterm>
+<indexterm><primary>StatusHelper.LinkType</primary><secondary>LINK_WIFI</secondary></indexterm>
+<para><computeroutput>StatusHelper.LinkType.LINK_WIFI</computeroutput></para><para>
+Definition at line <link linkend="__link_type_8java_source_1l00016">16</link> of file <link linkend="__link_type_8java_source">LinkType.java</link>.</para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/StatusHelper/<link linkend="__link_type_8java">LinkType.java</link></section>
+</section>

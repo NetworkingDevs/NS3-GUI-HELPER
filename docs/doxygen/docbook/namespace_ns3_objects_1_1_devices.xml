@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_ns3_objects_1_1_devices" xml:lang="en-US">
+<title>Package Ns3Objects.Devices</title>
+<indexterm><primary>Ns3Objects.Devices</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_ns3_objects_1_1_devices_1_1_device">Device</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The following package includes the storage type, for NetDevices objects in NS-3, it will be responsible to store the data and enerate the code for NetDevices class. </para>
+</section>
+</section>

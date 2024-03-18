@@ -1,0 +1,227 @@
+\doxysection{Dialogs.\+Dialog\+\_\+\+Link Class Reference}
+\label{class_dialogs_1_1_dialog___link}\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+Inheritance diagram for Dialogs.\+Dialog\+\_\+\+Link\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dialogs_1_1_dialog___link}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Dialog\+\_\+\+Link} (Map$<$ String, JComponent $>$ components)
+\item 
+void \textbf{ set\+Default\+Links} (Array\+List$<$ \textbf{ Network\+Link} $>$ default\+Links)
+\item 
+void \textbf{ show\+Default\+Links} (boolean show)
+\item 
+Array\+List$<$ \textbf{ Network\+Link} $>$ \textbf{ get\+All\+Links} ()
+\item 
+int \textbf{ get\+P2p\+Link\+Count} ()
+\item 
+int \textbf{ get\+Csma\+Link\+Count} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Dialog\+\_\+\+Link} \textbf{ get\+Instance} (Map$<$ String, JComponent $>$ helpful\+Components)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Array\+List$<$ \textbf{ Network\+Link} $>$ \textbf{ links}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \textbf{ COMPONENT\+\_\+\+COMBO\+\_\+\+BOX} = "{}Link\+\_\+\+Combo\+Box"{}
+\item 
+static final String \textbf{ COMPONENT\+\_\+\+OVERVIEW\+\_\+\+LABEL} = "{}Link\+\_\+\+Overview\+Label"{}
+\item 
+static boolean \textbf{ SHOW\+\_\+\+DEFAULT} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The dialog for management of links settings 
+
+Definition at line \textbf{ 19} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_dialogs_1_1_dialog___link_a7181dc4090d0f2fbe941790612ceaafc} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!Dialog\_Link@{Dialog\_Link}}
+\index{Dialog\_Link@{Dialog\_Link}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{Dialog\_Link()}
+{\footnotesize\ttfamily Dialogs.\+Dialog\+\_\+\+Link.\+Dialog\+\_\+\+Link (\begin{DoxyParamCaption}\item[{Map$<$ String, JComponent $>$}]{components }\end{DoxyParamCaption})}
+
+to create the object of type Dialog\+\_\+\+Link
+
+
+\begin{DoxyParams}{Parameters}
+{\em components} & the helpful components \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 97} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_dialogs_1_1_dialog___link_a31e8312a5d13667f5eaa2c412b197c15} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!getAllLinks@{getAllLinks}}
+\index{getAllLinks@{getAllLinks}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{getAllLinks()}
+{\footnotesize\ttfamily Array\+List$<$ \textbf{ Network\+Link} $>$ Dialogs.\+Dialog\+\_\+\+Link.\+get\+All\+Links (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to get all the link settings
+
+\begin{DoxyReturn}{Returns}
+the list of link settings 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 184} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+\label{class_dialogs_1_1_dialog___link_a4652cf979dfd8cd62f47d53adbc037c6} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!getCsmaLinkCount@{getCsmaLinkCount}}
+\index{getCsmaLinkCount@{getCsmaLinkCount}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{getCsmaLinkCount()}
+{\footnotesize\ttfamily int Dialogs.\+Dialog\+\_\+\+Link.\+get\+Csma\+Link\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to get the count of CSMA Links
+
+\begin{DoxyReturn}{Returns}
+the size of CSMA Link settings 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 217} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+\label{class_dialogs_1_1_dialog___link_aa7c6695c605ab68ad745011801345b0a} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{getInstance()}
+{\footnotesize\ttfamily static \textbf{ Dialog\+\_\+\+Link} Dialogs.\+Dialog\+\_\+\+Link.\+get\+Instance (\begin{DoxyParamCaption}\item[{Map$<$ String, JComponent $>$}]{helpful\+Components }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to get the instance of this class
+
+
+\begin{DoxyParams}{Parameters}
+{\em helpful\+Components} & the components that should be managed \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 84} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+\label{class_dialogs_1_1_dialog___link_af39a57b73f4d9b4ae74375059cee06a4} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!getP2pLinkCount@{getP2pLinkCount}}
+\index{getP2pLinkCount@{getP2pLinkCount}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{getP2pLinkCount()}
+{\footnotesize\ttfamily int Dialogs.\+Dialog\+\_\+\+Link.\+get\+P2p\+Link\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to get the count of P2P Links
+
+\begin{DoxyReturn}{Returns}
+the size of P2P Link settings 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 198} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+\label{class_dialogs_1_1_dialog___link_a31cb7ab640066cbdabf0219c4945a40b} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!setDefaultLinks@{setDefaultLinks}}
+\index{setDefaultLinks@{setDefaultLinks}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{setDefaultLinks()}
+{\footnotesize\ttfamily void Dialogs.\+Dialog\+\_\+\+Link.\+set\+Default\+Links (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Network\+Link} $>$}]{default\+Links }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 150} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+\label{class_dialogs_1_1_dialog___link_aa943d4e92e43334da7c85b7cec85e743} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!showDefaultLinks@{showDefaultLinks}}
+\index{showDefaultLinks@{showDefaultLinks}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{showDefaultLinks()}
+{\footnotesize\ttfamily void Dialogs.\+Dialog\+\_\+\+Link.\+show\+Default\+Links (\begin{DoxyParamCaption}\item[{boolean}]{show }\end{DoxyParamCaption})}
+
+to make all default links visible
+
+
+\begin{DoxyParams}{Parameters}
+{\em show} & whether to show or hide default links \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 172} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_dialogs_1_1_dialog___link_aa4376da19c280783bb6c2cf93dad69fd} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!COMPONENT\_COMBO\_BOX@{COMPONENT\_COMBO\_BOX}}
+\index{COMPONENT\_COMBO\_BOX@{COMPONENT\_COMBO\_BOX}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{COMPONENT\_COMBO\_BOX}
+{\footnotesize\ttfamily final String Dialogs.\+Dialog\+\_\+\+Link.\+COMPONENT\+\_\+\+COMBO\+\_\+\+BOX = "{}Link\+\_\+\+Combo\+Box"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+the key for the combo box 
+
+Definition at line \textbf{ 50} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+\label{class_dialogs_1_1_dialog___link_a231096ae4173c2561748b535da9ab704} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!COMPONENT\_OVERVIEW\_LABEL@{COMPONENT\_OVERVIEW\_LABEL}}
+\index{COMPONENT\_OVERVIEW\_LABEL@{COMPONENT\_OVERVIEW\_LABEL}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{COMPONENT\_OVERVIEW\_LABEL}
+{\footnotesize\ttfamily final String Dialogs.\+Dialog\+\_\+\+Link.\+COMPONENT\+\_\+\+OVERVIEW\+\_\+\+LABEL = "{}Link\+\_\+\+Overview\+Label"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+the key for the overview label 
+
+Definition at line \textbf{ 54} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+\label{class_dialogs_1_1_dialog___link_ac44712d607ee0ff9ba64ed86e1bd4c94} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!links@{links}}
+\index{links@{links}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{links}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Network\+Link}$>$ Dialogs.\+Dialog\+\_\+\+Link.\+links}
+
+link settings 
+
+Definition at line \textbf{ 68} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+\label{class_dialogs_1_1_dialog___link_a853150c73fa06868c2f6fb947844f799} 
+\index{Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}!SHOW\_DEFAULT@{SHOW\_DEFAULT}}
+\index{SHOW\_DEFAULT@{SHOW\_DEFAULT}!Dialogs.Dialog\_Link@{Dialogs.Dialog\_Link}}
+\doxysubsubsection{SHOW\_DEFAULT}
+{\footnotesize\ttfamily boolean Dialogs.\+Dialog\+\_\+\+Link.\+SHOW\+\_\+\+DEFAULT = false\hspace{0.3cm}{\ttfamily [static]}}
+
+to indicate that whether the default network settings are visible or not 
+
+Definition at line \textbf{ 58} of file \textbf{ Dialog\+\_\+\+Link.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Dialogs/\textbf{ Dialog\+\_\+\+Link.\+java}\end{DoxyCompactItemize}

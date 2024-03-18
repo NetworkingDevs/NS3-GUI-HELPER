@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__p2_p_8java_source" xml:lang="en-US">
+<title>P2P.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Links/P2P.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__p2_p_8java_source_1l00001"/>00001 <emphasis role="keyword">package&#32;</emphasis>Ns3Objects.Links;
+<anchor xml:id="__p2_p_8java_source_1l00002"/>00002 
+<anchor xml:id="__p2_p_8java_source_1l00003"/>00003 <emphasis role="keyword">import</emphasis>&#32;<link linkend="_namespace_status_helper">StatusHelper</link>.<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>;
+<anchor xml:id="__p2_p_8java_source_1l00004"/>00004 
+<anchor xml:id="__p2_p_8java_source_1l00008"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p">00008</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p">P2P</link>&#32;<emphasis role="keyword">implements</emphasis>&#32;<link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link>{
+<anchor xml:id="__p2_p_8java_source_1l00009"/>00009 
+<anchor xml:id="__p2_p_8java_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;id;
+<anchor xml:id="__p2_p_8java_source_1l00017"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>;
+<anchor xml:id="__p2_p_8java_source_1l00021"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">00021</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>;
+<anchor xml:id="__p2_p_8java_source_1l00025"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">00025</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>;
+<anchor xml:id="__p2_p_8java_source_1l00029"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">00029</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>;
+<anchor xml:id="__p2_p_8java_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>&#32;linkType;
+<anchor xml:id="__p2_p_8java_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap;
+<anchor xml:id="__p2_p_8java_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isDefault;
+<anchor xml:id="__p2_p_8java_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isUsed;
+<anchor xml:id="__p2_p_8java_source_1l00046"/>00046 
+<anchor xml:id="__p2_p_8java_source_1l00060"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a38a39756fcc9aa04a62aa16ddbe9ca27">00060</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a38a39756fcc9aa04a62aa16ddbe9ca27">P2P</link>(<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.id&#32;&#32;=&#32;id;
+<anchor xml:id="__p2_p_8java_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.name&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>;
+<anchor xml:id="__p2_p_8java_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.delay&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>;
+<anchor xml:id="__p2_p_8java_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.dataRate&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>;
+<anchor xml:id="__p2_p_8java_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.speedModifier&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>;
+<anchor xml:id="__p2_p_8java_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.enablePcap&#32;=&#32;enablePcap;
+<anchor xml:id="__p2_p_8java_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.linkType&#32;=&#32;<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>.<link linkend="_enum_status_helper_1_1_link_type_1a17a63e27f41780f1124e6c4324855f95">LINK_P2P</link>;
+<anchor xml:id="__p2_p_8java_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isDefault&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__p2_p_8java_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isUsed&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__p2_p_8java_source_1l00070"/>00070 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00071"/>00071 
+<anchor xml:id="__p2_p_8java_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;new&#32;constructor&#32;will&#32;support&#32;previous&#32;once...</emphasis>
+<anchor xml:id="__p2_p_8java_source_1l00087"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ab64eba30f5156f740504f6846ebd8419">00087</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ab64eba30f5156f740504f6846ebd8419">P2P</link>(<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isDefault)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>(id,<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>,enablePcap);
+<anchor xml:id="__p2_p_8java_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isDefault&#32;=&#32;isDefault;
+<anchor xml:id="__p2_p_8java_source_1l00090"/>00090 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00091"/>00091 
+<anchor xml:id="__p2_p_8java_source_1l00107"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2876aae9d5098e0dcd7198caff01f321">00107</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2876aae9d5098e0dcd7198caff01f321">P2P</link>(<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>,String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isDefault,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isUsed)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>(id,<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>,enablePcap,isDefault);
+<anchor xml:id="__p2_p_8java_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isUsed&#32;=&#32;isUsed;
+<anchor xml:id="__p2_p_8java_source_1l00110"/>00110 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00111"/>00111 
+<anchor xml:id="__p2_p_8java_source_1l00118"/>00118 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00119"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a83a16478ed7a176b6aa085ddf1ee8833">00119</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a83a16478ed7a176b6aa085ddf1ee8833">toString</link>()&#32;{&#32;&#32;&#32;&#32;
+<anchor xml:id="__p2_p_8java_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.name+<emphasis role="stringliteral">&quot;&#32;(P2P)&#32;-&#32;&quot;</emphasis>+this.delay+<emphasis role="stringliteral">&quot;ms,&quot;</emphasis>+this.dataRate+this.<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>;
+<anchor xml:id="__p2_p_8java_source_1l00121"/>00121 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00122"/>00122 
+<anchor xml:id="__p2_p_8java_source_1l00123"/>00123 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;for&#32;storing&#32;in&#32;file&#32;for&#32;settings...</emphasis>
+<anchor xml:id="__p2_p_8java_source_1l00130"/>00130 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00131"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aca33c3c496a680823e90b53b93864fed">00131</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aca33c3c496a680823e90b53b93864fed">forSettings</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.name+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+this.delay+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+this.dataRate+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+this.speedModifier+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+((this.enablePcap)?(<emphasis role="stringliteral">&quot;Y&quot;</emphasis>):<emphasis role="stringliteral">&quot;N&quot;</emphasis>)+<emphasis role="stringliteral">&quot;|P2P&quot;</emphasis>;
+<anchor xml:id="__p2_p_8java_source_1l00133"/>00133 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00134"/>00134 
+<anchor xml:id="__p2_p_8java_source_1l00135"/>00135 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00136"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4717c5ec3c6e55408037af0622bd8ecc">00136</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4717c5ec3c6e55408037af0622bd8ecc">isDefault</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;isDefault;
+<anchor xml:id="__p2_p_8java_source_1l00138"/>00138 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00139"/>00139 
+<anchor xml:id="__p2_p_8java_source_1l00140"/>00140 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00141"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1af7deb5f46378ee9afac468e2429fb6c7">00141</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1af7deb5f46378ee9afac468e2429fb6c7">setDefault</link>(<emphasis role="keywordtype">boolean</emphasis>&#32;isDefault)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isDefault&#32;=&#32;isDefault;
+<anchor xml:id="__p2_p_8java_source_1l00143"/>00143 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00144"/>00144 
+<anchor xml:id="__p2_p_8java_source_1l00145"/>00145 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00146"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a7b244daaf27c2ef7b330f6976c1e37ce">00146</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a7b244daaf27c2ef7b330f6976c1e37ce">isUsed</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;isUsed;
+<anchor xml:id="__p2_p_8java_source_1l00148"/>00148 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00149"/>00149 
+<anchor xml:id="__p2_p_8java_source_1l00150"/>00150 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00151"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a5783abf2a189abfa3df76b2d1277bba3">00151</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a5783abf2a189abfa3df76b2d1277bba3">setUsed</link>(<emphasis role="keywordtype">boolean</emphasis>&#32;used)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;isUsed&#32;=&#32;used;
+<anchor xml:id="__p2_p_8java_source_1l00153"/>00153 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00154"/>00154 
+<anchor xml:id="__p2_p_8java_source_1l00173"/>00173 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00174"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ad92174af36072f09c6b667b64ad3ff6c">00174</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ad92174af36072f09c6b667b64ad3ff6c">toCode</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afd5b4deb47cd9a8e3bb072b348e15fe5">getName</link>().replace(<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>,<emphasis role="stringliteral">&quot;_&quot;</emphasis>);
+<anchor xml:id="__p2_p_8java_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;String&#32;line1,&#32;line2,&#32;line3;
+<anchor xml:id="__p2_p_8java_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;line1&#32;=&#32;<emphasis role="stringliteral">&quot;PointToPointHelper&#32;p2p&quot;</emphasis>+<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>+<emphasis role="stringliteral">&quot;;&quot;</emphasis>;
+<anchor xml:id="__p2_p_8java_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;line2&#32;=&#32;<emphasis role="stringliteral">&quot;p2p&quot;</emphasis>+this.name+<emphasis role="stringliteral">&quot;.SetDeviceAttribute(\&quot;DataRate\&quot;,StringValue(\&quot;&quot;</emphasis>+(<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aa7fb5fa82920d4f086d9afddaedb054e">getDataRate</link>()+<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4713746ee50a4ce2d5bcb1e0af2b8858">getSpeedModifier</link>())+<emphasis role="stringliteral">&quot;\&quot;));&quot;</emphasis>;
+<anchor xml:id="__p2_p_8java_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;line3&#32;=&#32;<emphasis role="stringliteral">&quot;p2p&quot;</emphasis>+this.name+<emphasis role="stringliteral">&quot;.SetChannelAttribute(\&quot;Delay\&quot;,StringValue(\&quot;&quot;</emphasis>+<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9c00066bcf4d814e6f5aaa0465aa3573">getDelay</link>()+<emphasis role="stringliteral">&quot;ms\&quot;));&quot;</emphasis>;
+<anchor xml:id="__p2_p_8java_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;line1+<emphasis role="stringliteral">&quot;\n&quot;</emphasis>+line2+<emphasis role="stringliteral">&quot;\n&quot;</emphasis>+line3;
+<anchor xml:id="__p2_p_8java_source_1l00181"/>00181 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00182"/>00182 
+<anchor xml:id="__p2_p_8java_source_1l00199"/>00199 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00200"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ae5e68578cd53f0838b1aad3a6e474746">00200</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ae5e68578cd53f0838b1aad3a6e474746">getPacketCaptureAllCode</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afd5b4deb47cd9a8e3bb072b348e15fe5">getName</link>().replace(<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>,<emphasis role="stringliteral">&quot;_&quot;</emphasis>);
+<anchor xml:id="__p2_p_8java_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;String&#32;code&#32;=&#32;<emphasis role="stringliteral">&quot;p2p&quot;</emphasis>+<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>+<emphasis role="stringliteral">&quot;.EnablePcapAll(\&quot;&quot;</emphasis>+<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>+<emphasis role="stringliteral">&quot;\&quot;);&quot;</emphasis>;
+<anchor xml:id="__p2_p_8java_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;code;
+<anchor xml:id="__p2_p_8java_source_1l00204"/>00204 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00205"/>00205 
+<anchor xml:id="__p2_p_8java_source_1l00206"/>00206 
+<anchor xml:id="__p2_p_8java_source_1l00207"/>00207 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00208"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a60722b7722ce8003d31ec4ffe8cfb9ce">00208</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a60722b7722ce8003d31ec4ffe8cfb9ce">getId</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.id;
+<anchor xml:id="__p2_p_8java_source_1l00210"/>00210 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00211"/>00211 
+<anchor xml:id="__p2_p_8java_source_1l00212"/>00212 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00213"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1abfdbf3f9198969c07213ee08666d7e61">00213</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1abfdbf3f9198969c07213ee08666d7e61">setId</link>(<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.id&#32;=&#32;id;
+<anchor xml:id="__p2_p_8java_source_1l00215"/>00215 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00216"/>00216 
+<anchor xml:id="__p2_p_8java_source_1l00217"/>00217 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00218"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afd5b4deb47cd9a8e3bb072b348e15fe5">00218</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afd5b4deb47cd9a8e3bb072b348e15fe5">getName</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>;
+<anchor xml:id="__p2_p_8java_source_1l00220"/>00220 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00221"/>00221 
+<anchor xml:id="__p2_p_8java_source_1l00222"/>00222 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00223"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9e641ea7fac96e386d9162510d07dbcf">00223</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9e641ea7fac96e386d9162510d07dbcf">setName</link>(String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.name&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>;
+<anchor xml:id="__p2_p_8java_source_1l00225"/>00225 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00226"/>00226 
+<anchor xml:id="__p2_p_8java_source_1l00227"/>00227 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00228"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9c00066bcf4d814e6f5aaa0465aa3573">00228</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9c00066bcf4d814e6f5aaa0465aa3573">getDelay</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>;
+<anchor xml:id="__p2_p_8java_source_1l00230"/>00230 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00231"/>00231 
+<anchor xml:id="__p2_p_8java_source_1l00232"/>00232 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00233"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a53e5cb5c84dbadb38a81628fbde622e4">00233</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a53e5cb5c84dbadb38a81628fbde622e4">setDelay</link>(String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.delay&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>;
+<anchor xml:id="__p2_p_8java_source_1l00235"/>00235 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00236"/>00236 
+<anchor xml:id="__p2_p_8java_source_1l00237"/>00237 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00238"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aa7fb5fa82920d4f086d9afddaedb054e">00238</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aa7fb5fa82920d4f086d9afddaedb054e">getDataRate</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>;
+<anchor xml:id="__p2_p_8java_source_1l00240"/>00240 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00241"/>00241 
+<anchor xml:id="__p2_p_8java_source_1l00242"/>00242 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00243"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1acb9d5d4a28dbf6e8f188c5bf4e3a3e5d">00243</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1acb9d5d4a28dbf6e8f188c5bf4e3a3e5d">setDataRate</link>(String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.dataRate&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>;
+<anchor xml:id="__p2_p_8java_source_1l00245"/>00245 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00246"/>00246 
+<anchor xml:id="__p2_p_8java_source_1l00247"/>00247 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00248"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4713746ee50a4ce2d5bcb1e0af2b8858">00248</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4713746ee50a4ce2d5bcb1e0af2b8858">getSpeedModifier</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>;
+<anchor xml:id="__p2_p_8java_source_1l00250"/>00250 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00251"/>00251 
+<anchor xml:id="__p2_p_8java_source_1l00252"/>00252 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00253"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afcb398373685519198b97281d6ac6c07">00253</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afcb398373685519198b97281d6ac6c07">setSpeedModifier</link>(String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00254"/>00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.speedModifier&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>;
+<anchor xml:id="__p2_p_8java_source_1l00255"/>00255 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00256"/>00256 
+<anchor xml:id="__p2_p_8java_source_1l00257"/>00257 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00258"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ad04bd2b9ac2e0b3213d7d23a9a1b52b5">00258</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ad04bd2b9ac2e0b3213d7d23a9a1b52b5">getLinkType</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.linkType;
+<anchor xml:id="__p2_p_8java_source_1l00260"/>00260 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00261"/>00261 
+<anchor xml:id="__p2_p_8java_source_1l00262"/>00262 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00263"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afdfdfc835ef0deeb5e17397ef396dd57">00263</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afdfdfc835ef0deeb5e17397ef396dd57">setLinkType</link>(<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>&#32;linkType)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.linkType&#32;=&#32;linkType;
+<anchor xml:id="__p2_p_8java_source_1l00265"/>00265 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00266"/>00266 
+<anchor xml:id="__p2_p_8java_source_1l00267"/>00267 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00268"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a86a54c0c7892f435c91efa581fba1460">00268</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a86a54c0c7892f435c91efa581fba1460">getEnablePcap</link>()&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;enablePcap;
+<anchor xml:id="__p2_p_8java_source_1l00270"/>00270 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00271"/>00271 
+<anchor xml:id="__p2_p_8java_source_1l00272"/>00272 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2_p_8java_source_1l00273"/><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1af1a51df79942810092f512eb9a37c60f">00273</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1af1a51df79942810092f512eb9a37c60f">setEnablePcap</link>(<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap)&#32;{
+<anchor xml:id="__p2_p_8java_source_1l00274"/>00274 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.enablePcap&#32;=&#32;enablePcap;
+<anchor xml:id="__p2_p_8java_source_1l00275"/>00275 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2_p_8java_source_1l00276"/>00276 }
+</programlisting></section>

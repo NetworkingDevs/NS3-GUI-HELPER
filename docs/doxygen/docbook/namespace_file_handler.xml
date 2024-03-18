@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_file_handler" xml:lang="en-US">
+<title>Package FileHandler</title>
+<indexterm><primary>FileHandler</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_file_handler_1_1_code_generator">CodeGenerator</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_file_handler_1_1_file_reader_writer">FileReaderWriter</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The following package is containing the utilities to manage any type of file handling and code generation features. </para>
+</section>
+</section>

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-| [Home](./index.html) | [Final Product](./appImages.html) | [Manual](./manual.html) | Releases  | [Doxygen](./doxygen/index.html) |
+| [Home](./index.html) | [Final Product](./appImages.html) | [Manual](./manual.html) | Releases  | [Doxygen](./doxygen/html/index.html) |
 |:---------------------|:----------------------------------|------------------------|-----------|----|
 | This Home Page       | To Final Product                  | To User Manual         | This page | To Doxygen |
 
@@ -32,7 +32,7 @@ layout: default
       - Default storage for various components
       - Code generation for NS3
       - Feature Updates<sup>NEW</sup>
-        - Version 1.1.0<sup>NEW</sup> : Released on 29<sup>th</sup> Feb., 2024.
+        - Version 1.1.0 : Released on 29<sup>th</sup> Feb., 2024.
           - <a href="./Manual/pdfs/ManualV1.1.0.pdf" download> User Manual </a>
           - <a href="./Releases/NS3-GUI V1.1.0.jar" download>Get version 1.1.0 </a>
           - What's new
@@ -41,4 +41,15 @@ layout: default
             - Efficient Settings Management
             - New Help Menu For Beginners
             - Efficient Wireshark code Generation
+        - Version 1.2.0<sup>NEW</sup> : Released on 18<sup>th</sup> March., 2024.
+          - <a href="./Releases/v1_2_0/Manual.pdf" download> User Manual </a>
+          - <a href="./Releases/v1_2_0/NS3-GUI.jar" download>Get version 1.2.0 </a>
+          - What's new
+            - Wi-Fi Link Tool
+            - Default Links Configuration 
+            - Default Network Configurations
+            - Able to simulate all the basic channels 
+              - Wired
+              - Wireless
+              - Common-Bus
   

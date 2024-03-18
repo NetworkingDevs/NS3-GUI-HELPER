@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__dialog___default_link_config_8java" xml:lang="en-US">
+<title>E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/Dialog_DefaultLinkConfig.java File Reference</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/Dialog_DefaultLinkConfig.java</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___default_link_config">Dialogs.Dialog_DefaultLinkConfig</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Packages    </title>
+        <itemizedlist>
+            <listitem><para>package <link linkend="_namespace_dialogs">Dialogs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

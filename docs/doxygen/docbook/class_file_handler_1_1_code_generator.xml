@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_file_handler_1_1_code_generator" xml:lang="en-US">
+<title>FileHandler.CodeGenerator Class Reference</title>
+<indexterm><primary>FileHandler.CodeGenerator</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_file_handler_1_1_code_generator_1a19d4063873d311332e4f56fe400560bd">CodeGenerator</link> (<link linkend="_class_dialogs_1_1_dialog___configure_server">Dialog_ConfigureServer</link> s, <link linkend="_class_dialogs_1_1_dialog___configure_client">Dialog_ConfigureClient</link> c, <link linkend="_class_dialogs_1_1_dialog___connection">Dialog_Connection</link> conn, <link linkend="_class_dialogs_1_1_dialog___link">Dialog_Link</link> link, <link linkend="_class_dialogs_1_1_dialog___wi_fi_link">Dialog_WiFiLink</link> dialogWiFiLink, Map&lt; String, String &gt; other)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_file_handler_1_1_code_generator_1a41079435617792a627b6ec398706aea0">GenerateCode</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_file_handler_1_1_code_generator_1a32add46b87ed12f943df5b2ad5efd86c">getCode</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final String <link linkend="_class_file_handler_1_1_code_generator_1a6ab4a821adbc718ca6e9e3e7f9c358e6">UTILITY_NETANIM</link> = &quot;netanim&quot;</para>
+</listitem>
+            <listitem><para>static final String <link linkend="_class_file_handler_1_1_code_generator_1af8616a533596fec3c3b5a8ee1b36e32a">UTILITY_WIRESHARK</link> = &quot;wireshark&quot;</para>
+</listitem>
+            <listitem><para>static final String <link linkend="_class_file_handler_1_1_code_generator_1a6711bc9376309259fd37666d9e171a7c">NAME_OF_TOPOLOGY</link> = &quot;custom&quot;</para>
+</listitem>
+            <listitem><para>static final String <link linkend="_class_file_handler_1_1_code_generator_1a0fe5966a184bcdf7343fcd207e2d6c80">TOTAL_NODES</link> = &quot;nodes&quot;</para>
+</listitem>
+            <listitem><para>static final String <link linkend="_class_file_handler_1_1_code_generator_1a7af34e1051f684b206ae9d46424f80ad">VALUE_TRUE</link> = &quot;t&quot;</para>
+</listitem>
+            <listitem><para>static final String <link linkend="_class_file_handler_1_1_code_generator_1a3ffc8386af024a1c47bfc002ed52be4d">VALUE_FALSE</link> = &quot;f&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>String <link linkend="_class_file_handler_1_1_code_generator_1acf9a48196b7b0bda7df4e90bb9e5778c">code</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This class will be responsible for generating the code for the equivalent topology </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00016">16</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1a19d4063873d311332e4f56fe400560bd"/><section>
+    <title>CodeGenerator()</title>
+<indexterm><primary>CodeGenerator</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>CodeGenerator</secondary></indexterm>
+<para><computeroutput>FileHandler.CodeGenerator.CodeGenerator (<link linkend="_class_dialogs_1_1_dialog___configure_server">Dialog_ConfigureServer</link> s, <link linkend="_class_dialogs_1_1_dialog___configure_client">Dialog_ConfigureClient</link> c, <link linkend="_class_dialogs_1_1_dialog___connection">Dialog_Connection</link> conn, <link linkend="_class_dialogs_1_1_dialog___link">Dialog_Link</link> link, <link linkend="_class_dialogs_1_1_dialog___wi_fi_link">Dialog_WiFiLink</link> dialogWiFiLink, Map&lt; String, String &gt; other)</computeroutput></para>
+<para>to make an object of type CodeGenerator</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>s</entry><entry>
+<para>server configuration dialog </para>
+</entry>
+                            </row>
+                            <row>
+<entry>c</entry><entry>
+<para>client configuration dialog </para>
+</entry>
+                            </row>
+                            <row>
+<entry>conn</entry><entry>
+<para>connection dialog </para>
+</entry>
+                            </row>
+                            <row>
+<entry>link</entry><entry>
+<para>link dialog </para>
+</entry>
+                            </row>
+                            <row>
+<entry>other</entry><entry>
+<para>map of extra fileds </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00083">83</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1a41079435617792a627b6ec398706aea0"/><section>
+    <title>GenerateCode()</title>
+<indexterm><primary>GenerateCode</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>GenerateCode</secondary></indexterm>
+<para><computeroutput>void FileHandler.CodeGenerator.GenerateCode ( )</computeroutput></para>
+<para>This function is used for generating code for the topology </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00096">96</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1a32add46b87ed12f943df5b2ad5efd86c"/><section>
+    <title>getCode()</title>
+<indexterm><primary>getCode</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>getCode</secondary></indexterm>
+<para><computeroutput>String FileHandler.CodeGenerator.getCode ( )</computeroutput></para><para>
+Definition at line <link linkend="__code_generator_8java_source_1l00340">340</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1acf9a48196b7b0bda7df4e90bb9e5778c"/><section>
+    <title>code</title>
+<indexterm><primary>code</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>code</secondary></indexterm>
+<para><computeroutput>String FileHandler.CodeGenerator.code<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>final code </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00071">71</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1a6711bc9376309259fd37666d9e171a7c"/><section>
+    <title>NAME_OF_TOPOLOGY</title>
+<indexterm><primary>NAME_OF_TOPOLOGY</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>NAME_OF_TOPOLOGY</secondary></indexterm>
+<para><computeroutput>final String FileHandler.CodeGenerator.NAME_OF_TOPOLOGY = &quot;custom&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>a key value for the name of the topology </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00030">30</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1a0fe5966a184bcdf7343fcd207e2d6c80"/><section>
+    <title>TOTAL_NODES</title>
+<indexterm><primary>TOTAL_NODES</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>TOTAL_NODES</secondary></indexterm>
+<para><computeroutput>final String FileHandler.CodeGenerator.TOTAL_NODES = &quot;nodes&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>key value for total nodes </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00034">34</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1a6ab4a821adbc718ca6e9e3e7f9c358e6"/><section>
+    <title>UTILITY_NETANIM</title>
+<indexterm><primary>UTILITY_NETANIM</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>UTILITY_NETANIM</secondary></indexterm>
+<para><computeroutput>final String FileHandler.CodeGenerator.UTILITY_NETANIM = &quot;netanim&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>a key value for netanim utility </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00022">22</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1af8616a533596fec3c3b5a8ee1b36e32a"/><section>
+    <title>UTILITY_WIRESHARK</title>
+<indexterm><primary>UTILITY_WIRESHARK</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>UTILITY_WIRESHARK</secondary></indexterm>
+<para><computeroutput>final String FileHandler.CodeGenerator.UTILITY_WIRESHARK = &quot;wireshark&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>a key value for the wireshark utility </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00026">26</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1a3ffc8386af024a1c47bfc002ed52be4d"/><section>
+    <title>VALUE_FALSE</title>
+<indexterm><primary>VALUE_FALSE</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>VALUE_FALSE</secondary></indexterm>
+<para><computeroutput>final String FileHandler.CodeGenerator.VALUE_FALSE = &quot;f&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>a key value for reading the false value representing </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00042">42</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_code_generator_1a7af34e1051f684b206ae9d46424f80ad"/><section>
+    <title>VALUE_TRUE</title>
+<indexterm><primary>VALUE_TRUE</primary><secondary>FileHandler.CodeGenerator</secondary></indexterm>
+<indexterm><primary>FileHandler.CodeGenerator</primary><secondary>VALUE_TRUE</secondary></indexterm>
+<para><computeroutput>final String FileHandler.CodeGenerator.VALUE_TRUE = &quot;t&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>a key value for reading the true value representing </para>
+<para>
+Definition at line <link linkend="__code_generator_8java_source_1l00038">38</link> of file <link linkend="__code_generator_8java_source">CodeGenerator.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/FileHandler/<link linkend="__code_generator_8java">CodeGenerator.java</link></section>
+</section>

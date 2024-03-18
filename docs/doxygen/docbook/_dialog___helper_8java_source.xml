@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__dialog___helper_8java_source" xml:lang="en-US">
+<title>Dialog_Helper.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/Dialog_Helper.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__dialog___helper_8java_source_1l00001"/>00001 
+<anchor xml:id="__dialog___helper_8java_source_1l00008"/>00008 <emphasis role="keyword">package&#32;</emphasis>Dialogs;
+<anchor xml:id="__dialog___helper_8java_source_1l00009"/>00009 
+<anchor xml:id="__dialog___helper_8java_source_1l00010"/>00010 <emphasis role="keyword">import</emphasis>&#32;<link linkend="_namespace_helpers">Helpers</link>.<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>;
+<anchor xml:id="__dialog___helper_8java_source_1l00011"/>00011 
+<anchor xml:id="__dialog___helper_8java_source_1l00012"/>00012 <emphasis role="keyword">import</emphasis>&#32;javax.swing.*;
+<anchor xml:id="__dialog___helper_8java_source_1l00013"/>00013 <emphasis role="keyword">import</emphasis>&#32;java.awt.*;
+<anchor xml:id="__dialog___helper_8java_source_1l00014"/>00014 
+<anchor xml:id="__dialog___helper_8java_source_1l00019"/><link linkend="_class_dialogs_1_1_dialog___helper">00019</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_dialogs_1_1_dialog___helper">Dialog_Helper</link>&#32;{
+<anchor xml:id="__dialog___helper_8java_source_1l00023"/><link linkend="_class_dialogs_1_1_dialog___helper_1abc57661e60f617fc2f097819901889d5">00023</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;Component&#32;<link linkend="_class_dialogs_1_1_dialog___helper_1abc57661e60f617fc2f097819901889d5">anyParentComponent</link>;
+<anchor xml:id="__dialog___helper_8java_source_1l00024"/>00024 
+<anchor xml:id="__dialog___helper_8java_source_1l00031"/><link linkend="_class_dialogs_1_1_dialog___helper_1a1ae698d4629cb3135ea7fcfadb9a7bd9">00031</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_dialogs_1_1_dialog___helper_1a1ae698d4629cb3135ea7fcfadb9a7bd9">Dialog_Helper</link>(Component&#32;component)&#32;{
+<anchor xml:id="__dialog___helper_8java_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a9d59d12965cd365e86f6bb5d352f41c6">Log</link>(<emphasis role="stringliteral">&quot;Crating&#32;object&#32;:&#32;Dialog_Helper&quot;</emphasis>);
+<anchor xml:id="__dialog___helper_8java_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.anyParentComponent&#32;=&#32;component;
+<anchor xml:id="__dialog___helper_8java_source_1l00034"/>00034 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__dialog___helper_8java_source_1l00035"/>00035 
+<anchor xml:id="__dialog___helper_8java_source_1l00044"/><link linkend="_class_dialogs_1_1_dialog___helper_1a7ec20b2bf87c52b9ca6f316b5f85dc9e">00044</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_dialogs_1_1_dialog___helper_1a7ec20b2bf87c52b9ca6f316b5f85dc9e">showConfirmationDialog</link>(String&#32;msg,&#32;String&#32;title)&#32;{
+<anchor xml:id="__dialog___helper_8java_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f">LogFunction</link>(<emphasis role="stringliteral">&quot;Showing&#32;confirmation&#32;dialog&#32;for&#32;message&#32;:&#32;&quot;</emphasis>+msg);
+<anchor xml:id="__dialog___helper_8java_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;JOptionPane.showConfirmDialog(this.anyParentComponent,&#32;msg,&#32;title,&#32;JOptionPane.YES_NO_OPTION);
+<anchor xml:id="__dialog___helper_8java_source_1l00047"/>00047 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__dialog___helper_8java_source_1l00048"/>00048 
+<anchor xml:id="__dialog___helper_8java_source_1l00056"/><link linkend="_class_dialogs_1_1_dialog___helper_1ac75067b78c2fee49a7c2426a33542c28">00056</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_dialogs_1_1_dialog___helper_1ac75067b78c2fee49a7c2426a33542c28">showWarningMsg</link>(String&#32;msg,&#32;String&#32;title)&#32;{
+<anchor xml:id="__dialog___helper_8java_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f">LogFunction</link>(<emphasis role="stringliteral">&quot;Showing&#32;warning&#32;dialog&#32;for&#32;message&#32;:&#32;&quot;</emphasis>+msg);
+<anchor xml:id="__dialog___helper_8java_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.showDialog(msg,&#32;title,&#32;JOptionPane.WARNING_MESSAGE);
+<anchor xml:id="__dialog___helper_8java_source_1l00059"/>00059 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__dialog___helper_8java_source_1l00060"/>00060 
+<anchor xml:id="__dialog___helper_8java_source_1l00068"/><link linkend="_class_dialogs_1_1_dialog___helper_1aec912f840fde9a8c2d61a4418a426b92">00068</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_dialogs_1_1_dialog___helper_1aec912f840fde9a8c2d61a4418a426b92">showInformationMsg</link>(String&#32;msg,&#32;String&#32;title)&#32;{
+<anchor xml:id="__dialog___helper_8java_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f">LogFunction</link>(<emphasis role="stringliteral">&quot;Showing&#32;information&#32;dialog&#32;for&#32;message&#32;:&#32;&quot;</emphasis>+msg);
+<anchor xml:id="__dialog___helper_8java_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.showDialog(msg,&#32;title,&#32;JOptionPane.INFORMATION_MESSAGE);
+<anchor xml:id="__dialog___helper_8java_source_1l00071"/>00071 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__dialog___helper_8java_source_1l00072"/>00072 
+<anchor xml:id="__dialog___helper_8java_source_1l00080"/><link linkend="_class_dialogs_1_1_dialog___helper_1acf45b68164bba49fc19c9d44145c23f4">00080</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_dialogs_1_1_dialog___helper_1acf45b68164bba49fc19c9d44145c23f4">showErrorMsg</link>(String&#32;msg,&#32;String&#32;title)&#32;{
+<anchor xml:id="__dialog___helper_8java_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f">LogFunction</link>(<emphasis role="stringliteral">&quot;Showing&#32;error&#32;dialog&#32;for&#32;message&#32;:&#32;&quot;</emphasis>+msg);
+<anchor xml:id="__dialog___helper_8java_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.showDialog(msg,&#32;title,&#32;JOptionPane.ERROR_MESSAGE);
+<anchor xml:id="__dialog___helper_8java_source_1l00083"/>00083 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__dialog___helper_8java_source_1l00084"/>00084 
+<anchor xml:id="__dialog___helper_8java_source_1l00093"/>00093 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;showDialog(String&#32;msg,&#32;String&#32;title,&#32;<emphasis role="keywordtype">int</emphasis>&#32;type)&#32;{
+<anchor xml:id="__dialog___helper_8java_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;JOptionPane.showMessageDialog(this.anyParentComponent,&#32;msg,&#32;title,&#32;type);
+<anchor xml:id="__dialog___helper_8java_source_1l00095"/>00095 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__dialog___helper_8java_source_1l00096"/>00096 }
+</programlisting></section>

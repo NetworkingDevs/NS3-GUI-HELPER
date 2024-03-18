@@ -1,0 +1,48 @@
+\doxysection{Wifi\+Link\+Painter.\+java}
+\label{_wifi_link_painter_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/WifiLinkPainter.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/WifiLinkPainter.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }GuiRenderers;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }WifiLinkPainter\ \textcolor{keyword}{implements}\ CanvasPainter\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Integer>\ nodeList;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NodePainter>\ nodes;}
+\DoxyCodeLine{00027\ \ \ \ \ Image\ icon\_wifi;}
+\DoxyCodeLine{00031\ \ \ \ \ Image\ icon\_ap;}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ icon\_wifi\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}icon\_wifi.png"{}}));}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ icon\_ap\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}icon\_ap.png"{}}));}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}\ WifiLinkPainter(ArrayList<Integer>\ nodeList,\ ArrayList<NodePainter>\ nodes)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ WiFiLinkPainter"{}});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ this.nodeList\ =\ nodeList;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ this.nodes\ =\ nodes;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ @Override}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ paint(Graphics\ g)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}WiFiLink\ Painter\ :\ Painting\ on\ canvas!"{}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ NodePainter\ AccessPointNode\ =\ \ this.nodes.get(this.nodeList.get(0));}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ g.drawImage(icon\_ap,\ AccessPointNode.xPos,\ AccessPointNode.yPos,\ AccessPointNode.radius,\ AccessPointNode.radius,\ \textcolor{keyword}{new}\ JFrame());}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=1;\ i<this.nodeList.size();\ i++)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ NodePainter\ node\ =\ this.nodes.get(this.nodeList.get(i));}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ g.drawImage(icon\_wifi,\ node.xPos,\ node.yPos,\ node.radius,\ node.radius,\ \textcolor{keyword}{new}\ JFrame());}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog___network" xml:lang="en-US">
+<title>Dialogs.Dialog_Network Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_Network</primary></indexterm>
+<para>Inheritance diagram for Dialogs.Dialog_Network:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dialogs_1_1_dialog___network.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog___network_1ad109022185e23adc34c29784e7fff4c7">Dialog_Network</link> (Map&lt; String, JComponent &gt; components)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___network_1a6cf00763e67cea1bf74fdde3a87271df">setDefaultNetworks</link> (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; <link linkend="_class_dialogs_1_1_dialog___network_1acfff02f2b321286b3e439db56cacdd3d">links</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___network_1a7665509e3c39c6c5d33e7f49014f3401">showDefaultNetworks</link> (boolean show)</para>
+</listitem>
+            <listitem><para>ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; <link linkend="_class_dialogs_1_1_dialog___network_1a1a1cf5b6708c7a5c1b44934513c74ec3">getAllNetworks</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_dialogs_1_1_dialog___network_1ad3b35d2422ebe447d363ea9d80021f50">getNetworkCount</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_dialogs_1_1_dialog___network">Dialog_Network</link> <link linkend="_class_dialogs_1_1_dialog___network_1a704b9adb63f3126198d32591f1e13685">getInstance</link> (Map&lt; String, JComponent &gt; helpfulComponents)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; <link linkend="_class_dialogs_1_1_dialog___network_1acfff02f2b321286b3e439db56cacdd3d">links</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final String <link linkend="_class_dialogs_1_1_dialog___network_1abad564865d94bfadd97eb6ce507d60b2">COMPONENT_COMBO_BOX</link> = &quot;Network_ComboBox&quot;</para>
+</listitem>
+            <listitem><para>static final String <link linkend="_class_dialogs_1_1_dialog___network_1abaf19a2be36356cd9f4a85922088eded">COMPONENT_OVERVIEW_LABEL</link> = &quot;Network_OverviewLabel&quot;</para>
+</listitem>
+            <listitem><para>static boolean <link linkend="_class_dialogs_1_1_dialog___network_1aa581bf43f47a062ee12ac5e470d5d846">SHOW_DEFAULT</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to manage network settings </para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00016">16</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1ad109022185e23adc34c29784e7fff4c7"/><section>
+    <title>Dialog_Network()</title>
+<indexterm><primary>Dialog_Network</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>Dialog_Network</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_Network.Dialog_Network (Map&lt; String, JComponent &gt; components)</computeroutput></para>
+<para>to create the object of type Dialog_Network</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>components</entry><entry>
+<para>the helpful components </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00096">96</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1a1a1cf5b6708c7a5c1b44934513c74ec3"/><section>
+    <title>getAllNetworks()</title>
+<indexterm><primary>getAllNetworks</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>getAllNetworks</secondary></indexterm>
+<para><computeroutput>ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; Dialogs.Dialog_Network.getAllNetworks ( )</computeroutput></para>
+<para>to get all the network settings</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the list of network settings </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00167">167</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1a704b9adb63f3126198d32591f1e13685"/><section>
+    <title>getInstance()</title>
+<indexterm><primary>getInstance</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>getInstance</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_dialogs_1_1_dialog___network">Dialog_Network</link> Dialogs.Dialog_Network.getInstance (Map&lt; String, JComponent &gt; helpfulComponents)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the instance of this class</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>helpfulComponents</entry><entry>
+<para>the components that should be managed </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00062">62</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1ad3b35d2422ebe447d363ea9d80021f50"/><section>
+    <title>getNetworkCount()</title>
+<indexterm><primary>getNetworkCount</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>getNetworkCount</secondary></indexterm>
+<para><computeroutput>int Dialogs.Dialog_Network.getNetworkCount ( )</computeroutput></para>
+<para>to get the count of network settings</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the size of network settings </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00180">180</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1a6cf00763e67cea1bf74fdde3a87271df"/><section>
+    <title>setDefaultNetworks()</title>
+<indexterm><primary>setDefaultNetworks</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>setDefaultNetworks</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_Network.setDefaultNetworks (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; links)</computeroutput></para><para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00144">144</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1a7665509e3c39c6c5d33e7f49014f3401"/><section>
+    <title>showDefaultNetworks()</title>
+<indexterm><primary>showDefaultNetworks</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>showDefaultNetworks</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_Network.showDefaultNetworks (boolean show)</computeroutput></para>
+<para>to make all default links visible</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>show</entry><entry>
+<para>whether to show or hide default links </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00155">155</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1abad564865d94bfadd97eb6ce507d60b2"/><section>
+    <title>COMPONENT_COMBO_BOX</title>
+<indexterm><primary>COMPONENT_COMBO_BOX</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>COMPONENT_COMBO_BOX</secondary></indexterm>
+<para><computeroutput>final String Dialogs.Dialog_Network.COMPONENT_COMBO_BOX = &quot;Network_ComboBox&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>key for the combo box </para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00042">42</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1abaf19a2be36356cd9f4a85922088eded"/><section>
+    <title>COMPONENT_OVERVIEW_LABEL</title>
+<indexterm><primary>COMPONENT_OVERVIEW_LABEL</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>COMPONENT_OVERVIEW_LABEL</secondary></indexterm>
+<para><computeroutput>final String Dialogs.Dialog_Network.COMPONENT_OVERVIEW_LABEL = &quot;Network_OverviewLabel&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>key for the overview label </para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00046">46</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1acfff02f2b321286b3e439db56cacdd3d"/><section>
+    <title>links</title>
+<indexterm><primary>links</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>links</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;<link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link>&gt; Dialogs.Dialog_Network.links</computeroutput></para>
+<para>network settings </para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00079">79</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___network_1aa581bf43f47a062ee12ac5e470d5d846"/><section>
+    <title>SHOW_DEFAULT</title>
+<indexterm><primary>SHOW_DEFAULT</primary><secondary>Dialogs.Dialog_Network</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Network</primary><secondary>SHOW_DEFAULT</secondary></indexterm>
+<para><computeroutput>boolean Dialogs.Dialog_Network.SHOW_DEFAULT = false<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to indicate that whether the default network settings are visible or not </para>
+<para>
+Definition at line <link linkend="__dialog___network_8java_source_1l00050">50</link> of file <link linkend="__dialog___network_8java_source">Dialog_Network.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog___network_8java">Dialog_Network.java</link></section>
+</section>

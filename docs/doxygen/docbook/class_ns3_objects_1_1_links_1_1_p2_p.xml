@@ -1,0 +1,625 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_ns3_objects_1_1_links_1_1_p2_p" xml:lang="en-US">
+<title>Ns3Objects.Links.P2P Class Reference</title>
+<indexterm><primary>Ns3Objects.Links.P2P</primary></indexterm>
+<para>Inheritance diagram for Ns3Objects.Links.P2P:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_ns3_objects_1_1_links_1_1_p2_p.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a38a39756fcc9aa04a62aa16ddbe9ca27">P2P</link> (int id, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>, boolean enablePcap)</para>
+</listitem>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ab64eba30f5156f740504f6846ebd8419">P2P</link> (int id, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>, boolean enablePcap, boolean isDefault)</para>
+</listitem>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2876aae9d5098e0dcd7198caff01f321">P2P</link> (int id, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>, boolean enablePcap, boolean isDefault, boolean isUsed)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a83a16478ed7a176b6aa085ddf1ee8833">toString</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aca33c3c496a680823e90b53b93864fed">forSettings</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4717c5ec3c6e55408037af0622bd8ecc">isDefault</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1af7deb5f46378ee9afac468e2429fb6c7">setDefault</link> (boolean isDefault)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a7b244daaf27c2ef7b330f6976c1e37ce">isUsed</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a5783abf2a189abfa3df76b2d1277bba3">setUsed</link> (boolean used)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ad92174af36072f09c6b667b64ad3ff6c">toCode</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ae5e68578cd53f0838b1aad3a6e474746">getPacketCaptureAllCode</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a60722b7722ce8003d31ec4ffe8cfb9ce">getId</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1abfdbf3f9198969c07213ee08666d7e61">setId</link> (int id)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afd5b4deb47cd9a8e3bb072b348e15fe5">getName</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9e641ea7fac96e386d9162510d07dbcf">setName</link> (String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9c00066bcf4d814e6f5aaa0465aa3573">getDelay</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a53e5cb5c84dbadb38a81628fbde622e4">setDelay</link> (String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aa7fb5fa82920d4f086d9afddaedb054e">getDataRate</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1acb9d5d4a28dbf6e8f188c5bf4e3a3e5d">setDataRate</link> (String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4713746ee50a4ce2d5bcb1e0af2b8858">getSpeedModifier</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afcb398373685519198b97281d6ac6c07">setSpeedModifier</link> (String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_link_type">LinkType</link> <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ad04bd2b9ac2e0b3213d7d23a9a1b52b5">getLinkType</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afdfdfc835ef0deeb5e17397ef396dd57">setLinkType</link> (<link linkend="_enum_status_helper_1_1_link_type">LinkType</link> linkType)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a86a54c0c7892f435c91efa581fba1460">getEnablePcap</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1af1a51df79942810092f512eb9a37c60f">setEnablePcap</link> (boolean enablePcap)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5">name</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114">delay</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96">dataRate</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874">speedModifier</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Attributes inherited from <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">Ns3Objects.Links.NetworkLink</link>        <itemizedlist>
+            <listitem><para>int <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aad960c8e36a0e0f217112a278437c25b">CHOICE_INDEX_P2P</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aef560f5e16dbe292dd61c112691f277c">CHOICE_INDEX_CSMA</link> = 1</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a7f29b15a152e4459a8d6090789f15520">LABEL_P2P</link> = &quot;P2P&quot;</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a07ff4fdcefd9f7385c6d26ae04ad1b15">LABEL_CSMA</link> = &quot;CSMA&quot;</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Static Public Member Functions inherited from <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">Ns3Objects.Links.NetworkLink</link>        <itemizedlist>
+            <listitem><para>static <link linkend="_enum_status_helper_1_1_link_type">LinkType</link> <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a4d9e874cb468e45f39df3d81f1054715">getLinkType</link> (int choiceIndex)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to store the link of type PointToPointHelper in terms of NS-3 Script </para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00008">8</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a38a39756fcc9aa04a62aa16ddbe9ca27"/><section>
+    <title>P2P()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>P2P</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>P2P</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Links.P2P.P2P (int id, String name, String delay, String dataRate, String speedModifier, boolean enablePcap)</computeroutput></para>
+<para>to instantiate the object of type P2P</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>for identity </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>for alias </para>
+</entry>
+                            </row>
+                            <row>
+<entry>delay</entry><entry>
+<para>for delay in ms </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dataRate</entry><entry>
+<para>for data rate of the link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>speedModifier</entry><entry>
+<para>for speed modifier </para>
+</entry>
+                            </row>
+                            <row>
+<entry>enablePcap</entry><entry>
+<para>for enabling packet capture of entire link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>P2P::P2P(int, String, String, String, String, boolean, boolean, boolean) P2P </para>
+
+<para>P2P::P2P(int, String, String, String, String, boolean, boolean) P2P </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00060">60</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1ab64eba30f5156f740504f6846ebd8419"/><section>
+    <title>P2P()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>P2P</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>P2P</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Links.P2P.P2P (int id, String name, String delay, String dataRate, String speedModifier, boolean enablePcap, boolean isDefault)</computeroutput></para>
+<para>to instantiate the object of type P2P</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>for identity </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>for alias </para>
+</entry>
+                            </row>
+                            <row>
+<entry>delay</entry><entry>
+<para>for delay in ms </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dataRate</entry><entry>
+<para>for data rate of the link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>speedModifier</entry><entry>
+<para>for speed modifier </para>
+</entry>
+                            </row>
+                            <row>
+<entry>enablePcap</entry><entry>
+<para>for enabling packet capture of entire link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isDefault</entry><entry>
+<para>for setting as default link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>P2P::P2P(int, String, String, String, String, boolean, boolean, boolean) P2P </para>
+
+<para>P2P::P2P(int, String, String, String, String, boolean) P2P </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00087">87</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a2876aae9d5098e0dcd7198caff01f321"/><section>
+    <title>P2P()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>P2P</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>P2P</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Links.P2P.P2P (int id, String name, String delay, String dataRate, String speedModifier, boolean enablePcap, boolean isDefault, boolean isUsed)</computeroutput></para>
+<para>to instantiate the object of type P2P</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>for identity </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>for alias </para>
+</entry>
+                            </row>
+                            <row>
+<entry>delay</entry><entry>
+<para>for delay in ms </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dataRate</entry><entry>
+<para>for data rate of the link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>speedModifier</entry><entry>
+<para>for speed modifier </para>
+</entry>
+                            </row>
+                            <row>
+<entry>enablePcap</entry><entry>
+<para>for enabling packet capture of entire link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isDefault</entry><entry>
+<para>for setting as default link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isUsed</entry><entry>
+<para>for marking as used link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>P2P::P2P(int, String, String, String, String, boolean, boolean) P2P </para>
+
+<para>P2P::P2P(int, String, String, String, String, boolean) P2P </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00107">107</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1aca33c3c496a680823e90b53b93864fed"/><section>
+    <title>forSettings()</title>
+<indexterm><primary>forSettings</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>forSettings</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.forSettings ( )</computeroutput></para>
+<para>to generate the storage format in settings file</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>storage format for settings file </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2302c01e1b5a299b66758727c7a148e3">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00131">131</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1aa7fb5fa82920d4f086d9afddaedb054e"/><section>
+    <title>getDataRate()</title>
+<indexterm><primary>getDataRate</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>getDataRate</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.getDataRate ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ab5979d5433c3224590739501731b4e1d">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00238">238</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a9c00066bcf4d814e6f5aaa0465aa3573"/><section>
+    <title>getDelay()</title>
+<indexterm><primary>getDelay</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>getDelay</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.getDelay ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ae6a8830bdea02110cda8cff5a1b33747">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00228">228</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a86a54c0c7892f435c91efa581fba1460"/><section>
+    <title>getEnablePcap()</title>
+<indexterm><primary>getEnablePcap</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>getEnablePcap</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.P2P.getEnablePcap ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a7c8f176a689a115a00a28eb670377160">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00268">268</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a60722b7722ce8003d31ec4ffe8cfb9ce"/><section>
+    <title>getId()</title>
+<indexterm><primary>getId</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>getId</secondary></indexterm>
+<para><computeroutput>int Ns3Objects.Links.P2P.getId ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a375e12cfed426bb38d52a66f7f0aa6c1">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00208">208</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1ad04bd2b9ac2e0b3213d7d23a9a1b52b5"/><section>
+    <title>getLinkType()</title>
+<indexterm><primary>getLinkType</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>getLinkType</secondary></indexterm>
+<para><computeroutput><link linkend="_enum_status_helper_1_1_link_type">LinkType</link> Ns3Objects.Links.P2P.getLinkType ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1af9a212d6ca443661bbb711ab520a51e7">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00258">258</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1afd5b4deb47cd9a8e3bb072b348e15fe5"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.getName ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a339c90c6249616099bfc0d200057fe88">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00218">218</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1ae5e68578cd53f0838b1aad3a6e474746"/><section>
+    <title>getPacketCaptureAllCode()</title>
+<indexterm><primary>getPacketCaptureAllCode</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>getPacketCaptureAllCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.getPacketCaptureAllCode ( )</computeroutput></para>
+<para>to generate the code for packet capture of entire link </para>
+
+<para><literallayout>
+<computeroutput><literallayout>&#160;&#xa;</literallayout>
+Example:<literallayout>&#160;&#xa;</literallayout>
+p2pName.EnablePcapAll(&quot;Name&quot;);<literallayout>&#160;&#xa;</literallayout>
+</computeroutput>
+</literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Equivalent code for &quot;.EnablePcapAll()&quot; method </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a73f84dce85a1fb5866aca4481453f52b">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00200">200</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a4713746ee50a4ce2d5bcb1e0af2b8858"/><section>
+    <title>getSpeedModifier()</title>
+<indexterm><primary>getSpeedModifier</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>getSpeedModifier</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.getSpeedModifier ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aa9fdc3ec8d14a6850616a89a830b289a">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00248">248</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a4717c5ec3c6e55408037af0622bd8ecc"/><section>
+    <title>isDefault()</title>
+<indexterm><primary>isDefault</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>isDefault</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.P2P.isDefault ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ad6d72c9f7fc6e581e0e939841419a514">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00136">136</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a7b244daaf27c2ef7b330f6976c1e37ce"/><section>
+    <title>isUsed()</title>
+<indexterm><primary>isUsed</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>isUsed</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.P2P.isUsed ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a08ab309b90d7aa65ae0fabe46e7b3a3b">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00146">146</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1acb9d5d4a28dbf6e8f188c5bf4e3a3e5d"/><section>
+    <title>setDataRate()</title>
+<indexterm><primary>setDataRate</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setDataRate</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setDataRate (String dataRate)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1adb59efa98debc4a97a3e3f49eb5227d1">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00243">243</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1af7deb5f46378ee9afac468e2429fb6c7"/><section>
+    <title>setDefault()</title>
+<indexterm><primary>setDefault</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setDefault</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setDefault (boolean isDefault)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a858d7c49ae7d305ba6276ffc9c3e44e0">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00141">141</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a53e5cb5c84dbadb38a81628fbde622e4"/><section>
+    <title>setDelay()</title>
+<indexterm><primary>setDelay</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setDelay</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setDelay (String delay)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a9537bbbd60cdd177ad0085b608667c47">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00233">233</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1af1a51df79942810092f512eb9a37c60f"/><section>
+    <title>setEnablePcap()</title>
+<indexterm><primary>setEnablePcap</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setEnablePcap</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setEnablePcap (boolean enablePcap)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2f736a32ec9169c2bcfcd0d062c798c1">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00273">273</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1abfdbf3f9198969c07213ee08666d7e61"/><section>
+    <title>setId()</title>
+<indexterm><primary>setId</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setId</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setId (int id)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a392f6a5c3807bca7bcd89a8af824f24f">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00213">213</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1afdfdfc835ef0deeb5e17397ef396dd57"/><section>
+    <title>setLinkType()</title>
+<indexterm><primary>setLinkType</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setLinkType</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setLinkType (<link linkend="_enum_status_helper_1_1_link_type">LinkType</link> linkType)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a0fe0f2e530871c476ea4260358b802d7">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00263">263</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a9e641ea7fac96e386d9162510d07dbcf"/><section>
+    <title>setName()</title>
+<indexterm><primary>setName</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setName</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setName (String name)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2ecf6c0fd47800c282e7a6f9acd4baf4">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00223">223</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1afcb398373685519198b97281d6ac6c07"/><section>
+    <title>setSpeedModifier()</title>
+<indexterm><primary>setSpeedModifier</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setSpeedModifier</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setSpeedModifier (String speedModifier)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a14af742336e8777f6ffb7760af1d3691">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00253">253</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a5783abf2a189abfa3df76b2d1277bba3"/><section>
+    <title>setUsed()</title>
+<indexterm><primary>setUsed</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>setUsed</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.P2P.setUsed (boolean used)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a92ca53f427592ad8a5d7efc48d74df27">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00151">151</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1ad92174af36072f09c6b667b64ad3ff6c"/><section>
+    <title>toCode()</title>
+<indexterm><primary>toCode</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>toCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.toCode ( )</computeroutput></para>
+<para>to generate the link configuration code </para>
+
+<para><literallayout>
+<computeroutput><literallayout>&#160;&#xa;</literallayout>
+Example:<literallayout>&#160;&#xa;</literallayout>
+ PointToPointHelper pointToPoint;<literallayout>&#160;&#xa;</literallayout>
+ pointToPoint.SetDeviceAttribute(&quot;DataRate&quot;, StringValue(&quot;500Mbps&quot;));<literallayout>&#160;&#xa;</literallayout>
+ pointToPoint.SetChannelAttribute(&quot;Delay&quot;, StringValue(&quot;2ms&quot;));<literallayout>&#160;&#xa;</literallayout>
+ </computeroutput>
+ </literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the link configuration code </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a5a5ec341998eaa7649cde94048724ef5">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00174">174</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a83a16478ed7a176b6aa085ddf1ee8833"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.toString ( )</computeroutput></para>
+<para>to render the link information</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the link information </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00119">119</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a488f734fd730af55f6b00815a0f5cf96"/><section>
+    <title>dataRate</title>
+<indexterm><primary>dataRate</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>dataRate</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.dataRate</computeroutput></para>
+<para>for data rate </para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00025">25</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a2144aed26be6ef9f0ae95dc920be4114"/><section>
+    <title>delay</title>
+<indexterm><primary>delay</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>delay</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.delay</computeroutput></para>
+<para>for delay in &quot;ms&quot; </para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00021">21</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a65cade519810ce7264b186da8105dfc5"/><section>
+    <title>name</title>
+<indexterm><primary>name</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>name</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.name</computeroutput></para>
+<para>for alias name </para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00017">17</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_p2_p_1a0b0b088cdba376fef6eca9602945a874"/><section>
+    <title>speedModifier</title>
+<indexterm><primary>speedModifier</primary><secondary>Ns3Objects.Links.P2P</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.P2P</primary><secondary>speedModifier</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.P2P.speedModifier</computeroutput></para>
+<para>for speed modifier of link </para>
+<para>
+Definition at line <link linkend="__p2_p_8java_source_1l00029">29</link> of file <link linkend="__p2_p_8java_source">P2P.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Links/<link linkend="__p2_p_8java">P2P.java</link></section>
+</section>

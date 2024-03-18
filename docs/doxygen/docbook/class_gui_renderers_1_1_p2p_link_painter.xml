@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_gui_renderers_1_1_p2p_link_painter" xml:lang="en-US">
+<title>GuiRenderers.P2pLinkPainter Class Reference</title>
+<indexterm><primary>GuiRenderers.P2pLinkPainter</primary></indexterm>
+<para>Inheritance diagram for GuiRenderers.P2pLinkPainter:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gui_renderers_1_1_p2p_link_painter.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_p2p_link_painter_1aa6a55b4ff61693aa91824135f1f5c28e">P2pLinkPainter</link> (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> a, <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> b)</para>
+</listitem>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a8a0a287c4c677c1ad0cff07f1be0598f">P2pLinkPainter</link> (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> a, <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> b, Color color)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_p2p_link_painter_1aff909a8d4dcd933d8ff1ec877ceff8fa">paint</link> (Graphics g)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> <link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a4cae357c96b1bc5055f8c2b96c17de75">nodeA</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> <link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a2af587b4efb52cbd11c55033e8dbb1e6">nodeB</link></para>
+</listitem>
+            <listitem><para>Color <link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a914b1e9e819b12e2ecc2d1d2f6479910">linkColor</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to manage, paint and store the P2P Links </para>
+<para>
+Definition at line <link linkend="__p2p_link_painter_8java_source_1l00010">10</link> of file <link linkend="__p2p_link_painter_8java_source">P2pLinkPainter.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_p2p_link_painter_1aa6a55b4ff61693aa91824135f1f5c28e"/><section>
+    <title>P2pLinkPainter()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>P2pLinkPainter</primary><secondary>GuiRenderers.P2pLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.P2pLinkPainter</primary><secondary>P2pLinkPainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.P2pLinkPainter.P2pLinkPainter (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> a, <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> b)</computeroutput></para>
+<para>to create the object of type P2pLinkPainter</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>the first node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>the second node </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>P2pLinkPainter::P2pLinkPainter(NodePainter, NodePainter, Color) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__p2p_link_painter_8java_source_1l00034">34</link> of file <link linkend="__p2p_link_painter_8java_source">P2pLinkPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_p2p_link_painter_1a8a0a287c4c677c1ad0cff07f1be0598f"/><section>
+    <title>P2pLinkPainter()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>P2pLinkPainter</primary><secondary>GuiRenderers.P2pLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.P2pLinkPainter</primary><secondary>P2pLinkPainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.P2pLinkPainter.P2pLinkPainter (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> a, <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> b, Color color)</computeroutput></para>
+<para>to create the object of type P2pLinkPainter</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>the first node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>the second node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>color</entry><entry>
+<para>the color of the link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>P2pLinkPainter::P2pLinkPainter(NodePainter, NodePainter) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__p2p_link_painter_8java_source_1l00047">47</link> of file <link linkend="__p2p_link_painter_8java_source">P2pLinkPainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_p2p_link_painter_1aff909a8d4dcd933d8ff1ec877ceff8fa"/><section>
+    <title>paint()</title>
+<indexterm><primary>paint</primary><secondary>GuiRenderers.P2pLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.P2pLinkPainter</primary><secondary>paint</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.P2pLinkPainter.paint (Graphics g)</computeroutput></para>
+<para>to paint the P2P Link on the canvas</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>g</entry><entry>
+<para>Graphics for painting, from painter </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_gui_renderers_1_1_canvas_painter_1a84d5c9562ee8ff11161ea8b2e5b115f5">GuiRenderers.CanvasPainter</link>.</para>
+<para>
+Definition at line <link linkend="__p2p_link_painter_8java_source_1l00061">61</link> of file <link linkend="__p2p_link_painter_8java_source">P2pLinkPainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_p2p_link_painter_1a914b1e9e819b12e2ecc2d1d2f6479910"/><section>
+    <title>linkColor</title>
+<indexterm><primary>linkColor</primary><secondary>GuiRenderers.P2pLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.P2pLinkPainter</primary><secondary>linkColor</secondary></indexterm>
+<para><computeroutput>Color GuiRenderers.P2pLinkPainter.linkColor</computeroutput></para>
+<para>for color of the link </para>
+<para>
+Definition at line <link linkend="__p2p_link_painter_8java_source_1l00019">19</link> of file <link linkend="__p2p_link_painter_8java_source">P2pLinkPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_p2p_link_painter_1a4cae357c96b1bc5055f8c2b96c17de75"/><section>
+    <title>nodeA</title>
+<indexterm><primary>nodeA</primary><secondary>GuiRenderers.P2pLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.P2pLinkPainter</primary><secondary>nodeA</secondary></indexterm>
+<para><computeroutput><link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> GuiRenderers.P2pLinkPainter.nodeA</computeroutput></para>
+<para>to mark nodes who are part of point to point link </para>
+<para>
+Definition at line <link linkend="__p2p_link_painter_8java_source_1l00015">15</link> of file <link linkend="__p2p_link_painter_8java_source">P2pLinkPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_p2p_link_painter_1a2af587b4efb52cbd11c55033e8dbb1e6"/><section>
+    <title>nodeB</title>
+<indexterm><primary>nodeB</primary><secondary>GuiRenderers.P2pLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.P2pLinkPainter</primary><secondary>nodeB</secondary></indexterm>
+<para><computeroutput><link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> GuiRenderers.P2pLinkPainter.nodeB</computeroutput></para><para>
+Definition at line <link linkend="__p2p_link_painter_8java_source_1l00015">15</link> of file <link linkend="__p2p_link_painter_8java_source">P2pLinkPainter.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/<link linkend="__p2p_link_painter_8java">P2pLinkPainter.java</link></section>
+</section>

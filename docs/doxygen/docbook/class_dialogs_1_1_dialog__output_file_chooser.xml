@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog__output_file_chooser" xml:lang="en-US">
+<title>Dialogs.Dialog_outputFileChooser Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_outputFileChooser</primary></indexterm>
+<para>Inheritance diagram for Dialogs.Dialog_outputFileChooser:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dialogs_1_1_dialog__output_file_chooser.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog__output_file_chooser_1a538049ea24091a627a057bca04ba6cf5">Dialog_outputFileChooser</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog__output_file_chooser_1ada4cd1e5b7ad84868bce9f7d89748271">setPath</link> (String value)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog__output_file_chooser_1a26026a18ccfaf23d0379e0802b7464ff">setFileName</link> (String value)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog__output_file_chooser_1a52eabd92c7686c42e4dbc9e4aaf2a049">getOutputPath</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog__output_file_chooser_1a1f37ba165f57c8196111ecf5e7ed714b">getFileName</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>For configuration of output file generation </para>
+<para>
+Definition at line <link linkend="__dialog__output_file_chooser_8java_source_1l00013">13</link> of file <link linkend="__dialog__output_file_chooser_8java_source">Dialog_outputFileChooser.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog__output_file_chooser_1a538049ea24091a627a057bca04ba6cf5"/><section>
+    <title>Dialog_outputFileChooser()</title>
+<indexterm><primary>Dialog_outputFileChooser</primary><secondary>Dialogs.Dialog_outputFileChooser</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_outputFileChooser</primary><secondary>Dialog_outputFileChooser</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_outputFileChooser.Dialog_outputFileChooser ( )</computeroutput></para>
+<para>to create an object of type Dialog_outputFileChooser</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog__output_file_chooser_8java_source_1l00053">53</link> of file <link linkend="__dialog__output_file_chooser_8java_source">Dialog_outputFileChooser.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog__output_file_chooser_1a1f37ba165f57c8196111ecf5e7ed714b"/><section>
+    <title>getFileName()</title>
+<indexterm><primary>getFileName</primary><secondary>Dialogs.Dialog_outputFileChooser</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_outputFileChooser</primary><secondary>getFileName</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_outputFileChooser.getFileName ( )</computeroutput></para><para>
+Definition at line <link linkend="__dialog__output_file_chooser_8java_source_1l00117">117</link> of file <link linkend="__dialog__output_file_chooser_8java_source">Dialog_outputFileChooser.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog__output_file_chooser_1a52eabd92c7686c42e4dbc9e4aaf2a049"/><section>
+    <title>getOutputPath()</title>
+<indexterm><primary>getOutputPath</primary><secondary>Dialogs.Dialog_outputFileChooser</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_outputFileChooser</primary><secondary>getOutputPath</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_outputFileChooser.getOutputPath ( )</computeroutput></para><para>
+Definition at line <link linkend="__dialog__output_file_chooser_8java_source_1l00112">112</link> of file <link linkend="__dialog__output_file_chooser_8java_source">Dialog_outputFileChooser.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog__output_file_chooser_1a26026a18ccfaf23d0379e0802b7464ff"/><section>
+    <title>setFileName()</title>
+<indexterm><primary>setFileName</primary><secondary>Dialogs.Dialog_outputFileChooser</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_outputFileChooser</primary><secondary>setFileName</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_outputFileChooser.setFileName (String value)</computeroutput></para>
+<para>to set the file name, act as placeholder</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>value</entry><entry>
+<para>the value that is in the text box </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog__output_file_chooser_8java_source_1l00099">99</link> of file <link linkend="__dialog__output_file_chooser_8java_source">Dialog_outputFileChooser.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog__output_file_chooser_1ada4cd1e5b7ad84868bce9f7d89748271"/><section>
+    <title>setPath()</title>
+<indexterm><primary>setPath</primary><secondary>Dialogs.Dialog_outputFileChooser</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_outputFileChooser</primary><secondary>setPath</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_outputFileChooser.setPath (String value)</computeroutput></para>
+<para>to set the path of the file, act as placeholder</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>value</entry><entry>
+<para>the value that is in the text box </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog__output_file_chooser_8java_source_1l00080">80</link> of file <link linkend="__dialog__output_file_chooser_8java_source">Dialog_outputFileChooser.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog__output_file_chooser_8java">Dialog_outputFileChooser.java</link></section>
+</section>

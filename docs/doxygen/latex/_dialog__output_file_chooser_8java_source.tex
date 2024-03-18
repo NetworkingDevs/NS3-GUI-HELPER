@@ -1,0 +1,135 @@
+\doxysection{Dialog\+\_\+output\+File\+Chooser.\+java}
+\label{_dialog__output_file_chooser_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_outputFileChooser.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_outputFileChooser.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Helpers.PlaceHolderHelper;}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_outputFileChooser\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_top;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{private}\ JCheckBox\ chkBox\_outputPath;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}\ JCheckBox\ chkBox\_fileName;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_middle;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_path;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_outputPath;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_fileName;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_fileName;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_bottom;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_save;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ These\ are\ variable\ created\ for\ serving\ the\ functionalities....}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_OUTPUT\_PATH\ =\ \textcolor{stringliteral}{"{}Enter\ path\ for\ output\ path"{}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_FILE\_NAME\ =\ \textcolor{stringliteral}{"{}Enter\ name\ for\ output\ file"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ String\ outputPath;}
+\DoxyCodeLine{00042\ \ \ \ \ String\ fileName;}
+\DoxyCodeLine{00046\ \ \ \ \ Dialog\_Helper\ dialogHelper;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_outputFileChooser()\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ Dialog\_outputFileChooser"{}});}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ====================\ BASIC\ CONF.\ ====================}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Output\ Configuration"{}});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ this.setSize(400,200);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.HIDE\_ON\_CLOSE);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ====================\ DONE\ BASIC\ CONF.\ ====================}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ this.dialogHelper\ =\ \textcolor{keyword}{new}\ Dialog\_Helper(\textcolor{keyword}{this});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ this.setUpEventListeners();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ this.textField\_fileName.setText(\textcolor{stringliteral}{"{}output"{}});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ this.outputPath\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ this.fileName\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_outputPath,PLACEHOLDER\_OUTPUT\_PATH);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_fileName,PLACEHOLDER\_FILE\_NAME);}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setPath(String\ value)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ File\ Chooser\ :\ set\ path\ called!"{}});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ this.textField\_outputPath.setText(value);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ this.outputPath\ =\ value;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_outputPath.getText().equalsIgnoreCase(System.getProperty(\textcolor{stringliteral}{"{}user.dir"{}})))\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ this.chkBox\_outputPath.setSelected(\textcolor{keyword}{false});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ this.textField\_outputPath.setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ this.chkBox\_outputPath.setSelected(\textcolor{keyword}{true});}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ this.textField\_outputPath.setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setFileName(String\ value)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ File\ Chooser\ :\ set\ file\ name\ called!"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ this.textField\_fileName.setText(value);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ this.fileName\ =\ value;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_fileName.getText().equalsIgnoreCase(\textcolor{stringliteral}{"{}output"{}}))\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ this.chkBox\_fileName.setSelected(\textcolor{keyword}{false});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ this.textField\_fileName.setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ this.chkBox\_fileName.setSelected(\textcolor{keyword}{true});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ this.textField\_fileName.setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{public}\ String\ getOutputPath()\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ File\ Chooser\ :\ get\ output\ path\ called!"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ outputPath;}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{public}\ String\ getFileName()\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ File\ Chooser\ :\ get\ file\ name\ called!"{}});}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fileName;}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setUpEventListeners()\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ File\ Chooser\ :\ setting\ up\ events!"{}});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ perform\ when\ clicking\ on\ output\ path\ check\ box...}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ chkBox\_outputPath.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Dialog\ File\ Chooser\ :\ clicked\ on\ check\ box\ for\ output\ path\ setup"{}});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_outputPath.setEnabled(!chkBox\_outputPath.isSelected());}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (chkBox\_outputPath.isSelected())\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_outputPath.getText().equalsIgnoreCase(System.getProperty(\textcolor{stringliteral}{"{}user.dir"{}})))\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_outputPath.setText(System.getProperty(\textcolor{stringliteral}{"{}user.dir"{}}));}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ perform\ when\ clicking\ on\ file\ name\ check\ box...}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ chkBox\_fileName.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Dialog\ File\ Chooser\ :\ clicked\ on\ check\ box\ for\ file\ name"{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_fileName.setEnabled(!chkBox\_fileName.isSelected());}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (chkBox\_fileName.isSelected())\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!textField\_fileName.getText().equalsIgnoreCase(\textcolor{stringliteral}{"{}output"{}}))\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_fileName.setText(\textcolor{stringliteral}{"{}output"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ perform\ when\ clicking\ on\ save\ button...}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ btn\_save.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Dialog\ File\ Chooser\ :\ clicked\ on\ save\ button"{}});}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outputPath\ =\ textField\_outputPath.getText();}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fileName\ =\ textField\_fileName.getText();}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Settings\ has\ been\ saved!"{}},\ \textcolor{stringliteral}{"{}Success!"{}});}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \}}
+
+\end{DoxyCode}

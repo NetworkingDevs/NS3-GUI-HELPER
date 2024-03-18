@@ -1,0 +1,237 @@
+\doxysection{Topology\+Painter.\+java}
+\label{_topology_painter_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/TopologyPainter.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/TopologyPainter.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }GuiRenderers;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Ns3Objects.Links.WIFI;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }TopologyPainter\ \textcolor{keyword}{extends}\ Canvas\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ DEFAULT\_WIDTH\ =\ 500;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ DEFAULT\_HEIGHT\ =\ 500;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ SERVER\_NODE\ =\ -\/1;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ CLIENT\_NODE\ =\ -\/1;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ NodePainter\ HIGHLIGHT\ =\ \textcolor{keyword}{new}\ NodePainter(0,0,\ 30,\ \textcolor{stringliteral}{"{}SERVER"{}},\ Color.black);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ width,\ height;}
+\DoxyCodeLine{00043\ \ \ \ \ ArrayList<NodePainter>\ nodes;}
+\DoxyCodeLine{00047\ \ \ \ \ ArrayList<P2pLinkPainter>\ links;}
+\DoxyCodeLine{00051\ \ \ \ \ ArrayList<CsmaLinkPainter>\ links\_csma;}
+\DoxyCodeLine{00055\ \ \ \ \ ArrayList<WifiLinkPainter>\ links\_wifi;}
+\DoxyCodeLine{00059\ \ \ \ \ ArrayList<NodePainter>\ referenceNodes;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{public}\ TopologyPainter(ArrayList<NodePainter>\ n,\ ArrayList<P2pLinkPainter>\ l)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}(n,l,DEFAULT\_WIDTH,DEFAULT\_HEIGHT);}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{public}\ TopologyPainter(ArrayList<NodePainter>\ n,\ ArrayList<P2pLinkPainter>\ l,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ the\ object\ of\ type\ TopologyPainter"{}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ initializing\ components...}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ this.nodes\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ this.nodes.addAll(n);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ this.links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ this.links.addAll(l);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ this.links\_csma\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ this.links\_wifi\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ this.referenceNodes\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ this.width\ =\ w;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ this.height\ =\ h;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00103\ \ \ \ \ @Override}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ paint(Graphics\ g)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Painting\ entire\ canvas!"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ super.paint(g);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ clearing\ the\ canvas!"{}});}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ g.clearRect(0,0,this.width,this.height);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ LAYER-\/1\ painting\ reference\ nodes!"{}});}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ painting\ reference\ nodes...}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<this.referenceNodes.size();\ i++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ this.referenceNodes.get(i).paint(g);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ LAYER-\/2\ painting\ nodes!"{}});}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ painting\ the\ nodes...}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<this.nodes.size();\ i++)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SERVER\_NODE\ ==\ i)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.label\ =\ \textcolor{stringliteral}{"{}SERVER"{}};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.color\ =\ Color.black;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.xPos\ =\ this.nodes.get(i).xPos\ -\/\ 5;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.yPos\ =\ this.nodes.get(i).yPos\ -\/\ 5;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.paint(g);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (CLIENT\_NODE\ ==\ i)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.label\ =\ \textcolor{stringliteral}{"{}CLIENT"{}};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.color\ =\ Color.black;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.xPos\ =\ this.nodes.get(i).xPos\ -\/\ 5;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.yPos\ =\ this.nodes.get(i).yPos\ -\/\ 5;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIGHLIGHT.paint(g);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ this.nodes.get(i).paint(g);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ LAYER-\/3\ painting\ P2P\ Links!"{}});}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ painting\ point\ to\ point\ links...}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<this.links.size();\ i++)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ this.links.get(i).paint(g);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ LAYER-\/4\ painting\ csma\ Links!"{}});}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ painting\ csma\ links...}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;\ i<this.links\_csma.size();\ i++)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ this.links\_csma.get(i).paint(g);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ LAYER-\/5\ painting\ wi-\/fi\ links!"{}});}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ painting\ wi-\/fi\ links...}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;\ i<this.links\_wifi.size();\ i++)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ this.links\_wifi.get(i).paint(g);}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ @Override}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{public}\ Dimension\ getPreferredSize()\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ get\ preferred\ size\ called!"{}});}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ Dimension(this.width,this.height);}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addNode(NodePainter\ node)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ node\ called!"{}});}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ this.nodes.add(node);}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addLink(P2pLinkPainter\ link)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ link\ called!"{}});}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ adding\ p2p\ link!"{}});}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ this.links.add(link);}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addLink(CsmaLinkPainter\ link)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ link\ called!"{}});}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ adding\ csma\ link!"{}});}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ this.links\_csma.add(link);}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addLink(WifiLinkPainter\ link)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ link\ called!"{}});}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ adding\ wifi\ link!"{}});}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ this.links\_wifi.add(link);}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addRefNode(NodePainter\ node)\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ ref\ node\ called!"{}});}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ this.referenceNodes.add(node);}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addAndPrintRefNode(NodePainter\ node)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ and\ print\ ref\ node\ called!"{}});}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ this.addRefNode(node);}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ this.repaint();}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addAndPrintNode(NodePainter\ node)\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ and\ print\ node\ called!"{}});}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ this.addNode(node);}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ this.repaint();}
+\DoxyCodeLine{00245\ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addAndPrintLink(CsmaLinkPainter\ link)\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ and\ print\ link\ called!"{}});}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ this.addLink(link);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ this.repaint();}
+\DoxyCodeLine{00257\ \ \ \ \ \}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addAndPrintLink(P2pLinkPainter\ link)\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ and\ print\ link\ called!"{}});}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ this.addLink(link);}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ this.repaint();}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ addAndPrintLink(WifiLinkPainter\ link)\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ add\ and\ print\ link\ called!"{}});}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ this.addLink(link);}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ this.repaint();}
+\DoxyCodeLine{00281\ \ \ \ \ \}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ pointCollideWithAny(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ point\ collide\ with\ any\ called!"{}});}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ -\/1;}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<this.nodes.size();\ i++)\ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.checkCollisionWithNode(this.nodes.get(i),\ x,\ y))\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ enableView(\textcolor{keywordtype}{int}\ s,\ \textcolor{keywordtype}{int}\ c)\ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ enable\ view\ called!"{}});}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ SERVER\_NODE\ =\ s;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ CLIENT\_NODE\ =\ c;}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Server\ :\ "{}}+s+\textcolor{stringliteral}{"{}\ client\ :\ "{}}+c);}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ this.repaint();}
+\DoxyCodeLine{00319\ \ \ \ \ \}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ checkCollisionWithNode(NodePainter\ n,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ check\ collision\ with\ node\ called!"{}});}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ distance\ =\ (int)\ Math.sqrt(Math.pow(n.xPos\ -\/\ x,2)\ +\ Math.pow(n.yPos\ -\/\ y,\ 2));}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ System.out.println("{}Distance\ :\ "{}+distance);\ //\ just\ for\ testing...}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distance\ <\ n.radius)\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00339\ \ \ \ \ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NodePainter>\ getNodes()\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ get\ nodes\ called!"{}});}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nodes;}
+\DoxyCodeLine{00344\ \ \ \ \ \}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setNodes(ArrayList<NodePainter>\ nodes)\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ set\ nodes\ called!"{}});}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ this.nodes\ =\ nodes;}
+\DoxyCodeLine{00349\ \ \ \ \ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<P2pLinkPainter>\ getLinks()\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ get\ Links\ called!"{}});}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ links;}
+\DoxyCodeLine{00354\ \ \ \ \ \}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setLinks(ArrayList<P2pLinkPainter>\ links)\ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ set\ Links\ called!"{}});}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ this.links\ =\ links;}
+\DoxyCodeLine{00359\ \ \ \ \ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NodePainter>\ getReferenceNodes()\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ get\ reference\ nodes\ called!"{}});}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ referenceNodes;}
+\DoxyCodeLine{00364\ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setReferenceNodes(ArrayList<NodePainter>\ referenceNodes)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ set\ reference\ nodes\ called!"{}});}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ this.referenceNodes\ =\ referenceNodes;}
+\DoxyCodeLine{00369\ \ \ \ \ \}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<CsmaLinkPainter>\ getLinks\_csma()\ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ get\ csma\ links\ called!"{}});}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ links\_csma;}
+\DoxyCodeLine{00374\ \ \ \ \ \}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setLinks\_csma(ArrayList<CsmaLinkPainter>\ links\_csma)\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Topology\ Painter\ :\ set\ csma\ links\ called!"{}});}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ this.links\_csma\ =\ links\_csma;}
+\DoxyCodeLine{00379\ \ \ \ \ \}}
+\DoxyCodeLine{00380\ \}}
+
+\end{DoxyCode}

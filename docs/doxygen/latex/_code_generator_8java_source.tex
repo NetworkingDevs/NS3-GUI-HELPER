@@ -1,0 +1,306 @@
+\doxysection{Code\+Generator.\+java}
+\label{_code_generator_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/FileHandler/CodeGenerator.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/FileHandler/CodeGenerator.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }FileHandler;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Dialogs.*;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Ns3Objects.Devices.Device;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ Ns3Objects.Links.NetworkLink;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ StatusHelper.LinkType;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }CodeGenerator\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ map\ fields\ can\ be\ declared\ here....}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ UTILITY\_NETANIM\ =\ \textcolor{stringliteral}{"{}netanim"{}};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ UTILITY\_WIRESHARK\ =\ \textcolor{stringliteral}{"{}wireshark"{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ NAME\_OF\_TOPOLOGY\ =\ \textcolor{stringliteral}{"{}custom"{}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ TOTAL\_NODES\ =\ \textcolor{stringliteral}{"{}nodes"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ VALUE\_TRUE\ =\ \textcolor{stringliteral}{"{}t"{}};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ VALUE\_FALSE\ =\ \textcolor{stringliteral}{"{}f"{}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{private}\ Dialog\_ConfigureServer\ dialogConfigureServer;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{private}\ Dialog\_ConfigureClient\ dialogConfigureClient;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{private}\ Dialog\_Connection\ dialogConnection;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{private}\ Dialog\_Link\ dialogLink;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{private}\ Dialog\_WiFiLink\ dialogWiFiLink;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{private}\ Map<String,\ String>\ otherFields;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{protected}\ String\ code;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{public}\ CodeGenerator(Dialog\_ConfigureServer\ s,\ Dialog\_ConfigureClient\ c,\ Dialog\_Connection\ conn,\ Dialog\_Link\ link,\ Dialog\_WiFiLink\ dialogWiFiLink,\ Map<String,\ String>\ other)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ CodeGenerator"{}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ this.dialogConfigureServer\ =\ s;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ this.dialogConfigureClient\ =\ c;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ this.dialogConnection\ =\ conn;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ this.dialogLink\ =\ link;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ this.dialogWiFiLink\ =\ dialogWiFiLink;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ this.otherFields\ =\ other;}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ GenerateCode()\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Generating\ code!"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ some\ variable\ parameters\ configuration\ ======================================================================}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ String\ topology\ =\ this.otherFields.get(NAME\_OF\_TOPOLOGY);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ String\ netAnimModuleString\ =\ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/netanim-\/module.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ String\ netanimUtilityString\ =\ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AnimationInterface\ anim(\(\backslash\)"{}animation"{}}\textcolor{stringliteral}{"{}"{}}+topology+\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .xml\(\backslash\)"{});\ }}
+\DoxyCodeLine{00107\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ StringBuilder\ wiresharkUtilityString\ =\ \textcolor{keyword}{new}\ StringBuilder();}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ StopTimeServer\ =\ this.dialogConfigureServer.getStopTime();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ StopTimeClient\ =\ this.dialogConfigureClient.getStopTime();}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.otherFields.get(UTILITY\_WIRESHARK).compareToIgnoreCase(VALUE\_TRUE)\ ==\ 0)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ generating\ pcap\ for\ entire\ link\ which\ has\ enabled\ pcap\ and\ it\ is\ used!"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(NetworkLink\ l\ :\ dialogLink.links)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l.isUsed()\ \&\&\ l.getEnablePcap())\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wiresharkUtilityString.append(l.getPacketCaptureAllCode()+\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.otherFields.get(UTILITY\_NETANIM).compareToIgnoreCase(VALUE\_FALSE)\ ==\ 0)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ discarded\ the\ include\ for\ netanim\ module\ because\ utility\ is\ not\ selected!"{}});}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ netAnimModuleString\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ netanimUtilityString\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ String\ nodesGrp\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ String\ nodesGrpCode\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ String\ linkConfigCode\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ String\ devicesGrp\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ String\ deviceConfigCode\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ String\ ipConfigCode\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ String\ primaryServerGrp\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ String\ serverPrimaryIndex\ =\ \textcolor{keyword}{new}\ String();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ serverPrimaryConfigured\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Devices\ :\ "{}}+this.dialogConnection.devices.size()+\textcolor{stringliteral}{"{}\ CSMA\ Devices\ :\ "{}}+\textcolor{keyword}{this}.dialogConnection.devices\_csma.size());}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ Generating\ nodes\ group!"{}});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(Device\ device\ :\ this.dialogConnection.devices)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ nodesGrp\ =\ nodesGrp.concat(device.getNodesGroup()+\textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!serverPrimaryConfigured)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (device.nodeA.compareToIgnoreCase(\textcolor{keyword}{this}.dialogConfigureServer.getServerIndex())==0)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ primary\ server\ index\ and\ primary\ server\ group\ is\ found!"{}});}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ primaryServerGrp\ =\ \textcolor{stringliteral}{"{}interfaces"{}}+device.nodesGroup;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverPrimaryIndex\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverPrimaryConfigured\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (device.nodeB.compareToIgnoreCase(\textcolor{keyword}{this}.dialogConfigureServer.getServerIndex())\ ==\ 0)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ primary\ server\ index\ and\ primary\ server\ group\ is\ found!"{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ primaryServerGrp\ =\ device.nodesGroup;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverPrimaryIndex\ =\ \textcolor{stringliteral}{"{}1"{}};}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverPrimaryConfigured\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ System.out.println("{}Primary\ Index\ :\ "{}+serverPrimaryIndex+"{}\ Primary\ Group\ :\ "{}+primaryServerGrp);}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices\_csma)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ nodesGrp\ =\ nodesGrp.concat(device.getNodesGroup()+\textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!serverPrimaryConfigured)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ArrayList<Integer>\ nodes\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodes.addAll(device.nodes);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j<nodes.size();\ j++)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ nodes.get(j);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (String.valueOf(i).compareToIgnoreCase(\textcolor{keyword}{this}.dialogConfigureServer.getServerIndex())==0)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ primary\ server\ index\ and\ primary\ server\ group\ is\ found!"{}});}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (device.linkSettings.getLinkType()\ ==\ LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ primaryServerGrp\ =\ \textcolor{stringliteral}{"{}csmaInterfaces"{}}+device.CSMA\_INDEX;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverPrimaryIndex\ =\ String.valueOf(j);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ assumed\ to\ be\ wi-\/fi}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (device.nodes.get(0).equals(String.valueOf(j)))\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ primaryServerGrp\ =\ \textcolor{stringliteral}{"{}interfacesAp\_"{}}+device.linkSettings.getName();}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverPrimaryIndex\ =\ String.valueOf(j);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ primaryServerGrp\ =\ \textcolor{stringliteral}{"{}interfacesSta\_"{}}+device.linkSettings.getName();}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverPrimaryIndex\ =\ String.valueOf(j-\/1);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverPrimaryConfigured\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ nodesGrp\ =\ nodesGrp.substring(0,nodesGrp.length()-\/1);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ generating\ code\ for\ nodes\ group!"{}});}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ nodesGrpCode\ =\ nodesGrpCode.concat(device.getNodesGroupCode()+\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices\_csma)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ nodesGrpCode\ =\ nodesGrpCode.concat(device.getNodesGroupCode()+\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ generating\ link\ configuration\ code\ for\ used\ links!"{}});}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.dialogLink.links)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (link.isUsed())\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ linkConfigCode\ =\ linkConfigCode.concat(link.toCode()+\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.dialogWiFiLink.links)\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (link.isUsed())\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ linkConfigCode\ =\ linkConfigCode.concat(link.toCode()+\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ generating\ device\ group!"{}});}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ devicesGrp\ =\ devicesGrp.concat(device.getDevicesGroup()+\textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices\_csma)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (device.linkSettings.getLinkType()!=LinkType.LINK\_WIFI)\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ devicesGrp\ =\ devicesGrp.concat(device.getDevicesGroup()+\textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ devicesGrp\ =\ devicesGrp.substring(0,devicesGrp.length()-\/1);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (devicesGrp.trim().length()\ >\ 0)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ devicesGrp\ =\ \textcolor{stringliteral}{"{}NetDeviceContainer\ "{}}+devicesGrp+\textcolor{stringliteral}{"{};"{}};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ generating\ device\ configuration\ code!"{}});}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices)\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ deviceConfigCode\ =\ deviceConfigCode.concat(device.getDeviceConfCode());}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices\_csma)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ deviceConfigCode\ =\ deviceConfigCode.concat(device.getDeviceConfCode());}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ generating\ ip\ configuration\ code!"{}});}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices)\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ ipConfigCode\ =\ ipConfigCode.concat(device.getIPConfCode()+\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Device\ device\ :\ this.dialogConnection.devices\_csma)\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ ipConfigCode\ =\ ipConfigCode.concat(device.getIPConfCode()+\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ variable\ parameters\ configuration\ ends\ ======================================================================}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}CodeGenerator\ :\ generating\ full\ code\ via\ concatenation!"{}});}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ this.code\ =\ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00235\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/applications-\/module.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00236\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/core-\/module.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00237\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/internet-\/module.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00238\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/network-\/module.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00239\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/point-\/to-\/point-\/module.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00240\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/csma-\/module.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00241\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/mobility-\/module.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00242\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/ssid.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00243\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/yans-\/wifi-\/helper.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00244\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#include\ "{}}ns3/wifi-\/standards.h\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00245\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ netAnimModuleString\ +}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00248\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00249\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ using\ namespace\ ns3;}}
+\DoxyCodeLine{00250\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00251\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NS\_LOG\_COMPONENT\_DEFINE(\(\backslash\)"{}"{}}\textcolor{stringliteral}{"{}"{}}+topology+\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00252\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Example\(\backslash\)"{});}}
+\DoxyCodeLine{00253\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00254\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int}}
+\DoxyCodeLine{00255\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ main(int\ argc,\ char*\ argv[])}}
+\DoxyCodeLine{00256\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00257\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CommandLine\ cmd(\_\_FILE\_\_);}}
+\DoxyCodeLine{00258\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmd.Parse(argc,\ argv);}}
+\DoxyCodeLine{00259\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00260\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Time::SetResolution(Time::NS);}}
+\DoxyCodeLine{00261\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LogComponentEnable("{}}UdpEchoClientApplication\textcolor{stringliteral}{"{},\ LOG\_LEVEL\_INFO);}}
+\DoxyCodeLine{00262\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LogComponentEnable("{}}UdpEchoServerApplication\textcolor{stringliteral}{"{},\ LOG\_LEVEL\_INFO);}}
+\DoxyCodeLine{00263\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)s}}
+\DoxyCodeLine{00264\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ step-\/1\ =\ creating\ group\ of\ nodes....}}
+\DoxyCodeLine{00265\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NodeContainer\ allNodes,"{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ nodesGrp\ +}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00268\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}}
+\DoxyCodeLine{00269\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ allNodes.Create("{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.otherFields.get(TOTAL\_NODES)\ +}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00272\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00273\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00274\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ nodesGrpCode\ +}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00277\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00278\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ step-\/2\ =\ create\ link}}
+\DoxyCodeLine{00279\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ linkConfigCode\ +}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00282\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)s}}
+\DoxyCodeLine{00283\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ step-\/3\ =\ creating\ devices}}
+\DoxyCodeLine{00284\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ devicesGrp\ +}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00287\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ deviceConfigCode\ +}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00290\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00291\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MobilityHelper\ mobility;}}
+\DoxyCodeLine{00292\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mobility.SetMobilityModel("{}}ns3::ConstantPositionMobilityModel\textcolor{stringliteral}{"{});}}
+\DoxyCodeLine{00293\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mobility.Install(allNodes);}}
+\DoxyCodeLine{00294\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00295\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ step-\/4\ =\ Install\ ip\ stack}}
+\DoxyCodeLine{00296\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InternetStackHelper\ stack;}}
+\DoxyCodeLine{00297\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stack.Install(allNodes);}}
+\DoxyCodeLine{00298\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00299\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ step-\/5\ =\ Assignment\ of\ IP\ Address}}
+\DoxyCodeLine{00300\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Ipv4AddressHelper\ address;}}
+\DoxyCodeLine{00301\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00302\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ ipConfigCode\ +}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00305\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00306\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ step-\/6\ =\ server\ configuration}}
+\DoxyCodeLine{00307\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UdpEchoServerHelper\ echoServer("{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.dialogConfigureServer.getPortNumber()\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00309\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00310\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00311\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ApplicationContainer\ serverApps\ =\ echoServer.Install(allNodes.Get("{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ this.dialogConfigureServer.getServerIndex()\ +\ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00313\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ));}}
+\DoxyCodeLine{00314\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverApps.Start(Seconds("{}}\textcolor{stringliteral}{"{}"{}}+\ this.dialogConfigureServer.getStartTime()\ \ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00315\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .0));}}
+\DoxyCodeLine{00316\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serverApps.Stop(Seconds("{}}\textcolor{stringliteral}{"{}"{}}+\ StopTimeServer\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00317\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .0));}}
+\DoxyCodeLine{00318\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00319\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ step-\/7\ =\ client\ configuration}}
+\DoxyCodeLine{00320\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UdpEchoClientHelper\ echoClient("{}}\textcolor{stringliteral}{"{}"{}}+\ primaryServerGrp\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00321\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .GetAddress("{}}\textcolor{stringliteral}{"{}"{}}+\ serverPrimaryIndex\ +\ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00322\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ),"{}}\textcolor{stringliteral}{"{}"{}}+\ this.dialogConfigureServer.getPortNumber()\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00323\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00324\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ echoClient.SetAttribute("{}}MaxPackets\textcolor{stringliteral}{"{},\ UintegerValue("{}}\textcolor{stringliteral}{"{}"{}}+\ this.dialogConfigureClient.getPackets()\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00325\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ));}}
+\DoxyCodeLine{00326\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ echoClient.SetAttribute("{}}Interval\textcolor{stringliteral}{"{},\ TimeValue(Seconds("{}}\textcolor{stringliteral}{"{}"{}}+\ this.dialogConfigureClient.getInterval()\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00327\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .0)));}}
+\DoxyCodeLine{00328\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ echoClient.SetAttribute("{}}PacketSize\textcolor{stringliteral}{"{},\ UintegerValue("{}}\textcolor{stringliteral}{"{}"{}}+\ this.dialogConfigureClient.getMTU()\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00329\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ));}}
+\DoxyCodeLine{00330\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00331\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ApplicationContainer\ clientApps\ =\ echoClient.Install(allNodes.Get("{}}\textcolor{stringliteral}{"{}"{}}+\ this.dialogConfigureClient.getClientIndex()\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00332\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ));}}
+\DoxyCodeLine{00333\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clientApps.Start(Seconds("{}}\textcolor{stringliteral}{"{}"{}}+\ this.dialogConfigureClient.getStartTime()\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00334\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .0));}}
+\DoxyCodeLine{00335\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clientApps.Stop(Seconds("{}}\textcolor{stringliteral}{"{}"{}}+\ StopTimeClient\ +\textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00336\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .0));}}
+\DoxyCodeLine{00337\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00338\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Ipv4GlobalRoutingHelper::PopulateRoutingTables();}}
+\DoxyCodeLine{00339\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ netanimUtilityString\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ +\ wiresharkUtilityString\ +}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{00342\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00343\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00344\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Simulator::Run();}}
+\DoxyCodeLine{00345\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Simulator::Destroy();}}
+\DoxyCodeLine{00346\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ 0;}}
+\DoxyCodeLine{00347\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00348\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ "{}}\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00349\ \ \ \ \ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{public}\ String\ getCode()\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}CodeGenerator\ :\ get\ code\ called!"{}});}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.code;}
+\DoxyCodeLine{00354\ \ \ \ \ \}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \}}
+
+\end{DoxyCode}

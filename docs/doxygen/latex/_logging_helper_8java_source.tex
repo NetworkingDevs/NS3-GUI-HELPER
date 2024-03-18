@@ -1,0 +1,97 @@
+\doxysection{Logging\+Helper.\+java}
+\label{_logging_helper_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Helpers/LoggingHelper.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Helpers/LoggingHelper.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Helpers;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ StatusHelper.LogLevel;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ com.sun.tools.javac.Main;}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.util.HashMap;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.util.logging.Level;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.util.logging.Logger;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }LoggingHelper\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ Level\ LEVEL\_ERROR\ =\ Level.parse(String.valueOf(Integer.MAX\_VALUE));}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ Level\ LEVEL\_DEBUG\ =\ Level.parse(\textcolor{stringliteral}{"{}99"{}});}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ Level\ LEVEL\_INFO\ =\ Level.parse(\textcolor{stringliteral}{"{}98"{}});}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ Level\ LEVEL\_FUNCTION\ =\ Level.parse(\textcolor{stringliteral}{"{}97"{}});}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ Level\ LEVEL\_LOGIC\ =\ Level.parse(\textcolor{stringliteral}{"{}96"{}});}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ Level\ LEVEL\_ALL\ =\ Level.parse(\textcolor{stringliteral}{"{}95"{}});}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ Level\ LEVEL\_NONE\ =\ Level.parse(String.valueOf(Integer.MIN\_VALUE));}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Logger\ logger\ =\ Logger.getLogger(String.valueOf(Main.class));}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Map<LogLevel,\ Level>\ LOG\_LEVEL\_MAP\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ LogLevel\ LOG\_LEVEL\ =\ LogLevel.LOG\_NONE;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{public}\ LoggingHelper()\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ LOG\_LEVEL\_MAP.put(LogLevel.LOG\_LEVEL\_ERROR,LEVEL\_ERROR);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ LOG\_LEVEL\_MAP.put(LogLevel.LOG\_LEVEL\_DEBUG,LEVEL\_DEBUG);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ LOG\_LEVEL\_MAP.put(LogLevel.LOG\_LEVEL\_INFO,LEVEL\_INFO);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ LOG\_LEVEL\_MAP.put(LogLevel.LOG\_LEVEL\_FUNCTION,LEVEL\_FUNCTION);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ LOG\_LEVEL\_MAP.put(LogLevel.LOG\_LEVEL\_LOGIC,LEVEL\_LOGIC);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ LOG\_LEVEL\_MAP.put(LogLevel.LOG\_LEVEL\_ALL,LEVEL\_ALL);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ LOG\_LEVEL\_MAP.put(LogLevel.LOG\_NONE,LEVEL\_NONE);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setLogLevel(LogLevel\ level)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ LOG\_LEVEL\ =\ level;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ LogLevel\ getLogLevel()\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ LOG\_LEVEL;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ getLogLevelPriority()\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ LOG\_LEVEL\_MAP.get(LOG\_LEVEL).intValue();}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ getLogLevelPriority(LogLevel\ level)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ LOG\_LEVEL\_MAP.get(level).intValue();}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LogError(String\ msg)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ will\ only\ print\ the\ debug\ line\ if\ the\ log\ level\ is\ set\ to\ ERROR\ or\ above}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getLogLevelPriority()\ >=\ getLogLevelPriority(LogLevel.LOG\_LEVEL\_ERROR))\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ logger.log(LOG\_LEVEL\_MAP.get(getLogLevel()),\textcolor{stringliteral}{"{}[ERROR]\ :\ "{}}+msg);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LogDebug(String\ msg)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ will\ only\ print\ the\ debug\ line\ if\ the\ log\ level\ is\ set\ to\ DEBUG\ or\ above}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getLogLevelPriority()\ >=\ getLogLevelPriority(LogLevel.LOG\_LEVEL\_DEBUG))\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ logger.log(LOG\_LEVEL\_MAP.get(getLogLevel()),\textcolor{stringliteral}{"{}[DEBUG]\ :\ "{}}+msg);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LogInfo(String\ msg)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ will\ only\ print\ the\ debug\ line\ if\ the\ log\ level\ is\ set\ to\ INFO\ or\ above}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getLogLevelPriority()\ >=\ getLogLevelPriority(LogLevel.LOG\_LEVEL\_INFO))\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ logger.log(LOG\_LEVEL\_MAP.get(getLogLevel()),\textcolor{stringliteral}{"{}[INFO]\ :\ "{}}+msg);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LogFunction(String\ msg)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ will\ only\ print\ the\ debug\ line\ if\ the\ log\ level\ is\ set\ to\ FUNCTION\ or\ above}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getLogLevelPriority()\ >=\ getLogLevelPriority(LogLevel.LOG\_LEVEL\_FUNCTION))\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ logger.log(LOG\_LEVEL\_MAP.get(getLogLevel()),\textcolor{stringliteral}{"{}[FUNCTION]\ :\ "{}}+msg);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ LogLogic(String\ msg)\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ will\ only\ print\ the\ debug\ line\ if\ the\ log\ level\ is\ set\ to\ LOGIC\ or\ above}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getLogLevelPriority()\ >=\ getLogLevelPriority(LogLevel.LOG\_LEVEL\_LOGIC))\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ logger.log(LOG\_LEVEL\_MAP.get(getLogLevel()),\textcolor{stringliteral}{"{}[LOGIC]\ :\ "{}}+msg);}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Log(String\ msg)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ will\ only\ print\ the\ debug\ line\ if\ the\ log\ level\ is\ set\ to\ ALL\ or\ above}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getLogLevelPriority()\ >=\ getLogLevelPriority(LogLevel.LOG\_LEVEL\_ALL))\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ logger.log(LOG\_LEVEL\_MAP.get(getLogLevel()),\textcolor{stringliteral}{"{}[LOG]\ :\ "{}}+msg);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \}}
+
+\end{DoxyCode}

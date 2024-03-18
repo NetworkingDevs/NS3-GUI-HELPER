@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__wifi_link_painter_8java_source" xml:lang="en-US">
+<title>WifiLinkPainter.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/WifiLinkPainter.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__wifi_link_painter_8java_source_1l00001"/>00001 <emphasis role="keyword">package&#32;</emphasis>GuiRenderers;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00002"/>00002 
+<anchor xml:id="__wifi_link_painter_8java_source_1l00003"/>00003 <emphasis role="keyword">import</emphasis>&#32;<link linkend="_namespace_helpers">Helpers</link>.<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00004"/>00004 
+<anchor xml:id="__wifi_link_painter_8java_source_1l00005"/>00005 <emphasis role="keyword">import</emphasis>&#32;javax.imageio.ImageIO;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00006"/>00006 <emphasis role="keyword">import</emphasis>&#32;javax.swing.*;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00007"/>00007 <emphasis role="keyword">import</emphasis>&#32;java.awt.*;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00008"/>00008 <emphasis role="keyword">import</emphasis>&#32;java.io.IOException;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00009"/>00009 <emphasis role="keyword">import</emphasis>&#32;java.util.ArrayList;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00010"/>00010 
+<anchor xml:id="__wifi_link_painter_8java_source_1l00014"/><link linkend="_class_gui_renderers_1_1_wifi_link_painter">00014</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_gui_renderers_1_1_wifi_link_painter">WifiLinkPainter</link>&#32;<emphasis role="keyword">implements</emphasis>&#32;<link linkend="_interface_gui_renderers_1_1_canvas_painter">CanvasPainter</link>&#32;{
+<anchor xml:id="__wifi_link_painter_8java_source_1l00015"/>00015 
+<anchor xml:id="__wifi_link_painter_8java_source_1l00019"/><link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a3a4b8e0924cec509585343399cf72fca">00019</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;ArrayList&lt;Integer&gt;&#32;<link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a3a4b8e0924cec509585343399cf72fca">nodeList</link>;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00023"/><link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abdf331fabccae33775a91d204ea34c25">00023</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;ArrayList&lt;NodePainter&gt;&#32;<link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abdf331fabccae33775a91d204ea34c25">nodes</link>;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00027"/>00027 &#32;&#32;&#32;&#32;Image&#32;icon_wifi;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00031"/>00031 &#32;&#32;&#32;&#32;Image&#32;icon_ap;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00032"/>00032 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__wifi_link_painter_8java_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">try</emphasis>&#32;{
+<anchor xml:id="__wifi_link_painter_8java_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;icon_wifi&#32;=&#32;ImageIO.read(getClass().getClassLoader().getResource(<emphasis role="stringliteral">&quot;icon_wifi.png&quot;</emphasis>));
+<anchor xml:id="__wifi_link_painter_8java_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;icon_ap&#32;=&#32;ImageIO.read(getClass().getClassLoader().getResource(<emphasis role="stringliteral">&quot;icon_ap.png&quot;</emphasis>));
+<anchor xml:id="__wifi_link_painter_8java_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">catch</emphasis>&#32;(IOException&#32;e)&#32;{
+<anchor xml:id="__wifi_link_painter_8java_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;<emphasis role="keyword">new</emphasis>&#32;RuntimeException(e);
+<anchor xml:id="__wifi_link_painter_8java_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__wifi_link_painter_8java_source_1l00039"/>00039 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__wifi_link_painter_8java_source_1l00040"/>00040 
+<anchor xml:id="__wifi_link_painter_8java_source_1l00048"/><link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abb6de5b49b4a01d2f984208a99ef9b9d">00048</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abb6de5b49b4a01d2f984208a99ef9b9d">WifiLinkPainter</link>(ArrayList&lt;Integer&gt;&#32;<link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a3a4b8e0924cec509585343399cf72fca">nodeList</link>,&#32;ArrayList&lt;NodePainter&gt;&#32;<link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abdf331fabccae33775a91d204ea34c25">nodes</link>)&#32;{
+<anchor xml:id="__wifi_link_painter_8java_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a9d59d12965cd365e86f6bb5d352f41c6">Log</link>(<emphasis role="stringliteral">&quot;Creating&#32;object&#32;of&#32;type&#32;WiFiLinkPainter&quot;</emphasis>);
+<anchor xml:id="__wifi_link_painter_8java_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.nodeList&#32;=&#32;<link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a3a4b8e0924cec509585343399cf72fca">nodeList</link>;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.nodes&#32;=&#32;<link linkend="_class_gui_renderers_1_1_wifi_link_painter_1abdf331fabccae33775a91d204ea34c25">nodes</link>;
+<anchor xml:id="__wifi_link_painter_8java_source_1l00052"/>00052 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__wifi_link_painter_8java_source_1l00053"/>00053 
+<anchor xml:id="__wifi_link_painter_8java_source_1l00054"/>00054 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__wifi_link_painter_8java_source_1l00055"/><link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a587b799745d407a1f86f54db39bc19a8">00055</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a587b799745d407a1f86f54db39bc19a8">paint</link>(Graphics&#32;g)&#32;{
+<anchor xml:id="__wifi_link_painter_8java_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f">LogFunction</link>(<emphasis role="stringliteral">&quot;WiFiLink&#32;Painter&#32;:&#32;Painting&#32;on&#32;canvas!&quot;</emphasis>);
+<anchor xml:id="__wifi_link_painter_8java_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&#32;AccessPointNode&#32;=&#32;&#32;this.nodes.get(this.nodeList.get(0));
+<anchor xml:id="__wifi_link_painter_8java_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;g.drawImage(icon_ap,&#32;AccessPointNode.xPos,&#32;AccessPointNode.yPos,&#32;AccessPointNode.radius,&#32;AccessPointNode.radius,&#32;<emphasis role="keyword">new</emphasis>&#32;JFrame());
+<anchor xml:id="__wifi_link_painter_8java_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i=1;&#32;i&lt;this.nodeList.size();&#32;i++)&#32;{
+<anchor xml:id="__wifi_link_painter_8java_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&#32;node&#32;=&#32;this.nodes.get(this.nodeList.get(i));
+<anchor xml:id="__wifi_link_painter_8java_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;g.drawImage(icon_wifi,&#32;node.xPos,&#32;node.yPos,&#32;node.radius,&#32;node.radius,&#32;<emphasis role="keyword">new</emphasis>&#32;JFrame());
+<anchor xml:id="__wifi_link_painter_8java_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__wifi_link_painter_8java_source_1l00063"/>00063 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__wifi_link_painter_8java_source_1l00064"/>00064 }
+</programlisting></section>

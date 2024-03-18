@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_status_helper" xml:lang="en-US">
+<title>Package StatusHelper</title>
+<indexterm><primary>StatusHelper</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_enum_status_helper_1_1_link_type">LinkType</link></para>
+</listitem>
+            <listitem><para>enum <link linkend="_enum_status_helper_1_1_log_level">LogLevel</link></para>
+</listitem>
+            <listitem><para>enum <link linkend="_enum_status_helper_1_1_tool_status">ToolStatus</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The following package contains the enum types declaration to uniquely identification of several things.<itemizedlist>
+<listitem>
+<para>Types of link</para>
+</listitem><listitem>
+<para>Type of tools </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

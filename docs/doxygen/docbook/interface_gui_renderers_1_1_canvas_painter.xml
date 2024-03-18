@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_gui_renderers_1_1_canvas_painter" xml:lang="en-US">
+<title>GuiRenderers.CanvasPainter Interface Reference</title>
+<indexterm><primary>GuiRenderers.CanvasPainter</primary></indexterm>
+<para>Inheritance diagram for GuiRenderers.CanvasPainter:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_gui_renderers_1_1_canvas_painter.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_interface_gui_renderers_1_1_canvas_painter_1a84d5c9562ee8ff11161ea8b2e5b115f5">paint</link> (Graphics g)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The template for any object to be rendered on the canvas </para>
+<para>
+Definition at line <link linkend="__canvas_painter_8java_source_1l00018">18</link> of file <link linkend="__canvas_painter_8java_source">CanvasPainter.java</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interface_gui_renderers_1_1_canvas_painter_1a84d5c9562ee8ff11161ea8b2e5b115f5"/><section>
+    <title>paint()</title>
+<indexterm><primary>paint</primary><secondary>GuiRenderers.CanvasPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.CanvasPainter</primary><secondary>paint</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.CanvasPainter.paint (Graphics g)</computeroutput></para>
+<para>to paint the object/element on the canvas </para>
+<para>
+Implemented in <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a7d0514d9f94fcc1277b12003c13f44df">GuiRenderers.CsmaLinkPainter</link>, <link linkend="_class_gui_renderers_1_1_node_painter_1a56661670adef01ab7f964de42a6dd14a">GuiRenderers.NodePainter</link>, <link linkend="_class_gui_renderers_1_1_p2p_link_painter_1aff909a8d4dcd933d8ff1ec877ceff8fa">GuiRenderers.P2pLinkPainter</link>, and <link linkend="_class_gui_renderers_1_1_wifi_link_painter_1a587b799745d407a1f86f54db39bc19a8">GuiRenderers.WifiLinkPainter</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/<link linkend="__canvas_painter_8java">CanvasPainter.java</link></section>
+</section>

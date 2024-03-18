@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_helpers_1_1_place_holder_helper" xml:lang="en-US">
+<title>Helpers.PlaceHolderHelper Class Reference</title>
+<indexterm><primary>Helpers.PlaceHolderHelper</primary></indexterm>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_place_holder_helper_1a9ba2a75731bb68cc34ee6163870feaae">addPlaceHolder</link> (JTextField textField, String placeholder)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>it will be responsible for adding placeholder</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__place_holder_helper_8java_source_1l00012">12</link> of file <link linkend="__place_holder_helper_8java_source">PlaceHolderHelper.java</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_helpers_1_1_place_holder_helper_1a9ba2a75731bb68cc34ee6163870feaae"/><section>
+    <title>addPlaceHolder()</title>
+<indexterm><primary>addPlaceHolder</primary><secondary>Helpers.PlaceHolderHelper</secondary></indexterm>
+<indexterm><primary>Helpers.PlaceHolderHelper</primary><secondary>addPlaceHolder</secondary></indexterm>
+<para><computeroutput>static void Helpers.PlaceHolderHelper.addPlaceHolder (JTextField textField, String placeholder)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>it will add the events for place-holder on given text field</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>textField</entry><entry>
+<para>The target text field </para>
+</entry>
+                            </row>
+                            <row>
+<entry>placeholder</entry><entry>
+<para>the desired placeholder string </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__place_holder_helper_8java_source_1l00020">20</link> of file <link linkend="__place_holder_helper_8java_source">PlaceHolderHelper.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Helpers/<link linkend="__place_holder_helper_8java">PlaceHolderHelper.java</link></section>
+</section>

@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_helpers_1_1_logging_helper" xml:lang="en-US">
+<title>Helpers.LoggingHelper Class Reference</title>
+<indexterm><primary>Helpers.LoggingHelper</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_helpers_1_1_logging_helper_1a7cf0b8ef62ba5ac6dccada5974e051ea">LoggingHelper</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_logging_helper_1a36d82e31b5a127deacbfb866b07c62a6">setLogLevel</link> (<link linkend="_enum_status_helper_1_1_log_level">LogLevel</link> level)</para>
+</listitem>
+            <listitem><para>static <link linkend="_enum_status_helper_1_1_log_level">LogLevel</link> <link linkend="_class_helpers_1_1_logging_helper_1a61ac47dca0b5063df3ebb9147ff3c42e">getLogLevel</link> ()</para>
+</listitem>
+            <listitem><para>static int <link linkend="_class_helpers_1_1_logging_helper_1a51ddbcbf2a37371d03323a78e7f917c9">getLogLevelPriority</link> ()</para>
+</listitem>
+            <listitem><para>static int <link linkend="_class_helpers_1_1_logging_helper_1a6156ae0bc0b428de6a05760a786ebd09">getLogLevelPriority</link> (<link linkend="_enum_status_helper_1_1_log_level">LogLevel</link> level)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_logging_helper_1abb4c1bac3b19fa877b76cc797d2c6b7c">LogError</link> (String msg)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_logging_helper_1a32683f3291ffba570c040557f87e895e">LogDebug</link> (String msg)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_logging_helper_1a1f01a0d874cafdfea0780acfc5d2061f">LogInfo</link> (String msg)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f">LogFunction</link> (String msg)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_logging_helper_1ab68b81908e2e6e6ebc0588f04eec1d27">LogLogic</link> (String msg)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_logging_helper_1a9d59d12965cd365e86f6bb5d352f41c6">Log</link> (String msg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to enable the debugging for the application, it will help in quick turning on and off for debugging while observing from the command line</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00019">19</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a7cf0b8ef62ba5ac6dccada5974e051ea"/><section>
+    <title>LoggingHelper()</title>
+<indexterm><primary>LoggingHelper</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>LoggingHelper</secondary></indexterm>
+<para><computeroutput>Helpers.LoggingHelper.LoggingHelper ( )</computeroutput></para><para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00061">61</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a61ac47dca0b5063df3ebb9147ff3c42e"/><section>
+    <title>getLogLevel()</title>
+<indexterm><primary>getLogLevel</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>getLogLevel</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enum_status_helper_1_1_log_level">LogLevel</link> Helpers.LoggingHelper.getLogLevel ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the log level for the app</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The log level for the application </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00087">87</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a51ddbcbf2a37371d03323a78e7f917c9"/><section>
+    <title>getLogLevelPriority()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>getLogLevelPriority</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>getLogLevelPriority</secondary></indexterm>
+<para><computeroutput>static int Helpers.LoggingHelper.getLogLevelPriority ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the priority number for current log level</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The priority number for current log level </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00097">97</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a6156ae0bc0b428de6a05760a786ebd09"/><section>
+    <title>getLogLevelPriority()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>getLogLevelPriority</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>getLogLevelPriority</secondary></indexterm>
+<para><computeroutput>static int Helpers.LoggingHelper.getLogLevelPriority (<link linkend="_enum_status_helper_1_1_log_level">LogLevel</link> level)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the priority number for the desired log level</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>level</entry><entry>
+<para>the desired log level </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The priority number for the given log level </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00108">108</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a9d59d12965cd365e86f6bb5d352f41c6"/><section>
+    <title>Log()</title>
+<indexterm><primary>Log</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>Log</secondary></indexterm>
+<para><computeroutput>static void Helpers.LoggingHelper.Log (String msg)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to write the normal level log information</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the msg that will be printed as normal level log </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>LoggingHelper::LogError(String) </para>
+
+<para>LoggingHelper::LogDebug(String) </para>
+
+<para>LoggingHelper::LogInfo(String) </para>
+
+<para>LoggingHelper::LogFunction(String) </para>
+
+<para>LoggingHelper::LogLogic(String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00213">213</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a32683f3291ffba570c040557f87e895e"/><section>
+    <title>LogDebug()</title>
+<indexterm><primary>LogDebug</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>LogDebug</secondary></indexterm>
+<para><computeroutput>static void Helpers.LoggingHelper.LogDebug (String msg)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to write the debug level log information</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the msg that will be printed as debug level log </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>LoggingHelper::LogError(String) </para>
+
+<para>LoggingHelper::LogInfo(String) </para>
+
+<para>LoggingHelper::LogFunction(String) </para>
+
+<para>LoggingHelper::LogLogic(String) </para>
+
+<para>LoggingHelper::Log(String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00141">141</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1abb4c1bac3b19fa877b76cc797d2c6b7c"/><section>
+    <title>LogError()</title>
+<indexterm><primary>LogError</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>LogError</secondary></indexterm>
+<para><computeroutput>static void Helpers.LoggingHelper.LogError (String msg)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to write the error level log information</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the msg that will be printed as error level log </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>LoggingHelper::LogDebug(String) </para>
+
+<para>LoggingHelper::LogInfo(String) </para>
+
+<para>LoggingHelper::LogFunction(String) </para>
+
+<para>LoggingHelper::LogLogic(String) </para>
+
+<para>LoggingHelper::Log(String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00123">123</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f"/><section>
+    <title>LogFunction()</title>
+<indexterm><primary>LogFunction</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>LogFunction</secondary></indexterm>
+<para><computeroutput>static void Helpers.LoggingHelper.LogFunction (String msg)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to write the function level log information</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the msg that will be printed as function level log </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>LoggingHelper::LogError(String) </para>
+
+<para>LoggingHelper::LogDebug(String) </para>
+
+<para>LoggingHelper::LogInfo(String) </para>
+
+<para>LoggingHelper::LogLogic(String) </para>
+
+<para>LoggingHelper::Log(String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00177">177</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a1f01a0d874cafdfea0780acfc5d2061f"/><section>
+    <title>LogInfo()</title>
+<indexterm><primary>LogInfo</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>LogInfo</secondary></indexterm>
+<para><computeroutput>static void Helpers.LoggingHelper.LogInfo (String msg)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to write the info level log information</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the msg that will be printed as info level log </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>LoggingHelper::LogError(String) </para>
+
+<para>LoggingHelper::LogDebug(String) </para>
+
+<para>LoggingHelper::LogFunction(String) </para>
+
+<para>LoggingHelper::LogLogic(String) </para>
+
+<para>LoggingHelper::Log(String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00159">159</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1ab68b81908e2e6e6ebc0588f04eec1d27"/><section>
+    <title>LogLogic()</title>
+<indexterm><primary>LogLogic</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>LogLogic</secondary></indexterm>
+<para><computeroutput>static void Helpers.LoggingHelper.LogLogic (String msg)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to write the logic level log information</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the msg that will be printed as logic level log </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>LoggingHelper::LogError(String) </para>
+
+<para>LoggingHelper::LogDebug(String) </para>
+
+<para>LoggingHelper::LogInfo(String) </para>
+
+<para>LoggingHelper::LogFunction(String) </para>
+
+<para>LoggingHelper::Log(String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00195">195</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_logging_helper_1a36d82e31b5a127deacbfb866b07c62a6"/><section>
+    <title>setLogLevel()</title>
+<indexterm><primary>setLogLevel</primary><secondary>Helpers.LoggingHelper</secondary></indexterm>
+<indexterm><primary>Helpers.LoggingHelper</primary><secondary>setLogLevel</secondary></indexterm>
+<para><computeroutput>static void Helpers.LoggingHelper.setLogLevel (<link linkend="_enum_status_helper_1_1_log_level">LogLevel</link> level)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to set the log level for the entire app</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>level</entry><entry>
+<para>The desired log level </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__logging_helper_8java_source_1l00077">77</link> of file <link linkend="__logging_helper_8java_source">LoggingHelper.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Helpers/<link linkend="__logging_helper_8java">LoggingHelper.java</link></section>
+</section>

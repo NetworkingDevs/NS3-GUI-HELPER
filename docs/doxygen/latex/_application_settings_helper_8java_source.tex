@@ -1,0 +1,183 @@
+\doxysection{Application\+Settings\+Helper.\+java}
+\label{_application_settings_helper_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Helpers/ApplicationSettingsHelper.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Helpers/ApplicationSettingsHelper.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{package\ }Helpers;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ FileHandler.FileReaderWriter;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ Ns3Objects.Links.NetworkLink;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ Ns3Objects.Links.P2P;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ Ns3Objects.Links.CSMA;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ Ns3Objects.Links.WIFI;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ Ns3Objects.Netoworks.Network;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ org.json.JSONArray;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{import}\ org.json.JSONObject;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }ApplicationSettingsHelper\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ list\ of\ settings...}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ String\ OUTPUT\_PATH\ =\ \textcolor{stringliteral}{"{}outputPath"{}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ String\ FILE\_NAME\ =\ \textcolor{stringliteral}{"{}fileName"{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ String\ DEFAULT\_LINKS\ =\ \textcolor{stringliteral}{"{}defaultLinks"{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ String\ DEFAULT\_WIFI\_LINKS\ =\ \textcolor{stringliteral}{"{}defaultWiFiLinks"{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ String\ DEFAULT\_NETWORKS\ =\ \textcolor{stringliteral}{"{}defaultNetworks"{}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ JSONObject\ UNIVERSAL\_SETTINGS\ =\ \textcolor{keyword}{new}\ JSONObject();}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ String\ OutputPath\ =\ System.getProperty(\textcolor{stringliteral}{"{}user.dir"{}});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ static\ methods...}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setUpSettings()\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ set\ up\ settings\ called!"{}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ setUpSettings(System.getProperty(\textcolor{stringliteral}{"{}user.dir"{}}));}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setUpSettings(String\ OutputPath)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ set\ up\ settings\ called!"{}});}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(FILE\_NAME,\ \textcolor{stringliteral}{"{}output"{}});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(OUTPUT\_PATH,\ OutputPath);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ String\ d\ =\ FileReaderWriter.readIfEmptyUsingPath(UNIVERSAL\_SETTINGS.toString(),\ OutputPath+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)file.txt"{}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ JSONObject\ objJ\ =\ \textcolor{keyword}{new}\ JSONObject(d);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ key\ :\ objJ.keySet())\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UNIVERSAL\_SETTINGS.has(key))\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.remove(key);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(key,\ objJ.get(key));}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(key,\ objJ.get(key));}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ saveSettings()}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ FileReaderWriter.writeUsingPath(UNIVERSAL\_SETTINGS.toString(),\ OutputPath+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)file.txt"{}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Updated\ to\ file!!\ Settings\ has\ been\ saved\ in\ file!!"{}});}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ hasDefaultLinks()\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ has\ default\ links\ called!"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ UNIVERSAL\_SETTINGS.has(DEFAULT\_LINKS);}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ hasDefaultWiFiLinks()\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ has\ Default\ wi-\/fi\ links\ called!"{}});}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ UNIVERSAL\_SETTINGS.has(DEFAULT\_WIFI\_LINKS);}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ hasDefaultNetworks()\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ has\ default\ networks\ called!"{}});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ UNIVERSAL\_SETTINGS.has(DEFAULT\_NETWORKS);}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ ArrayList<NetworkLink>\ getDefaultLinks()\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ get\ default\ links\ called!"{}});}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ ArrayList<NetworkLink>\ links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasDefaultLinks())\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Object\ data\ :\ ((JSONArray)UNIVERSAL\_SETTINGS.get(DEFAULT\_LINKS)))\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String[]\ params\ =\ data.toString().split(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)|"{}});}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ str\ :\ params)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Str\ :\ "{}}+str);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (params[params.length-\/1].equalsIgnoreCase(NetworkLink.LABEL\_CSMA))\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ links.add(\textcolor{keyword}{new}\ CSMA(links.size(),\ params[0],\ params[1],\ params[2],\ params[3],\ ((params[4].equalsIgnoreCase(\textcolor{stringliteral}{"{}Y"{}}))?(\textcolor{keyword}{true}):(\textcolor{keyword}{false})),\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ default\ or\ p2p\ case...}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ links.add(\textcolor{keyword}{new}\ P2P(links.size(),\ params[0],\ params[1],\ params[2],\ params[3],\ ((params[4].equalsIgnoreCase(\textcolor{stringliteral}{"{}Y"{}}))?(\textcolor{keyword}{true}):(\textcolor{keyword}{false})),\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Yes!\ Universal\ Settings\ has\ Default\ Links!"{}});}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}No!\ Universal\ Settings\ has\ no\ default\ links!"{}});}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Returning\ the\ links\ as\ array\ list."{}});}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ links;}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ ArrayList<WIFI>\ getDefaultWiFiLinks()\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ get\ default\ wi-\/fi\ links\ called!"{}});}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ ArrayList<WIFI>\ links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasDefaultWiFiLinks())\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Object\ data\ :\ ((JSONArray)UNIVERSAL\_SETTINGS.get(DEFAULT\_WIFI\_LINKS)))\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String[]\ params\ =\ data.toString().split(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)|"{}});}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ str\ :\ params)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Str\ :\ "{}}+str);}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ links.add(\textcolor{keyword}{new}\ WIFI(links.size(),params[1],params[2],params[3],params[4],((params[5].equalsIgnoreCase(\textcolor{stringliteral}{"{}Y"{}}))?(\textcolor{keyword}{true}):(\textcolor{keyword}{false})),\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Yes!\ Universal\ Settings\ has\ Default\ Wi-\/Fi\ Links!"{}});}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}No!\ Universal\ Settings\ has\ no\ default\ Wi-\/Fi\ links!"{}});}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Returning\ the\ links\ as\ array\ list."{}});}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ links;}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ ArrayList<Network>\ getDefaultNetworks()\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ get\ default\ networks\ called!"{}});}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ ArrayList<Network>\ networks\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasDefaultNetworks())\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Object\ data\ :\ ((JSONArray)UNIVERSAL\_SETTINGS.get(DEFAULT\_NETWORKS)))\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String[]\ params\ =\ data.toString().split(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)|"{}});}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ str\ :\ params)\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Str\ :\ "{}}+str);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ networks.add(\textcolor{keyword}{new}\ Network(0,\ params[0],\ params[1],\ params[2],\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Yes!\ Universal\ Settings\ has\ Default\ Networks!"{}});}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}No!\ Universal\ Settings\ has\ no\ default\ Networks!"{}});}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Returning\ the\ networks\ as\ array\ list."{}});}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ networks;}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ saveDefaultLinks(ArrayList<NetworkLink>\ links)\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ save\ default\ links\ called!"{}});}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (links.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UNIVERSAL\_SETTINGS.has(DEFAULT\_LINKS))\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.remove(DEFAULT\_LINKS);}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ ArrayList<String>\ str\_links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ links)\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_links.add(link.forSettings());}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(DEFAULT\_LINKS,\ str\_links);}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ saveDefaultWiFiLinks(ArrayList<WIFI>\ links)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ save\ default\ wi-\/fi\ links\ called!"{}});}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (links.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UNIVERSAL\_SETTINGS.has(DEFAULT\_WIFI\_LINKS))\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.remove(DEFAULT\_WIFI\_LINKS);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ ArrayList<String>\ str\_links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ links)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_links.add(link.forSettings());}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(DEFAULT\_WIFI\_LINKS,\ str\_links);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ saveDefaultNetworks(ArrayList<Network>\ networks)\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Settings\ Helper\ :\ save\ default\ networks\ called!"{}});}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (networks.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UNIVERSAL\_SETTINGS.has(DEFAULT\_NETWORKS))\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.remove(DEFAULT\_NETWORKS);}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ ArrayList<String>\ str\_networks\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Network\ network\ :\ networks)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_networks.add(network.forSettings());}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(DEFAULT\_NETWORKS,\ str\_networks);}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \}}
+
+\end{DoxyCode}

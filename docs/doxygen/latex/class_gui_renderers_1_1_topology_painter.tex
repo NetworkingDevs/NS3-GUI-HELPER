@@ -1,0 +1,494 @@
+\doxysection{Gui\+Renderers.\+Topology\+Painter Class Reference}
+\label{class_gui_renderers_1_1_topology_painter}\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+Inheritance diagram for Gui\+Renderers.\+Topology\+Painter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gui_renderers_1_1_topology_painter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Topology\+Painter} (Array\+List$<$ \textbf{ Node\+Painter} $>$ n, Array\+List$<$ \textbf{ P2p\+Link\+Painter} $>$ l)
+\item 
+\textbf{ Topology\+Painter} (Array\+List$<$ \textbf{ Node\+Painter} $>$ n, Array\+List$<$ \textbf{ P2p\+Link\+Painter} $>$ l, int w, int h)
+\item 
+void \textbf{ paint} (Graphics g)
+\item 
+Dimension \textbf{ get\+Preferred\+Size} ()
+\item 
+void \textbf{ add\+Node} (\textbf{ Node\+Painter} node)
+\item 
+void \textbf{ add\+Link} (\textbf{ P2p\+Link\+Painter} link)
+\item 
+void \textbf{ add\+Link} (\textbf{ Csma\+Link\+Painter} link)
+\item 
+void \textbf{ add\+Link} (\textbf{ Wifi\+Link\+Painter} link)
+\item 
+void \textbf{ add\+Ref\+Node} (\textbf{ Node\+Painter} node)
+\item 
+void \textbf{ add\+And\+Print\+Ref\+Node} (\textbf{ Node\+Painter} node)
+\item 
+void \textbf{ add\+And\+Print\+Node} (\textbf{ Node\+Painter} node)
+\item 
+void \textbf{ add\+And\+Print\+Link} (\textbf{ Csma\+Link\+Painter} link)
+\item 
+void \textbf{ add\+And\+Print\+Link} (\textbf{ P2p\+Link\+Painter} link)
+\item 
+void \textbf{ add\+And\+Print\+Link} (\textbf{ Wifi\+Link\+Painter} link)
+\item 
+int \textbf{ point\+Collide\+With\+Any} (int x, int y)
+\item 
+void \textbf{ enable\+View} (int s, int c)
+\item 
+Array\+List$<$ \textbf{ Node\+Painter} $>$ \textbf{ get\+Nodes} ()
+\item 
+void \textbf{ set\+Nodes} (Array\+List$<$ \textbf{ Node\+Painter} $>$ nodes)
+\item 
+Array\+List$<$ \textbf{ P2p\+Link\+Painter} $>$ \textbf{ get\+Links} ()
+\item 
+void \textbf{ set\+Links} (Array\+List$<$ \textbf{ P2p\+Link\+Painter} $>$ links)
+\item 
+Array\+List$<$ \textbf{ Node\+Painter} $>$ \textbf{ get\+Reference\+Nodes} ()
+\item 
+void \textbf{ set\+Reference\+Nodes} (Array\+List$<$ \textbf{ Node\+Painter} $>$ reference\+Nodes)
+\item 
+Array\+List$<$ \textbf{ Csma\+Link\+Painter} $>$ \textbf{ get\+Links\+\_\+csma} ()
+\item 
+void \textbf{ set\+Links\+\_\+csma} (Array\+List$<$ \textbf{ Csma\+Link\+Painter} $>$ links\+\_\+csma)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+for painting the objects on the canvas this will be centrally responsible entity 
+
+Definition at line \textbf{ 14} of file \textbf{ Topology\+Painter.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_gui_renderers_1_1_topology_painter_a4a951d4e85b36e6f9d656b62ea7b0121} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!TopologyPainter@{TopologyPainter}}
+\index{TopologyPainter@{TopologyPainter}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{TopologyPainter()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Gui\+Renderers.\+Topology\+Painter.\+Topology\+Painter (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Node\+Painter} $>$}]{n,  }\item[{Array\+List$<$ \textbf{ P2p\+Link\+Painter} $>$}]{l }\end{DoxyParamCaption})}
+
+to create an object of type Topology Painter
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & list of nodes \\
+\hline
+{\em l} & list of links \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Topology\+Painter\+::\+Topology\+Painter(\+Array\+List, Array\+List, int, int) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 69} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a2f6340d2f1492f868c933cf90d53d366} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!TopologyPainter@{TopologyPainter}}
+\index{TopologyPainter@{TopologyPainter}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{TopologyPainter()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Gui\+Renderers.\+Topology\+Painter.\+Topology\+Painter (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Node\+Painter} $>$}]{n,  }\item[{Array\+List$<$ \textbf{ P2p\+Link\+Painter} $>$}]{l,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+to create an object of type Topology Painter
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & list of nodes \\
+\hline
+{\em l} & list of links \\
+\hline
+{\em w} & the width of the canvas \\
+\hline
+{\em h} & the height of the canvas \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Topology\+Painter\+::\+Topology\+Painter(\+Array\+List, Array\+List) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 83} of file \textbf{ Topology\+Painter.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_gui_renderers_1_1_topology_painter_a80e900d364e9af95b2d24dd29e247c64} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addAndPrintLink@{addAndPrintLink}}
+\index{addAndPrintLink@{addAndPrintLink}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addAndPrintLink()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+And\+Print\+Link (\begin{DoxyParamCaption}\item[{\textbf{ Csma\+Link\+Painter}}]{link }\end{DoxyParamCaption})}
+
+to add the link and direct painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & the link to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 253} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a1cf50659b31e8fa1c4b2081596045554} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addAndPrintLink@{addAndPrintLink}}
+\index{addAndPrintLink@{addAndPrintLink}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addAndPrintLink()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+And\+Print\+Link (\begin{DoxyParamCaption}\item[{\textbf{ P2p\+Link\+Painter}}]{link }\end{DoxyParamCaption})}
+
+to add the link and direct painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & the link to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 265} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a217936faa6bfa0fc7fbcebcfedc17931} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addAndPrintLink@{addAndPrintLink}}
+\index{addAndPrintLink@{addAndPrintLink}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addAndPrintLink()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+And\+Print\+Link (\begin{DoxyParamCaption}\item[{\textbf{ Wifi\+Link\+Painter}}]{link }\end{DoxyParamCaption})}
+
+to add the link and direct painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & the link to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 277} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_adaa61bc3859745625b237b00ef1b4d0f} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addAndPrintNode@{addAndPrintNode}}
+\index{addAndPrintNode@{addAndPrintNode}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addAndPrintNode()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+And\+Print\+Node (\begin{DoxyParamCaption}\item[{\textbf{ Node\+Painter}}]{node }\end{DoxyParamCaption})}
+
+to add the node and direct painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the node to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 241} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a8dbbda8f7032657409227598818f091c} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addAndPrintRefNode@{addAndPrintRefNode}}
+\index{addAndPrintRefNode@{addAndPrintRefNode}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addAndPrintRefNode()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+And\+Print\+Ref\+Node (\begin{DoxyParamCaption}\item[{\textbf{ Node\+Painter}}]{node }\end{DoxyParamCaption})}
+
+to add the reference node and directly painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the node to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 229} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a9e50f256be1a565b7822a1c7265563ed} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addLink@{addLink}}
+\index{addLink@{addLink}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addLink()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+Link (\begin{DoxyParamCaption}\item[{\textbf{ Csma\+Link\+Painter}}]{link }\end{DoxyParamCaption})}
+
+to add the CSMA link for painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & the link to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Topology\+Painter\+::add\+Link(\+P2p\+Link\+Painter) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 194} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_ae04525a2f36ccf686b3ec6f5e0b16cf4} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addLink@{addLink}}
+\index{addLink@{addLink}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addLink()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+Link (\begin{DoxyParamCaption}\item[{\textbf{ P2p\+Link\+Painter}}]{link }\end{DoxyParamCaption})}
+
+to add the P2P link for painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & the link to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Topology\+Painter\+::add\+Link(\+Csma\+Link\+Painter) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 181} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a9ae245ab4866f5d2da3038a35e53a4c9} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addLink@{addLink}}
+\index{addLink@{addLink}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addLink()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+Link (\begin{DoxyParamCaption}\item[{\textbf{ Wifi\+Link\+Painter}}]{link }\end{DoxyParamCaption})}
+
+to add the Wi-\/\+Fi link for painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & the link to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 206} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_aba3c8b5fc66d07cb2c0b0b3781e3f914} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addNode@{addNode}}
+\index{addNode@{addNode}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addNode()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+Node (\begin{DoxyParamCaption}\item[{\textbf{ Node\+Painter}}]{node }\end{DoxyParamCaption})}
+
+to add nodes for painting
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the node to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 169} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a4429ee55cd09d4252c89c06c5b27a0a2} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!addRefNode@{addRefNode}}
+\index{addRefNode@{addRefNode}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{addRefNode()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+add\+Ref\+Node (\begin{DoxyParamCaption}\item[{\textbf{ Node\+Painter}}]{node }\end{DoxyParamCaption})}
+
+to add the reference node
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & the node to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 218} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a8d99c63aa42513c1ba13340acd7959a4} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!enableView@{enableView}}
+\index{enableView@{enableView}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{enableView()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+enable\+View (\begin{DoxyParamCaption}\item[{int}]{s,  }\item[{int}]{c }\end{DoxyParamCaption})}
+
+to enabling highlighting of the server and client node
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & server index \\
+\hline
+{\em c} & client index \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 313} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a732e1bec76b94d530f1a7f0d914649c0} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!getLinks@{getLinks}}
+\index{getLinks@{getLinks}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{getLinks()}
+{\footnotesize\ttfamily Array\+List$<$ \textbf{ P2p\+Link\+Painter} $>$ Gui\+Renderers.\+Topology\+Painter.\+get\+Links (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 351} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_ab8d7cdd648135f4309c7073e8da724ae} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!getLinks\_csma@{getLinks\_csma}}
+\index{getLinks\_csma@{getLinks\_csma}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{getLinks\_csma()}
+{\footnotesize\ttfamily Array\+List$<$ \textbf{ Csma\+Link\+Painter} $>$ Gui\+Renderers.\+Topology\+Painter.\+get\+Links\+\_\+csma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 371} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_ae2a6835aea8c708ca9c40dfb80e0bb98} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!getNodes@{getNodes}}
+\index{getNodes@{getNodes}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{getNodes()}
+{\footnotesize\ttfamily Array\+List$<$ \textbf{ Node\+Painter} $>$ Gui\+Renderers.\+Topology\+Painter.\+get\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 341} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a168b4abe23d1a97ed1a35626cdbcd26b} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!getPreferredSize@{getPreferredSize}}
+\index{getPreferredSize@{getPreferredSize}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{getPreferredSize()}
+{\footnotesize\ttfamily Dimension Gui\+Renderers.\+Topology\+Painter.\+get\+Preferred\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 158} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a561180e8a5c771961eca0c7cb9db77eb} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!getReferenceNodes@{getReferenceNodes}}
+\index{getReferenceNodes@{getReferenceNodes}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{getReferenceNodes()}
+{\footnotesize\ttfamily Array\+List$<$ \textbf{ Node\+Painter} $>$ Gui\+Renderers.\+Topology\+Painter.\+get\+Reference\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 361} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a919a8460a55a3ff7bf985e6df1a593e3} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!paint@{paint}}
+\index{paint@{paint}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{paint()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+paint (\begin{DoxyParamCaption}\item[{Graphics}]{g }\end{DoxyParamCaption})}
+
+to paint the objects on the canvas
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the graphics in the CANVAS \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 104} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_ad5dfca2823170d1beea4f59331b429f8} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!pointCollideWithAny@{pointCollideWithAny}}
+\index{pointCollideWithAny@{pointCollideWithAny}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{pointCollideWithAny()}
+{\footnotesize\ttfamily int Gui\+Renderers.\+Topology\+Painter.\+point\+Collide\+With\+Any (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+to get the index of node, with which the mouse is collided
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/position of the mouse \\
+\hline
+{\em y} & y-\/position of the mouse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the integer value, representing the index of the first collided node, and it will return -\/1, in case not collided with any of the node 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 292} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_abbd9a7ed7da5b965985606b42207a378} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!setLinks@{setLinks}}
+\index{setLinks@{setLinks}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{setLinks()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+set\+Links (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ P2p\+Link\+Painter} $>$}]{links }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 356} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_aab5a23b67699bcd180d509c0f199304c} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!setLinks\_csma@{setLinks\_csma}}
+\index{setLinks\_csma@{setLinks\_csma}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{setLinks\_csma()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+set\+Links\+\_\+csma (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Csma\+Link\+Painter} $>$}]{links\+\_\+csma }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 376} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_a1ef44cd8bc8c30cd12b4b92da784ac6e} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!setNodes@{setNodes}}
+\index{setNodes@{setNodes}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{setNodes()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+set\+Nodes (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Node\+Painter} $>$}]{nodes }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 346} of file \textbf{ Topology\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_topology_painter_ad88ec8bd994ecab0746bb3720812772e} 
+\index{GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}!setReferenceNodes@{setReferenceNodes}}
+\index{setReferenceNodes@{setReferenceNodes}!GuiRenderers.TopologyPainter@{GuiRenderers.TopologyPainter}}
+\doxysubsubsection{setReferenceNodes()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Topology\+Painter.\+set\+Reference\+Nodes (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Node\+Painter} $>$}]{reference\+Nodes }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 366} of file \textbf{ Topology\+Painter.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Gui\+Renderers/\textbf{ Topology\+Painter.\+java}\end{DoxyCompactItemize}

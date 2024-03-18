@@ -1,0 +1,902 @@
+\doxysection{Home\+\_\+\+Screen.\+java}
+\label{_home___screen_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Home\_Screen.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Home\_Screen.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ Dialogs.*;}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ FileHandler.CodeGenerator;}
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ FileHandler.FileReaderWriter;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ GuiRenderers.*;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ StatusHelper.LogLevel;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ StatusHelper.ToolStatus;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ javax.imageio.ImageIO;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ java.awt.event.*;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ java.io.IOException;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ java.net.MalformedURLException;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ java.net.URI;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ java.net.URISyntaxException;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{import}\ java.net.URL;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{import}\ java.util.HashMap;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ Helpers.ApplicationSettingsHelper.*;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Home\_Screen\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ String\ FILE\_MENU\ =\ \textcolor{stringliteral}{"{}File"{}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ String\ SETTINGS\_MENU\ =\ \textcolor{stringliteral}{"{}Settings"{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ String\ HELP\_MENU\ =\ \textcolor{stringliteral}{"{}Help"{}};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{private}\ ArrayList<String>\ MenusOrder\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ MIN\_WINDOW\_WIDTH\ =\ 1090;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{final}\ \textcolor{keywordtype}{int}\ MIN\_WINDOW\_HEIGHT\ =\ 650;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ UI\ Elements}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main\_left;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main\_right;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_info;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{private}\ JScrollPane\ JScrollPane\_canvas;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_generateCode;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{private}\ JScrollPane\ JScrollPane\_forConfigJPanel;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_configTopology;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_tools;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_tool\_node;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_tool\_p2pConn;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_tool\_view;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_configTopo;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_grp\_link;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_link;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_addLink;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_links;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_grp\_network;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_network;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_addNetwork;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_networks;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_serverConfig;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_clientConfig;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_utils;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{private}\ JCheckBox\ chkBox\_wireshark;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{private}\ JCheckBox\ chkBox\_netanim;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_overview;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_server;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_client;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_links;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_networks;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{private}\ JScrollPane\ JScrollPane\_forTools;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_tools\_buttons;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_tool\_csmaConn;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_tool\_wifiConn;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_grp\_wifiLinks;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_wifi;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_addWiFiLink;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_wifiLinks;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_wifi\_links;}
+\DoxyCodeLine{00098\ \ \ \ \ JMenuBar\ menuBar;\ \textcolor{comment}{//\ this\ is\ a\ menu\ bar}}
+\DoxyCodeLine{00102\ \ \ \ \ Map<String,\ JMenu>\ menuMapping;\ \textcolor{comment}{//\ this\ is\ a\ mapping\ (from\ string\ to\ each\ menu),\ for\ ease\ in\ coding...}}
+\DoxyCodeLine{00106\ \ \ \ \ Map<String,\ ArrayList<JMenuItem>>\ menuItemsListMapping;\ \textcolor{comment}{//\ this\ is\ a\ mapping\ (from\ string\ to\ list\ of\ each\ menu's\ item's\ list)}}
+\DoxyCodeLine{00110\ \ \ \ \ ArrayList<Integer>\ nodesSelected\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ Image\ imgInfo,\ icon\_nodeTool,\ icon\_p2pLinkTool,\ icon\_csmaLinkTool,\ icon\_viewTool,\ icon\_selected,\ icon\_wifiLinkTool;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ imgInfo\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}info.png"{}}));}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ icon\_nodeTool\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}icon\_tool\_node.png"{}}));}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ icon\_p2pLinkTool\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}icon\_tool\_p2pLink.png"{}}));}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ icon\_csmaLinkTool\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}icon\_tool\_csmaLink.png"{}}));}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ icon\_viewTool\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}icon\_tool\_view.png"{}}));}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ icon\_selected\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}icon\_selected.png"{}}));}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ icon\_wifiLinkTool\ =\ ImageIO.read(getClass().getClassLoader().getResource(\textcolor{stringliteral}{"{}icon\_tool\_wifiLink.png"{}}));}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IOException\ e)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ creating\ the\ variables\ for\ serving\ functionalities\ ==============================================================}}
+\DoxyCodeLine{00135\ \ \ \ \ TopologyPainter\ painter\ =\ \textcolor{keyword}{new}\ TopologyPainter(\textcolor{keyword}{new}\ ArrayList<>(),\ \textcolor{keyword}{new}\ ArrayList<>(),\ 800,\ 800);}
+\DoxyCodeLine{00139\ \ \ \ \ ToolStatus\ toolStatus;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ clicks\ =\ 1;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ firstNode\ =\ -\/1;}
+\DoxyCodeLine{00151\ \ \ \ \ Dialog\_Link\ dialogLink;}
+\DoxyCodeLine{00155\ \ \ \ \ Dialog\_WiFiLink\ dialogWiFiLink;}
+\DoxyCodeLine{00159\ \ \ \ \ Dialog\_Network\ dialogNetwork;}
+\DoxyCodeLine{00163\ \ \ \ \ Dialog\_Connection\ dialogConnection;}
+\DoxyCodeLine{00167\ \ \ \ \ Dialog\_ConfigureServer\ dialogConfigureServer;}
+\DoxyCodeLine{00171\ \ \ \ \ Dialog\_ConfigureClient\ dialogConfigureClient;}
+\DoxyCodeLine{00175\ \ \ \ \ Dialog\_outputFileChooser\ dialogOutputFileChooser;}
+\DoxyCodeLine{00179\ \ \ \ \ Dialog\_Helper\ dialogHelper;}
+\DoxyCodeLine{00183\ \ \ \ \ Dialog\_DefaultLinkConfig\ dialogDefaultLinkConfig;}
+\DoxyCodeLine{00187\ \ \ \ \ Dialog\_DefaultNetworkConfig\ dialogDefaultNetworkConfig;}
+\DoxyCodeLine{00191\ \ \ \ \ Dialog\_DefaultWiFiLinkConfig\ dialogDefaultWiFiLinkConfig;}
+\DoxyCodeLine{00195\ \ \ \ \ String\ OutputPath;}
+\DoxyCodeLine{00199\ \ \ \ \ CodeGenerator\ codeGenerator;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{public}\ Home\_Screen()\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ basic\ initialization\ of\ this\ component...}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================\ BASIC\ CONF.\ =======================================================}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ this.OutputPath\ =\ System.getProperty(\textcolor{stringliteral}{"{}user.dir"{}});}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Topology\ Helper\ -\/\ NS3"{}});}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ this.setSize(1090,650);}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ this.setMinimumSize(\textcolor{keyword}{new}\ Dimension(1090,\ 650));}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{true});}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.EXIT\_ON\_CLOSE);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ this.setMinimumSize(\textcolor{keyword}{new}\ Dimension(800,600));}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ this.menuMapping\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ this.menuItemsListMapping\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ this.lbl\_info.setPreferredSize(\textcolor{keyword}{new}\ Dimension(550,50));}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ this.lbl\_info.setIcon(\textcolor{keyword}{new}\ ImageIcon(imgInfo.getScaledInstance(20,20,Image.SCALE\_SMOOTH)));}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ this.btn\_tool\_node.setIcon(\textcolor{keyword}{new}\ ImageIcon(icon\_nodeTool.getScaledInstance(50,50,\ Image.SCALE\_AREA\_AVERAGING)));}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ this.btn\_tool\_node.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ this.btn\_tool\_p2pConn.setIcon(\textcolor{keyword}{new}\ ImageIcon(icon\_p2pLinkTool.getScaledInstance(50,50,\ Image.SCALE\_AREA\_AVERAGING)));}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ this.btn\_tool\_p2pConn.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ this.btn\_tool\_csmaConn.setIcon(\textcolor{keyword}{new}\ ImageIcon(icon\_csmaLinkTool.getScaledInstance(50,50,\ Image.SCALE\_AREA\_AVERAGING)));}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ this.btn\_tool\_csmaConn.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ this.btn\_tool\_wifiConn.setIcon(\textcolor{keyword}{new}\ ImageIcon(icon\_wifiLinkTool.getScaledInstance(50,50,\ Image.SCALE\_AREA\_AVERAGING)));}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ this.btn\_tool\_wifiConn.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ this.btn\_tool\_view.setIcon(\textcolor{keyword}{new}\ ImageIcon(icon\_viewTool.getScaledInstance(50,50,\ Image.SCALE\_AREA\_AVERAGING)));}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ this.btn\_tool\_view.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ this.dialogHelper\ =\ \textcolor{keyword}{new}\ Dialog\_Helper(this.JPanel\_main);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ this.JScrollPane\_canvas.setViewportView(this.painter);}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ this.JScrollPane\_forConfigJPanel.setViewportView(this.JPanel\_configTopology);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ setUpSettings();}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================\ BASIC\ CONF.\ =======================================================}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Adding\ the\ menu\ bar\ to\ this\ component...}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ this.setUpMenuBar();}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ setting\ up\ event\ listeners...}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ this.setUpEventListeners();}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ all\ the\ settings\ and\ configuration\ should\ have\ been\ done\ before\ this\ call...}}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ addMenusToMenuBar()\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ menu\ :\ this.MenusOrder)\ \{\ \textcolor{comment}{//\ adding\ each\ menu\ to\ menu\ bar...}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ this.menuBar.add(this.menuMapping.get(menu));}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ addMenuItemsToMenus()\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Map.Entry<String,\ JMenu>\ menu\ :\ this.menuMapping.entrySet())\ \{\ \textcolor{comment}{//\ for\ each\ menu...}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (JMenuItem\ item\ :\ this.menuItemsListMapping.get(menu.getKey()))\ \{\ \textcolor{comment}{//\ adding\ each\ menu\ item...}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ menu.getValue().add(item);}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ incrementClicks(\textcolor{keywordtype}{boolean}\ successfulClick)\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (successfulClick)\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ clicks\ ++;}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \ \ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ checkIfLinkCanBeAdded(ToolStatus\ toolStatus)\ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ instantiateLinkDialog();}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ instantiateWifiLinkDialog();}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(dialogLink.getP2pLinkCount()+\textcolor{stringliteral}{"{}\ CSMA\ Link\ Count\ :\ "{}}+dialogLink.getCsmaLinkCount());}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ link\ tool\ selection\ is\ invalid\ in\ below\ conditions...}}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.painter.getNodes().size()\ ==\ 0)\ \{\ \textcolor{comment}{//\ if\ there\ are\ no\ node...}}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showWarningMsg(\textcolor{stringliteral}{"{}Please\ add\ some\ nodes\ to\ make\ a\ connection!"{}},\ \textcolor{stringliteral}{"{}Warning"{}});}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((toolStatus\ ==\ ToolStatus.TOOL\_LINK)?(dialogLink.getP2pLinkCount()==0):((toolStatus\ ==\ ToolStatus.TOOL\_LINK\_CSMA)?(dialogLink.getCsmaLinkCount()==0):(((toolStatus\ ==\ ToolStatus.TOOL\_LINK\_WIFI)?(dialogWiFiLink.getLinkCount()\ ==\ 0):(false)))))\ \{\ \textcolor{comment}{//\ if\ there\ are\ no\ links...}}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showWarningMsg(\textcolor{stringliteral}{"{}Please\ create\ at\ least\ one\ link\ before\ making\ a\ connection!"{}},\ \textcolor{stringliteral}{"{}Warning"{}});}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (dialogNetwork==\textcolor{keyword}{null}\ ||\ (dialogNetwork.getNetworkCount()\ ==\ 0))\ \{\ \textcolor{comment}{//\ if\ there\ are\ no\ network\ settings\ made...}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showWarningMsg(\textcolor{stringliteral}{"{}Please\ create\ at\ least\ one\ network\ before\ making\ a\ connection!"{}},\ \textcolor{stringliteral}{"{}Warning"{}});}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00311\ \ \ \ \ \}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{boolean}\ checkIfNodesExists\ (String\ msg)\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (painter.getNodes().size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ this.dialogHelper.showErrorMsg(msg,\ \textcolor{stringliteral}{"{}Error!"{}});}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ openWebpage(URI\ uri)\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ Desktop\ desktop\ =\ Desktop.isDesktopSupported()\ ?\ Desktop.getDesktop()\ :\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (desktop\ !=\ \textcolor{keyword}{null}\ \&\&\ desktop.isSupported(Desktop.Action.BROWSE))\ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ desktop.browse(uri);}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ e)\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00346\ \ \ \ \ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ openWebpage(URL\ url)\ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ openWebpage(url.toURI());}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (URISyntaxException\ e)\ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ e.printStackTrace();}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00363\ \ \ \ \ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setUpMenuBar()\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================\ MENU\ BAR\ CONF.\ ====================================================}}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ this.menuBar\ =\ \textcolor{keyword}{new}\ JMenuBar();}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ adding\ each\ menu\ for\ menu\ bar...}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step-\/1\ :\ Add\ a\ menu\ in\ menus}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ this.menuMapping.put(FILE\_MENU,\ \textcolor{keyword}{new}\ JMenu(\textcolor{stringliteral}{"{}File"{}}));}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step-\/2\ :\ create\ a\ menu\ item\ list}}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.put(FILE\_MENU,\ \textcolor{keyword}{new}\ ArrayList<>());}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step-\/3\ :\ add\ menu\ items}}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(FILE\_MENU).add(\textcolor{keyword}{new}\ JMenuItem(\textcolor{stringliteral}{"{}Output\ Path"{}}));}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(FILE\_MENU).get(0).addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogOutputFileChooser\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogOutputFileChooser.setPath(UNIVERSAL\_SETTINGS.get(OUTPUT\_PATH).toString());}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogOutputFileChooser.setFileName(UNIVERSAL\_SETTINGS.get(FILE\_NAME).toString());}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogOutputFileChooser.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogOutputFileChooser\ =\ \textcolor{keyword}{new}\ Dialog\_outputFileChooser();}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogOutputFileChooser.setPath(UNIVERSAL\_SETTINGS.get(OUTPUT\_PATH).toString());}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogOutputFileChooser.setFileName(UNIVERSAL\_SETTINGS.get(FILE\_NAME).toString());}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogOutputFileChooser.addComponentListener(\textcolor{keyword}{new}\ ComponentAdapter()\ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ componentHidden(ComponentEvent\ e)\ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.componentHidden(e);}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Output\ settings\ has\ been\ altered!"{}});}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.remove(OUTPUT\_PATH);}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(OUTPUT\_PATH,\ dialogOutputFileChooser.getOutputPath());}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.remove(FILE\_NAME);}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNIVERSAL\_SETTINGS.put(FILE\_NAME,\ dialogOutputFileChooser.getFileName());}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Updated\ JSON\ :\ "{}}\ +\ UNIVERSAL\_SETTINGS.toString());}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogOutputFileChooser.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step-\/4\ :\ add\ menu\ to\ menu\ order}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ this.MenusOrder.add(FILE\_MENU);}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ following\ above\ 4\ steps\ for\ each\ menu...}}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ settings\ menu...}}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ this.menuMapping.put(SETTINGS\_MENU,\ \textcolor{keyword}{new}\ JMenu(\textcolor{stringliteral}{"{}Settings"{}}));}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.put(SETTINGS\_MENU,\ \textcolor{keyword}{new}\ ArrayList<>());}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).add(\textcolor{keyword}{new}\ JMenuItem(\textcolor{stringliteral}{"{}Default\ Link\ Config"{}}));}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).get(0).addActionListener(e\ -\/>\ \{}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ instantiateLinkDialog();}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Dialog\_Link.SHOW\_DEFAULT)\ \{}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ dialogHelper.showConfirmationDialog(\textcolor{stringliteral}{"{}Your\ default\ links\ will\ be\ hidden\ temporarily!\(\backslash\)nHowever,\ you\ can\ make\ them\ visible\ again.\(\backslash\)nYou\ want\ to\ continue?"{}},\textcolor{stringliteral}{"{}Warning!"{}});}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (choice\ ==\ JOptionPane.YES\_OPTION)\ \{}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultLinkConfig();}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultLinkConfig.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultLinkConfig.showLinksAgain();}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogLink.showDefaultLinks(\textcolor{keyword}{false});}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ menuItemsListMapping.get(SETTINGS\_MENU).get(1).setText(\textcolor{stringliteral}{"{}Show\ default\ links"{}});}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ menuItemsListMapping.get(SETTINGS\_MENU).get(1).setIcon(\textcolor{keyword}{null});}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultLinkConfig();}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultLinkConfig.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultLinkConfig.showLinksAgain();}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).add(\textcolor{keyword}{new}\ JMenuItem(\textcolor{stringliteral}{"{}Show\ default\ links"{}}));}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).get(1).addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ iconVis\ =\ menuItemsListMapping.get(SETTINGS\_MENU).get(1).getIcon()!=\textcolor{keyword}{null};}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ JMenuItem\ THIS\ =\ menuItemsListMapping.get(SETTINGS\_MENU).get(1);}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconVis\ =\ (THIS.getIcon()!=\textcolor{keyword}{null});}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultLinkConfig();}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateLinkDialog();}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogDefaultLinkConfig.defaultLinks.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showWarningMsg(\textcolor{stringliteral}{"{}None\ default\ links\ are\ configured!"{}},\ \textcolor{stringliteral}{"{}Warning!"{}});}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogLink.setDefaultLinks(dialogDefaultLinkConfig.defaultLinks);}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iconVis)\ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Hiding\ the\ default\ links!"{}});}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setIcon(\textcolor{keyword}{null});}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setText(\textcolor{stringliteral}{"{}Show\ default\ links"{}});}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogLink.showDefaultLinks(\textcolor{keyword}{false});}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Showing\ the\ default\ links!"{}});}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setIcon(\textcolor{keyword}{new}\ ImageIcon(icon\_selected.getScaledInstance(8,\ 8,\ Image.SCALE\_SMOOTH)));}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setText(\textcolor{stringliteral}{"{}Hide\ default\ links"{}});}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogLink.showDefaultLinks(\textcolor{keyword}{true});}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Default\ links\ are\ visible!"{}},\ \textcolor{stringliteral}{"{}Success!"{}});}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconVis\ =\ !iconVis;}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).add(\textcolor{keyword}{new}\ JMenuItem(\textcolor{stringliteral}{"{}Default\ Network\ Config"{}}));}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).get(2).addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateNetworkDialog();}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Dialog\_Network.SHOW\_DEFAULT)\ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ dialogHelper.showConfirmationDialog(\textcolor{stringliteral}{"{}Your\ default\ networks\ will\ be\ hidden\ temporarily!\(\backslash\)nHowever,\ you\ can\ make\ them\ visible\ again.\(\backslash\)nYou\ want\ to\ continue?"{}},\textcolor{stringliteral}{"{}Warning!"{}});}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (choice\ ==\ JOptionPane.YES\_OPTION)\ \{}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultNetworkConfig();}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultNetworkConfig.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultNetworkConfig.showNetworksAgain();}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogNetwork.showDefaultNetworks(\textcolor{keyword}{false});}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ menuItemsListMapping.get(SETTINGS\_MENU).get(3).setText(\textcolor{stringliteral}{"{}Show\ default\ networks"{}});}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ menuItemsListMapping.get(SETTINGS\_MENU).get(3).setIcon(\textcolor{keyword}{null});}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultNetworkConfig();}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultNetworkConfig.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultNetworkConfig.showNetworksAgain();}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).add(\textcolor{keyword}{new}\ JMenuItem(\textcolor{stringliteral}{"{}Show\ default\ networks"{}}));}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).get(3).addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ iconVis\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ JMenuItem\ THIS\ =\ menuItemsListMapping.get(SETTINGS\_MENU).get(3);}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconVis\ =\ (THIS.getIcon()==\textcolor{keyword}{null})?(\textcolor{keyword}{false}):(\textcolor{keyword}{true});}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateNetworkDialog();}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultNetworkConfig();}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogDefaultNetworkConfig.defaultNetworks.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showWarningMsg(\textcolor{stringliteral}{"{}None\ default\ networks\ are\ configured!"{}},\ \textcolor{stringliteral}{"{}Warning!"{}});}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogNetwork.setDefaultNetworks(dialogDefaultNetworkConfig.defaultNetworks);}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iconVis)\ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Hiding\ the\ default\ networks!"{}});}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setIcon(\textcolor{keyword}{null});}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setText(\textcolor{stringliteral}{"{}Show\ default\ networks"{}});}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogNetwork.showDefaultNetworks(\textcolor{keyword}{false});}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Showing\ the\ default\ networks!"{}});}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setIcon(\textcolor{keyword}{new}\ ImageIcon(icon\_selected.getScaledInstance(8,\ 8,\ Image.SCALE\_SMOOTH)));}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setText(\textcolor{stringliteral}{"{}Hide\ default\ networks"{}});}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogNetwork.showDefaultNetworks(\textcolor{keyword}{true});}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Default\ networks\ are\ visible!"{}},\ \textcolor{stringliteral}{"{}Success!"{}});}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconVis\ =\ !iconVis;}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).add(\textcolor{keyword}{new}\ JMenuItem(\textcolor{stringliteral}{"{}Default\ WiFi\ Config"{}}));}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).get(4).addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultWiFiLinkConfig();}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Dialog\_WiFiLink.SHOW\_DEFAULT)\ \{}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ dialogHelper.showConfirmationDialog(\textcolor{stringliteral}{"{}Your\ default\ links\ will\ be\ hidden\ temporarily!\(\backslash\)nHowever,\ you\ can\ make\ them\ visible\ again.\(\backslash\)nYou\ want\ to\ continue?"{}},\textcolor{stringliteral}{"{}Warning!"{}});}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (choice\ ==\ JOptionPane.YES\_OPTION)\ \{}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultWiFiLinkConfig();}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultWiFiLinkConfig.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultWiFiLinkConfig.showLinksAgain();}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogWiFiLink.showDefaultLinks(\textcolor{keyword}{false});}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ menuItemsListMapping.get(SETTINGS\_MENU).get(5).setText(\textcolor{stringliteral}{"{}Show\ Default\ WiFi\ Config"{}});}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ menuItemsListMapping.get(SETTINGS\_MENU).get(5).setIcon(\textcolor{keyword}{null});}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultWiFiLinkConfig();}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultWiFiLinkConfig.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultWiFiLinkConfig.showLinksAgain();}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).add(\textcolor{keyword}{new}\ JMenuItem(\textcolor{stringliteral}{"{}Show\ Default\ WiFi\ Config"{}}));}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(SETTINGS\_MENU).get(5).addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ iconVis\ =\ menuItemsListMapping.get(SETTINGS\_MENU).get(5).getIcon()!=\textcolor{keyword}{null};}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ JMenuItem\ THIS\ =\ menuItemsListMapping.get(SETTINGS\_MENU).get(5);}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconVis\ =\ (THIS.getIcon()!=\textcolor{keyword}{null});}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultWiFiLinkConfig();}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateWifiLinkDialog();}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogDefaultWiFiLinkConfig.defaultLinks.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showWarningMsg(\textcolor{stringliteral}{"{}None\ default\ links\ are\ configured!"{}},\ \textcolor{stringliteral}{"{}Warning!"{}});}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogWiFiLink.setDefaultLinks(dialogDefaultWiFiLinkConfig.defaultLinks);}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iconVis)\ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Hiding\ the\ default\ links!"{}});}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setIcon(\textcolor{keyword}{null});}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setText(\textcolor{stringliteral}{"{}Show\ Default\ WiFi\ Config"{}});}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogWiFiLink.showDefaultLinks(\textcolor{keyword}{false});}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Showing\ the\ default\ links!"{}});}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setIcon(\textcolor{keyword}{new}\ ImageIcon(icon\_selected.getScaledInstance(8,\ 8,\ Image.SCALE\_SMOOTH)));}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ THIS.setText(\textcolor{stringliteral}{"{}Hide\ Default\ WiFi\ Config"{}});}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogWiFiLink.showDefaultLinks(\textcolor{keyword}{true});}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Default\ links\ are\ visible!"{}},\ \textcolor{stringliteral}{"{}Success!"{}});}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconVis\ =\ !iconVis;}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ this.MenusOrder.add(SETTINGS\_MENU);}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ this.menuMapping.put(HELP\_MENU,\ \textcolor{keyword}{new}\ JMenu(\textcolor{stringliteral}{"{}Help"{}}));}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.put(HELP\_MENU,\ \textcolor{keyword}{new}\ ArrayList<>());}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(HELP\_MENU).add(\textcolor{keyword}{new}\ JMenuItem(\textcolor{stringliteral}{"{}User\ Manual"{}}));}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ this.menuItemsListMapping.get(HELP\_MENU).get(0).addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ openWebpage(\textcolor{keyword}{new}\ URL(\textcolor{stringliteral}{"{}https://networkingdevs.github.io/NS3-\/GUI-\/HELPER/manual.html"{}}));}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (MalformedURLException\ ex)\ \{}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(ex);}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ this.MenusOrder.add(HELP\_MENU);}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ this.addMenuItemsToMenus();}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ this.addMenusToMenuBar();}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ this.setJMenuBar(menuBar);}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================\ MENU\ BAR\ CONF.\ ====================================================}}
+\DoxyCodeLine{00593\ \ \ \ \ \}}
+\DoxyCodeLine{00594\ }
+\DoxyCodeLine{00600\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setUpEventListeners()}
+\DoxyCodeLine{00601\ \ \ \ \ \{}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================\ ALL\ EVENT\ LISTENERS\ ===============================================}}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ this.painter.addKeyListener(\textcolor{keyword}{new}\ KeyAdapter()\ \{}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ keyPressed(KeyEvent\ e)\ \{}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.keyPressed(e);}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Key\ pressed\ :\ "{}}+e.getKeyCode());}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.getKeyCode()\ ==\ 32)\ \{}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (toolStatus)\ \{}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOOL\_LINK\_CSMA\ :\ \{}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ render\ the\ CSMA\ link...}}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.addAndPrintLink(\textcolor{keyword}{new}\ CsmaLinkPainter(nodesSelected,painter.getNodes()));}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ instantiate\ connection\ dialog...}}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateConnectionDialog();}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ to\ the\ device\ dialog\ and...}}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(),\ nodesSelected,toolStatus);}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ empty\ the\ nodes\ list...}}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodesSelected\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ empty\ the\ reference\ nodes\ list...}}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.setReferenceNodes(\textcolor{keyword}{new}\ ArrayList<>());}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00622\ }
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOOL\_LINK\_WIFI\ :\ \{}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ render\ the\ wi-\/fi\ link}}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.addAndPrintLink(\textcolor{keyword}{new}\ WifiLinkPainter(nodesSelected,painter.getNodes()));}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ instantiate\ connection\ dialog}}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateConnectionDialog();}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ the\ device\ dialog}}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConnection.showDialog(dialogWiFiLink.getAllLinks(),dialogNetwork.getAllNetworks(),\ nodesSelected,toolStatus);}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ empty\ the\ nodes\ list}}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodesSelected\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ empty\ the\ reference\ node\ list}}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.setReferenceNodes(\textcolor{keyword}{new}\ ArrayList<>());}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00639\ }
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ record\ each\ mouse\ click\ on\ canvas...}}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ do\ accordingly...}}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ this.painter.addMouseListener(\textcolor{keyword}{new}\ MouseAdapter()\ \{}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ mouseClicked(MouseEvent\ e)\ \{}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.mouseClicked(e);}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Clicked\ at\ x\ :\ "{}}+e.getX()+\textcolor{stringliteral}{"{}\ y\ :\ "{}}+e.getY());}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (toolStatus)\ \{}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ tool\ is\ 'node'\ tool\ then...}}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOOL\_NODE\ :\ \{}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ a\ new\ node\ at\ given\ point...}}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NodePainter\ node\ =\ \textcolor{keyword}{new}\ NodePainter(e.getX()-\/10,\ e.getY()-\/10,\ 20,String.valueOf(painter.getNodes().size()));}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ add\ that\ node\ to\ painter\ for\ painting\ on\ canvas...}}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.addAndPrintNode(node);}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ tool\ is\ 'link'\ tool\ then...}}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOOL\_LINK\ :\ \{}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ collision\ =\ -\/1;}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ successfulClick\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ first\ successful\ click....}}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ collision\ with\ any\ node...}}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ collision\ =\ painter.pointCollideWithAny(e.getX(),\ e.getY());}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Collision\ :\ "{}}+collision+\textcolor{stringliteral}{"{}\ Clicks\ :\ "{}}+clicks);}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (collision\ >=\ 0\ \&\&\ clicks\%2!=0)\ \{}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ collision\ then\ change\ the\ information\ label\ and\ increment\ the\ no.\ of\ clicks...}}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ firstNode\ =\ collision;}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lbl\_info.setText(\textcolor{stringliteral}{"{}Connection\ Tool\ Selected:\ First\ node\ selected\ now,\ select\ second\ node."{}});}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ successfulClick\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00670\ }
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ second\ successful\ click...}}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ collision\ with\ any\ node...}}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (collision\ >=\ 0\ \&\&\ clicks\%2==0)\ \{}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ collision\ then\ change\ the\ information\ label,\ increment\ the\ no.\ of\ clicks\ and\ open\ a\ device\ configuration\ dialog\ box...}}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lbl\_info.setText(\textcolor{stringliteral}{"{}Connection\ Tool\ Selected:\ To\ create\ a\ link,\ click\ on\ two\ nodes\ sequentially."{}});}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.addAndPrintLink(\textcolor{keyword}{new}\ P2pLinkPainter(painter.getNodes().get(firstNode),\ painter.getNodes().get(collision)));}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ successfulClick\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(firstNode+\textcolor{stringliteral}{"{}\ "{}}+collision);}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateConnectionDialog();}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ArrayList<Integer>\ nodes\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodes.add(firstNode);}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodes.add(collision);}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConnection.showDialog(dialogLink.getAllLinks(),dialogNetwork.getAllNetworks(),nodes,\ toolStatus);}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ firstNode\ =\ -\/1;}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ incrementClicks(successfulClick);}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00688\ }
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TOOL\_LINK\_CSMA,\ TOOL\_LINK\_WIFI:\ \{}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ collision\ =\ -\/1;}
+\DoxyCodeLine{00691\ }
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ collision\ =\ painter.pointCollideWithAny(e.getX(),\ e.getY());}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Collision\ :\ "{}}+collision);}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (collision\ >=\ 0\ \&\&\ !nodesSelected.contains(collision))\ \{}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodesSelected.add(collision);}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.addAndPrintRefNode(\textcolor{keyword}{new}\ NodePainter(painter.getNodes().get(collision).xPos-\/5,\ painter.getNodes().get(collision).yPos-\/5,30,\textcolor{stringliteral}{"{}"{}},Color.GREEN));}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ perform\ when\ node\ tool\ is\ selected...}}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ btn\_tool\_node.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lbl\_info.setText(\textcolor{stringliteral}{"{}Node\ Tool\ Selected:\ Click\ anywhere\ on\ the\ canvas\ to\ add\ a\ node."{}});}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ toolStatus\ =\ ToolStatus.TOOL\_NODE;}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00712\ }
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ link\ tool\ is\ selected...}}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ btn\_tool\_p2pConn.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ condition\ if\ there\ exists\ at\ least\ one\ link\ and\ warn\ if\ not\ present...(pending)}}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkIfLinkCanBeAdded(ToolStatus.TOOL\_LINK))\ \{}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lbl\_info.setText(\textcolor{stringliteral}{"{}Connection\ Tool\ Selected:\ To\ create\ a\ link,\ click\ on\ two\ nodes\ sequentially."{}});}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ toolStatus\ =\ ToolStatus.TOOL\_LINK;}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00724\ }
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ csma\ link\ tool\ is\ selected...}}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ btn\_tool\_csmaConn.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkIfLinkCanBeAdded(ToolStatus.TOOL\_LINK\_CSMA))\ \{}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lbl\_info.setText(\textcolor{stringliteral}{"{}CSMA\ Connection\ Tool\ Selected\ :\ To\ create\ a\ link,\ click\ on\ nodes\ then\ click\ spacebar!"{}});}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ toolStatus\ =\ ToolStatus.TOOL\_LINK\_CSMA;}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00735\ }
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ event\ that\ will\ happen\ immediately\ when\ clicking\ on\ view\ tool}}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ btn\_tool\_view.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkIfNodesExists(\textcolor{stringliteral}{"{}WARNING\ :\ No\ nodes\ to\ view!!"{}}))\ \{}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lbl\_info.setText(\textcolor{stringliteral}{"{}View\ Tool\ Selected\ :\ Double\ click\ to\ disable!\ OR\ Click\ on\ any\ node\ to\ view\ connections!"{}});}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ server\_index\ =\ Integer.MIN\_VALUE,client\_index\ =\ Integer.MIN\_VALUE;}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogConfigureServer\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogConfigureServer.settings.size()\ !=\ 0)\ \{}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ server\_index\ =\ Integer.parseInt(dialogConfigureServer.settings.get(0));}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00748\ }
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogConfigureClient\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogConfigureClient.settings.size()\ !=\ 0)\ \{}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ client\_index\ =\ Integer.parseInt(dialogConfigureClient.settings.get(0));}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.enableView(server\_index,client\_index);}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00758\ }
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ btn\_tool\_view.addMouseListener(\textcolor{keyword}{new}\ MouseAdapter()\ \{}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{long}\ lastClick\ =\ 0;}
+\DoxyCodeLine{00761\ }
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ mouseClicked(MouseEvent\ e)\ \{}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.mouseClicked(e);}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ currentClick\ =\ System.currentTimeMillis();}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentClick\ -\/\ lastClick\ <\ 500)\ \{}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ painter.enableView(-\/1,-\/1);}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lbl\_info.setText(\textcolor{stringliteral}{"{}Select\ the\ tool\ to\ make\ your\ toplogy!"{}});}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastClick\ =\ currentClick;}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ btn\_tool\_wifiConn.addMouseListener(\textcolor{keyword}{new}\ MouseAdapter()\ \{}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ mouseClicked(MouseEvent\ e)\ \{}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.mouseClicked(e);}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkIfLinkCanBeAdded(ToolStatus.TOOL\_LINK\_WIFI))\ \{}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lbl\_info.setText(\textcolor{stringliteral}{"{}Wi-\/Fi\ Connection\ Tool\ :\ Select\ the\ AP\ node\ first,\ then\ select\ the\ remaining\ nodes,\ and\ press\ the\ spacebar."{}});}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ toolStatus\ =\ ToolStatus.TOOL\_LINK\_WIFI;}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00784\ }
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ Add\ Link\ button\ is\ pressed...}}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ btn\_addLink.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogLink\ !=\ \textcolor{keyword}{null})\ \{\ \textcolor{comment}{//\ if\ dialog\ is\ already\ instantiated...}}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogLink.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ first\ time\ instantiation....}}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateLinkDialog();}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogLink.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00796\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00798\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ add\ Wi-\/Fi\ link\ button\ is\ clicked.}}
+\DoxyCodeLine{00799\ \ \ \ \ \ \ \ \ btn\_addWiFiLink.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00800\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00801\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00802\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogWiFiLink\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogWiFiLink.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateWifiLinkDialog();}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogWiFiLink.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00810\ }
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ Add\ Network\ button\ is\ pressed...}}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ btn\_addNetwork.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ logic\ is\ same\ as\ mentioned\ in\ btn\_addLink's\ action\ listener...}}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogNetwork\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogNetwork.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00819\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateNetworkDialog();}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogNetwork.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00823\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ clicking\ on\ configure\ server\ button...}}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ btn\_serverConfig.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkIfNodesExists(\textcolor{stringliteral}{"{}Please\ add\ some\ nodes\ first!"{}}))\ \{}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogConfigureServer\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConfigureServer.showDialog(painter.getNodes().size());}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ helpfulComponents.put(Dialog\_ConfigureServer.COMPONENT\_OVERVIEW\_LABEL,\ lbl\_server);}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConfigureServer\ =\ \textcolor{keyword}{new}\ Dialog\_ConfigureServer(painter.getNodes().size(),\ helpfulComponents);}
+\DoxyCodeLine{00836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConfigureServer.showDialog(painter.getNodes().size());}
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00841\ }
+\DoxyCodeLine{00842\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ clicking\ on\ configure\ client\ button...}}
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ btn\_clientConfig.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkIfNodesExists(\textcolor{stringliteral}{"{}Please\ add\ some\ nodes\ first!"{}}))\ \{}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogConfigureServer.settings.size()\ ==\ 0)\ \{\ \textcolor{comment}{//\ server\ configuration\ has\ not\ been\ done\ yet...}}
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ show\ warning\ message...}}
+\DoxyCodeLine{00849\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showWarningMsg(\textcolor{stringliteral}{"{}Please\ configure\ the\ server\ first!"{}},\ \textcolor{stringliteral}{"{}Warning!"{}});}
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ otherwise...}}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogConfigureClient\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00852\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ show\ client\ configuration\ dialog\ box...}}
+\DoxyCodeLine{00853\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConfigureClient.showDialog(painter.getNodes().size());}
+\DoxyCodeLine{00854\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00855\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{00856\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ helpfulComponents.put(Dialog\_ConfigureClient.COMPONENT\_OVERVIEW\_LABEL,\ lbl\_client);}
+\DoxyCodeLine{00857\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConfigureClient\ =\ \textcolor{keyword}{new}\ Dialog\_ConfigureClient(painter.getNodes().size(),\ helpfulComponents);}
+\DoxyCodeLine{00858\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogConfigureClient.showDialog(painter.getNodes().size());}
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00862\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00864\ }
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ clicking\ on\ generate\ code\ button...}}
+\DoxyCodeLine{00866\ \ \ \ \ \ \ \ \ btn\_generateCode.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00867\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkIfNodesExists(\textcolor{stringliteral}{"{}Please\ create\ your\ topology\ first!"{}}))\ \{}
+\DoxyCodeLine{00870\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ createFile();}
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00873\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00874\ }
+\DoxyCodeLine{00875\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ code\ was\ just\ for\ testing...}}
+\DoxyCodeLine{00876\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ now\ I\ am\ using\ this\ code\ for\ maintaining\ minimum\ size\ of\ the\ window...}}
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ this.addComponentListener(\textcolor{keyword}{new}\ ComponentAdapter()\ \{}
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ componentResized(ComponentEvent\ e)\ \{}
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.componentResized(e);}
+\DoxyCodeLine{00881\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Observing\ output\ while\ testing....}}
+\DoxyCodeLine{00882\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ System.out.println("{}Width\ :\ "{}+getWidth()+"{}\ Height\ :\ "{}+getHeight());}}
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ w\ =\ getWidth(),\ h=getHeight();}
+\DoxyCodeLine{00884\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (w\ <\ MIN\_WINDOW\_WIDTH\ ||\ h\ <\ MIN\_WINDOW\_HEIGHT)\ \{}
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setSize(MIN\_WINDOW\_WIDTH,MIN\_WINDOW\_HEIGHT);}
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00889\ }
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ save\ settings\ while\ main\ window\ is\ being\ closed!!}}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ this.addWindowListener(\textcolor{keyword}{new}\ WindowAdapter()\ \{}
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ windowClosing(WindowEvent\ e)\ \{}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.windowClosing(e);}
+\DoxyCodeLine{00895\ }
+\DoxyCodeLine{00896\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pre-\/processing\ before\ saving\ the\ settings...}}
+\DoxyCodeLine{00897\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultLinkConfig();}
+\DoxyCodeLine{00898\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saveDefaultLinks(dialogDefaultLinkConfig.defaultLinks);}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00900\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ instantiateDefaultNetworkConfig();}
+\DoxyCodeLine{00901\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saveDefaultNetworks(dialogDefaultNetworkConfig.defaultNetworks);}
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00903\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ saving\ the\ settings...}}
+\DoxyCodeLine{00904\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saveSettings();}
+\DoxyCodeLine{00905\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00906\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00907\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ====================================\ ALL\ EVENT\ LISTENERS\ ENDS\ ===============================================}}
+\DoxyCodeLine{00908\ \ \ \ \ \}}
+\DoxyCodeLine{00909\ }
+\DoxyCodeLine{00915\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ instantiateConnectionDialog()\ \{}
+\DoxyCodeLine{00916\ \ \ \ \ \ \ \ \ dialogConnection\ =\ Dialog\_Connection.getInstance();}
+\DoxyCodeLine{00917\ \ \ \ \ \ \ \ \ instantiateLinkDialog();}
+\DoxyCodeLine{00918\ \ \ \ \ \ \ \ \ dialogConnection.addDialogLink(dialogLink);}
+\DoxyCodeLine{00919\ \ \ \ \ \ \ \ \ dialogConnection.addDialogLink(dialogWiFiLink);}
+\DoxyCodeLine{00920\ \ \ \ \ \}}
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00927\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ instantiateLinkDialog()\ \{}
+\DoxyCodeLine{00928\ \ \ \ \ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{00929\ \ \ \ \ \ \ \ \ helpfulComponents.put(Dialog\_Link.COMPONENT\_COMBO\_BOX,\ comboBox\_links);}
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ helpfulComponents.put(Dialog\_Link.COMPONENT\_OVERVIEW\_LABEL,\ lbl\_links);}
+\DoxyCodeLine{00931\ \ \ \ \ \ \ \ \ dialogLink\ =\ Dialog\_Link.getInstance(helpfulComponents);}
+\DoxyCodeLine{00932\ \ \ \ \ \}}
+\DoxyCodeLine{00933\ }
+\DoxyCodeLine{00939\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ instantiateWifiLinkDialog()\ \{}
+\DoxyCodeLine{00940\ \ \ \ \ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{00941\ \ \ \ \ \ \ \ \ helpfulComponents.put(Dialog\_WiFiLink.COMPONENT\_COMBO\_BOX,comboBox\_wifiLinks);}
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ helpfulComponents.put(Dialog\_WiFiLink.COMPONENT\_OVERVIEW\_LABEL,\ lbl\_wifi\_links);}
+\DoxyCodeLine{00943\ \ \ \ \ \ \ \ \ dialogWiFiLink\ =\ Dialog\_WiFiLink.getInstance(helpfulComponents);}
+\DoxyCodeLine{00944\ \ \ \ \ \}}
+\DoxyCodeLine{00945\ }
+\DoxyCodeLine{00951\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ instantiateNetworkDialog()\ \{}
+\DoxyCodeLine{00952\ \ \ \ \ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{00953\ \ \ \ \ \ \ \ \ helpfulComponents.put(Dialog\_Network.COMPONENT\_COMBO\_BOX,\ comboBox\_networks);}
+\DoxyCodeLine{00954\ \ \ \ \ \ \ \ \ helpfulComponents.put(Dialog\_Network.COMPONENT\_OVERVIEW\_LABEL,\ lbl\_networks);}
+\DoxyCodeLine{00955\ \ \ \ \ \ \ \ \ dialogNetwork\ =\ Dialog\_Network.getInstance(helpfulComponents);}
+\DoxyCodeLine{00956\ \ \ \ \ \}}
+\DoxyCodeLine{00957\ }
+\DoxyCodeLine{00963\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ instantiateDefaultLinkConfig()\ \{}
+\DoxyCodeLine{00964\ \ \ \ \ \ \ \ \ dialogDefaultLinkConfig\ =\ Dialog\_DefaultLinkConfig.getInstance(\textcolor{keyword}{new}\ ArrayList<>());}
+\DoxyCodeLine{00965\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasDefaultLinks())\ \{}
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultLinkConfig.defaultLinks\ =\ getDefaultLinks();}
+\DoxyCodeLine{00967\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00968\ \ \ \ \ \}}
+\DoxyCodeLine{00969\ }
+\DoxyCodeLine{00975\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ instantiateDefaultWiFiLinkConfig()\ \{}
+\DoxyCodeLine{00976\ \ \ \ \ \ \ \ \ dialogDefaultWiFiLinkConfig\ =\ Dialog\_DefaultWiFiLinkConfig.getInstance(\textcolor{keyword}{new}\ ArrayList<>());}
+\DoxyCodeLine{00977\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasDefaultWiFiLinks())\ \{}
+\DoxyCodeLine{00978\ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultWiFiLinkConfig.defaultLinks\ =\ getDefaultWiFiLinks();}
+\DoxyCodeLine{00979\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00980\ \ \ \ \ \}}
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{00987\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ instantiateDefaultNetworkConfig()\ \{}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ dialogDefaultNetworkConfig\ =\ Dialog\_DefaultNetworkConfig.getInstance(\textcolor{keyword}{new}\ ArrayList<>());}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasDefaultNetworks())\ \{}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ \ \ \ \ dialogDefaultNetworkConfig.defaultNetworks\ =\ getDefaultNetworks();}
+\DoxyCodeLine{00991\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00992\ \ \ \ \ \}}
+\DoxyCodeLine{00993\ }
+\DoxyCodeLine{00999\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ createFile()\ \{}
+\DoxyCodeLine{01000\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.lbl\_server.getText().equalsIgnoreCase(\textcolor{stringliteral}{"{}Server\ Index\ :\ \ Not\ configured"{}}))\ \{}
+\DoxyCodeLine{01001\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogHelper.showConfirmationDialog(\textcolor{stringliteral}{"{}There\ are\ no\ servers\ in\ the\ topology!\(\backslash\)nDo\ you\ want\ to\ continue?"{}},\textcolor{stringliteral}{"{}Warning!"{}})\ ==\ JOptionPane.NO\_OPTION)\ \{}
+\DoxyCodeLine{01002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01003\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01004\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01005\ }
+\DoxyCodeLine{01006\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.lbl\_client.getText().equalsIgnoreCase(\textcolor{stringliteral}{"{}Client\ Index\ \ :\ Not\ configured"{}}))\ \{}
+\DoxyCodeLine{01007\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialogHelper.showConfirmationDialog(\textcolor{stringliteral}{"{}There\ are\ no\ clients\ in\ the\ topology!"{}},\textcolor{stringliteral}{"{}Warning!"{}})==JOptionPane.NO\_OPTION)\ \{}
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01009\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01010\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01011\ }
+\DoxyCodeLine{01012\ \ \ \ \ \ \ \ \ String\ path\ =\ UNIVERSAL\_SETTINGS.getString(OUTPUT\_PATH)+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}}+UNIVERSAL\_SETTINGS.getString(FILE\_NAME)+\textcolor{stringliteral}{"{}.txt"{}};}
+\DoxyCodeLine{01013\ }
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ Map<String,\ String>\ otherFields\ =\ \textcolor{keyword}{new}\ HashMap<>();}
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.chkBox\_netanim.isSelected())\ \{}
+\DoxyCodeLine{01016\ \ \ \ \ \ \ \ \ \ \ \ \ otherFields.put(CodeGenerator.UTILITY\_NETANIM,\ CodeGenerator.VALUE\_TRUE);}
+\DoxyCodeLine{01017\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \ \ \ \ \ \ otherFields.put(CodeGenerator.UTILITY\_NETANIM,\ CodeGenerator.VALUE\_FALSE);}
+\DoxyCodeLine{01019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01020\ }
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.chkBox\_wireshark.isSelected())\ \{}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \ \ \ \ otherFields.put(CodeGenerator.UTILITY\_WIRESHARK,CodeGenerator.VALUE\_TRUE);}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ \ \ \ \ \ \ otherFields.put(CodeGenerator.UTILITY\_WIRESHARK,CodeGenerator.VALUE\_FALSE);}
+\DoxyCodeLine{01025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01026\ }
+\DoxyCodeLine{01027\ \ \ \ \ \ \ \ \ otherFields.put(CodeGenerator.NAME\_OF\_TOPOLOGY,\ \textcolor{stringliteral}{"{}Custom"{}});}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ otherFields.put(CodeGenerator.TOTAL\_NODES,\ String.valueOf(\textcolor{keyword}{this}.painter.getNodes().size()));}
+\DoxyCodeLine{01029\ \ \ \ \ \ \ \ \ this.codeGenerator\ =\ \textcolor{keyword}{new}\ CodeGenerator(dialogConfigureServer,dialogConfigureClient,dialogConnection,dialogLink,dialogWiFiLink,otherFields);}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ this.codeGenerator.GenerateCode();}
+\DoxyCodeLine{01031\ \ \ \ \ \ \ \ \ FileReaderWriter.writeUsingPath(this.codeGenerator.getCode(),\ path);}
+\DoxyCodeLine{01032\ }
+\DoxyCodeLine{01033\ \ \ \ \ \ \ \ \ this.dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}File\ has\ been\ generated\ successfully!\(\backslash\)nAt\ :\ "{}}+this.OutputPath,\ \textcolor{stringliteral}{"{}Code\ Generated!"{}});}
+\DoxyCodeLine{01034\ \ \ \ \ \}}
+\DoxyCodeLine{01035\ }
+\DoxyCodeLine{01039\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ main(String[]\ args)\ \{}
+\DoxyCodeLine{01040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ setting\ the\ UI\ theme,\ if\ it\ exists}}
+\DoxyCodeLine{01042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(UIManager.LookAndFeelInfo\ info\ :\ UIManager.getInstalledLookAndFeels())\ \{}
+\DoxyCodeLine{01043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{stringliteral}{"{}Nimbus"{}}.equals(info.getName()))\ \{}
+\DoxyCodeLine{01044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UIManager.setLookAndFeel(info.getClassName());}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01047\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (ClassNotFoundException\ e)\ \{}
+\DoxyCodeLine{01048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{01049\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (InstantiationException\ e)\ \{}
+\DoxyCodeLine{01050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{01051\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (IllegalAccessException\ e)\ \{}
+\DoxyCodeLine{01052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{01053\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (UnsupportedLookAndFeelException\ e)\ \{}
+\DoxyCodeLine{01054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ RuntimeException(e);}
+\DoxyCodeLine{01055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ enabling\ logger}}
+\DoxyCodeLine{01057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ LoggingHelper();}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ starting\ application}}
+\DoxyCodeLine{01059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Home\_Screen();}
+\DoxyCodeLine{01060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ filtering\ the\ arguments...}}
+\DoxyCodeLine{01061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ a\ :\ args)\ \{}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ enabling\ log\ level}}
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (a.trim().replace(\textcolor{stringliteral}{"{}-\/"{}},\textcolor{stringliteral}{"{}"{}}).toUpperCase())\ \{}
+\DoxyCodeLine{01064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}ERROR"{}}:}
+\DoxyCodeLine{01065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.setLogLevel(LogLevel.LOG\_LEVEL\_ERROR);}
+\DoxyCodeLine{01066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}DEBUG"{}}:}
+\DoxyCodeLine{01068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.setLogLevel(LogLevel.LOG\_LEVEL\_DEBUG);}
+\DoxyCodeLine{01069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}INFO"{}}:}
+\DoxyCodeLine{01071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.setLogLevel(LogLevel.LOG\_LEVEL\_INFO);}
+\DoxyCodeLine{01072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}FUNCTION"{}}:}
+\DoxyCodeLine{01074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.setLogLevel(LogLevel.LOG\_LEVEL\_FUNCTION);}
+\DoxyCodeLine{01075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}LOGIC"{}}:}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.setLogLevel(LogLevel.LOG\_LEVEL\_LOGIC);}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{stringliteral}{"{}LOGALL"{}}:}
+\DoxyCodeLine{01080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.setLogLevel(LogLevel.LOG\_LEVEL\_ALL);}
+\DoxyCodeLine{01081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{01082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.setLogLevel(LogLevel.LOG\_NONE);}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01086\ \ \ \ \ \}}
+\DoxyCodeLine{01087\ \}}
+
+\end{DoxyCode}

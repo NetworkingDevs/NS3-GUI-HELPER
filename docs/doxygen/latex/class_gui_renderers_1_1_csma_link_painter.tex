@@ -1,0 +1,168 @@
+\doxysection{Gui\+Renderers.\+Csma\+Link\+Painter Class Reference}
+\label{class_gui_renderers_1_1_csma_link_painter}\index{GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}}
+Inheritance diagram for Gui\+Renderers.\+Csma\+Link\+Painter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gui_renderers_1_1_csma_link_painter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Csma\+Link\+Painter} (Array\+List$<$ Integer $>$ \textbf{ node\+List}, Array\+List$<$ \textbf{ Node\+Painter} $>$ \textbf{ nodes}, Color color)
+\item 
+\textbf{ Csma\+Link\+Painter} (Array\+List$<$ Integer $>$ \textbf{ node\+List}, Array\+List$<$ \textbf{ Node\+Painter} $>$ \textbf{ nodes})
+\item 
+void \textbf{ paint} (Graphics g)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Color \textbf{ link\+Color}
+\item 
+Array\+List$<$ Integer $>$ \textbf{ node\+List}
+\item 
+Array\+List$<$ \textbf{ Node\+Painter} $>$ \textbf{ nodes}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Stroke \textbf{ dashed} = new Basic\+Stroke(3, Basic\+Stroke.\+CAP\+\_\+\+BUTT, Basic\+Stroke.\+JOIN\+\_\+\+BEVEL, 0, new float[$\,$]\{9\}, 0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to manage, paint and store the CSMA Link 
+
+Definition at line \textbf{ 11} of file \textbf{ Csma\+Link\+Painter.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_gui_renderers_1_1_csma_link_painter_a81a751b72a2905af3224ad59471d9868} 
+\index{GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}!CsmaLinkPainter@{CsmaLinkPainter}}
+\index{CsmaLinkPainter@{CsmaLinkPainter}!GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}}
+\doxysubsubsection{CsmaLinkPainter()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Gui\+Renderers.\+Csma\+Link\+Painter.\+Csma\+Link\+Painter (\begin{DoxyParamCaption}\item[{Array\+List$<$ Integer $>$}]{node\+List,  }\item[{Array\+List$<$ \textbf{ Node\+Painter} $>$}]{nodes,  }\item[{Color}]{color }\end{DoxyParamCaption})}
+
+to create the object of type CSMA Link
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+List} & the index of node \\
+\hline
+{\em nodes} & the nodes \\
+\hline
+{\em color} & the color of the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Csma\+Link\+Painter\+::\+Csma\+Link\+Painter(\+Array\+List, Array\+List) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 44} of file \textbf{ Csma\+Link\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_csma_link_painter_afa8b14451aab0aaa28bc15b716348548} 
+\index{GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}!CsmaLinkPainter@{CsmaLinkPainter}}
+\index{CsmaLinkPainter@{CsmaLinkPainter}!GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}}
+\doxysubsubsection{CsmaLinkPainter()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Gui\+Renderers.\+Csma\+Link\+Painter.\+Csma\+Link\+Painter (\begin{DoxyParamCaption}\item[{Array\+List$<$ Integer $>$}]{node\+List,  }\item[{Array\+List$<$ \textbf{ Node\+Painter} $>$}]{nodes }\end{DoxyParamCaption})}
+
+to create the object of type CSMA Link
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+List} & the index of node \\
+\hline
+{\em nodes} & the nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Csma\+Link\+Painter\+::\+Csma\+Link\+Painter(\+Array\+List, Array\+List, Color) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 59} of file \textbf{ Csma\+Link\+Painter.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_gui_renderers_1_1_csma_link_painter_a7d0514d9f94fcc1277b12003c13f44df} 
+\index{GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}!paint@{paint}}
+\index{paint@{paint}!GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}}
+\doxysubsubsection{paint()}
+{\footnotesize\ttfamily void Gui\+Renderers.\+Csma\+Link\+Painter.\+paint (\begin{DoxyParamCaption}\item[{Graphics}]{g }\end{DoxyParamCaption})}
+
+to paint the CSMA link
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & the Graphics from the painter \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Gui\+Renderers.\+Canvas\+Painter} \doxyref{}{p.}{interface_gui_renderers_1_1_canvas_painter_a84d5c9562ee8ff11161ea8b2e5b115f5}.
+
+
+
+Definition at line \textbf{ 70} of file \textbf{ Csma\+Link\+Painter.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_gui_renderers_1_1_csma_link_painter_aabc47ffb4aa1299717ea7cbc4322a77d} 
+\index{GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}!dashed@{dashed}}
+\index{dashed@{dashed}!GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}}
+\doxysubsubsection{dashed}
+{\footnotesize\ttfamily Stroke Gui\+Renderers.\+Csma\+Link\+Painter.\+dashed = new Basic\+Stroke(3, Basic\+Stroke.\+CAP\+\_\+\+BUTT, Basic\+Stroke.\+JOIN\+\_\+\+BEVEL, 0, new float[$\,$]\{9\}, 0)\hspace{0.3cm}{\ttfamily [static]}}
+
+dashed line for stroke painting of the CSMA chnnel 
+
+Definition at line \textbf{ 28} of file \textbf{ Csma\+Link\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_csma_link_painter_a62f634fa21962cf7a5547d984b98c844} 
+\index{GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}!linkColor@{linkColor}}
+\index{linkColor@{linkColor}!GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}}
+\doxysubsubsection{linkColor}
+{\footnotesize\ttfamily Color Gui\+Renderers.\+Csma\+Link\+Painter.\+link\+Color}
+
+the color of the link 
+
+Definition at line \textbf{ 15} of file \textbf{ Csma\+Link\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_csma_link_painter_a4f139c34d253ecfacc0bffb3e44a3275} 
+\index{GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}!nodeList@{nodeList}}
+\index{nodeList@{nodeList}!GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}}
+\doxysubsubsection{nodeList}
+{\footnotesize\ttfamily Array\+List$<$Integer$>$ Gui\+Renderers.\+Csma\+Link\+Painter.\+node\+List}
+
+list of index of nodes which are part of CSMA channel 
+
+Definition at line \textbf{ 19} of file \textbf{ Csma\+Link\+Painter.\+java}.
+
+\label{class_gui_renderers_1_1_csma_link_painter_a2568ca06aa7b1607dfdac77adde9d8bd} 
+\index{GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}!nodes@{nodes}}
+\index{nodes@{nodes}!GuiRenderers.CsmaLinkPainter@{GuiRenderers.CsmaLinkPainter}}
+\doxysubsubsection{nodes}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Node\+Painter}$>$ Gui\+Renderers.\+Csma\+Link\+Painter.\+nodes}
+
+the nodes which are part of CSMA channel 
+
+Definition at line \textbf{ 23} of file \textbf{ Csma\+Link\+Painter.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Gui\+Renderers/\textbf{ Csma\+Link\+Painter.\+java}\end{DoxyCompactItemize}

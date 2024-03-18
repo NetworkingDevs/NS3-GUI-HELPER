@@ -1,0 +1,609 @@
+\doxysection{Ns3\+Objects.\+Links.\+CSMA Class Reference}
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a}\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+Inheritance diagram for Ns3\+Objects.\+Links.\+CSMA\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ns3_objects_1_1_links_1_1_c_s_m_a}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ CSMA} (int id, String \textbf{ name}, String \textbf{ delay}, String \textbf{ data\+Rate}, String \textbf{ speed\+Modifier}, boolean enable\+Pcap)
+\item 
+\textbf{ CSMA} (int id, String \textbf{ name}, String \textbf{ delay}, String \textbf{ data\+Rate}, String \textbf{ speed\+Modifier}, boolean enable\+Pcap, boolean is\+Default)
+\item 
+\textbf{ CSMA} (int id, String \textbf{ name}, String \textbf{ delay}, String \textbf{ data\+Rate}, String \textbf{ speed\+Modifier}, boolean enable\+Pcap, boolean is\+Default, boolean is\+Used)
+\item 
+String \textbf{ to\+String} ()
+\item 
+String \textbf{ for\+Settings} ()
+\item 
+boolean \textbf{ is\+Default} ()
+\item 
+void \textbf{ set\+Default} (boolean is\+Default)
+\item 
+boolean \textbf{ is\+Used} ()
+\item 
+void \textbf{ set\+Used} (boolean used)
+\item 
+String \textbf{ to\+Code} ()
+\item 
+String \textbf{ get\+Packet\+Capture\+All\+Code} ()
+\item 
+int \textbf{ get\+Id} ()
+\item 
+void \textbf{ set\+Id} (int id)
+\item 
+String \textbf{ get\+Name} ()
+\item 
+void \textbf{ set\+Name} (String \textbf{ name})
+\item 
+String \textbf{ get\+Delay} ()
+\item 
+void \textbf{ set\+Delay} (String \textbf{ delay})
+\item 
+String \textbf{ get\+Data\+Rate} ()
+\item 
+void \textbf{ set\+Data\+Rate} (String \textbf{ data\+Rate})
+\item 
+String \textbf{ get\+Speed\+Modifier} ()
+\item 
+void \textbf{ set\+Speed\+Modifier} (String \textbf{ speed\+Modifier})
+\item 
+\textbf{ Link\+Type} \textbf{ get\+Link\+Type} ()
+\item 
+void \textbf{ set\+Link\+Type} (\textbf{ Link\+Type} link\+Type)
+\item 
+boolean \textbf{ get\+Enable\+Pcap} ()
+\item 
+void \textbf{ set\+Enable\+Pcap} (boolean enable\+Pcap)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \textbf{ name}
+\item 
+String \textbf{ delay}
+\item 
+String \textbf{ data\+Rate}
+\item 
+String \textbf{ speed\+Modifier}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \textbf{ Ns3\+Objects.\+Links.\+Network\+Link}}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ CHOICE\+\_\+\+INDEX\+\_\+\+P2P} = 0
+\item 
+int \textbf{ CHOICE\+\_\+\+INDEX\+\_\+\+CSMA} = 1
+\item 
+String \textbf{ LABEL\+\_\+\+P2P} = "{}P2\+P"{}
+\item 
+String \textbf{ LABEL\+\_\+\+CSMA} = "{}CSMA"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \textbf{ Ns3\+Objects.\+Links.\+Network\+Link}}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Link\+Type} \textbf{ get\+Link\+Type} (int choice\+Index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to store the link of type Csma\+Helper in terms of NS-\/3 Script 
+
+Definition at line \textbf{ 8} of file \textbf{ CSMA.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_adca295f4ff9ad9f6b6444efda7465f38} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!CSMA@{CSMA}}
+\index{CSMA@{CSMA}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{CSMA()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+CSMA.\+CSMA (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{delay,  }\item[{String}]{data\+Rate,  }\item[{String}]{speed\+Modifier,  }\item[{boolean}]{enable\+Pcap }\end{DoxyParamCaption})}
+
+to instantiate the object of type CSMA
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & for identity \\
+\hline
+{\em name} & alias name \\
+\hline
+{\em delay} & delay value in ms \\
+\hline
+{\em data\+Rate} & for data rate \\
+\hline
+{\em speed\+Modifier} & for speed modifier \\
+\hline
+{\em enable\+Pcap} & for enabling packet capture of entire link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+P2P 
+
+Network\+Link 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 60} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a9de936769fba66c5f46509e1c22f3474} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!CSMA@{CSMA}}
+\index{CSMA@{CSMA}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{CSMA()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+CSMA.\+CSMA (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{delay,  }\item[{String}]{data\+Rate,  }\item[{String}]{speed\+Modifier,  }\item[{boolean}]{enable\+Pcap,  }\item[{boolean}]{is\+Default }\end{DoxyParamCaption})}
+
+to instantiate the object of type CSMA
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & for identity \\
+\hline
+{\em name} & for alias \\
+\hline
+{\em delay} & for delay in ms \\
+\hline
+{\em data\+Rate} & for data rate of the link \\
+\hline
+{\em speed\+Modifier} & for speed modifier \\
+\hline
+{\em enable\+Pcap} & for enabling packet capture of entire link \\
+\hline
+{\em is\+Default} & for setting as default link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+CSMA\+::\+CSMA(int, String, String, String, String, boolean) 
+
+CSMA\+::\+CSMA(int, String, String, String, String, boolean, boolean, boolean) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 87} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_acd938581114c5ce3211bec692483db36} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!CSMA@{CSMA}}
+\index{CSMA@{CSMA}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{CSMA()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+CSMA.\+CSMA (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{delay,  }\item[{String}]{data\+Rate,  }\item[{String}]{speed\+Modifier,  }\item[{boolean}]{enable\+Pcap,  }\item[{boolean}]{is\+Default,  }\item[{boolean}]{is\+Used }\end{DoxyParamCaption})}
+
+to instantiate the object of type CSMA
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & for identity \\
+\hline
+{\em name} & for alias \\
+\hline
+{\em delay} & for delay in ms \\
+\hline
+{\em data\+Rate} & for data rate of the link \\
+\hline
+{\em speed\+Modifier} & for speed modifier \\
+\hline
+{\em enable\+Pcap} & for enabling packet capture of entire link \\
+\hline
+{\em is\+Default} & for setting as default link \\
+\hline
+{\em is\+Used} & for marking as used link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+CSMA\+::\+CSMA(int, String, String, String, String, boolean) 
+
+CSMA\+::\+CSMA(int, String, String, String, String, boolean, boolean) CSMA 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 107} of file \textbf{ CSMA.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_aad36ef97c97f4eb461294f38cb2ac25f} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!forSettings@{forSettings}}
+\index{forSettings@{forSettings}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{forSettings()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+for\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the storage format in settings file
+
+\begin{DoxyReturn}{Returns}
+storage format for settings file 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2302c01e1b5a299b66758727c7a148e3}.
+
+
+
+Definition at line \textbf{ 131} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_aca99e944bab8e29b68d9a973c3fc035c} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!getDataRate@{getDataRate}}
+\index{getDataRate@{getDataRate}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{getDataRate()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+get\+Data\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ab5979d5433c3224590739501731b4e1d}.
+
+
+
+Definition at line \textbf{ 237} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a1ab0f61c5c788fafc4443049563ea166} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!getDelay@{getDelay}}
+\index{getDelay@{getDelay}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{getDelay()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+get\+Delay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ae6a8830bdea02110cda8cff5a1b33747}.
+
+
+
+Definition at line \textbf{ 227} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a1ec7aad5f1c584c84440f4438785000c} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!getEnablePcap@{getEnablePcap}}
+\index{getEnablePcap@{getEnablePcap}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{getEnablePcap()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+CSMA.\+get\+Enable\+Pcap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a7c8f176a689a115a00a28eb670377160}.
+
+
+
+Definition at line \textbf{ 267} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_ae325345d9ebdae0493811f06d6a81283} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!getId@{getId}}
+\index{getId@{getId}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{getId()}
+{\footnotesize\ttfamily int Ns3\+Objects.\+Links.\+CSMA.\+get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a375e12cfed426bb38d52a66f7f0aa6c1}.
+
+
+
+Definition at line \textbf{ 207} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_af24c00100ab74fa85f87f749d2af02d5} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!getLinkType@{getLinkType}}
+\index{getLinkType@{getLinkType}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{getLinkType()}
+{\footnotesize\ttfamily \textbf{ Link\+Type} Ns3\+Objects.\+Links.\+CSMA.\+get\+Link\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_af9a212d6ca443661bbb711ab520a51e7}.
+
+
+
+Definition at line \textbf{ 257} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_ae41c9ea197cd1d8f3c2bbff7e1e288f9} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!getName@{getName}}
+\index{getName@{getName}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{getName()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a339c90c6249616099bfc0d200057fe88}.
+
+
+
+Definition at line \textbf{ 217} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_aa660c317bf7e73c596420ed63af4280e} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!getPacketCaptureAllCode@{getPacketCaptureAllCode}}
+\index{getPacketCaptureAllCode@{getPacketCaptureAllCode}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{getPacketCaptureAllCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+get\+Packet\+Capture\+All\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the code for packet capture of entire link 
+
+
+\begin{DoxyPre}
+        {\ttfamily \newlineExample:\newlinecsmaName.EnablePcapAll("{}Name"{});\newline}
+\end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+Equivalent code for "{}.\+Enable\+Pcap\+All()"{} method 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a73f84dce85a1fb5866aca4481453f52b}.
+
+
+
+Definition at line \textbf{ 200} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_ace27ce6d563955f2206cd12674858004} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!getSpeedModifier@{getSpeedModifier}}
+\index{getSpeedModifier@{getSpeedModifier}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{getSpeedModifier()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+get\+Speed\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_aa9fdc3ec8d14a6850616a89a830b289a}.
+
+
+
+Definition at line \textbf{ 247} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a88b5881655ba5510e1880627294d4f1d} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!isDefault@{isDefault}}
+\index{isDefault@{isDefault}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{isDefault()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+CSMA.\+is\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ad6d72c9f7fc6e581e0e939841419a514}.
+
+
+
+Definition at line \textbf{ 136} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_aecd552f13b6f21e30aabb1d4745c744e} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!isUsed@{isUsed}}
+\index{isUsed@{isUsed}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{isUsed()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+CSMA.\+is\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a08ab309b90d7aa65ae0fabe46e7b3a3b}.
+
+
+
+Definition at line \textbf{ 146} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a7ce5db14a9c9c93096fd800baf95885a} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setDataRate@{setDataRate}}
+\index{setDataRate@{setDataRate}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setDataRate()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Data\+Rate (\begin{DoxyParamCaption}\item[{String}]{data\+Rate }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_adb59efa98debc4a97a3e3f49eb5227d1}.
+
+
+
+Definition at line \textbf{ 242} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_aeee23637e219f439a25a42d767f97a39} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setDefault@{setDefault}}
+\index{setDefault@{setDefault}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setDefault()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Default (\begin{DoxyParamCaption}\item[{boolean}]{is\+Default }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a858d7c49ae7d305ba6276ffc9c3e44e0}.
+
+
+
+Definition at line \textbf{ 141} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a169e26a3b53437f3c3666ef18e96f32e} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setDelay@{setDelay}}
+\index{setDelay@{setDelay}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setDelay()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Delay (\begin{DoxyParamCaption}\item[{String}]{delay }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a9537bbbd60cdd177ad0085b608667c47}.
+
+
+
+Definition at line \textbf{ 232} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a08d5059155e4623aced26f99235f101f} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setEnablePcap@{setEnablePcap}}
+\index{setEnablePcap@{setEnablePcap}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setEnablePcap()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Enable\+Pcap (\begin{DoxyParamCaption}\item[{boolean}]{enable\+Pcap }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2f736a32ec9169c2bcfcd0d062c798c1}.
+
+
+
+Definition at line \textbf{ 272} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a7b4169d54cbb21adfc4baaa162431a36} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setId@{setId}}
+\index{setId@{setId}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setId()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a392f6a5c3807bca7bcd89a8af824f24f}.
+
+
+
+Definition at line \textbf{ 212} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a91e864124175bc6e8011036d33babd5d} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setLinkType@{setLinkType}}
+\index{setLinkType@{setLinkType}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setLinkType()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Link\+Type (\begin{DoxyParamCaption}\item[{\textbf{ Link\+Type}}]{link\+Type }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a0fe0f2e530871c476ea4260358b802d7}.
+
+
+
+Definition at line \textbf{ 262} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a56839e5085e00c0316d3132f11a63ddb} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setName@{setName}}
+\index{setName@{setName}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setName()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Name (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2ecf6c0fd47800c282e7a6f9acd4baf4}.
+
+
+
+Definition at line \textbf{ 222} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_ae00b53da3395dfe31e58472a5990edca} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setSpeedModifier@{setSpeedModifier}}
+\index{setSpeedModifier@{setSpeedModifier}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setSpeedModifier()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Speed\+Modifier (\begin{DoxyParamCaption}\item[{String}]{speed\+Modifier }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a14af742336e8777f6ffb7760af1d3691}.
+
+
+
+Definition at line \textbf{ 252} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_add961d6440d4de645f7ef94165a97320} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!setUsed@{setUsed}}
+\index{setUsed@{setUsed}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{setUsed()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+CSMA.\+set\+Used (\begin{DoxyParamCaption}\item[{boolean}]{used }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a92ca53f427592ad8a5d7efc48d74df27}.
+
+
+
+Definition at line \textbf{ 151} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_ab8c22d14ec2d77bf259044ed101e8640} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!toCode@{toCode}}
+\index{toCode@{toCode}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{toCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+to\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the link configuration code 
+
+
+\begin{DoxyPre}
+         {\ttfamily \newline Example:\newline  CsmaHelper csma;\newline  csma.SetChannelAttribute("{}DataRate"{}, StringValue("{}500Mbps"{}));\newline  csma.SetChannelAttribute("{}Delay"{}, TimeValue(NanoSeconds(6560)));\newline  }
+  \end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+the link configuration code 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a5a5ec341998eaa7649cde94048724ef5}.
+
+
+
+Definition at line \textbf{ 174} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a04652c2c30a685b9d62b203e5374fe0a} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!toString@{toString}}
+\index{toString@{toString}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to render the link information
+
+\begin{DoxyReturn}{Returns}
+the link information 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 119} of file \textbf{ CSMA.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a1386d7e72fdc30f8ba317e5c61bf8520} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!dataRate@{dataRate}}
+\index{dataRate@{dataRate}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{dataRate}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+data\+Rate}
+
+for data rate 
+
+Definition at line \textbf{ 25} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a08d8432ba5bb92396dc559621168ffa6} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!delay@{delay}}
+\index{delay@{delay}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{delay}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+delay}
+
+for delay in "{}ms"{} 
+
+Definition at line \textbf{ 21} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_a63beafe49c9b044362db236b880277d6} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!name@{name}}
+\index{name@{name}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{name}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+name}
+
+for alias name 
+
+Definition at line \textbf{ 17} of file \textbf{ CSMA.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_c_s_m_a_abed352367bd52df5301664ccb5105388} 
+\index{Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}!speedModifier@{speedModifier}}
+\index{speedModifier@{speedModifier}!Ns3Objects.Links.CSMA@{Ns3Objects.Links.CSMA}}
+\doxysubsubsection{speedModifier}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+CSMA.\+speed\+Modifier}
+
+for speed modifier of link 
+
+Definition at line \textbf{ 29} of file \textbf{ CSMA.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Ns3\+Objects/\+Links/\textbf{ CSMA.\+java}\end{DoxyCompactItemize}

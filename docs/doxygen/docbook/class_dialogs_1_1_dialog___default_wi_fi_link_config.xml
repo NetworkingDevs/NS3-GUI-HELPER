@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog___default_wi_fi_link_config" xml:lang="en-US">
+<title>Dialogs.Dialog_DefaultWiFiLinkConfig Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_DefaultWiFiLinkConfig</primary></indexterm>
+<para>Inheritance diagram for Dialogs.Dialog_DefaultWiFiLinkConfig:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dialogs_1_1_dialog___default_wi_fi_link_config.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1a62d65ba1879711ed6c709fb92bdb4c46">Dialog_DefaultWiFiLinkConfig</link> (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; links)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1aee561eaaa4833f1f478437ae5ed996f7">showLinks</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1abb194b1383404f1ac12c2854358272dd">showLinksAgain</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_dialogs_1_1_dialog___default_wi_fi_link_config">Dialog_DefaultWiFiLinkConfig</link> <link linkend="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1ac270bdd9ec7cbadf837863db816f3a29">getInstance</link> (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; links)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; <link linkend="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1a7b67324d97011e88f3587d686698951a">defaultLinks</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Dialog to configure the default wi-fi link settings</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_wi_fi_link_config_8java_source_1l00029">29</link> of file <link linkend="__dialog___default_wi_fi_link_config_8java_source">Dialog_DefaultWiFiLinkConfig.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1a62d65ba1879711ed6c709fb92bdb4c46"/><section>
+    <title>Dialog_DefaultWiFiLinkConfig()</title>
+<indexterm><primary>Dialog_DefaultWiFiLinkConfig</primary><secondary>Dialogs.Dialog_DefaultWiFiLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultWiFiLinkConfig</primary><secondary>Dialog_DefaultWiFiLinkConfig</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_DefaultWiFiLinkConfig.Dialog_DefaultWiFiLinkConfig (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; links)</computeroutput></para>
+<para>to make the object of type Dialog_DefaultWiFiLinkConfig</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>links</entry><entry>
+<para>the list of wi-fi links </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_wi_fi_link_config_8java_source_1l00093">93</link> of file <link linkend="__dialog___default_wi_fi_link_config_8java_source">Dialog_DefaultWiFiLinkConfig.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1ac270bdd9ec7cbadf837863db816f3a29"/><section>
+    <title>getInstance()</title>
+<indexterm><primary>getInstance</primary><secondary>Dialogs.Dialog_DefaultWiFiLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultWiFiLinkConfig</primary><secondary>getInstance</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_dialogs_1_1_dialog___default_wi_fi_link_config">Dialog_DefaultWiFiLinkConfig</link> Dialogs.Dialog_DefaultWiFiLinkConfig.getInstance (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; links)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the instance of this class</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>links</entry><entry>
+<para>the list of links </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the instance of this class </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_wi_fi_link_config_8java_source_1l00078">78</link> of file <link linkend="__dialog___default_wi_fi_link_config_8java_source">Dialog_DefaultWiFiLinkConfig.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1aee561eaaa4833f1f478437ae5ed996f7"/><section>
+    <title>showLinks()</title>
+<indexterm><primary>showLinks</primary><secondary>Dialogs.Dialog_DefaultWiFiLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultWiFiLinkConfig</primary><secondary>showLinks</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_DefaultWiFiLinkConfig.showLinks ( )</computeroutput></para>
+<para>to show the link settings</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_wi_fi_link_config_8java_source_1l00123">123</link> of file <link linkend="__dialog___default_wi_fi_link_config_8java_source">Dialog_DefaultWiFiLinkConfig.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1abb194b1383404f1ac12c2854358272dd"/><section>
+    <title>showLinksAgain()</title>
+<indexterm><primary>showLinksAgain</primary><secondary>Dialogs.Dialog_DefaultWiFiLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultWiFiLinkConfig</primary><secondary>showLinksAgain</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_DefaultWiFiLinkConfig.showLinksAgain ( )</computeroutput></para>
+<para>to show the wi-fi links settings</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_wi_fi_link_config_8java_source_1l00174">174</link> of file <link linkend="__dialog___default_wi_fi_link_config_8java_source">Dialog_DefaultWiFiLinkConfig.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_wi_fi_link_config_1a7b67324d97011e88f3587d686698951a"/><section>
+    <title>defaultLinks</title>
+<indexterm><primary>defaultLinks</primary><secondary>Dialogs.Dialog_DefaultWiFiLinkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultWiFiLinkConfig</primary><secondary>defaultLinks</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link>&gt; Dialogs.Dialog_DefaultWiFiLinkConfig.defaultLinks</computeroutput></para>
+<para>list of wi-fi link settings </para>
+<para>
+Definition at line <link linkend="__dialog___default_wi_fi_link_config_8java_source_1l00057">57</link> of file <link linkend="__dialog___default_wi_fi_link_config_8java_source">Dialog_DefaultWiFiLinkConfig.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog___default_wi_fi_link_config_8java">Dialog_DefaultWiFiLinkConfig.java</link></section>
+</section>

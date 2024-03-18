@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog___helper" xml:lang="en-US">
+<title>Dialogs.Dialog_Helper Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_Helper</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog___helper_1a1ae698d4629cb3135ea7fcfadb9a7bd9">Dialog_Helper</link> (Component component)</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_dialogs_1_1_dialog___helper_1a7ec20b2bf87c52b9ca6f316b5f85dc9e">showConfirmationDialog</link> (String msg, String title)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___helper_1ac75067b78c2fee49a7c2426a33542c28">showWarningMsg</link> (String msg, String title)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___helper_1aec912f840fde9a8c2d61a4418a426b92">showInformationMsg</link> (String msg, String title)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___helper_1acf45b68164bba49fc19c9d44145c23f4">showErrorMsg</link> (String msg, String title)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>Component <link linkend="_class_dialogs_1_1_dialog___helper_1abc57661e60f617fc2f097819901889d5">anyParentComponent</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This will help to show confirmation, warning, error and information messages in dialog form </para>
+<para>
+Definition at line <link linkend="__dialog___helper_8java_source_1l00019">19</link> of file <link linkend="__dialog___helper_8java_source">Dialog_Helper.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___helper_1a1ae698d4629cb3135ea7fcfadb9a7bd9"/><section>
+    <title>Dialog_Helper()</title>
+<indexterm><primary>Dialog_Helper</primary><secondary>Dialogs.Dialog_Helper</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Helper</primary><secondary>Dialog_Helper</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_Helper.Dialog_Helper (Component component)</computeroutput></para>
+<para>to create an object of type Dialog_Helper</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>component</entry><entry>
+<para>the parent component </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___helper_8java_source_1l00031">31</link> of file <link linkend="__dialog___helper_8java_source">Dialog_Helper.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___helper_1a7ec20b2bf87c52b9ca6f316b5f85dc9e"/><section>
+    <title>showConfirmationDialog()</title>
+<indexterm><primary>showConfirmationDialog</primary><secondary>Dialogs.Dialog_Helper</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Helper</primary><secondary>showConfirmationDialog</secondary></indexterm>
+<para><computeroutput>int Dialogs.Dialog_Helper.showConfirmationDialog (String msg, String title)</computeroutput></para>
+<para>to show the confirmation dialog</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the msg that you want to show </para>
+</entry>
+                            </row>
+                            <row>
+<entry>title</entry><entry>
+<para>The title of the dialog </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The integer value showcasing the selected choice of the user </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___helper_8java_source_1l00044">44</link> of file <link linkend="__dialog___helper_8java_source">Dialog_Helper.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___helper_1acf45b68164bba49fc19c9d44145c23f4"/><section>
+    <title>showErrorMsg()</title>
+<indexterm><primary>showErrorMsg</primary><secondary>Dialogs.Dialog_Helper</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Helper</primary><secondary>showErrorMsg</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_Helper.showErrorMsg (String msg, String title)</computeroutput></para>
+<para>to show the error dialog</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the message that you want to show </para>
+</entry>
+                            </row>
+                            <row>
+<entry>title</entry><entry>
+<para>the title of the dialog </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___helper_8java_source_1l00080">80</link> of file <link linkend="__dialog___helper_8java_source">Dialog_Helper.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___helper_1aec912f840fde9a8c2d61a4418a426b92"/><section>
+    <title>showInformationMsg()</title>
+<indexterm><primary>showInformationMsg</primary><secondary>Dialogs.Dialog_Helper</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Helper</primary><secondary>showInformationMsg</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_Helper.showInformationMsg (String msg, String title)</computeroutput></para>
+<para>to show the information dialog</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the message that you want to show </para>
+</entry>
+                            </row>
+                            <row>
+<entry>title</entry><entry>
+<para>the title of the dialog </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___helper_8java_source_1l00068">68</link> of file <link linkend="__dialog___helper_8java_source">Dialog_Helper.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___helper_1ac75067b78c2fee49a7c2426a33542c28"/><section>
+    <title>showWarningMsg()</title>
+<indexterm><primary>showWarningMsg</primary><secondary>Dialogs.Dialog_Helper</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Helper</primary><secondary>showWarningMsg</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_Helper.showWarningMsg (String msg, String title)</computeroutput></para>
+<para>to show the warning dialog</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>msg</entry><entry>
+<para>the message that you want to show </para>
+</entry>
+                            </row>
+                            <row>
+<entry>title</entry><entry>
+<para>The title of the dialog </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___helper_8java_source_1l00056">56</link> of file <link linkend="__dialog___helper_8java_source">Dialog_Helper.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___helper_1abc57661e60f617fc2f097819901889d5"/><section>
+    <title>anyParentComponent</title>
+<indexterm><primary>anyParentComponent</primary><secondary>Dialogs.Dialog_Helper</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_Helper</primary><secondary>anyParentComponent</secondary></indexterm>
+<para><computeroutput>Component Dialogs.Dialog_Helper.anyParentComponent</computeroutput></para>
+<para>the parent component, in reference of the dialog box </para>
+<para>
+Definition at line <link linkend="__dialog___helper_8java_source_1l00023">23</link> of file <link linkend="__dialog___helper_8java_source">Dialog_Helper.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog___helper_8java">Dialog_Helper.java</link></section>
+</section>

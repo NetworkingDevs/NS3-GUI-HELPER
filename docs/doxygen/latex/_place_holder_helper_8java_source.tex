@@ -1,0 +1,34 @@
+\doxysection{Place\+Holder\+Helper.\+java}
+\label{_place_holder_helper_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Helpers/PlaceHolderHelper.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Helpers/PlaceHolderHelper.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Helpers;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ java.awt.event.FocusAdapter;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.event.FocusEvent;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }PlaceHolderHelper\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ addPlaceHolder(JTextField\ textField,\ String\ placeholder)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}adding\ an\ place\ holder\ :\ "{}}+placeholder);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ textField.addFocusListener(\textcolor{keyword}{new}\ FocusAdapter()\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ focusGained(FocusEvent\ e)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.focusGained(e);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textField.getText().equals(placeholder))\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ focusLost(FocusEvent\ e)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.focusLost(e);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textField.getText().equals(\textcolor{stringliteral}{"{}"{}}))\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField.setText(placeholder);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}

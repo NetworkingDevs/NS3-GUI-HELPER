@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__place_holder_helper_8java_source" xml:lang="en-US">
+<title>PlaceHolderHelper.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Helpers/PlaceHolderHelper.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__place_holder_helper_8java_source_1l00001"/>00001 <emphasis role="keyword">package&#32;</emphasis>Helpers;
+<anchor xml:id="__place_holder_helper_8java_source_1l00002"/>00002 
+<anchor xml:id="__place_holder_helper_8java_source_1l00003"/>00003 <emphasis role="keyword">import</emphasis>&#32;javax.swing.*;
+<anchor xml:id="__place_holder_helper_8java_source_1l00004"/>00004 <emphasis role="keyword">import</emphasis>&#32;java.awt.event.FocusAdapter;
+<anchor xml:id="__place_holder_helper_8java_source_1l00005"/>00005 <emphasis role="keyword">import</emphasis>&#32;java.awt.event.FocusEvent;
+<anchor xml:id="__place_holder_helper_8java_source_1l00006"/>00006 
+<anchor xml:id="__place_holder_helper_8java_source_1l00012"/><link linkend="_class_helpers_1_1_place_holder_helper">00012</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_helpers_1_1_place_holder_helper">PlaceHolderHelper</link>&#32;{
+<anchor xml:id="__place_holder_helper_8java_source_1l00020"/><link linkend="_class_helpers_1_1_place_holder_helper_1a9ba2a75731bb68cc34ee6163870feaae">00020</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_helpers_1_1_place_holder_helper_1a9ba2a75731bb68cc34ee6163870feaae">addPlaceHolder</link>(JTextField&#32;textField,&#32;String&#32;placeholder)&#32;{
+<anchor xml:id="__place_holder_helper_8java_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a1f01a0d874cafdfea0780acfc5d2061f">LogInfo</link>(<emphasis role="stringliteral">&quot;adding&#32;an&#32;place&#32;holder&#32;:&#32;&quot;</emphasis>+placeholder);
+<anchor xml:id="__place_holder_helper_8java_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;textField.addFocusListener(<emphasis role="keyword">new</emphasis>&#32;FocusAdapter()&#32;{
+<anchor xml:id="__place_holder_helper_8java_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__place_holder_helper_8java_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;focusGained(FocusEvent&#32;e)&#32;{
+<anchor xml:id="__place_holder_helper_8java_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;super.focusGained(e);
+<anchor xml:id="__place_holder_helper_8java_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(textField.getText().equals(placeholder))&#32;{
+<anchor xml:id="__place_holder_helper_8java_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;textField.setText(<emphasis role="stringliteral">&quot;&quot;</emphasis>);
+<anchor xml:id="__place_holder_helper_8java_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__place_holder_helper_8java_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__place_holder_helper_8java_source_1l00030"/>00030 
+<anchor xml:id="__place_holder_helper_8java_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__place_holder_helper_8java_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;focusLost(FocusEvent&#32;e)&#32;{
+<anchor xml:id="__place_holder_helper_8java_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;super.focusLost(e);
+<anchor xml:id="__place_holder_helper_8java_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(textField.getText().equals(<emphasis role="stringliteral">&quot;&quot;</emphasis>))&#32;{
+<anchor xml:id="__place_holder_helper_8java_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;textField.setText(placeholder);
+<anchor xml:id="__place_holder_helper_8java_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__place_holder_helper_8java_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__place_holder_helper_8java_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;});
+<anchor xml:id="__place_holder_helper_8java_source_1l00039"/>00039 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__place_holder_helper_8java_source_1l00040"/>00040 }
+</programlisting></section>

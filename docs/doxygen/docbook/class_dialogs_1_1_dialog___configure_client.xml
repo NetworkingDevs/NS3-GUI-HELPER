@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog___configure_client" xml:lang="en-US">
+<title>Dialogs.Dialog_ConfigureClient Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary></indexterm>
+<para>Inheritance diagram for Dialogs.Dialog_ConfigureClient:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dialogs_1_1_dialog___configure_client.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog___configure_client_1a9ef63e284a15433cbea4dbb95175da8a">Dialog_ConfigureClient</link> (int n, Map&lt; String, JComponent &gt; helpfulComponents)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___configure_client_1aa8b91f656ade2c1dbbe2c5d8c5b0a46b">setVisible</link> (boolean b)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___configure_client_1a15cc874a7c6fa5538ba9f4d23975e50c">showDialog</link> (int n)</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_dialogs_1_1_dialog___configure_client_1af9803854f7f2b0b24c9f64a412a43bf8">getStopTime</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog___configure_client_1a38c70d52519894adc91be32d8ec76e14">getStartTime</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog___configure_client_1afad52875de9802d15c884b1f6d717078">getClientIndex</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog___configure_client_1a42510a32283c948d558ef77d642b64c9">getMTU</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog___configure_client_1a3a9b6690d97336b8be07fab468e04ea3">getInterval</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_dialogs_1_1_dialog___configure_client_1a826af4b89b795a4f14545cd0b2d08e8b">getPackets</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ArrayList&lt; String &gt; <link linkend="_class_dialogs_1_1_dialog___configure_client_1a4e2d985b232a730f21ee3f3fd3af5382">settings</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static final String <link linkend="_class_dialogs_1_1_dialog___configure_client_1a0d43130f0d767c87b97a74d8b253b303">COMPONENT_OVERVIEW_LABEL</link> = &quot;Server_OverviewLabel&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to manage the configuration of one UDP Echo client </para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00016">16</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1a9ef63e284a15433cbea4dbb95175da8a"/><section>
+    <title>Dialog_ConfigureClient()</title>
+<indexterm><primary>Dialog_ConfigureClient</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>Dialog_ConfigureClient</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_ConfigureClient.Dialog_ConfigureClient (int n, Map&lt; String, JComponent &gt; helpfulComponents)</computeroutput></para>
+<para>to create the object of type Dialog_ConfigureClient Server</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>n</entry><entry>
+<para>total no. of nodes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>helpfulComponents</entry><entry>
+<para>the map of helpful components </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00086">86</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1afad52875de9802d15c884b1f6d717078"/><section>
+    <title>getClientIndex()</title>
+<indexterm><primary>getClientIndex</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>getClientIndex</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_ConfigureClient.getClientIndex ( )</computeroutput></para>
+<para>to get the index of the client node</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00184">184</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1a3a9b6690d97336b8be07fab468e04ea3"/><section>
+    <title>getInterval()</title>
+<indexterm><primary>getInterval</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>getInterval</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_ConfigureClient.getInterval ( )</computeroutput></para>
+<para>to get the interval of the client</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00204">204</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1a42510a32283c948d558ef77d642b64c9"/><section>
+    <title>getMTU()</title>
+<indexterm><primary>getMTU</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>getMTU</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_ConfigureClient.getMTU ( )</computeroutput></para>
+<para>to get the MTU of the client</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00194">194</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1a826af4b89b795a4f14545cd0b2d08e8b"/><section>
+    <title>getPackets()</title>
+<indexterm><primary>getPackets</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>getPackets</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_ConfigureClient.getPackets ( )</computeroutput></para>
+<para>to get the no. of packets for the client</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00214">214</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1a38c70d52519894adc91be32d8ec76e14"/><section>
+    <title>getStartTime()</title>
+<indexterm><primary>getStartTime</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>getStartTime</secondary></indexterm>
+<para><computeroutput>String Dialogs.Dialog_ConfigureClient.getStartTime ( )</computeroutput></para>
+<para>to get the start time of the client</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00174">174</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1af9803854f7f2b0b24c9f64a412a43bf8"/><section>
+    <title>getStopTime()</title>
+<indexterm><primary>getStopTime</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>getStopTime</secondary></indexterm>
+<para><computeroutput>int Dialogs.Dialog_ConfigureClient.getStopTime ( )</computeroutput></para>
+<para>to get the stop time of the client</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00164">164</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1aa8b91f656ade2c1dbbe2c5d8c5b0a46b"/><section>
+    <title>setVisible()</title>
+<indexterm><primary>setVisible</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>setVisible</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_ConfigureClient.setVisible (boolean b)</computeroutput></para>
+<para>to make the dialog visible with list of all nodes</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>b</entry><entry>
+<para>whether to show or hide </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00137">137</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1a15cc874a7c6fa5538ba9f4d23975e50c"/><section>
+    <title>showDialog()</title>
+<indexterm><primary>showDialog</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>showDialog</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_ConfigureClient.showDialog (int n)</computeroutput></para>
+<para>to show dialog with nodes</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>n</entry><entry>
+<para>the total nodes </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00153">153</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1a0d43130f0d767c87b97a74d8b253b303"/><section>
+    <title>COMPONENT_OVERVIEW_LABEL</title>
+<indexterm><primary>COMPONENT_OVERVIEW_LABEL</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>COMPONENT_OVERVIEW_LABEL</secondary></indexterm>
+<para><computeroutput>final String Dialogs.Dialog_ConfigureClient.COMPONENT_OVERVIEW_LABEL = &quot;Server_OverviewLabel&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>the key for overview label </para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00056">56</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___configure_client_1a4e2d985b232a730f21ee3f3fd3af5382"/><section>
+    <title>settings</title>
+<indexterm><primary>settings</primary><secondary>Dialogs.Dialog_ConfigureClient</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_ConfigureClient</primary><secondary>settings</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;String&gt; Dialogs.Dialog_ConfigureClient.settings</computeroutput></para>
+<para>the client configuration settings </para>
+<para>
+Definition at line <link linkend="__dialog___configure_client_8java_source_1l00072">72</link> of file <link linkend="__dialog___configure_client_8java_source">Dialog_ConfigureClient.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog___configure_client_8java">Dialog_ConfigureClient.java</link></section>
+</section>

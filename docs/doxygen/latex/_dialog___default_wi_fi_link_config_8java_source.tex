@@ -1,0 +1,189 @@
+\doxysection{Dialog\+\_\+\+Default\+Wi\+Fi\+Link\+Config.\+java}
+\label{_dialog___default_wi_fi_link_config_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_DefaultWiFiLinkConfig.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_DefaultWiFiLinkConfig.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Helpers.PlaceHolderHelper;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Ns3Objects.Links.CSMA;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ Ns3Objects.Links.NetworkLink;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ Ns3Objects.Links.P2P;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ Ns3Objects.Links.WIFI;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ StatusHelper.LinkType;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ com.jgoodies.forms.layout.CellConstraints;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ com.jgoodies.forms.layout.FormLayout;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ com.jgoodies.forms.layout.RowSpec;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{import}\ java.awt.event.WindowAdapter;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{import}\ java.awt.event.WindowEvent;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{import}\ \textcolor{keyword}{static}\ Helpers.ApplicationSettingsHelper.*;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_DefaultWiFiLinkConfig\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_upper;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_wifiStandard;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_standard;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_stationManager;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_stationManager;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_ssid;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_ssid;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_alias;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_alias;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{private}\ JCheckBox\ chkBox\_enablePcap;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_save;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_lower;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}\ JScrollPane\ JScrollPane\_linkManager;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_links;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ PLACEHOLDER\_SSID\ =\ \textcolor{stringliteral}{"{}Enter\ SSID"{}};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ PLACEHOLDER\_ALIAS\ =\ \textcolor{stringliteral}{"{}Enter\ Alias\ name"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<WIFI>\ defaultLinks;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{private}\ Dialog\_Helper\ dialogHelper;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ editIndex\ =\ -\/1;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Dialog\_DefaultWiFiLinkConfig\ INSTANCE;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Dialog\_DefaultWiFiLinkConfig\ getInstance(ArrayList<WIFI>\ links)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Checking\ for\ the\ available\ instance\ of\ Dialog\_DefaultWiFiLinkConfig"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (INSTANCE==\textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}The\ instance\ for\ Dialog\_DefaultWiFiLinkConfig\ was\ not\ available!"{}});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ INSTANCE\ =\ \textcolor{keyword}{new}\ Dialog\_DefaultWiFiLinkConfig(links);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INSTANCE;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_DefaultWiFiLinkConfig(ArrayList<WIFI>\ links)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ Dialog\_DefaultWiFiLinkConfig"{}});}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ====================\ BASIC\ CONF.\ ====================}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Default\ WiFi\ Configuration"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ this.setSize(400,500);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.HIDE\_ON\_CLOSE);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ====================\ DONE\ BASIC\ CONF.\ ====================}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ this.JPanel\_links.setLayout(\textcolor{keyword}{new}\ FormLayout(\textcolor{stringliteral}{"{}fill:pref:grow,\ fill:pref:grow,\ fill:pref:grow"{}}));}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ this.JScrollPane\_linkManager.setViewportView(this.JPanel\_links);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ this.dialogHelper\ =\ \textcolor{keyword}{new}\ Dialog\_Helper(\textcolor{keyword}{this});}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ this.defaultLinks\ =\ links;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.defaultLinks.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ this.showLinks();}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_ssid,PLACEHOLDER\_SSID);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_alias,PLACEHOLDER\_ALIAS);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ this.setUpEventListeners();}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showLinks()\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Default\ WiFiLink\ :\ Rendering\ each\ link\ in\ JPanel!"{}});}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<this.defaultLinks.size();\ i++)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Rendering\ link\ :\ "{}}+i);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ making\ a\ label...}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ JLabel\ lbl\ =\ \textcolor{keyword}{new}\ JLabel(this.defaultLinks.get(i).toString());}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ making\ edit\ button...}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ JButton\ btnUpdate\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Edit"{}});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ btnUpdate.setActionCommand(String.valueOf(i));}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ btnUpdate.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Action\ command\ while\ clicking\ on\ edit\ button\ :\ "{}}+e.getActionCommand());}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ all\ the\ link\ params\ to\ configuration\ form...}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ showLinkSettings(Integer.parseInt(e.getActionCommand()));}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ making\ a\ button\ for\ link\ deletion...}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ JButton\ btn\ =\ \textcolor{keyword}{new}\ JButton(\textcolor{stringliteral}{"{}Delete"{}});}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ btn.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editIndex\ =\ -\/1;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Action\ command\ while\ clicking\ on\ delete\ button\ :\ "{}}+e.getActionCommand());}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ yes\ =\ dialogHelper.showConfirmationDialog(\textcolor{stringliteral}{"{}Do\ you\ really\ want\ to\ delete\ this\ link?"{}},\ \textcolor{stringliteral}{"{}Confirmation!"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (yes\ ==\ JOptionPane.YES\_OPTION)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}User\ chose\ to\ delete\ link\ with\ index\ :\ "{}}+e.getActionCommand());}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultLinks.remove(Integer.parseInt(e.getActionCommand()));}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Deleted\ link\ from\ default\ link!"{}});}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ showLinksAgain();}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ btn.setActionCommand(String.valueOf(i));}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ ((FormLayout)\ this.JPanel\_links.getLayout()).appendRow(\textcolor{keyword}{new}\ RowSpec(\textcolor{stringliteral}{"{}pref"{}}));}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ this.JPanel\_links.add(lbl,\ \textcolor{keyword}{new}\ CellConstraints().xy(1,\ i+1));}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ this.JPanel\_links.add(btnUpdate,\ \textcolor{keyword}{new}\ CellConstraints().xy(2,i+1));}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ this.JPanel\_links.add(btn,\ \textcolor{keyword}{new}\ CellConstraints().xy(3,\ i+1));}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Link\ "{}}+i+\textcolor{stringliteral}{"{}\ Rendered!"{}});}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showLinksAgain()\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Dialog\ Default\ Link\ :\ Creating\ a\ new\ JPanel\ (after\ deleting\ last\ link\ /\ first\ time\ rendering)!"{}});}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ this.JPanel\_links\ =\ \textcolor{keyword}{new}\ JPanel();}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ this.JPanel\_links.setLayout(\textcolor{keyword}{new}\ FormLayout(\textcolor{stringliteral}{"{}fill:pref:grow,\ fill:pref:grow,\ fill:pref:grow"{}}));}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ this.JPanel\_links.setSize(\textcolor{keyword}{new}\ Dimension(400,\ 500));}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ this.JScrollPane\_linkManager.setViewportView(this.JPanel\_links);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ this.showLinks();}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Rendering\ new\ JPanel\ on\ JScrollPane!"{}});}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ showLinkSettings(\textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Default\ Link\ :\ show\ Link\ Settings\ called!"{}});}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ this.editIndex\ =\ index;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ WIFI\ selectedLink\ =\ (WIFI)\ this.defaultLinks.get(index);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ this.comboBox\_wifiStandard.setSelectedItem(selectedLink.standard);}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ this.comboBox\_stationManager.setSelectedItem(selectedLink.remoteStationManager);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ this.textField\_ssid.setText(selectedLink.ssid);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ this.textField\_alias.setText(selectedLink.name);}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ this.chkBox\_enablePcap.setSelected(selectedLink.getEnablePcap());}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}All\ fields\ have\ been\ changed\ to\ selected\ link!"{}});}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ setUpEventListeners()\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ clicking\ on\ save\ button....}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ btn\_save.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Clicked\ on\ save\ button!"{}});}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (editIndex\ >\ -\/1)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultLinks.get(editIndex).standard\ =\ comboBox\_wifiStandard.getSelectedItem().toString();}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultLinks.get(editIndex).remoteStationManager\ =\ comboBox\_stationManager.getSelectedItem().toString();}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultLinks.get(editIndex).ssid\ =\ textField\_ssid.getText().toString();}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultLinks.get(editIndex).name\ =\ textField\_alias.getText().toString();}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultLinks.get(editIndex).setEnablePcap(chkBox\_enablePcap.isSelected());}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editIndex\ =\ -\/1;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Link\ has\ been\ updated\ successfully!"{}},\ \textcolor{stringliteral}{"{}Success!"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ logic\ to\ see\ what's\ the\ type\ of\ channel\ has\ been\ selected...}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ defaultLinks.add(\textcolor{keyword}{new}\ WIFI(defaultLinks.size(),textField\_alias.getText(),\ (String)\ comboBox\_wifiStandard.getSelectedItem(),\ (String)\ comboBox\_stationManager.getSelectedItem(),textField\_ssid.getText(),\ chkBox\_enablePcap.isSelected(),\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Link\ has\ been\ added\ successfully!"{}},\ \textcolor{stringliteral}{"{}Success!"{}});}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ showLinksAgain();}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Links\ have\ been\ changed\ and\ rendered\ successfully\ after\ clicking\ on\ save\ button!"{}});}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ this.addWindowListener(\textcolor{keyword}{new}\ WindowAdapter()\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ windowClosing(WindowEvent\ e)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ super.windowClosing(e);}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saveDefaultWiFiLinks(defaultLinks);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saveSettings();}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editIndex\ =\ -\/1;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00239\ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \}}
+
+\end{DoxyCode}

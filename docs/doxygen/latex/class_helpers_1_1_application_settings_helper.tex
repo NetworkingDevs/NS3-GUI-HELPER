@@ -1,0 +1,348 @@
+\doxysection{Helpers.\+Application\+Settings\+Helper Class Reference}
+\label{class_helpers_1_1_application_settings_helper}\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ set\+Up\+Settings} ()
+\item 
+static void \textbf{ set\+Up\+Settings} (String \textbf{ Output\+Path})
+\item 
+static void \textbf{ save\+Settings} ()
+\item 
+static boolean \textbf{ has\+Default\+Links} ()
+\item 
+static boolean \textbf{ has\+Default\+Wi\+Fi\+Links} ()
+\item 
+static boolean \textbf{ has\+Default\+Networks} ()
+\item 
+static Array\+List$<$ \textbf{ Network\+Link} $>$ \textbf{ get\+Default\+Links} ()
+\item 
+static Array\+List$<$ \textbf{ WIFI} $>$ \textbf{ get\+Default\+Wi\+Fi\+Links} ()
+\item 
+static Array\+List$<$ \textbf{ Network} $>$ \textbf{ get\+Default\+Networks} ()
+\item 
+static void \textbf{ save\+Default\+Links} (Array\+List$<$ \textbf{ Network\+Link} $>$ links)
+\item 
+static void \textbf{ save\+Default\+Wi\+Fi\+Links} (Array\+List$<$ \textbf{ WIFI} $>$ links)
+\item 
+static void \textbf{ save\+Default\+Networks} (Array\+List$<$ \textbf{ Network} $>$ networks)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static String \textbf{ OUTPUT\+\_\+\+PATH} = "{}output\+Path"{}
+\item 
+static String \textbf{ FILE\+\_\+\+NAME} = "{}file\+Name"{}
+\item 
+static String \textbf{ DEFAULT\+\_\+\+LINKS} = "{}default\+Links"{}
+\item 
+static String \textbf{ DEFAULT\+\_\+\+WIFI\+\_\+\+LINKS} = "{}default\+Wi\+Fi\+Links"{}
+\item 
+static String \textbf{ DEFAULT\+\_\+\+NETWORKS} = "{}default\+Networks"{}
+\item 
+static JSONObject \textbf{ UNIVERSAL\+\_\+\+SETTINGS} = new JSONObject()
+\item 
+static String \textbf{ Output\+Path} = System.\+get\+Property("{}user.\+dir"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class will be used for managing the settings for application environment
+
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 27} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_helpers_1_1_application_settings_helper_a736c55635566abd2a0b58571711a1b85} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!getDefaultLinks@{getDefaultLinks}}
+\index{getDefaultLinks@{getDefaultLinks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{getDefaultLinks()}
+{\footnotesize\ttfamily static Array\+List$<$ \textbf{ Network\+Link} $>$ Helpers.\+Application\+Settings\+Helper.\+get\+Default\+Links (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to get the default links
+
+\begin{DoxyReturn}{Returns}
+list of default links 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 145} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a2aec459f943400284998fa216c629993} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!getDefaultNetworks@{getDefaultNetworks}}
+\index{getDefaultNetworks@{getDefaultNetworks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{getDefaultNetworks()}
+{\footnotesize\ttfamily static Array\+List$<$ \textbf{ Network} $>$ Helpers.\+Application\+Settings\+Helper.\+get\+Default\+Networks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to get the default networks
+
+\begin{DoxyReturn}{Returns}
+list of default networks 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 201} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_acc9662fbd272fa216897ffb2d27dbefd} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!getDefaultWiFiLinks@{getDefaultWiFiLinks}}
+\index{getDefaultWiFiLinks@{getDefaultWiFiLinks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{getDefaultWiFiLinks()}
+{\footnotesize\ttfamily static Array\+List$<$ \textbf{ WIFI} $>$ Helpers.\+Application\+Settings\+Helper.\+get\+Default\+Wi\+Fi\+Links (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to get the default wi-\/fi links
+
+\begin{DoxyReturn}{Returns}
+list of default wi-\/fi links 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 175} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a1d643c5718f728b90114792090b9ddcd} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!hasDefaultLinks@{hasDefaultLinks}}
+\index{hasDefaultLinks@{hasDefaultLinks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{hasDefaultLinks()}
+{\footnotesize\ttfamily static boolean Helpers.\+Application\+Settings\+Helper.\+has\+Default\+Links (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to check whether the settings object has default links
+
+\begin{DoxyReturn}{Returns}
+boolean variable indicating presence of the default links 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 112} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a424beefc3105419853e0ade079851788} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!hasDefaultNetworks@{hasDefaultNetworks}}
+\index{hasDefaultNetworks@{hasDefaultNetworks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{hasDefaultNetworks()}
+{\footnotesize\ttfamily static boolean Helpers.\+Application\+Settings\+Helper.\+has\+Default\+Networks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to check whether the settings object has default networks
+
+\begin{DoxyReturn}{Returns}
+boolean variable indicating presence of the default networks 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 134} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a2ed5cf8fc959a289f6ee6a18093cbcea} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!hasDefaultWiFiLinks@{hasDefaultWiFiLinks}}
+\index{hasDefaultWiFiLinks@{hasDefaultWiFiLinks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{hasDefaultWiFiLinks()}
+{\footnotesize\ttfamily static boolean Helpers.\+Application\+Settings\+Helper.\+has\+Default\+Wi\+Fi\+Links (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to check whether the settings object has default wi-\/fi links
+
+\begin{DoxyReturn}{Returns}
+boolean value indicating presence of the default links 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 123} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a105a28d2f4049d5404e7a6facabfbbde} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!saveDefaultLinks@{saveDefaultLinks}}
+\index{saveDefaultLinks@{saveDefaultLinks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{saveDefaultLinks()}
+{\footnotesize\ttfamily static void Helpers.\+Application\+Settings\+Helper.\+save\+Default\+Links (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Network\+Link} $>$}]{links }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to set the default links
+
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 226} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a38c3a4c109445843c4dc5f9451dc8d84} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!saveDefaultNetworks@{saveDefaultNetworks}}
+\index{saveDefaultNetworks@{saveDefaultNetworks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{saveDefaultNetworks()}
+{\footnotesize\ttfamily static void Helpers.\+Application\+Settings\+Helper.\+save\+Default\+Networks (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Network} $>$}]{networks }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to set the default networks
+
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 264} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_ac759f96edee939bf765dfbc7c1bb5b4f} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!saveDefaultWiFiLinks@{saveDefaultWiFiLinks}}
+\index{saveDefaultWiFiLinks@{saveDefaultWiFiLinks}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{saveDefaultWiFiLinks()}
+{\footnotesize\ttfamily static void Helpers.\+Application\+Settings\+Helper.\+save\+Default\+Wi\+Fi\+Links (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ WIFI} $>$}]{links }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to set the default links
+
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 245} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_aad3e2f5464a5e3ad5de4e96f4a5af5e1} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!saveSettings@{saveSettings}}
+\index{saveSettings@{saveSettings}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{saveSettings()}
+{\footnotesize\ttfamily static void Helpers.\+Application\+Settings\+Helper.\+save\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+for saving the settings to the file
+
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 100} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_afd0fb7d9aca7887028783abf0e390a90} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!setUpSettings@{setUpSettings}}
+\index{setUpSettings@{setUpSettings}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{setUpSettings()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Helpers.\+Application\+Settings\+Helper.\+set\+Up\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to enable the application with basic settings, for the first time
+
+\begin{DoxySeeAlso}{See also}
+Application\+Settings\+Helper\+::set\+Up\+Settings(\+String) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 67} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a6ec4da44b439b40a435225a556c3e7de} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!setUpSettings@{setUpSettings}}
+\index{setUpSettings@{setUpSettings}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{setUpSettings()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Helpers.\+Application\+Settings\+Helper.\+set\+Up\+Settings (\begin{DoxyParamCaption}\item[{String}]{Output\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to check the content of the settings file, restoring the settings from the file
+
+
+\begin{DoxyParams}{Parameters}
+{\em Output\+Path} & the path of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Application\+Settings\+Helper\+::set\+Up\+Settings() 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 79} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_helpers_1_1_application_settings_helper_ac3e0c88c467dd5488e59b9fde55c981e} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!DEFAULT\_LINKS@{DEFAULT\_LINKS}}
+\index{DEFAULT\_LINKS@{DEFAULT\_LINKS}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{DEFAULT\_LINKS}
+{\footnotesize\ttfamily String Helpers.\+Application\+Settings\+Helper.\+DEFAULT\+\_\+\+LINKS = "{}default\+Links"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+for key of the default links 
+
+Definition at line \textbf{ 40} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_aa9ff8e1ef7cf0585640dc3ddffb24e1d} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!DEFAULT\_NETWORKS@{DEFAULT\_NETWORKS}}
+\index{DEFAULT\_NETWORKS@{DEFAULT\_NETWORKS}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{DEFAULT\_NETWORKS}
+{\footnotesize\ttfamily String Helpers.\+Application\+Settings\+Helper.\+DEFAULT\+\_\+\+NETWORKS = "{}default\+Networks"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+for default network settings 
+
+Definition at line \textbf{ 48} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a3741f033c940c1b89f9a87ad8fab51e8} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!DEFAULT\_WIFI\_LINKS@{DEFAULT\_WIFI\_LINKS}}
+\index{DEFAULT\_WIFI\_LINKS@{DEFAULT\_WIFI\_LINKS}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{DEFAULT\_WIFI\_LINKS}
+{\footnotesize\ttfamily String Helpers.\+Application\+Settings\+Helper.\+DEFAULT\+\_\+\+WIFI\+\_\+\+LINKS = "{}default\+Wi\+Fi\+Links"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+for key of the default wi-\/fi links 
+
+Definition at line \textbf{ 44} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_af6cc7f4f43b7b67fa319567bc6d3a2a0} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!FILE\_NAME@{FILE\_NAME}}
+\index{FILE\_NAME@{FILE\_NAME}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{FILE\_NAME}
+{\footnotesize\ttfamily String Helpers.\+Application\+Settings\+Helper.\+FILE\+\_\+\+NAME = "{}file\+Name"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+for key of the file name 
+
+Definition at line \textbf{ 36} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_a611aabad6e882de1988fb94346e39238} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!OUTPUT\_PATH@{OUTPUT\_PATH}}
+\index{OUTPUT\_PATH@{OUTPUT\_PATH}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{OUTPUT\_PATH}
+{\footnotesize\ttfamily String Helpers.\+Application\+Settings\+Helper.\+OUTPUT\+\_\+\+PATH = "{}output\+Path"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+the file path for code generation 
+
+Definition at line \textbf{ 32} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_adb41d0f2d1414c463b8d84ab3c224a44} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!OutputPath@{OutputPath}}
+\index{OutputPath@{OutputPath}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{OutputPath}
+{\footnotesize\ttfamily String Helpers.\+Application\+Settings\+Helper.\+Output\+Path = System.\+get\+Property("{}user.\+dir"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+for getting the default output path for the file generation 
+
+Definition at line \textbf{ 58} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+\label{class_helpers_1_1_application_settings_helper_abc3aff0d76566b9e098043f93b62aec2} 
+\index{Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}!UNIVERSAL\_SETTINGS@{UNIVERSAL\_SETTINGS}}
+\index{UNIVERSAL\_SETTINGS@{UNIVERSAL\_SETTINGS}!Helpers.ApplicationSettingsHelper@{Helpers.ApplicationSettingsHelper}}
+\doxysubsubsection{UNIVERSAL\_SETTINGS}
+{\footnotesize\ttfamily JSONObject Helpers.\+Application\+Settings\+Helper.\+UNIVERSAL\+\_\+\+SETTINGS = new JSONObject()\hspace{0.3cm}{\ttfamily [static]}}
+
+for storing the settings of the application 
+
+Definition at line \textbf{ 54} of file \textbf{ Application\+Settings\+Helper.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Helpers/\textbf{ Application\+Settings\+Helper.\+java}\end{DoxyCompactItemize}

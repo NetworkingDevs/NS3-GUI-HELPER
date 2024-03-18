@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_enum_status_helper_1_1_log_level" xml:lang="en-US">
+<title>StatusHelper.LogLevel Enum Reference</title>
+<indexterm><primary>StatusHelper.LogLevel</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_enum_status_helper_1_1_log_level_1a7bc464ce04810faa56ae28f69c22fd2c">LOG_LEVEL_ERROR</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_log_level_1aeaab9d9c1316fe97d9e0c2b14ae90ff4">LOG_LEVEL_DEBUG</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_log_level_1ac70e9ebd776b95b78fe19e6db2c88d55">LOG_LEVEL_INFO</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_log_level_1af2bb34c0ef877fa691511bf32f50b2cc">LOG_LEVEL_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_log_level_1a4cc45c5fec478151def9262d31ea772f">LOG_LEVEL_LOGIC</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_log_level_1a5d20898cb9a9541f1984028682447de8">LOG_LEVEL_ALL</link></para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_log_level_1ae2061fda0ea7bf5da0071882a6d2982c">LOG_NONE</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="__log_level_8java_source_1l00003">3</link> of file <link linkend="__log_level_8java_source">LogLevel.java</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_enum_status_helper_1_1_log_level_1a5d20898cb9a9541f1984028682447de8"/><section>
+    <title>LOG_LEVEL_ALL</title>
+<indexterm><primary>LOG_LEVEL_ALL</primary><secondary>StatusHelper.LogLevel</secondary></indexterm>
+<indexterm><primary>StatusHelper.LogLevel</primary><secondary>LOG_LEVEL_ALL</secondary></indexterm>
+<para><computeroutput>StatusHelper.LogLevel.LOG_LEVEL_ALL</computeroutput></para><para>
+Definition at line <link linkend="__log_level_8java_source_1l00009">9</link> of file <link linkend="__log_level_8java_source">LogLevel.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_log_level_1aeaab9d9c1316fe97d9e0c2b14ae90ff4"/><section>
+    <title>LOG_LEVEL_DEBUG</title>
+<indexterm><primary>LOG_LEVEL_DEBUG</primary><secondary>StatusHelper.LogLevel</secondary></indexterm>
+<indexterm><primary>StatusHelper.LogLevel</primary><secondary>LOG_LEVEL_DEBUG</secondary></indexterm>
+<para><computeroutput>StatusHelper.LogLevel.LOG_LEVEL_DEBUG</computeroutput></para><para>
+Definition at line <link linkend="__log_level_8java_source_1l00005">5</link> of file <link linkend="__log_level_8java_source">LogLevel.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_log_level_1a7bc464ce04810faa56ae28f69c22fd2c"/><section>
+    <title>LOG_LEVEL_ERROR</title>
+<indexterm><primary>LOG_LEVEL_ERROR</primary><secondary>StatusHelper.LogLevel</secondary></indexterm>
+<indexterm><primary>StatusHelper.LogLevel</primary><secondary>LOG_LEVEL_ERROR</secondary></indexterm>
+<para><computeroutput>StatusHelper.LogLevel.LOG_LEVEL_ERROR</computeroutput></para><para>
+Definition at line <link linkend="__log_level_8java_source_1l00004">4</link> of file <link linkend="__log_level_8java_source">LogLevel.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_log_level_1af2bb34c0ef877fa691511bf32f50b2cc"/><section>
+    <title>LOG_LEVEL_FUNCTION</title>
+<indexterm><primary>LOG_LEVEL_FUNCTION</primary><secondary>StatusHelper.LogLevel</secondary></indexterm>
+<indexterm><primary>StatusHelper.LogLevel</primary><secondary>LOG_LEVEL_FUNCTION</secondary></indexterm>
+<para><computeroutput>StatusHelper.LogLevel.LOG_LEVEL_FUNCTION</computeroutput></para><para>
+Definition at line <link linkend="__log_level_8java_source_1l00007">7</link> of file <link linkend="__log_level_8java_source">LogLevel.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_log_level_1ac70e9ebd776b95b78fe19e6db2c88d55"/><section>
+    <title>LOG_LEVEL_INFO</title>
+<indexterm><primary>LOG_LEVEL_INFO</primary><secondary>StatusHelper.LogLevel</secondary></indexterm>
+<indexterm><primary>StatusHelper.LogLevel</primary><secondary>LOG_LEVEL_INFO</secondary></indexterm>
+<para><computeroutput>StatusHelper.LogLevel.LOG_LEVEL_INFO</computeroutput></para><para>
+Definition at line <link linkend="__log_level_8java_source_1l00006">6</link> of file <link linkend="__log_level_8java_source">LogLevel.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_log_level_1a4cc45c5fec478151def9262d31ea772f"/><section>
+    <title>LOG_LEVEL_LOGIC</title>
+<indexterm><primary>LOG_LEVEL_LOGIC</primary><secondary>StatusHelper.LogLevel</secondary></indexterm>
+<indexterm><primary>StatusHelper.LogLevel</primary><secondary>LOG_LEVEL_LOGIC</secondary></indexterm>
+<para><computeroutput>StatusHelper.LogLevel.LOG_LEVEL_LOGIC</computeroutput></para><para>
+Definition at line <link linkend="__log_level_8java_source_1l00008">8</link> of file <link linkend="__log_level_8java_source">LogLevel.java</link>.</para>
+</section>
+<anchor xml:id="_enum_status_helper_1_1_log_level_1ae2061fda0ea7bf5da0071882a6d2982c"/><section>
+    <title>LOG_NONE</title>
+<indexterm><primary>LOG_NONE</primary><secondary>StatusHelper.LogLevel</secondary></indexterm>
+<indexterm><primary>StatusHelper.LogLevel</primary><secondary>LOG_NONE</secondary></indexterm>
+<para><computeroutput>StatusHelper.LogLevel.LOG_NONE</computeroutput></para><para>
+Definition at line <link linkend="__log_level_8java_source_1l00011">11</link> of file <link linkend="__log_level_8java_source">LogLevel.java</link>.</para>
+</section>
+<para>
+The documentation for this enum was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/StatusHelper/<link linkend="__log_level_8java">LogLevel.java</link></section>
+</section>

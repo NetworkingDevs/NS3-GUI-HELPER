@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__p2p_link_painter_8java_source" xml:lang="en-US">
+<title>P2pLinkPainter.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/P2pLinkPainter.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__p2p_link_painter_8java_source_1l00001"/>00001 <emphasis role="keyword">package&#32;</emphasis>GuiRenderers;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00002"/>00002 
+<anchor xml:id="__p2p_link_painter_8java_source_1l00003"/>00003 <emphasis role="keyword">import</emphasis>&#32;<link linkend="_namespace_helpers">Helpers</link>.<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00004"/>00004 
+<anchor xml:id="__p2p_link_painter_8java_source_1l00005"/>00005 <emphasis role="keyword">import</emphasis>&#32;java.awt.*;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00006"/>00006 
+<anchor xml:id="__p2p_link_painter_8java_source_1l00010"/><link linkend="_class_gui_renderers_1_1_p2p_link_painter">00010</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link>&#32;<emphasis role="keyword">implements</emphasis>&#32;<link linkend="_interface_gui_renderers_1_1_canvas_painter">CanvasPainter</link>&#32;{
+<anchor xml:id="__p2p_link_painter_8java_source_1l00011"/>00011 
+<anchor xml:id="__p2p_link_painter_8java_source_1l00015"/><link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a4cae357c96b1bc5055f8c2b96c17de75">00015</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&#32;<link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a4cae357c96b1bc5055f8c2b96c17de75">nodeA</link>,<link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a2af587b4efb52cbd11c55033e8dbb1e6">nodeB</link>;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00019"/><link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a914b1e9e819b12e2ecc2d1d2f6479910">00019</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;Color&#32;<link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a914b1e9e819b12e2ecc2d1d2f6479910">linkColor</link>;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00020"/>00020 
+<anchor xml:id="__p2p_link_painter_8java_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;Color&#32;DEFAULT_LINK_COLOR&#32;=&#32;Color.black;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00025"/>00025 
+<anchor xml:id="__p2p_link_painter_8java_source_1l00034"/><link linkend="_class_gui_renderers_1_1_p2p_link_painter_1aa6a55b4ff61693aa91824135f1f5c28e">00034</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_p2p_link_painter_1aa6a55b4ff61693aa91824135f1f5c28e">P2pLinkPainter</link>(<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&#32;a,&#32;<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&#32;b)&#32;{
+<anchor xml:id="__p2p_link_painter_8java_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>(a,&#32;b,&#32;DEFAULT_LINK_COLOR);
+<anchor xml:id="__p2p_link_painter_8java_source_1l00036"/>00036 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2p_link_painter_8java_source_1l00037"/>00037 
+<anchor xml:id="__p2p_link_painter_8java_source_1l00047"/><link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a8a0a287c4c677c1ad0cff07f1be0598f">00047</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_p2p_link_painter_1a8a0a287c4c677c1ad0cff07f1be0598f">P2pLinkPainter</link>(<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&#32;a,&#32;<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&#32;b,&#32;Color&#32;color)&#32;{
+<anchor xml:id="__p2p_link_painter_8java_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a9d59d12965cd365e86f6bb5d352f41c6">Log</link>(<emphasis role="stringliteral">&quot;Creating&#32;object&#32;of&#32;type&#32;P2pLinkPainter&quot;</emphasis>);
+<anchor xml:id="__p2p_link_painter_8java_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.nodeA&#32;=&#32;a;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.nodeB&#32;=&#32;b;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.linkColor&#32;=&#32;color;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00052"/>00052 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2p_link_painter_8java_source_1l00053"/>00053 
+<anchor xml:id="__p2p_link_painter_8java_source_1l00060"/>00060 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__p2p_link_painter_8java_source_1l00061"/><link linkend="_class_gui_renderers_1_1_p2p_link_painter_1aff909a8d4dcd933d8ff1ec877ceff8fa">00061</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_p2p_link_painter_1aff909a8d4dcd933d8ff1ec877ceff8fa">paint</link>(Graphics&#32;g)&#32;{
+<anchor xml:id="__p2p_link_painter_8java_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f">LogFunction</link>(<emphasis role="stringliteral">&quot;P2P&#32;Link&#32;Painter&#32;:&#32;Painting&#32;on&#32;canvas!&quot;</emphasis>);
+<anchor xml:id="__p2p_link_painter_8java_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;adjustA&#32;=&#32;this.nodeA.<link linkend="_class_gui_renderers_1_1_node_painter_1a0cdce565a43838959a5f5722274382fe">radius</link>/2;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;adjustB&#32;=&#32;this.nodeB.<link linkend="_class_gui_renderers_1_1_node_painter_1a0cdce565a43838959a5f5722274382fe">radius</link>/2;
+<anchor xml:id="__p2p_link_painter_8java_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;g.setColor(this.linkColor);
+<anchor xml:id="__p2p_link_painter_8java_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;g.drawLine(this.nodeA.<link linkend="_class_gui_renderers_1_1_node_painter_1ae759a6d929d8e5b90107c47726336e96">xPos</link>&#32;+&#32;adjustA,&#32;<emphasis role="keyword">this</emphasis>.nodeA.yPos&#32;+&#32;adjustA,&#32;<emphasis role="keyword">this</emphasis>.nodeB.xPos&#32;+&#32;adjustB,&#32;<emphasis role="keyword">this</emphasis>.nodeB.yPos&#32;+&#32;adjustB);
+<anchor xml:id="__p2p_link_painter_8java_source_1l00067"/>00067 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__p2p_link_painter_8java_source_1l00068"/>00068 }
+</programlisting></section>

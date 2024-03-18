@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_file_handler_1_1_file_reader_writer" xml:lang="en-US">
+<title>FileHandler.FileReaderWriter Class Reference</title>
+<indexterm><primary>FileHandler.FileReaderWriter</primary></indexterm>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_class_file_handler_1_1_file_reader_writer_1a950a54620ce2588c0baa4e4bfc4e32fa">writeUsingPath</link> (String data, String path)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_file_handler_1_1_file_reader_writer_1ac70e32edf33a9f51b1ec0577dcf39a65">writeUsingURL</link> (String data, URL url)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_class_file_handler_1_1_file_reader_writer_1a666bad00402425600c8859afe66f9266">readUsingPath</link> (String path)</para>
+</listitem>
+            <listitem><para>static String <link linkend="_class_file_handler_1_1_file_reader_writer_1ad90a902a5382baf3aedb462b5012c870">readIfEmptyUsingPath</link> (String data, String path)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to manage file handling operations </para>
+<para>
+Definition at line <link linkend="__file_reader_writer_8java_source_1l00021">21</link> of file <link linkend="__file_reader_writer_8java_source">FileReaderWriter.java</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_file_handler_1_1_file_reader_writer_1ad90a902a5382baf3aedb462b5012c870"/><section>
+    <title>readIfEmptyUsingPath()</title>
+<indexterm><primary>readIfEmptyUsingPath</primary><secondary>FileHandler.FileReaderWriter</secondary></indexterm>
+<indexterm><primary>FileHandler.FileReaderWriter</primary><secondary>readIfEmptyUsingPath</secondary></indexterm>
+<para><computeroutput>static String FileHandler.FileReaderWriter.readIfEmptyUsingPath (String data, String path)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to read the file, only if the file is not empty and writing into file if it&apos;s empty</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>the default data that will be written if file is empty </para>
+</entry>
+                            </row>
+                            <row>
+<entry>path</entry><entry>
+<para>path of the file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The string that contains the data that is being read from the file if the file is empty, if not, it will return empty JSON object </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__file_reader_writer_8java_source_1l00096">96</link> of file <link linkend="__file_reader_writer_8java_source">FileReaderWriter.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_file_reader_writer_1a666bad00402425600c8859afe66f9266"/><section>
+    <title>readUsingPath()</title>
+<indexterm><primary>readUsingPath</primary><secondary>FileHandler.FileReaderWriter</secondary></indexterm>
+<indexterm><primary>FileHandler.FileReaderWriter</primary><secondary>readUsingPath</secondary></indexterm>
+<para><computeroutput>static String FileHandler.FileReaderWriter.readUsingPath (String path)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to read the file using the path of the file</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>path</entry><entry>
+<para>the path of the file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The data that is being read from the file </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__file_reader_writer_8java_source_1l00073">73</link> of file <link linkend="__file_reader_writer_8java_source">FileReaderWriter.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_file_reader_writer_1a950a54620ce2588c0baa4e4bfc4e32fa"/><section>
+    <title>writeUsingPath()</title>
+<indexterm><primary>writeUsingPath</primary><secondary>FileHandler.FileReaderWriter</secondary></indexterm>
+<indexterm><primary>FileHandler.FileReaderWriter</primary><secondary>writeUsingPath</secondary></indexterm>
+<para><computeroutput>static void FileHandler.FileReaderWriter.writeUsingPath (String data, String path)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to write in file using the path of the file in string format</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>the data that needs to be written </para>
+</entry>
+                            </row>
+                            <row>
+<entry>path</entry><entry>
+<para>the path of the file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__file_reader_writer_8java_source_1l00031">31</link> of file <link linkend="__file_reader_writer_8java_source">FileReaderWriter.java</link>.</para>
+</section>
+<anchor xml:id="_class_file_handler_1_1_file_reader_writer_1ac70e32edf33a9f51b1ec0577dcf39a65"/><section>
+    <title>writeUsingURL()</title>
+<indexterm><primary>writeUsingURL</primary><secondary>FileHandler.FileReaderWriter</secondary></indexterm>
+<indexterm><primary>FileHandler.FileReaderWriter</primary><secondary>writeUsingURL</secondary></indexterm>
+<para><computeroutput>static void FileHandler.FileReaderWriter.writeUsingURL (String data, URL url)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to write in the file using the URL of the file</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>data</entry><entry>
+<para>the data that needs to be written </para>
+</entry>
+                            </row>
+                            <row>
+<entry>url</entry><entry>
+<para>the URL of the file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__file_reader_writer_8java_source_1l00052">52</link> of file <link linkend="__file_reader_writer_8java_source">FileReaderWriter.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/FileHandler/<link linkend="__file_reader_writer_8java">FileReaderWriter.java</link></section>
+</section>

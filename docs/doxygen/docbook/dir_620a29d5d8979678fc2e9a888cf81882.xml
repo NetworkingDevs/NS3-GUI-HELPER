@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_620a29d5d8979678fc2e9a888cf81882" xml:lang="en-US">
+<title>E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects Directory Reference</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_4accf501a87dad86c48aa68e5ec91f40">Devices</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_3d24a3d35c2bf132b82c760059db4a40">Links</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_df59361400d6b14128aa63ee1d0a1e27">Netoworks</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

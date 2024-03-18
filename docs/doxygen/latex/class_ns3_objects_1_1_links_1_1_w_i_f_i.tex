@@ -1,0 +1,633 @@
+\doxysection{Ns3\+Objects.\+Links.\+WIFI Class Reference}
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i}\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+Inheritance diagram for Ns3\+Objects.\+Links.\+WIFI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ns3_objects_1_1_links_1_1_w_i_f_i}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ WIFI} (int \textbf{ id}, String \textbf{ name}, String \textbf{ standard}, String \textbf{ remote\+Station\+Manager}, String \textbf{ ssid}, boolean enable\+Pcap, boolean is\+Default, boolean is\+Used)
+\item 
+\textbf{ WIFI} (int \textbf{ id}, String \textbf{ name}, String \textbf{ standard}, String \textbf{ remote\+Station\+Manager}, String \textbf{ ssid}, boolean enable\+Pcap, boolean is\+Default)
+\item 
+\textbf{ WIFI} (int \textbf{ id}, String \textbf{ name}, String \textbf{ standard}, String \textbf{ remote\+Station\+Manager}, String \textbf{ ssid}, boolean enable\+Pcap)
+\item 
+int \textbf{ get\+Id} ()
+\item 
+void \textbf{ set\+Id} (int \textbf{ id})
+\item 
+String \textbf{ get\+Name} ()
+\item 
+void \textbf{ set\+Name} (String \textbf{ name})
+\item 
+String \textbf{ get\+Delay} ()
+\item 
+void \textbf{ set\+Delay} (String delay)
+\item 
+String \textbf{ get\+Data\+Rate} ()
+\item 
+void \textbf{ set\+Data\+Rate} (String data\+Rate)
+\item 
+String \textbf{ get\+Speed\+Modifier} ()
+\item 
+void \textbf{ set\+Speed\+Modifier} (String speed\+Modifier)
+\item 
+\textbf{ Link\+Type} \textbf{ get\+Link\+Type} ()
+\item 
+void \textbf{ set\+Link\+Type} (\textbf{ Link\+Type} link\+Type)
+\item 
+boolean \textbf{ get\+Enable\+Pcap} ()
+\item 
+void \textbf{ set\+Enable\+Pcap} (boolean enable\+Pcap)
+\item 
+String \textbf{ for\+Settings} ()
+\item 
+String \textbf{ to\+String} ()
+\item 
+boolean \textbf{ is\+Default} ()
+\item 
+void \textbf{ set\+Default} (boolean is\+Default)
+\item 
+boolean \textbf{ is\+Used} ()
+\item 
+void \textbf{ set\+Used} (boolean is\+Used)
+\item 
+String \textbf{ get\+Packet\+Capture\+All\+Code} ()
+\item 
+String \textbf{ to\+Code} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ id}
+\item 
+String \textbf{ name}
+\item 
+String \textbf{ standard}
+\item 
+String \textbf{ remote\+Station\+Manager}
+\item 
+String \textbf{ ssid}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \textbf{ Ns3\+Objects.\+Links.\+Network\+Link}}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ CHOICE\+\_\+\+INDEX\+\_\+\+P2P} = 0
+\item 
+int \textbf{ CHOICE\+\_\+\+INDEX\+\_\+\+CSMA} = 1
+\item 
+String \textbf{ LABEL\+\_\+\+P2P} = "{}P2\+P"{}
+\item 
+String \textbf{ LABEL\+\_\+\+CSMA} = "{}CSMA"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \textbf{ Ns3\+Objects.\+Links.\+Network\+Link}}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Link\+Type} \textbf{ get\+Link\+Type} (int choice\+Index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to store the link of type Yans\+Wifi\+Helper in terms of NS-\/3 Script 
+
+Definition at line \textbf{ 8} of file \textbf{ WIFI.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_af8f00a1741d5e2cdac428064ff367e20} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!WIFI@{WIFI}}
+\index{WIFI@{WIFI}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{WIFI()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+WIFI.\+WIFI (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{standard,  }\item[{String}]{remote\+Station\+Manager,  }\item[{String}]{ssid,  }\item[{boolean}]{enable\+Pcap,  }\item[{boolean}]{is\+Default,  }\item[{boolean}]{is\+Used }\end{DoxyParamCaption})}
+
+to create an object of type Wi-\/\+Fi
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique identity number \\
+\hline
+{\em name} & The alias name for the channel \\
+\hline
+{\em standard} & the wi-\/fi standard \\
+\hline
+{\em remote\+Station\+Manager} & the remote station manager \\
+\hline
+{\em ssid} & the ssid for this channel \\
+\hline
+{\em enable\+Pcap} & for enabling the packet capture of entire link \\
+\hline
+{\em is\+Default} & for marking as default link \\
+\hline
+{\em is\+Used} & for marking as used link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+WIFI\+::\+WIFI(int, String, String, String, String, boolean, boolean) 
+
+WIFI\+::\+WIFI(int, String, String, String, String, boolean) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 77} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a2d3ba355d68f13ec1b2dea379327f64f} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!WIFI@{WIFI}}
+\index{WIFI@{WIFI}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{WIFI()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+WIFI.\+WIFI (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{standard,  }\item[{String}]{remote\+Station\+Manager,  }\item[{String}]{ssid,  }\item[{boolean}]{enable\+Pcap,  }\item[{boolean}]{is\+Default }\end{DoxyParamCaption})}
+
+to create an object of type Wi-\/\+Fi
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique identity number \\
+\hline
+{\em name} & The alias name for the channel \\
+\hline
+{\em standard} & the wi-\/fi standard \\
+\hline
+{\em remote\+Station\+Manager} & the remote station manager \\
+\hline
+{\em ssid} & the ssid for this channel \\
+\hline
+{\em enable\+Pcap} & for enabling the packet capture of entire link \\
+\hline
+{\em is\+Default} & for marking as default link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+WIFI\+::\+WIFI(int, String, String, String, String, boolean, boolean, boolean) 
+
+WIFI\+::\+WIFI(int, String, String, String, String, boolean) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 103} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a0f8b1cd28149fa2a0081a9b568e6b2d4} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!WIFI@{WIFI}}
+\index{WIFI@{WIFI}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{WIFI()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+WIFI.\+WIFI (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{standard,  }\item[{String}]{remote\+Station\+Manager,  }\item[{String}]{ssid,  }\item[{boolean}]{enable\+Pcap }\end{DoxyParamCaption})}
+
+to create an object of type Wi-\/\+Fi
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the unique identity number \\
+\hline
+{\em name} & The alias name for the channel \\
+\hline
+{\em standard} & the wi-\/fi standard \\
+\hline
+{\em remote\+Station\+Manager} & the remote station manager \\
+\hline
+{\em ssid} & the ssid for this channel \\
+\hline
+{\em enable\+Pcap} & for enabling the packet capture of entire link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+WIFI\+::\+WIFI(int, String, String, String, String, boolean, boolean, boolean) 
+
+WIFI\+::\+WIFI(int, String, String, String, String, boolean, boolean) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 120} of file \textbf{ WIFI.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_aa4854c367964dfb9db9d1a3126f92463} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!forSettings@{forSettings}}
+\index{forSettings@{forSettings}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{forSettings()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+for\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the storage format in settings file
+
+\begin{DoxyReturn}{Returns}
+storage format for settings file 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2302c01e1b5a299b66758727c7a148e3}.
+
+
+
+Definition at line \textbf{ 218} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_aaab95937529adebe0d14e930a7550885} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!getDataRate@{getDataRate}}
+\index{getDataRate@{getDataRate}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{getDataRate()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+get\+Data\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]\end{DoxyRefDesc}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ab5979d5433c3224590739501731b4e1d}.
+
+
+
+Definition at line \textbf{ 164} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_abcb8e5c943fe2674ee0f4af9bc3715d5} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!getDelay@{getDelay}}
+\index{getDelay@{getDelay}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{getDelay()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+get\+Delay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]\end{DoxyRefDesc}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ae6a8830bdea02110cda8cff5a1b33747}.
+
+
+
+Definition at line \textbf{ 148} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a193642d7389298769cb0f855d1d12970} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!getEnablePcap@{getEnablePcap}}
+\index{getEnablePcap@{getEnablePcap}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{getEnablePcap()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+WIFI.\+get\+Enable\+Pcap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a7c8f176a689a115a00a28eb670377160}.
+
+
+
+Definition at line \textbf{ 203} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a13c94075cc852c5a07c29850a6e2d0f3} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!getId@{getId}}
+\index{getId@{getId}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{getId()}
+{\footnotesize\ttfamily int Ns3\+Objects.\+Links.\+WIFI.\+get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a375e12cfed426bb38d52a66f7f0aa6c1}.
+
+
+
+Definition at line \textbf{ 125} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a0c494fd9e9422bb64a8a7eb4d9deb725} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!getLinkType@{getLinkType}}
+\index{getLinkType@{getLinkType}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{getLinkType()}
+{\footnotesize\ttfamily \textbf{ Link\+Type} Ns3\+Objects.\+Links.\+WIFI.\+get\+Link\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_af9a212d6ca443661bbb711ab520a51e7}.
+
+
+
+Definition at line \textbf{ 193} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a3d564b2a55ceb160cf1a859406c9ec9b} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!getName@{getName}}
+\index{getName@{getName}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{getName()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a339c90c6249616099bfc0d200057fe88}.
+
+
+
+Definition at line \textbf{ 135} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a8e22831b58f2f33cffc679c47a53b43c} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!getPacketCaptureAllCode@{getPacketCaptureAllCode}}
+\index{getPacketCaptureAllCode@{getPacketCaptureAllCode}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{getPacketCaptureAllCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+get\+Packet\+Capture\+All\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the code for packet capture of entire link 
+
+
+\begin{DoxyPre}
+{\ttfamily \newlineExample:\newlinephy.EnablePcap("{}<name>"{}, <devices>);\newline}
+\end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+Equivalent code for generating packet capture files 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a73f84dce85a1fb5866aca4481453f52b}.
+
+
+
+Definition at line \textbf{ 270} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_aeda324f9b71f5b23618802da5e9d33b9} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!getSpeedModifier@{getSpeedModifier}}
+\index{getSpeedModifier@{getSpeedModifier}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{getSpeedModifier()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+get\+Speed\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]\end{DoxyRefDesc}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_aa9fdc3ec8d14a6850616a89a830b289a}.
+
+
+
+Definition at line \textbf{ 180} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_af8d72f49b13ced1af5d4dfdf05ff5546} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!isDefault@{isDefault}}
+\index{isDefault@{isDefault}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{isDefault()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+WIFI.\+is\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ad6d72c9f7fc6e581e0e939841419a514}.
+
+
+
+Definition at line \textbf{ 234} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a15fd22fe7469839d9d3b074dd9d0d4d6} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!isUsed@{isUsed}}
+\index{isUsed@{isUsed}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{isUsed()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+WIFI.\+is\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a08ab309b90d7aa65ae0fabe46e7b3a3b}.
+
+
+
+Definition at line \textbf{ 244} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a0e7d4683d3efb94a4b32a5dfc2c6354f} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setDataRate@{setDataRate}}
+\index{setDataRate@{setDataRate}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setDataRate()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Data\+Rate (\begin{DoxyParamCaption}\item[{String}]{data\+Rate }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]\end{DoxyRefDesc}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_adb59efa98debc4a97a3e3f49eb5227d1}.
+
+
+
+Definition at line \textbf{ 172} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_aad50904a5f6f9131c6aedc21c6c9577f} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setDefault@{setDefault}}
+\index{setDefault@{setDefault}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setDefault()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Default (\begin{DoxyParamCaption}\item[{boolean}]{is\+Default }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a858d7c49ae7d305ba6276ffc9c3e44e0}.
+
+
+
+Definition at line \textbf{ 239} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a0b9b00fa630b3bd010afc9a5448a44d1} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setDelay@{setDelay}}
+\index{setDelay@{setDelay}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setDelay()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Delay (\begin{DoxyParamCaption}\item[{String}]{delay }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]\end{DoxyRefDesc}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a9537bbbd60cdd177ad0085b608667c47}.
+
+
+
+Definition at line \textbf{ 156} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a94ec46bbb0cb002b871bf913a856786b} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setEnablePcap@{setEnablePcap}}
+\index{setEnablePcap@{setEnablePcap}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setEnablePcap()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Enable\+Pcap (\begin{DoxyParamCaption}\item[{boolean}]{enable\+Pcap }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2f736a32ec9169c2bcfcd0d062c798c1}.
+
+
+
+Definition at line \textbf{ 208} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a34186cee5ec987a5de5ed5ef09b98644} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setId@{setId}}
+\index{setId@{setId}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setId()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a392f6a5c3807bca7bcd89a8af824f24f}.
+
+
+
+Definition at line \textbf{ 130} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a62ce80d88a41fda64775a8b13a275cab} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setLinkType@{setLinkType}}
+\index{setLinkType@{setLinkType}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setLinkType()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Link\+Type (\begin{DoxyParamCaption}\item[{\textbf{ Link\+Type}}]{link\+Type }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a0fe0f2e530871c476ea4260358b802d7}.
+
+
+
+Definition at line \textbf{ 198} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_ad9ccc11e6191e853693975f364a36067} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setName@{setName}}
+\index{setName@{setName}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setName()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Name (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2ecf6c0fd47800c282e7a6f9acd4baf4}.
+
+
+
+Definition at line \textbf{ 140} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_aeb952a9cdaa69d50a2ee43116c998ab9} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setSpeedModifier@{setSpeedModifier}}
+\index{setSpeedModifier@{setSpeedModifier}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setSpeedModifier()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Speed\+Modifier (\begin{DoxyParamCaption}\item[{String}]{speed\+Modifier }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]\end{DoxyRefDesc}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a14af742336e8777f6ffb7760af1d3691}.
+
+
+
+Definition at line \textbf{ 188} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_aaec238dc5d48f77fc79d2861387e4ebb} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!setUsed@{setUsed}}
+\index{setUsed@{setUsed}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{setUsed()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+WIFI.\+set\+Used (\begin{DoxyParamCaption}\item[{boolean}]{is\+Used }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a92ca53f427592ad8a5d7efc48d74df27}.
+
+
+
+Definition at line \textbf{ 249} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a0133183cb8c4776cb46bb41f1e95de05} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!toCode@{toCode}}
+\index{toCode@{toCode}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{toCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+to\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the link configuration code 
+
+
+\begin{DoxyPre}
+{\ttfamily \newlineExample:\newline     YansWifiChannelHelper channel\_name = YansWifiChannelHelper::Default();\newline     YansWifiPhyHelper phy\_name;\newline     WifiMacHelper mac\_name;\newline     WifiHelper wifi\_name;\newline     Ssid ssid\_name = Ssid("{}<name>"{});\newline     phy\_name.SetChannel(channel\_name.Create());\newline     wifi\_name.SetStandard(<standard>);\newline     wifi\_name.SetRemoteStationManager(<manager>);     *\newline }
+ \end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+the link configuration code 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+2.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a5a5ec341998eaa7649cde94048724ef5}.
+
+
+
+Definition at line \textbf{ 299} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a1817b00b142cdf1d8958526074a08964} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!toString@{toString}}
+\index{toString@{toString}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to render the link information
+
+\begin{DoxyReturn}{Returns}
+the link information 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 229} of file \textbf{ WIFI.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a877c11dab3346db4b179f8407d1f6f01} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!id@{id}}
+\index{id@{id}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{id}
+{\footnotesize\ttfamily int Ns3\+Objects.\+Links.\+WIFI.\+id}
+
+for unique identity 
+
+Definition at line \textbf{ 13} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a23aadd6858e00c81f0ce4f13c84413cf} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!name@{name}}
+\index{name@{name}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{name}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+name}
+
+for alias name 
+
+Definition at line \textbf{ 17} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_a3f9d14d983ae0775bd2cd6e226288bc1} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!remoteStationManager@{remoteStationManager}}
+\index{remoteStationManager@{remoteStationManager}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{remoteStationManager}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+remote\+Station\+Manager}
+
+the remote session manager for Wi-\/\+Fi 
+
+Definition at line \textbf{ 56} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_ae35890c1eb8d95dcc0544348f72beaa4} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!ssid@{ssid}}
+\index{ssid@{ssid}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{ssid}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+ssid}
+
+The ssid for this wi-\/fi channel 
+
+Definition at line \textbf{ 60} of file \textbf{ WIFI.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_w_i_f_i_ad17266eb7b24a3fc8a09aab6a4dfa2bb} 
+\index{Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}!standard@{standard}}
+\index{standard@{standard}!Ns3Objects.Links.WIFI@{Ns3Objects.Links.WIFI}}
+\doxysubsubsection{standard}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+WIFI.\+standard}
+
+the Wi-\/\+Fi standard 
+
+Definition at line \textbf{ 52} of file \textbf{ WIFI.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Ns3\+Objects/\+Links/\textbf{ WIFI.\+java}\end{DoxyCompactItemize}

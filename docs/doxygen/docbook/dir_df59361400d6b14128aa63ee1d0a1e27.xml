@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_df59361400d6b14128aa63ee1d0a1e27" xml:lang="en-US">
+<title>E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Netoworks Directory Reference</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Netoworks Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__network_8java">Network.java</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

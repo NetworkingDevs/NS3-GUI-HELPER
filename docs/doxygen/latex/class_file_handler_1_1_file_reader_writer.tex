@@ -1,0 +1,120 @@
+\doxysection{File\+Handler.\+File\+Reader\+Writer Class Reference}
+\label{class_file_handler_1_1_file_reader_writer}\index{FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ write\+Using\+Path} (String data, String path)
+\item 
+static void \textbf{ write\+Using\+URL} (String data, URL url)
+\item 
+static String \textbf{ read\+Using\+Path} (String path)
+\item 
+static String \textbf{ read\+If\+Empty\+Using\+Path} (String data, String path)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to manage file handling operations 
+
+Definition at line \textbf{ 21} of file \textbf{ File\+Reader\+Writer.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_file_handler_1_1_file_reader_writer_ad90a902a5382baf3aedb462b5012c870} 
+\index{FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}!readIfEmptyUsingPath@{readIfEmptyUsingPath}}
+\index{readIfEmptyUsingPath@{readIfEmptyUsingPath}!FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}}
+\doxysubsubsection{readIfEmptyUsingPath()}
+{\footnotesize\ttfamily static String File\+Handler.\+File\+Reader\+Writer.\+read\+If\+Empty\+Using\+Path (\begin{DoxyParamCaption}\item[{String}]{data,  }\item[{String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to read the file, only if the file is not empty and writing into file if it\textquotesingle{}s empty
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & the default data that will be written if file is empty \\
+\hline
+{\em path} & path of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string that contains the data that is being read from the file if the file is empty, if not, it will return empty JSON object 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 96} of file \textbf{ File\+Reader\+Writer.\+java}.
+
+\label{class_file_handler_1_1_file_reader_writer_a666bad00402425600c8859afe66f9266} 
+\index{FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}!readUsingPath@{readUsingPath}}
+\index{readUsingPath@{readUsingPath}!FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}}
+\doxysubsubsection{readUsingPath()}
+{\footnotesize\ttfamily static String File\+Handler.\+File\+Reader\+Writer.\+read\+Using\+Path (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to read the file using the path of the file
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the path of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data that is being read from the file 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 73} of file \textbf{ File\+Reader\+Writer.\+java}.
+
+\label{class_file_handler_1_1_file_reader_writer_a950a54620ce2588c0baa4e4bfc4e32fa} 
+\index{FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}!writeUsingPath@{writeUsingPath}}
+\index{writeUsingPath@{writeUsingPath}!FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}}
+\doxysubsubsection{writeUsingPath()}
+{\footnotesize\ttfamily static void File\+Handler.\+File\+Reader\+Writer.\+write\+Using\+Path (\begin{DoxyParamCaption}\item[{String}]{data,  }\item[{String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to write in file using the path of the file in string format
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & the data that needs to be written \\
+\hline
+{\em path} & the path of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 31} of file \textbf{ File\+Reader\+Writer.\+java}.
+
+\label{class_file_handler_1_1_file_reader_writer_ac70e32edf33a9f51b1ec0577dcf39a65} 
+\index{FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}!writeUsingURL@{writeUsingURL}}
+\index{writeUsingURL@{writeUsingURL}!FileHandler.FileReaderWriter@{FileHandler.FileReaderWriter}}
+\doxysubsubsection{writeUsingURL()}
+{\footnotesize\ttfamily static void File\+Handler.\+File\+Reader\+Writer.\+write\+Using\+URL (\begin{DoxyParamCaption}\item[{String}]{data,  }\item[{URL}]{url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to write in the file using the URL of the file
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & the data that needs to be written \\
+\hline
+{\em url} & the URL of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+0.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 52} of file \textbf{ File\+Reader\+Writer.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+File\+Handler/\textbf{ File\+Reader\+Writer.\+java}\end{DoxyCompactItemize}

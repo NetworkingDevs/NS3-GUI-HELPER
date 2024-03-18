@@ -1,0 +1,315 @@
+\doxysection{Ns3\+Objects.\+Devices.\+Device Class Reference}
+\label{class_ns3_objects_1_1_devices_1_1_device}\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Device} (\textbf{ Network\+Link} \textbf{ link\+Settings}, \textbf{ Network} \textbf{ network\+Settings}, Array\+List$<$ Integer $>$ \textbf{ nodes}, int csma\+\_\+index)
+\item 
+\textbf{ Device} (\textbf{ Network\+Link} \textbf{ link\+Settings}, \textbf{ Network} \textbf{ network\+Settings}, String \textbf{ nodeA}, String \textbf{ nodeB})
+\item 
+String \textbf{ get\+Device\+Conf\+Code} ()
+\item 
+String \textbf{ get\+IPConf\+Code} ()
+\item 
+String \textbf{ get\+Nodes\+Group} ()
+\item 
+String \textbf{ get\+Devices\+Group} ()
+\item 
+String \textbf{ get\+Nodes\+Group\+Code} ()
+\item 
+String \textbf{ to\+String} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ CSMA\+\_\+\+INDEX} = 0
+\item 
+\textbf{ Network\+Link} \textbf{ link\+Settings}
+\item 
+\textbf{ Network} \textbf{ network\+Settings}
+\item 
+String \textbf{ nodes\+Group}
+\item 
+String \textbf{ nodeA}
+\item 
+String \textbf{ nodeB}
+\item 
+Array\+List$<$ Integer $>$ \textbf{ nodes}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to store information of a Device in NS-\/3 
+
+Definition at line \textbf{ 20} of file \textbf{ Device.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_ns3_objects_1_1_devices_1_1_device_a58788f1d4f6582393593490ba7e86dee} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!Device@{Device}}
+\index{Device@{Device}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{Device()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Devices.\+Device.\+Device (\begin{DoxyParamCaption}\item[{\textbf{ Network\+Link}}]{link\+Settings,  }\item[{\textbf{ Network}}]{network\+Settings,  }\item[{Array\+List$<$ Integer $>$}]{nodes,  }\item[{int}]{csma\+\_\+index }\end{DoxyParamCaption})}
+
+to instantiate the object of type Device
+
+
+\begin{DoxyParams}{Parameters}
+{\em link\+Settings} & the link settings \\
+\hline
+{\em network\+Settings} & the network settings \\
+\hline
+{\em nodes} & the list of nodes, if type is CSMA link \\
+\hline
+{\em csma\+\_\+index} & the unique number \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 55} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_a5bcbf0d52d2e8db889e1cbb2783b0c14} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!Device@{Device}}
+\index{Device@{Device}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{Device()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Devices.\+Device.\+Device (\begin{DoxyParamCaption}\item[{\textbf{ Network\+Link}}]{link\+Settings,  }\item[{\textbf{ Network}}]{network\+Settings,  }\item[{String}]{nodeA,  }\item[{String}]{nodeB }\end{DoxyParamCaption})}
+
+to instantiate the object of type Device, in case of wired point-\/to-\/point link
+
+
+\begin{DoxyParams}{Parameters}
+{\em link\+Settings} & the link settings \\
+\hline
+{\em network\+Settings} & the network settings \\
+\hline
+{\em nodeA} & the index of first node \\
+\hline
+{\em nodeB} & the index of second node \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 73} of file \textbf{ Device.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_ns3_objects_1_1_devices_1_1_device_a29c2d3198f874e7b406ef70b92a4617d} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!getDeviceConfCode@{getDeviceConfCode}}
+\index{getDeviceConfCode@{getDeviceConfCode}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{getDeviceConfCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+get\+Device\+Conf\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To generate the device configuration code 
+
+Example\+: 
+\begin{DoxyPre}{\ttfamily \newline     devices01 = pointToPoint.Install(nodes01); // (For P2P Link)\newline     csmaDevices0 = csmaLink.Install(csmaNodes0); // (For CSMA Link)\newline }
+ \end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+the device configuration code for NS-\/3 Script 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 97} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_a58d7191425741ac88fd1804b4a8cf515} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!getDevicesGroup@{getDevicesGroup}}
+\index{getDevicesGroup@{getDevicesGroup}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{getDevicesGroup()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+get\+Devices\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to get the device group for Net\+Device\+Container in NS-\/3 Script 
+
+
+\begin{DoxyPre}
+        {\ttfamily \newlineExample:\newline devices01\newline\newline // (For CSMA)\newline csmaDevices0\newline }
+     \end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+the alias for the device group in NS-\/3 Script 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 252} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_a3ada168b03baf771c1a25ae04df59ecc} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!getIPConfCode@{getIPConfCode}}
+\index{getIPConfCode@{getIPConfCode}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{getIPConfCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+get\+IPConf\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To generate the network configuration code for the nodes in device 
+
+
+\begin{DoxyPre}
+        {\ttfamily \newlineExample:\newline address.SetBase("{}54.0.0.0"{}, "{}255.0.0.0"{});\newline Ipv4InterfaceContainer interfaces01 = address.Assign(devices01);\newline\newline // (For CSMA)\newline address.SetBase("{}54.0.0.0"{},"{}255.0.0.0"{});\newline Ipv4InterfaceContainer csmaInterface0 = address.Assign(csmaDevices0);\newline     }
+     \end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+the IP configuration code for the NS-\/3 Script 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 176} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_ad11cd6c0a48b0a53db8fca9936ebda30} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!getNodesGroup@{getNodesGroup}}
+\index{getNodesGroup@{getNodesGroup}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{getNodesGroup()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+get\+Nodes\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to get the alias for the node group, used in Node\+Container 
+
+
+\begin{DoxyPre}
+         {\ttfamily \newline             Example:\newline                 nodes01\newline\newline                 // (For CSMA)\newline                 csmaNodes0\newline         }
+     \end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+the alias for the nodes group 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 223} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_a5f8e478fa9015f6ef1e6d149c764b4b4} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!getNodesGroupCode@{getNodesGroupCode}}
+\index{getNodesGroupCode@{getNodesGroupCode}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{getNodesGroupCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+get\+Nodes\+Group\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to get the code for node group 
+
+
+\begin{DoxyPre}
+        {\ttfamily \newlineExample:\newline nodes01.Add(allNodes.Get(0));\newline nodes01.Add(allNodes.Get(1));\newline\newline // (For CSMA)\newline csmaNodes0.Add(allNodes.Get(0));\newline csmaNodes0.Add(allNodes.Get(1));\newline // ......(variable)\newline }
+ \end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+the nodes groups code in NS-\/3 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 281} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_a6068e56095f15ad7b66532f466bd4687} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!toString@{toString}}
+\index{toString@{toString}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to get the information out of devices
+
+\begin{DoxyReturn}{Returns}
+information string of device 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 306} of file \textbf{ Device.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_ns3_objects_1_1_devices_1_1_device_a1ee9e93a083e63aec10555d65389dbf4} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!CSMA\_INDEX@{CSMA\_INDEX}}
+\index{CSMA\_INDEX@{CSMA\_INDEX}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{CSMA\_INDEX}
+{\footnotesize\ttfamily int Ns3\+Objects.\+Devices.\+Device.\+CSMA\+\_\+\+INDEX = 0}
+
+to identification of each CSMA devices 
+
+Definition at line \textbf{ 24} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_a8b3c0c0653491c3ea52f3c32c989e595} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!linkSettings@{linkSettings}}
+\index{linkSettings@{linkSettings}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{linkSettings}
+{\footnotesize\ttfamily \textbf{ Network\+Link} Ns3\+Objects.\+Devices.\+Device.\+link\+Settings}
+
+for storing the links settings between the nodes in the device 
+
+Definition at line \textbf{ 28} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_a45d589c8ec75606acc9cbb6633334489} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!networkSettings@{networkSettings}}
+\index{networkSettings@{networkSettings}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{networkSettings}
+{\footnotesize\ttfamily \textbf{ Network} Ns3\+Objects.\+Devices.\+Device.\+network\+Settings}
+
+for storing the network configuration between the nodes in the device 
+
+Definition at line \textbf{ 32} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_ad4e1178aa5e8ea1024c3b88836959ea1} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!nodeA@{nodeA}}
+\index{nodeA@{nodeA}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{nodeA}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+nodeA}
+
+for storing the index of first two nodes in case of link type is wired point-\/to-\/point 
+
+Definition at line \textbf{ 40} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_aa3f5a0f55a874bba031dfc97a8d3d9ef} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!nodeB@{nodeB}}
+\index{nodeB@{nodeB}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{nodeB}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+nodeB}
+
+
+
+Definition at line \textbf{ 40} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_acf146139faeaa83fe19c5d0f7fa8f6b0} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!nodes@{nodes}}
+\index{nodes@{nodes}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{nodes}
+{\footnotesize\ttfamily Array\+List$<$Integer$>$ Ns3\+Objects.\+Devices.\+Device.\+nodes}
+
+to store the nodes index in case of csma link 
+
+Definition at line \textbf{ 44} of file \textbf{ Device.\+java}.
+
+\label{class_ns3_objects_1_1_devices_1_1_device_a61e33a373a3ee815f6fa7e607cd72381} 
+\index{Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}!nodesGroup@{nodesGroup}}
+\index{nodesGroup@{nodesGroup}!Ns3Objects.Devices.Device@{Ns3Objects.Devices.Device}}
+\doxysubsubsection{nodesGroup}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Devices.\+Device.\+nodes\+Group}
+
+for storing the group of nodes 
+
+Definition at line \textbf{ 36} of file \textbf{ Device.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Ns3\+Objects/\+Devices/\textbf{ Device.\+java}\end{DoxyCompactItemize}

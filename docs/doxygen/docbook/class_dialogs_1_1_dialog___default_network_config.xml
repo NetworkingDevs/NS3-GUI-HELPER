@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_dialogs_1_1_dialog___default_network_config" xml:lang="en-US">
+<title>Dialogs.Dialog_DefaultNetworkConfig Class Reference</title>
+<indexterm><primary>Dialogs.Dialog_DefaultNetworkConfig</primary></indexterm>
+<para>Inheritance diagram for Dialogs.Dialog_DefaultNetworkConfig:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_dialogs_1_1_dialog___default_network_config.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_dialogs_1_1_dialog___default_network_config_1ad59992f0cbbd2d2d91d8a45a8cd0256a">Dialog_DefaultNetworkConfig</link> (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; networks)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___default_network_config_1af038cf1f6fe4b4406df1ec2e6f63c7e8">showNetworks</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_dialogs_1_1_dialog___default_network_config_1afb71a9b849d499fb957f1b93cba6ea06">showNetworksAgain</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_dialogs_1_1_dialog___default_network_config">Dialog_DefaultNetworkConfig</link> <link linkend="_class_dialogs_1_1_dialog___default_network_config_1a4d81a1faa65ba162f0ff892109988c35">getInstance</link> (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; networks)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; <link linkend="_class_dialogs_1_1_dialog___default_network_config_1afdaaa478f23526a39d85b915bf37aab5">defaultNetworks</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Dialog to configure the default network settings </para>
+<para>
+Definition at line <link linkend="__dialog___default_network_config_8java_source_1l00020">20</link> of file <link linkend="__dialog___default_network_config_8java_source">Dialog_DefaultNetworkConfig.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_network_config_1ad59992f0cbbd2d2d91d8a45a8cd0256a"/><section>
+    <title>Dialog_DefaultNetworkConfig()</title>
+<indexterm><primary>Dialog_DefaultNetworkConfig</primary><secondary>Dialogs.Dialog_DefaultNetworkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultNetworkConfig</primary><secondary>Dialog_DefaultNetworkConfig</secondary></indexterm>
+<para><computeroutput>Dialogs.Dialog_DefaultNetworkConfig.Dialog_DefaultNetworkConfig (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; networks)</computeroutput></para>
+<para>to make the object of type Dialog_DefaultNetworkConfig</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>networks</entry><entry>
+<para>the list of network settings </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_network_config_8java_source_1l00086">86</link> of file <link linkend="__dialog___default_network_config_8java_source">Dialog_DefaultNetworkConfig.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_network_config_1a4d81a1faa65ba162f0ff892109988c35"/><section>
+    <title>getInstance()</title>
+<indexterm><primary>getInstance</primary><secondary>Dialogs.Dialog_DefaultNetworkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultNetworkConfig</primary><secondary>getInstance</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_dialogs_1_1_dialog___default_network_config">Dialog_DefaultNetworkConfig</link> Dialogs.Dialog_DefaultNetworkConfig.getInstance (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; networks)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the instance of this class</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>networks</entry><entry>
+<para>the list of network settings </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the instance of this class </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_network_config_8java_source_1l00071">71</link> of file <link linkend="__dialog___default_network_config_8java_source">Dialog_DefaultNetworkConfig.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_network_config_1af038cf1f6fe4b4406df1ec2e6f63c7e8"/><section>
+    <title>showNetworks()</title>
+<indexterm><primary>showNetworks</primary><secondary>Dialogs.Dialog_DefaultNetworkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultNetworkConfig</primary><secondary>showNetworks</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_DefaultNetworkConfig.showNetworks ( )</computeroutput></para>
+<para>to show the network settings</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_network_config_8java_source_1l00117">117</link> of file <link linkend="__dialog___default_network_config_8java_source">Dialog_DefaultNetworkConfig.java</link>.</para>
+</section>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_network_config_1afb71a9b849d499fb957f1b93cba6ea06"/><section>
+    <title>showNetworksAgain()</title>
+<indexterm><primary>showNetworksAgain</primary><secondary>Dialogs.Dialog_DefaultNetworkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultNetworkConfig</primary><secondary>showNetworksAgain</secondary></indexterm>
+<para><computeroutput>void Dialogs.Dialog_DefaultNetworkConfig.showNetworksAgain ( )</computeroutput></para>
+<para>to show the network settings</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__dialog___default_network_config_8java_source_1l00167">167</link> of file <link linkend="__dialog___default_network_config_8java_source">Dialog_DefaultNetworkConfig.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_dialogs_1_1_dialog___default_network_config_1afdaaa478f23526a39d85b915bf37aab5"/><section>
+    <title>defaultNetworks</title>
+<indexterm><primary>defaultNetworks</primary><secondary>Dialogs.Dialog_DefaultNetworkConfig</secondary></indexterm>
+<indexterm><primary>Dialogs.Dialog_DefaultNetworkConfig</primary><secondary>defaultNetworks</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;<link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link>&gt; Dialogs.Dialog_DefaultNetworkConfig.defaultNetworks</computeroutput></para>
+<para>list of network settings </para>
+<para>
+Definition at line <link linkend="__dialog___default_network_config_8java_source_1l00050">50</link> of file <link linkend="__dialog___default_network_config_8java_source">Dialog_DefaultNetworkConfig.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs/<link linkend="__dialog___default_network_config_8java">Dialog_DefaultNetworkConfig.java</link></section>
+</section>

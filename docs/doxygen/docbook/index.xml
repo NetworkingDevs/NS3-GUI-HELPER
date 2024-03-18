@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>NS3-GUI-HELPER</title>
+    </info>
+    <xi:include href="deprecated.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<chapter>
+    <title>Namespace Documentation</title>
+<xi:include href="namespace_dialogs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_file_handler.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_gui_renderers.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_helpers.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_ns3_objects_1_1_devices.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_ns3_objects_1_1_links.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_ns3_objects_1_1_netoworks.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespace_status_helper.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="class_helpers_1_1_application_settings_helper.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="interface_gui_renderers_1_1_canvas_painter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_file_handler_1_1_code_generator.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_ns3_objects_1_1_links_1_1_c_s_m_a.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_gui_renderers_1_1_csma_link_painter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_ns3_objects_1_1_devices_1_1_device.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___configure_client.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___configure_server.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___connection.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___default_link_config.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___default_network_config.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___default_wi_fi_link_config.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___helper.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___link.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___network.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog__output_file_chooser.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_dialogs_1_1_dialog___wi_fi_link.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_file_handler_1_1_file_reader_writer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_home___screen.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="enum_status_helper_1_1_link_type.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_helpers_1_1_logging_helper.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="enum_status_helper_1_1_log_level.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_ns3_objects_1_1_netoworks_1_1_network.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="interface_ns3_objects_1_1_links_1_1_network_link.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_gui_renderers_1_1_node_painter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_ns3_objects_1_1_links_1_1_p2_p.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_gui_renderers_1_1_p2p_link_painter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_helpers_1_1_place_holder_helper.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="enum_status_helper_1_1_tool_status.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_gui_renderers_1_1_topology_painter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_ns3_objects_1_1_links_1_1_w_i_f_i.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_gui_renderers_1_1_wifi_link_painter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="_dialog___configure_client_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___configure_client_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___configure_server_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___configure_server_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___connection_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___connection_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___default_link_config_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___default_link_config_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___default_network_config_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___default_network_config_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___default_wi_fi_link_config_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___default_wi_fi_link_config_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___helper_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___helper_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___link_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___link_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___network_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___network_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog__output_file_chooser_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog__output_file_chooser_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___wi_fi_link_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_dialog___wi_fi_link_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_code_generator_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_code_generator_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_file_reader_writer_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_file_reader_writer_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_canvas_painter_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_canvas_painter_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_csma_link_painter_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_csma_link_painter_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_node_painter_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_node_painter_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_p2p_link_painter_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_p2p_link_painter_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_topology_painter_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_topology_painter_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_wifi_link_painter_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_wifi_link_painter_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_application_settings_helper_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_application_settings_helper_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_logging_helper_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_logging_helper_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_place_holder_helper_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_place_holder_helper_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_home___screen_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_home___screen_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_device_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_device_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_c_s_m_a_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_c_s_m_a_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_network_link_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_network_link_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_p2_p_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_p2_p_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_w_i_f_i_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_w_i_f_i_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_network_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_network_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_link_type_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_link_type_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_log_level_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_log_level_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_tool_status_8java.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_tool_status_8java_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

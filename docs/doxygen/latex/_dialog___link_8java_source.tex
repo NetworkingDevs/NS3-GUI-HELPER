@@ -1,0 +1,185 @@
+\doxysection{Dialog\+\_\+\+Link.\+java}
+\label{_dialog___link_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_Link.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_Link.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Helpers.PlaceHolderHelper;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Ns3Objects.Links.CSMA;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ Ns3Objects.Links.NetworkLink;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ Ns3Objects.Links.P2P;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ StatusHelper.LinkType;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_Link\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_delay;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_delay;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_dataRate;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_sppedModifier\_main;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_speed;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_speedModifier;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_name;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_name;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_buildLink;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_linkType;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_linkType;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{private}\ JCheckBox\ chkBox\_enablePcap;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_DELAY\ =\ \textcolor{stringliteral}{"{}Enter\ Delay\ (in\ ms)"{}};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_DATA\_RATE\ =\ \textcolor{stringliteral}{"{}Enter\ Data\ rate"{}};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_ALIAS\_NAME\ =\ \textcolor{stringliteral}{"{}Enter\ name"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ mention\ all\ the\ components\ that\ have\ to\ be\ taken\ here....}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ COMPONENT\_COMBO\_BOX\ =\ \textcolor{stringliteral}{"{}Link\_ComboBox"{}};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ COMPONENT\_OVERVIEW\_LABEL\ =\ \textcolor{stringliteral}{"{}Link\_OverviewLabel"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ SHOW\_DEFAULT\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ for\ serving\ the\ functionalities....}}
+\DoxyCodeLine{00064\ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NetworkLink>\ links;\ \textcolor{comment}{//\ changed\ this\ to\ public\ on\ 08/12/23\ for\ accessibility...}}
+\DoxyCodeLine{00072\ \ \ \ \ Dialog\_Helper\ dialogHelper;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Dialog\_Link\ INSTANCE;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Dialog\_Link\ getInstance(Map<String,\ JComponent>\ helpfulComponents)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (INSTANCE\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ INSTANCE\ =\ \textcolor{keyword}{new}\ Dialog\_Link(helpfulComponents);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INSTANCE;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_Link(Map<String,\ JComponent>\ components)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ Dialog\_Link"{}});}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ this.helpfulComponents\ =\ components;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ this.links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ this.dialogHelper\ =\ \textcolor{keyword}{new}\ Dialog\_Helper(\textcolor{keyword}{this});}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Create\ Link"{}});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ this.setSize(400,260);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.HIDE\_ON\_CLOSE);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ btn\_buildLink.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ Adding\ a\ link!"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ addLink();}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ updateOverviewTxt();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_delay,PLACEHOLDER\_DELAY);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_speed,PLACEHOLDER\_DATA\_RATE);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_name,PLACEHOLDER\_ALIAS\_NAME);}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ showLinks()\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ show\ links\ called!"{}});}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).removeAllItems();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SHOW\_DEFAULT)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(link.toString());}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Showing\ all\ the\ links\ on\ the\ canvas,\ size\ of\ links\ :\ "{}}+this.links.size());}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!link.isDefault())\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(link.toString());}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(link.toString()+\textcolor{stringliteral}{"{}\ is\ not\ a\ default\ link!"{}});}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(link.toString()+\textcolor{stringliteral}{"{}\ is\ default\ link!"{}});}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Showing\ only\ the\ links\ which\ are\ not\ default,\ size\ of\ links\ :\ "{}}+this.links.size());}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setDefaultLinks(ArrayList<NetworkLink>\ defaultLinks)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ set\ Default\ Links\ called!"{}});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ defaultLink\ :\ defaultLinks)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ alreadyExist\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (link.toString().equalsIgnoreCase(defaultLink.toString()))\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ alreadyExist\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!alreadyExist)\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.links.add(defaultLink);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showDefaultLinks(\textcolor{keywordtype}{boolean}\ show)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ show\ Default\ Link\ is\ called!"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ SHOW\_DEFAULT\ =\ show;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ this.showLinks();}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NetworkLink>\ getAllLinks()\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ get\ All\ Links\ called!"{}});}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ ArrayList<NetworkLink>\ allLinks\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ allLinks.addAll(this.links);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Making\ a\ single\ list\ of\ all\ link,\ size\ of\ allLinks\ :\ "{}}+allLinks.size());}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ allLinks;}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getP2pLinkCount()\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ get\ p2p\ link\ count\ called!"{}});}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.links.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;\ i<this.links.size();\ i++)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.links.get(i).getLinkType()\ ==\ LinkType.LINK\_P2P)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getCsmaLinkCount()\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ get\ csma\ link\ count\ called!"{}});}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.links.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;\ i<this.links.size();\ i++)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this.links.get(i).getLinkType()\ ==\ LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ addLink()\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ adding\ a\ link!"{}});}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ NetworkLink\ link;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NetworkLink.getLinkType(comboBox\_linkType.getSelectedIndex())==\ LinkType.LINK\_CSMA)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ link\ =\ \textcolor{keyword}{new}\ CSMA(this.links.size(),\ \textcolor{keyword}{this}.textField\_name.getText().toString(),\ \textcolor{keyword}{this}.textField\_delay.getText().toString(),\ \textcolor{keyword}{this}.textField\_speed.getText().toString(),\ \textcolor{keyword}{this}.comboBox\_speedModifier.getSelectedItem().toString(),\ chkBox\_enablePcap.isSelected());}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ default\ case\ or\ P2P\ Link...}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ link\ =\ \textcolor{keyword}{new}\ P2P(this.links.size(),\ \textcolor{keyword}{this}.textField\_name.getText().toString(),\ \textcolor{keyword}{this}.textField\_delay.getText().toString(),\ \textcolor{keyword}{this}.textField\_speed.getText().toString(),\ \textcolor{keyword}{this}.comboBox\_speedModifier.getSelectedItem().toString(),\ chkBox\_enablePcap.isSelected());}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ this.links.add(link);}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(this.links.get(\textcolor{keyword}{this}.links.size()-\/1));}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ this.dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Link\ Added\ Successfully\ with\ name\ :\ "{}}+this.textField\_name.getText().toString(),\textcolor{stringliteral}{"{}Success"{}});}
+\DoxyCodeLine{00246\ \ \ \ \ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ updateOverviewTxt()\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ updating\ overview\ text!"{}});}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ 0;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!link.isDefault())\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cnt\ ++;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ ((JLabel)this.helpfulComponents.get(COMPONENT\_OVERVIEW\_LABEL)).setText(\textcolor{stringliteral}{"{}Links\ :\ "{}}+(cnt)+\textcolor{stringliteral}{"{}\ links\ created"{}});}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ \}}
+
+\end{DoxyCode}

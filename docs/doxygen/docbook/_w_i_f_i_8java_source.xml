@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__w_i_f_i_8java_source" xml:lang="en-US">
+<title>WIFI.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Links/WIFI.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__w_i_f_i_8java_source_1l00001"/>00001 <emphasis role="keyword">package&#32;</emphasis>Ns3Objects.Links;
+<anchor xml:id="__w_i_f_i_8java_source_1l00002"/>00002 
+<anchor xml:id="__w_i_f_i_8java_source_1l00003"/>00003 <emphasis role="keyword">import</emphasis>&#32;<link linkend="_namespace_status_helper">StatusHelper</link>.<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00004"/>00004 
+<anchor xml:id="__w_i_f_i_8java_source_1l00008"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">00008</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link>&#32;<emphasis role="keyword">implements</emphasis>&#32;<link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link>&#32;&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00009"/>00009 
+<anchor xml:id="__w_i_f_i_8java_source_1l00013"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a877c11dab3346db4b179f8407d1f6f01">00013</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a877c11dab3346db4b179f8407d1f6f01">id</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00017"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;String&#32;delay;
+<anchor xml:id="__w_i_f_i_8java_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;String&#32;dataRate;
+<anchor xml:id="__w_i_f_i_8java_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;String&#32;speedModifier;
+<anchor xml:id="__w_i_f_i_8java_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>&#32;linkType;
+<anchor xml:id="__w_i_f_i_8java_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap;
+<anchor xml:id="__w_i_f_i_8java_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isDefault;
+<anchor xml:id="__w_i_f_i_8java_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isUsed;
+<anchor xml:id="__w_i_f_i_8java_source_1l00052"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad17266eb7b24a3fc8a09aab6a4dfa2bb">00052</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad17266eb7b24a3fc8a09aab6a4dfa2bb">standard</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00056"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3f9d14d983ae0775bd2cd6e226288bc1">00056</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3f9d14d983ae0775bd2cd6e226288bc1">remoteStationManager</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00060"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">00060</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">ssid</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00061"/>00061 
+<anchor xml:id="__w_i_f_i_8java_source_1l00077"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1af8f00a1741d5e2cdac428064ff367e20">00077</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1af8f00a1741d5e2cdac428064ff367e20">WIFI</link>(<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad17266eb7b24a3fc8a09aab6a4dfa2bb">standard</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3f9d14d983ae0775bd2cd6e226288bc1">remoteStationManager</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">ssid</link>,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isDefault,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isUsed)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.id&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a877c11dab3346db4b179f8407d1f6f01">id</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.name&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.enablePcap&#32;=&#32;enablePcap;
+<anchor xml:id="__w_i_f_i_8java_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isDefault&#32;=&#32;isDefault;
+<anchor xml:id="__w_i_f_i_8java_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isUsed&#32;=&#32;isUsed;
+<anchor xml:id="__w_i_f_i_8java_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.standard&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad17266eb7b24a3fc8a09aab6a4dfa2bb">standard</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.remoteStationManager&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3f9d14d983ae0775bd2cd6e226288bc1">remoteStationManager</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.ssid&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">ssid</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.linkType&#32;=&#32;<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>.<link linkend="_enum_status_helper_1_1_link_type_1a212d32ea6d8d75c4ddbf7e0406fcaab7">LINK_WIFI</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00087"/>00087 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00088"/>00088 &#32;&#32;&#32;&#32;
+<anchor xml:id="__w_i_f_i_8java_source_1l00103"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a2d3ba355d68f13ec1b2dea379327f64f">00103</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a2d3ba355d68f13ec1b2dea379327f64f">WIFI</link>(<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad17266eb7b24a3fc8a09aab6a4dfa2bb">standard</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3f9d14d983ae0775bd2cd6e226288bc1">remoteStationManager</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">ssid</link>,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;isDefault)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>(<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a877c11dab3346db4b179f8407d1f6f01">id</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad17266eb7b24a3fc8a09aab6a4dfa2bb">standard</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3f9d14d983ae0775bd2cd6e226288bc1">remoteStationManager</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">ssid</link>,enablePcap,isDefault,<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="__w_i_f_i_8java_source_1l00105"/>00105 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00106"/>00106 
+<anchor xml:id="__w_i_f_i_8java_source_1l00120"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0f8b1cd28149fa2a0081a9b568e6b2d4">00120</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0f8b1cd28149fa2a0081a9b568e6b2d4">WIFI</link>(<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad17266eb7b24a3fc8a09aab6a4dfa2bb">standard</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3f9d14d983ae0775bd2cd6e226288bc1">remoteStationManager</link>,&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">ssid</link>,&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>(<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a877c11dab3346db4b179f8407d1f6f01">id</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad17266eb7b24a3fc8a09aab6a4dfa2bb">standard</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3f9d14d983ae0775bd2cd6e226288bc1">remoteStationManager</link>,<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">ssid</link>,enablePcap,<emphasis role="keyword">false</emphasis>,<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="__w_i_f_i_8java_source_1l00122"/>00122 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00123"/>00123 
+<anchor xml:id="__w_i_f_i_8java_source_1l00124"/>00124 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00125"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a13c94075cc852c5a07c29850a6e2d0f3">00125</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a13c94075cc852c5a07c29850a6e2d0f3">getId</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a877c11dab3346db4b179f8407d1f6f01">id</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00127"/>00127 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00128"/>00128 
+<anchor xml:id="__w_i_f_i_8java_source_1l00129"/>00129 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00130"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a34186cee5ec987a5de5ed5ef09b98644">00130</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a34186cee5ec987a5de5ed5ef09b98644">setId</link>(<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.id&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a877c11dab3346db4b179f8407d1f6f01">id</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00132"/>00132 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00133"/>00133 
+<anchor xml:id="__w_i_f_i_8java_source_1l00134"/>00134 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00135"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3d564b2a55ceb160cf1a859406c9ec9b">00135</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3d564b2a55ceb160cf1a859406c9ec9b">getName</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00137"/>00137 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00138"/>00138 
+<anchor xml:id="__w_i_f_i_8java_source_1l00139"/>00139 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00140"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad9ccc11e6191e853693975f364a36067">00140</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad9ccc11e6191e853693975f364a36067">setName</link>(String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.name&#32;=&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a23aadd6858e00c81f0ce4f13c84413cf">name</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00142"/>00142 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00143"/>00143 
+<anchor xml:id="__w_i_f_i_8java_source_1l00147"/>00147 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00148"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1abcb8e5c943fe2674ee0f4af9bc3715d5">00148</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1abcb8e5c943fe2674ee0f4af9bc3715d5">getDelay</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">null</emphasis>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00150"/>00150 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00151"/>00151 
+<anchor xml:id="__w_i_f_i_8java_source_1l00155"/>00155 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00156"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0b9b00fa630b3bd010afc9a5448a44d1">00156</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0b9b00fa630b3bd010afc9a5448a44d1">setDelay</link>(String&#32;delay)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00157"/>00157 
+<anchor xml:id="__w_i_f_i_8java_source_1l00158"/>00158 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00159"/>00159 
+<anchor xml:id="__w_i_f_i_8java_source_1l00163"/>00163 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00164"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aaab95937529adebe0d14e930a7550885">00164</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aaab95937529adebe0d14e930a7550885">getDataRate</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">null</emphasis>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00166"/>00166 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00167"/>00167 
+<anchor xml:id="__w_i_f_i_8java_source_1l00171"/>00171 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00172"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0e7d4683d3efb94a4b32a5dfc2c6354f">00172</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0e7d4683d3efb94a4b32a5dfc2c6354f">setDataRate</link>(String&#32;dataRate)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00173"/>00173 
+<anchor xml:id="__w_i_f_i_8java_source_1l00174"/>00174 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00175"/>00175 
+<anchor xml:id="__w_i_f_i_8java_source_1l00179"/>00179 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00180"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aeda324f9b71f5b23618802da5e9d33b9">00180</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aeda324f9b71f5b23618802da5e9d33b9">getSpeedModifier</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">null</emphasis>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00182"/>00182 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00183"/>00183 
+<anchor xml:id="__w_i_f_i_8java_source_1l00187"/>00187 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00188"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aeb952a9cdaa69d50a2ee43116c998ab9">00188</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aeb952a9cdaa69d50a2ee43116c998ab9">setSpeedModifier</link>(String&#32;speedModifier)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00189"/>00189 
+<anchor xml:id="__w_i_f_i_8java_source_1l00190"/>00190 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00191"/>00191 
+<anchor xml:id="__w_i_f_i_8java_source_1l00192"/>00192 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00193"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0c494fd9e9422bb64a8a7eb4d9deb725">00193</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0c494fd9e9422bb64a8a7eb4d9deb725">getLinkType</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.linkType;
+<anchor xml:id="__w_i_f_i_8java_source_1l00195"/>00195 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00196"/>00196 
+<anchor xml:id="__w_i_f_i_8java_source_1l00197"/>00197 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00198"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a62ce80d88a41fda64775a8b13a275cab">00198</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a62ce80d88a41fda64775a8b13a275cab">setLinkType</link>(<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>&#32;linkType)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.linkType&#32;=&#32;linkType;
+<anchor xml:id="__w_i_f_i_8java_source_1l00200"/>00200 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00201"/>00201 
+<anchor xml:id="__w_i_f_i_8java_source_1l00202"/>00202 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00203"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a193642d7389298769cb0f855d1d12970">00203</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a193642d7389298769cb0f855d1d12970">getEnablePcap</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.enablePcap;
+<anchor xml:id="__w_i_f_i_8java_source_1l00205"/>00205 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00206"/>00206 
+<anchor xml:id="__w_i_f_i_8java_source_1l00207"/>00207 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00208"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a94ec46bbb0cb002b871bf913a856786b">00208</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a94ec46bbb0cb002b871bf913a856786b">setEnablePcap</link>(<emphasis role="keywordtype">boolean</emphasis>&#32;enablePcap)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.enablePcap&#32;=&#32;enablePcap;
+<anchor xml:id="__w_i_f_i_8java_source_1l00210"/>00210 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00211"/>00211 
+<anchor xml:id="__w_i_f_i_8java_source_1l00217"/>00217 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00218"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aa4854c367964dfb9db9d1a3126f92463">00218</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aa4854c367964dfb9db9d1a3126f92463">forSettings</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.<emphasis role="keywordtype">id</emphasis>+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+this.name+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+this.standard+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+this.remoteStationManager+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+this.ssid+<emphasis role="stringliteral">&quot;|&quot;</emphasis>+((this.enablePcap)?(<emphasis role="stringliteral">&quot;Y&quot;</emphasis>):<emphasis role="stringliteral">&quot;N&quot;</emphasis>)+<emphasis role="stringliteral">&quot;|WIFI&quot;</emphasis>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00220"/>00220 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00221"/>00221 
+<anchor xml:id="__w_i_f_i_8java_source_1l00228"/>00228 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00229"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a1817b00b142cdf1d8958526074a08964">00229</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a1817b00b142cdf1d8958526074a08964">toString</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.name+<emphasis role="stringliteral">&quot;&#32;(WIFI)&#32;-&#32;&quot;</emphasis>+this.<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ae35890c1eb8d95dcc0544348f72beaa4">ssid</link>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00231"/>00231 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00232"/>00232 
+<anchor xml:id="__w_i_f_i_8java_source_1l00233"/>00233 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00234"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1af8d72f49b13ced1af5d4dfdf05ff5546">00234</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1af8d72f49b13ced1af5d4dfdf05ff5546">isDefault</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.isDefault;
+<anchor xml:id="__w_i_f_i_8java_source_1l00236"/>00236 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00237"/>00237 
+<anchor xml:id="__w_i_f_i_8java_source_1l00238"/>00238 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00239"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aad50904a5f6f9131c6aedc21c6c9577f">00239</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aad50904a5f6f9131c6aedc21c6c9577f">setDefault</link>(<emphasis role="keywordtype">boolean</emphasis>&#32;isDefault)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isDefault&#32;=&#32;isDefault;
+<anchor xml:id="__w_i_f_i_8java_source_1l00241"/>00241 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00242"/>00242 
+<anchor xml:id="__w_i_f_i_8java_source_1l00243"/>00243 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00244"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a15fd22fe7469839d9d3b074dd9d0d4d6">00244</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">boolean</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a15fd22fe7469839d9d3b074dd9d0d4d6">isUsed</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;this.isUsed;
+<anchor xml:id="__w_i_f_i_8java_source_1l00246"/>00246 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00247"/>00247 
+<anchor xml:id="__w_i_f_i_8java_source_1l00248"/>00248 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00249"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aaec238dc5d48f77fc79d2861387e4ebb">00249</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aaec238dc5d48f77fc79d2861387e4ebb">setUsed</link>(<emphasis role="keywordtype">boolean</emphasis>&#32;isUsed)&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.isUsed&#32;=&#32;isUsed;
+<anchor xml:id="__w_i_f_i_8java_source_1l00251"/>00251 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00252"/>00252 
+<anchor xml:id="__w_i_f_i_8java_source_1l00269"/>00269 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00270"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a8e22831b58f2f33cffc679c47a53b43c">00270</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a8e22831b58f2f33cffc679c47a53b43c">getPacketCaptureAllCode</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00271"/>00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;TODO:&#32;generate&#32;the&#32;code&#32;here</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00272"/>00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">null</emphasis>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00273"/>00273 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00274"/>00274 
+<anchor xml:id="__w_i_f_i_8java_source_1l00298"/>00298 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__w_i_f_i_8java_source_1l00299"/><link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0133183cb8c4776cb46bb41f1e95de05">00299</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0133183cb8c4776cb46bb41f1e95de05">toCode</link>()&#32;{
+<anchor xml:id="__w_i_f_i_8java_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;String&#32;alias_name&#32;=&#32;this.name.replace(<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>,<emphasis role="stringliteral">&quot;_&quot;</emphasis>);
+<anchor xml:id="__w_i_f_i_8java_source_1l00301"/>00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;String&#32;linkConfigCode&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00302"/>00302 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;YansWifiChannelHelper&#32;channel_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00303"/>00303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00304"/>00304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00305"/>00305 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;YansWifiChannelHelper::Default();</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00306"/>00306 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;YansWifiPhyHelper&#32;phy_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00307"/>00307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00308"/>00308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00309"/>00309 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00310"/>00310 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;WifiMacHelper&#32;mac_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00311"/>00311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00312"/>00312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00313"/>00313 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00314"/>00314 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;WifiHelper&#32;wifi_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00315"/>00315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00317"/>00317 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00318"/>00318 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Ssid&#32;ssid_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00319"/>00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00320"/>00320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00321"/>00321 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;Ssid(\&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00322"/>00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;this.ssid&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00323"/>00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00324"/>00324 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\&quot;);</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00325"/>00325 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;phy_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00326"/>00326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00327"/>00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00328"/>00328 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.SetChannel(channel_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00329"/>00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00331"/>00331 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.Create());</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00332"/>00332 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;wifi_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00333"/>00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00334"/>00334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00335"/>00335 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.SetStandard(&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00336"/>00336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;this.standard&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00337"/>00337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00338"/>00338 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;);</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00339"/>00339 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;wifi_&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00340"/>00340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;alias_name&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00341"/>00341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00342"/>00342 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.SetRemoteStationManager(\&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00343"/>00343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;+&#32;this.remoteStationManager&#32;+
+<anchor xml:id="__w_i_f_i_8java_source_1l00344"/>00344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis><emphasis role="stringliteral">&quot;</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00345"/>00345 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\&quot;);</emphasis>
+<anchor xml:id="__w_i_f_i_8java_source_1l00346"/>00346 <emphasis role="stringliteral">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis><emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="__w_i_f_i_8java_source_1l00347"/>00347 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;linkConfigCode;
+<anchor xml:id="__w_i_f_i_8java_source_1l00348"/>00348 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__w_i_f_i_8java_source_1l00349"/>00349 }
+</programlisting></section>

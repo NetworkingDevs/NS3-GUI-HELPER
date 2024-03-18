@@ -1,0 +1,176 @@
+\doxysection{Dialog\+\_\+\+Wi\+Fi\+Link.\+java}
+\label{_dialog___wi_fi_link_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_WiFiLink.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_WiFiLink.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Helpers.PlaceHolderHelper;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Ns3Objects.Links.NetworkLink;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ Ns3Objects.Links.WIFI;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_WiFiLink\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_standard;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_standard;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_stationManager;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ JComboBox\ comboBox\_stationManager;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_ssid;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_ssid;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_alias;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_alias;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_save;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}\ JCheckBox\ checkBox\_genDefault;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}\ JCheckBox\ checkBox\_enablePcap;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ PLACEHOLDER\_SSID\ =\ \textcolor{stringliteral}{"{}Enter\ SSID"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ PLACEHOLDER\_ALIAS\ =\ \textcolor{stringliteral}{"{}Enter\ Alias\ name"{}};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ COMPONENT\_COMBO\_BOX\ =\ \textcolor{stringliteral}{"{}WiFiLink\_ComboBox"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ COMPONENT\_OVERVIEW\_LABEL\ =\ \textcolor{stringliteral}{"{}WiFiLink\_OverviewLabel"{}};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ SHOW\_DEFAULT\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00054\ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NetworkLink>\ links;}
+\DoxyCodeLine{00062\ \ \ \ \ Dialog\_Helper\ dialogHelper;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Dialog\_WiFiLink\ INSTANCE;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Dialog\_WiFiLink\ getInstance(Map<String,\ JComponent>\ helpfulComponents)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Checking\ for\ the\ instance\ of\ Dialog\_WiFiLink"{}});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (INSTANCE\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}The\ instance\ for\ Dialog\_WiFiLink\ was\ not\ available!"{}});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ INSTANCE\ =\ \textcolor{keyword}{new}\ Dialog\_WiFiLink(helpfulComponents);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INSTANCE;}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_WiFiLink(Map<String,\ JComponent>\ components)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ Dialog\_WiFiLink"{}});}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ this.helpfulComponents\ =\ components;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ this.links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ this.dialogHelper\ =\ \textcolor{keyword}{new}\ Dialog\_Helper(\textcolor{keyword}{this});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Create\ Wi-\/Fi\ Link"{}});}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ this.setSize(400,280);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.HIDE\_ON\_CLOSE);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ clicking\ on\ save\ button}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ btn\_save.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ adding\ a\ wi-\/fi\ link!"{}});}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ addLink();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ updateOverviewTxt();}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ action\ to\ be\ performed\ when\ checking\ generate\ with\ default\ settings...}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ checkBox\_genDefault.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ generating\ the\ default\ link!"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkBox\_genDefault.isSelected())\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ checkbox\ is\ selected!"{}});}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comboBox\_standard.setSelectedIndex(0);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comboBox\_stationManager.setSelectedIndex(2);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_ssid.setText(\textcolor{stringliteral}{"{}test\_ssid\_"{}}+links.size());}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_alias.setText(\textcolor{stringliteral}{"{}test\_link\_"{}}+links.size());}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ checkbox\ is\ not\ selected!"{}});}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comboBox\_stationManager.setSelectedIndex(0);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_alias.setText(\textcolor{stringliteral}{"{}Enter\ Alias\ name"{}});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textField\_ssid.setText(\textcolor{stringliteral}{"{}Enter\ SSID"{}});}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_alias,PLACEHOLDER\_ALIAS);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_ssid,PLACEHOLDER\_SSID);}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ showLinks()\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ showing\ the\ links!"{}});}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).removeAllItems();}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SHOW\_DEFAULT)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(link.toString());}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Showing\ all\ the\ wifi\ links\ on\ the\ canvas,\ size\ of\ links\ :\ "{}}+this.links.size());}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!link.isDefault())\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(link.toString());}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(link.toString()+\textcolor{stringliteral}{"{}\ is\ not\ a\ default\ link!"{}});}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(link.toString()+\textcolor{stringliteral}{"{}\ is\ default\ link!"{}});}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Showing\ only\ the\ links\ which\ are\ not\ default,\ size\ of\ links\ :\ "{}}+this.links.size());}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showDefaultLinks(\textcolor{keywordtype}{boolean}\ show)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ show\ default\ links\ called!"{}});}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ SHOW\_DEFAULT\ =\ show;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ this.showLinks();}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NetworkLink>\ getAllLinks()\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ get\ all\ links\ called!"{}});}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ ArrayList<NetworkLink>\ allLinks\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ allLinks.addAll(this.links);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}Making\ a\ single\ list\ of\ all\ link,\ size\ of\ allLinks\ :\ "{}}+allLinks.size());}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ allLinks;}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setDefaultLinks(ArrayList<WIFI>\ defaultLinks)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ set\ default\ links\ called!"{}});}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ defaultLink\ :\ defaultLinks)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ alreadyExist\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (link.forSettings().equalsIgnoreCase(defaultLink.forSettings()))\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ alreadyExist\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!alreadyExist)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this.links.add(defaultLink);}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getLinkCount()\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ get\ link\ count\ called!"{}});}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.links.size();}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ addLink()\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ adding\ a\ wi-\/fi\ link!"{}});}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ NetworkLink\ link\ =\ \textcolor{keyword}{new}\ WIFI(this.links.size(),\ \textcolor{keyword}{this}.textField\_alias.getText(),(String)\ \textcolor{keyword}{this}.comboBox\_standard.getSelectedItem(),\ (String)\ \textcolor{keyword}{this}.comboBox\_stationManager.getSelectedItem(),\ \textcolor{keyword}{this}.textField\_ssid.getText(),\ \textcolor{keyword}{this}.checkBox\_enablePcap.isSelected());}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ this.links.add(link);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(this.links.get(\textcolor{keyword}{this}.links.size()-\/1));}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ this.dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Link\ Added\ Successfully\ with\ name\ :\ "{}}+this.textField\_alias.getText().toString(),\textcolor{stringliteral}{"{}Success"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkBox\_genDefault.isSelected())\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ comboBox\_stationManager.setSelectedIndex(0);}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ textField\_alias.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ textField\_ssid.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ checkBox\_genDefault.setSelected(\textcolor{keyword}{false});}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ updateOverviewTxt()\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Dialog\ WiFiLink\ :\ updating\ the\ overview\ text!"{}});}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ 0;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NetworkLink\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!link.isDefault())\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cnt++;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ ((JLabel)this.helpfulComponents.get(COMPONENT\_OVERVIEW\_LABEL)).setText(\textcolor{stringliteral}{"{}Wi-\/Fi\ Links\ :\ "{}}+(cnt)+\textcolor{stringliteral}{"{}\ links\ created"{}});}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \}}
+
+\end{DoxyCode}

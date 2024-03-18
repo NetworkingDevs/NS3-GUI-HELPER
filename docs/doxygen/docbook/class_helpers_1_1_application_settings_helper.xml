@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_helpers_1_1_application_settings_helper" xml:lang="en-US">
+<title>Helpers.ApplicationSettingsHelper Class Reference</title>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary></indexterm>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_application_settings_helper_1afd0fb7d9aca7887028783abf0e390a90">setUpSettings</link> ()</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_application_settings_helper_1a6ec4da44b439b40a435225a556c3e7de">setUpSettings</link> (String <link linkend="_class_helpers_1_1_application_settings_helper_1adb41d0f2d1414c463b8d84ab3c224a44">OutputPath</link>)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_application_settings_helper_1aad3e2f5464a5e3ad5de4e96f4a5af5e1">saveSettings</link> ()</para>
+</listitem>
+            <listitem><para>static boolean <link linkend="_class_helpers_1_1_application_settings_helper_1a1d643c5718f728b90114792090b9ddcd">hasDefaultLinks</link> ()</para>
+</listitem>
+            <listitem><para>static boolean <link linkend="_class_helpers_1_1_application_settings_helper_1a2ed5cf8fc959a289f6ee6a18093cbcea">hasDefaultWiFiLinks</link> ()</para>
+</listitem>
+            <listitem><para>static boolean <link linkend="_class_helpers_1_1_application_settings_helper_1a424beefc3105419853e0ade079851788">hasDefaultNetworks</link> ()</para>
+</listitem>
+            <listitem><para>static ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; <link linkend="_class_helpers_1_1_application_settings_helper_1a736c55635566abd2a0b58571711a1b85">getDefaultLinks</link> ()</para>
+</listitem>
+            <listitem><para>static ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; <link linkend="_class_helpers_1_1_application_settings_helper_1acc9662fbd272fa216897ffb2d27dbefd">getDefaultWiFiLinks</link> ()</para>
+</listitem>
+            <listitem><para>static ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; <link linkend="_class_helpers_1_1_application_settings_helper_1a2aec459f943400284998fa216c629993">getDefaultNetworks</link> ()</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_application_settings_helper_1a105a28d2f4049d5404e7a6facabfbbde">saveDefaultLinks</link> (ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; links)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_application_settings_helper_1ac759f96edee939bf765dfbc7c1bb5b4f">saveDefaultWiFiLinks</link> (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; links)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_helpers_1_1_application_settings_helper_1a38c3a4c109445843c4dc5f9451dc8d84">saveDefaultNetworks</link> (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; networks)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static String <link linkend="_class_helpers_1_1_application_settings_helper_1a611aabad6e882de1988fb94346e39238">OUTPUT_PATH</link> = &quot;outputPath&quot;</para>
+</listitem>
+            <listitem><para>static String <link linkend="_class_helpers_1_1_application_settings_helper_1af6cc7f4f43b7b67fa319567bc6d3a2a0">FILE_NAME</link> = &quot;fileName&quot;</para>
+</listitem>
+            <listitem><para>static String <link linkend="_class_helpers_1_1_application_settings_helper_1ac3e0c88c467dd5488e59b9fde55c981e">DEFAULT_LINKS</link> = &quot;defaultLinks&quot;</para>
+</listitem>
+            <listitem><para>static String <link linkend="_class_helpers_1_1_application_settings_helper_1a3741f033c940c1b89f9a87ad8fab51e8">DEFAULT_WIFI_LINKS</link> = &quot;defaultWiFiLinks&quot;</para>
+</listitem>
+            <listitem><para>static String <link linkend="_class_helpers_1_1_application_settings_helper_1aa9ff8e1ef7cf0585640dc3ddffb24e1d">DEFAULT_NETWORKS</link> = &quot;defaultNetworks&quot;</para>
+</listitem>
+            <listitem><para>static JSONObject <link linkend="_class_helpers_1_1_application_settings_helper_1abc3aff0d76566b9e098043f93b62aec2">UNIVERSAL_SETTINGS</link> = new JSONObject()</para>
+</listitem>
+            <listitem><para>static String <link linkend="_class_helpers_1_1_application_settings_helper_1adb41d0f2d1414c463b8d84ab3c224a44">OutputPath</link> = System.getProperty(&quot;user.dir&quot;)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This class will be used for managing the settings for application environment</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00027">27</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a736c55635566abd2a0b58571711a1b85"/><section>
+    <title>getDefaultLinks()</title>
+<indexterm><primary>getDefaultLinks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>getDefaultLinks</secondary></indexterm>
+<para><computeroutput>static ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; Helpers.ApplicationSettingsHelper.getDefaultLinks ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the default links</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>list of default links </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00145">145</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a2aec459f943400284998fa216c629993"/><section>
+    <title>getDefaultNetworks()</title>
+<indexterm><primary>getDefaultNetworks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>getDefaultNetworks</secondary></indexterm>
+<para><computeroutput>static ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; Helpers.ApplicationSettingsHelper.getDefaultNetworks ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the default networks</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>list of default networks </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00201">201</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1acc9662fbd272fa216897ffb2d27dbefd"/><section>
+    <title>getDefaultWiFiLinks()</title>
+<indexterm><primary>getDefaultWiFiLinks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>getDefaultWiFiLinks</secondary></indexterm>
+<para><computeroutput>static ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; Helpers.ApplicationSettingsHelper.getDefaultWiFiLinks ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the default wi-fi links</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>list of default wi-fi links </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00175">175</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a1d643c5718f728b90114792090b9ddcd"/><section>
+    <title>hasDefaultLinks()</title>
+<indexterm><primary>hasDefaultLinks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>hasDefaultLinks</secondary></indexterm>
+<para><computeroutput>static boolean Helpers.ApplicationSettingsHelper.hasDefaultLinks ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to check whether the settings object has default links</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>boolean variable indicating presence of the default links </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00112">112</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a424beefc3105419853e0ade079851788"/><section>
+    <title>hasDefaultNetworks()</title>
+<indexterm><primary>hasDefaultNetworks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>hasDefaultNetworks</secondary></indexterm>
+<para><computeroutput>static boolean Helpers.ApplicationSettingsHelper.hasDefaultNetworks ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to check whether the settings object has default networks</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>boolean variable indicating presence of the default networks </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00134">134</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a2ed5cf8fc959a289f6ee6a18093cbcea"/><section>
+    <title>hasDefaultWiFiLinks()</title>
+<indexterm><primary>hasDefaultWiFiLinks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>hasDefaultWiFiLinks</secondary></indexterm>
+<para><computeroutput>static boolean Helpers.ApplicationSettingsHelper.hasDefaultWiFiLinks ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to check whether the settings object has default wi-fi links</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>boolean value indicating presence of the default links </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00123">123</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a105a28d2f4049d5404e7a6facabfbbde"/><section>
+    <title>saveDefaultLinks()</title>
+<indexterm><primary>saveDefaultLinks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>saveDefaultLinks</secondary></indexterm>
+<para><computeroutput>static void Helpers.ApplicationSettingsHelper.saveDefaultLinks (ArrayList&lt; <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> &gt; links)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to set the default links</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00226">226</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a38c3a4c109445843c4dc5f9451dc8d84"/><section>
+    <title>saveDefaultNetworks()</title>
+<indexterm><primary>saveDefaultNetworks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>saveDefaultNetworks</secondary></indexterm>
+<para><computeroutput>static void Helpers.ApplicationSettingsHelper.saveDefaultNetworks (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> &gt; networks)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to set the default networks</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00264">264</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1ac759f96edee939bf765dfbc7c1bb5b4f"/><section>
+    <title>saveDefaultWiFiLinks()</title>
+<indexterm><primary>saveDefaultWiFiLinks</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>saveDefaultWiFiLinks</secondary></indexterm>
+<para><computeroutput>static void Helpers.ApplicationSettingsHelper.saveDefaultWiFiLinks (ArrayList&lt; <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i">WIFI</link> &gt; links)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to set the default links</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00245">245</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1aad3e2f5464a5e3ad5de4e96f4a5af5e1"/><section>
+    <title>saveSettings()</title>
+<indexterm><primary>saveSettings</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>saveSettings</secondary></indexterm>
+<para><computeroutput>static void Helpers.ApplicationSettingsHelper.saveSettings ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>for saving the settings to the file</para>
+
+<para><formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00100">100</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1afd0fb7d9aca7887028783abf0e390a90"/><section>
+    <title>setUpSettings()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>setUpSettings</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>setUpSettings</secondary></indexterm>
+<para><computeroutput>static void Helpers.ApplicationSettingsHelper.setUpSettings ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to enable the application with basic settings, for the first time</para>
+
+<para><formalpara><title>See also</title>
+
+<para>ApplicationSettingsHelper::setUpSettings(String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00067">67</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a6ec4da44b439b40a435225a556c3e7de"/><section>
+    <title>setUpSettings()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>setUpSettings</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>setUpSettings</secondary></indexterm>
+<para><computeroutput>static void Helpers.ApplicationSettingsHelper.setUpSettings (String OutputPath)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to check the content of the settings file, restoring the settings from the file</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>OutputPath</entry><entry>
+<para>the path of the file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>ApplicationSettingsHelper::setUpSettings() </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00079">79</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1ac3e0c88c467dd5488e59b9fde55c981e"/><section>
+    <title>DEFAULT_LINKS</title>
+<indexterm><primary>DEFAULT_LINKS</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>DEFAULT_LINKS</secondary></indexterm>
+<para><computeroutput>String Helpers.ApplicationSettingsHelper.DEFAULT_LINKS = &quot;defaultLinks&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>for key of the default links </para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00040">40</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1aa9ff8e1ef7cf0585640dc3ddffb24e1d"/><section>
+    <title>DEFAULT_NETWORKS</title>
+<indexterm><primary>DEFAULT_NETWORKS</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>DEFAULT_NETWORKS</secondary></indexterm>
+<para><computeroutput>String Helpers.ApplicationSettingsHelper.DEFAULT_NETWORKS = &quot;defaultNetworks&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>for default network settings </para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00048">48</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a3741f033c940c1b89f9a87ad8fab51e8"/><section>
+    <title>DEFAULT_WIFI_LINKS</title>
+<indexterm><primary>DEFAULT_WIFI_LINKS</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>DEFAULT_WIFI_LINKS</secondary></indexterm>
+<para><computeroutput>String Helpers.ApplicationSettingsHelper.DEFAULT_WIFI_LINKS = &quot;defaultWiFiLinks&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>for key of the default wi-fi links </para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00044">44</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1af6cc7f4f43b7b67fa319567bc6d3a2a0"/><section>
+    <title>FILE_NAME</title>
+<indexterm><primary>FILE_NAME</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>FILE_NAME</secondary></indexterm>
+<para><computeroutput>String Helpers.ApplicationSettingsHelper.FILE_NAME = &quot;fileName&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>for key of the file name </para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00036">36</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1a611aabad6e882de1988fb94346e39238"/><section>
+    <title>OUTPUT_PATH</title>
+<indexterm><primary>OUTPUT_PATH</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>OUTPUT_PATH</secondary></indexterm>
+<para><computeroutput>String Helpers.ApplicationSettingsHelper.OUTPUT_PATH = &quot;outputPath&quot;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>the file path for code generation </para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00032">32</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1adb41d0f2d1414c463b8d84ab3c224a44"/><section>
+    <title>OutputPath</title>
+<indexterm><primary>OutputPath</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>OutputPath</secondary></indexterm>
+<para><computeroutput>String Helpers.ApplicationSettingsHelper.OutputPath = System.getProperty(&quot;user.dir&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>for getting the default output path for the file generation </para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00058">58</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<anchor xml:id="_class_helpers_1_1_application_settings_helper_1abc3aff0d76566b9e098043f93b62aec2"/><section>
+    <title>UNIVERSAL_SETTINGS</title>
+<indexterm><primary>UNIVERSAL_SETTINGS</primary><secondary>Helpers.ApplicationSettingsHelper</secondary></indexterm>
+<indexterm><primary>Helpers.ApplicationSettingsHelper</primary><secondary>UNIVERSAL_SETTINGS</secondary></indexterm>
+<para><computeroutput>JSONObject Helpers.ApplicationSettingsHelper.UNIVERSAL_SETTINGS = new JSONObject()<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>for storing the settings of the application </para>
+<para>
+Definition at line <link linkend="__application_settings_helper_8java_source_1l00054">54</link> of file <link linkend="__application_settings_helper_8java_source">ApplicationSettingsHelper.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Helpers/<link linkend="__application_settings_helper_8java">ApplicationSettingsHelper.java</link></section>
+</section>

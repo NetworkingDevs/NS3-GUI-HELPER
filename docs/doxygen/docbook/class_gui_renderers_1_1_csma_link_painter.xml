@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_gui_renderers_1_1_csma_link_painter" xml:lang="en-US">
+<title>GuiRenderers.CsmaLinkPainter Class Reference</title>
+<indexterm><primary>GuiRenderers.CsmaLinkPainter</primary></indexterm>
+<para>Inheritance diagram for GuiRenderers.CsmaLinkPainter:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gui_renderers_1_1_csma_link_painter.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_csma_link_painter_1a81a751b72a2905af3224ad59471d9868">CsmaLinkPainter</link> (ArrayList&lt; Integer &gt; <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a4f139c34d253ecfacc0bffb3e44a3275">nodeList</link>, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a2568ca06aa7b1607dfdac77adde9d8bd">nodes</link>, Color color)</para>
+</listitem>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_csma_link_painter_1afa8b14451aab0aaa28bc15b716348548">CsmaLinkPainter</link> (ArrayList&lt; Integer &gt; <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a4f139c34d253ecfacc0bffb3e44a3275">nodeList</link>, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a2568ca06aa7b1607dfdac77adde9d8bd">nodes</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a7d0514d9f94fcc1277b12003c13f44df">paint</link> (Graphics g)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>Color <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a62f634fa21962cf7a5547d984b98c844">linkColor</link></para>
+</listitem>
+            <listitem><para>ArrayList&lt; Integer &gt; <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a4f139c34d253ecfacc0bffb3e44a3275">nodeList</link></para>
+</listitem>
+            <listitem><para>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; <link linkend="_class_gui_renderers_1_1_csma_link_painter_1a2568ca06aa7b1607dfdac77adde9d8bd">nodes</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static Stroke <link linkend="_class_gui_renderers_1_1_csma_link_painter_1aabc47ffb4aa1299717ea7cbc4322a77d">dashed</link> = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to manage, paint and store the CSMA Link </para>
+<para>
+Definition at line <link linkend="__csma_link_painter_8java_source_1l00011">11</link> of file <link linkend="__csma_link_painter_8java_source">CsmaLinkPainter.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_csma_link_painter_1a81a751b72a2905af3224ad59471d9868"/><section>
+    <title>CsmaLinkPainter()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>CsmaLinkPainter</primary><secondary>GuiRenderers.CsmaLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.CsmaLinkPainter</primary><secondary>CsmaLinkPainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.CsmaLinkPainter.CsmaLinkPainter (ArrayList&lt; Integer &gt; nodeList, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; nodes, Color color)</computeroutput></para>
+<para>to create the object of type CSMA Link</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>nodeList</entry><entry>
+<para>the index of node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>nodes</entry><entry>
+<para>the nodes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>color</entry><entry>
+<para>the color of the link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>CsmaLinkPainter::CsmaLinkPainter(ArrayList, ArrayList) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__csma_link_painter_8java_source_1l00044">44</link> of file <link linkend="__csma_link_painter_8java_source">CsmaLinkPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_csma_link_painter_1afa8b14451aab0aaa28bc15b716348548"/><section>
+    <title>CsmaLinkPainter()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>CsmaLinkPainter</primary><secondary>GuiRenderers.CsmaLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.CsmaLinkPainter</primary><secondary>CsmaLinkPainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.CsmaLinkPainter.CsmaLinkPainter (ArrayList&lt; Integer &gt; nodeList, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; nodes)</computeroutput></para>
+<para>to create the object of type CSMA Link</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>nodeList</entry><entry>
+<para>the index of node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>nodes</entry><entry>
+<para>the nodes </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>CsmaLinkPainter::CsmaLinkPainter(ArrayList, ArrayList, Color) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__csma_link_painter_8java_source_1l00059">59</link> of file <link linkend="__csma_link_painter_8java_source">CsmaLinkPainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_csma_link_painter_1a7d0514d9f94fcc1277b12003c13f44df"/><section>
+    <title>paint()</title>
+<indexterm><primary>paint</primary><secondary>GuiRenderers.CsmaLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.CsmaLinkPainter</primary><secondary>paint</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.CsmaLinkPainter.paint (Graphics g)</computeroutput></para>
+<para>to paint the CSMA link</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>g</entry><entry>
+<para>the Graphics from the painter </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_gui_renderers_1_1_canvas_painter_1a84d5c9562ee8ff11161ea8b2e5b115f5">GuiRenderers.CanvasPainter</link>.</para>
+<para>
+Definition at line <link linkend="__csma_link_painter_8java_source_1l00070">70</link> of file <link linkend="__csma_link_painter_8java_source">CsmaLinkPainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_csma_link_painter_1aabc47ffb4aa1299717ea7cbc4322a77d"/><section>
+    <title>dashed</title>
+<indexterm><primary>dashed</primary><secondary>GuiRenderers.CsmaLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.CsmaLinkPainter</primary><secondary>dashed</secondary></indexterm>
+<para><computeroutput>Stroke GuiRenderers.CsmaLinkPainter.dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>dashed line for stroke painting of the CSMA chnnel </para>
+<para>
+Definition at line <link linkend="__csma_link_painter_8java_source_1l00028">28</link> of file <link linkend="__csma_link_painter_8java_source">CsmaLinkPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_csma_link_painter_1a62f634fa21962cf7a5547d984b98c844"/><section>
+    <title>linkColor</title>
+<indexterm><primary>linkColor</primary><secondary>GuiRenderers.CsmaLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.CsmaLinkPainter</primary><secondary>linkColor</secondary></indexterm>
+<para><computeroutput>Color GuiRenderers.CsmaLinkPainter.linkColor</computeroutput></para>
+<para>the color of the link </para>
+<para>
+Definition at line <link linkend="__csma_link_painter_8java_source_1l00015">15</link> of file <link linkend="__csma_link_painter_8java_source">CsmaLinkPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_csma_link_painter_1a4f139c34d253ecfacc0bffb3e44a3275"/><section>
+    <title>nodeList</title>
+<indexterm><primary>nodeList</primary><secondary>GuiRenderers.CsmaLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.CsmaLinkPainter</primary><secondary>nodeList</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;Integer&gt; GuiRenderers.CsmaLinkPainter.nodeList</computeroutput></para>
+<para>list of index of nodes which are part of CSMA channel </para>
+<para>
+Definition at line <link linkend="__csma_link_painter_8java_source_1l00019">19</link> of file <link linkend="__csma_link_painter_8java_source">CsmaLinkPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_csma_link_painter_1a2568ca06aa7b1607dfdac77adde9d8bd"/><section>
+    <title>nodes</title>
+<indexterm><primary>nodes</primary><secondary>GuiRenderers.CsmaLinkPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.CsmaLinkPainter</primary><secondary>nodes</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&gt; GuiRenderers.CsmaLinkPainter.nodes</computeroutput></para>
+<para>the nodes which are part of CSMA channel </para>
+<para>
+Definition at line <link linkend="__csma_link_painter_8java_source_1l00023">23</link> of file <link linkend="__csma_link_painter_8java_source">CsmaLinkPainter.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/<link linkend="__csma_link_painter_8java">CsmaLinkPainter.java</link></section>
+</section>

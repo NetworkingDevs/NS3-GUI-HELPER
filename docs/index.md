@@ -2,7 +2,7 @@
 layout: default
 ---
 
-| Home      | [Final Product](./appImages.html) | [Manul](./manual.html) | [Releases](./releases.html) | [Doxygen](./doxygen/index.html) |
+| Home      | [Final Product](./appImages.html) | [Manul](./manual.html) | [Releases](./releases.html) | [Doxygen](./doxygen/html/index.html) |
 |:----------|:----------------------------------|------------------------|-----------------------------|--------------------------------|
 | This Page | To Final Product                  | To User Manual         | For latest updates          | For Doxygen                    |
 
@@ -26,7 +26,7 @@ layout: default
 
 ## Updates <sup>NEW</sup>
 <marquee direction="left" height="100px">
-  Checkout <a href="https://github.com/NetworkingDevs/NS3-GUI-HELPER/releases/tag/v1.1.0"> Latest Release v1.1.0 </a>! The Feature Update!! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Checkout <a href="https://github.com/NetworkingDevs/NS3-GUI-HELPER/releases/tag/v1.2.0"> Latest Release v1.2.0 </a>! The Feature Update!! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
   | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Your chance to be a maintainer to this repository! <a href="https://github.com/NetworkingDevs/NS3-GUI-HELPER/discussions/7">Checkout here</a>! &nbsp;&nbsp;&nbsp;&nbsp; 
-  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User Manual Has Been Released For Version 1.1.0 Checkout the <a hreft="./manual.html">Manual Section</a>! 
+  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User Manual Has Been Released For Version 1.2.0 Checkout the <a hreft="./manual.html">Manual Section</a>! 
 </marquee>

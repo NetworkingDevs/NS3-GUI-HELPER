@@ -1,0 +1,609 @@
+\doxysection{Ns3\+Objects.\+Links.\+P2P Class Reference}
+\label{class_ns3_objects_1_1_links_1_1_p2_p}\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+Inheritance diagram for Ns3\+Objects.\+Links.\+P2P\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ns3_objects_1_1_links_1_1_p2_p}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ P2P} (int id, String \textbf{ name}, String \textbf{ delay}, String \textbf{ data\+Rate}, String \textbf{ speed\+Modifier}, boolean enable\+Pcap)
+\item 
+\textbf{ P2P} (int id, String \textbf{ name}, String \textbf{ delay}, String \textbf{ data\+Rate}, String \textbf{ speed\+Modifier}, boolean enable\+Pcap, boolean is\+Default)
+\item 
+\textbf{ P2P} (int id, String \textbf{ name}, String \textbf{ delay}, String \textbf{ data\+Rate}, String \textbf{ speed\+Modifier}, boolean enable\+Pcap, boolean is\+Default, boolean is\+Used)
+\item 
+String \textbf{ to\+String} ()
+\item 
+String \textbf{ for\+Settings} ()
+\item 
+boolean \textbf{ is\+Default} ()
+\item 
+void \textbf{ set\+Default} (boolean is\+Default)
+\item 
+boolean \textbf{ is\+Used} ()
+\item 
+void \textbf{ set\+Used} (boolean used)
+\item 
+String \textbf{ to\+Code} ()
+\item 
+String \textbf{ get\+Packet\+Capture\+All\+Code} ()
+\item 
+int \textbf{ get\+Id} ()
+\item 
+void \textbf{ set\+Id} (int id)
+\item 
+String \textbf{ get\+Name} ()
+\item 
+void \textbf{ set\+Name} (String \textbf{ name})
+\item 
+String \textbf{ get\+Delay} ()
+\item 
+void \textbf{ set\+Delay} (String \textbf{ delay})
+\item 
+String \textbf{ get\+Data\+Rate} ()
+\item 
+void \textbf{ set\+Data\+Rate} (String \textbf{ data\+Rate})
+\item 
+String \textbf{ get\+Speed\+Modifier} ()
+\item 
+void \textbf{ set\+Speed\+Modifier} (String \textbf{ speed\+Modifier})
+\item 
+\textbf{ Link\+Type} \textbf{ get\+Link\+Type} ()
+\item 
+void \textbf{ set\+Link\+Type} (\textbf{ Link\+Type} link\+Type)
+\item 
+boolean \textbf{ get\+Enable\+Pcap} ()
+\item 
+void \textbf{ set\+Enable\+Pcap} (boolean enable\+Pcap)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \textbf{ name}
+\item 
+String \textbf{ delay}
+\item 
+String \textbf{ data\+Rate}
+\item 
+String \textbf{ speed\+Modifier}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \textbf{ Ns3\+Objects.\+Links.\+Network\+Link}}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ CHOICE\+\_\+\+INDEX\+\_\+\+P2P} = 0
+\item 
+int \textbf{ CHOICE\+\_\+\+INDEX\+\_\+\+CSMA} = 1
+\item 
+String \textbf{ LABEL\+\_\+\+P2P} = "{}P2\+P"{}
+\item 
+String \textbf{ LABEL\+\_\+\+CSMA} = "{}CSMA"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \textbf{ Ns3\+Objects.\+Links.\+Network\+Link}}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Link\+Type} \textbf{ get\+Link\+Type} (int choice\+Index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to store the link of type Point\+To\+Point\+Helper in terms of NS-\/3 Script 
+
+Definition at line \textbf{ 8} of file \textbf{ P2\+P.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a38a39756fcc9aa04a62aa16ddbe9ca27} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!P2P@{P2P}}
+\index{P2P@{P2P}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{P2P()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+P2\+P.\+P2P (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{delay,  }\item[{String}]{data\+Rate,  }\item[{String}]{speed\+Modifier,  }\item[{boolean}]{enable\+Pcap }\end{DoxyParamCaption})}
+
+to instantiate the object of type P2P
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & for identity \\
+\hline
+{\em name} & for alias \\
+\hline
+{\em delay} & for delay in ms \\
+\hline
+{\em data\+Rate} & for data rate of the link \\
+\hline
+{\em speed\+Modifier} & for speed modifier \\
+\hline
+{\em enable\+Pcap} & for enabling packet capture of entire link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+P2\+P\+::\+P2\+P(int, String, String, String, String, boolean, boolean, boolean) P2P 
+
+P2\+P\+::\+P2\+P(int, String, String, String, String, boolean, boolean) P2P 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 60} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_ab64eba30f5156f740504f6846ebd8419} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!P2P@{P2P}}
+\index{P2P@{P2P}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{P2P()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+P2\+P.\+P2P (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{delay,  }\item[{String}]{data\+Rate,  }\item[{String}]{speed\+Modifier,  }\item[{boolean}]{enable\+Pcap,  }\item[{boolean}]{is\+Default }\end{DoxyParamCaption})}
+
+to instantiate the object of type P2P
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & for identity \\
+\hline
+{\em name} & for alias \\
+\hline
+{\em delay} & for delay in ms \\
+\hline
+{\em data\+Rate} & for data rate of the link \\
+\hline
+{\em speed\+Modifier} & for speed modifier \\
+\hline
+{\em enable\+Pcap} & for enabling packet capture of entire link \\
+\hline
+{\em is\+Default} & for setting as default link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+P2\+P\+::\+P2\+P(int, String, String, String, String, boolean, boolean, boolean) P2P 
+
+P2\+P\+::\+P2\+P(int, String, String, String, String, boolean) P2P 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 87} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a2876aae9d5098e0dcd7198caff01f321} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!P2P@{P2P}}
+\index{P2P@{P2P}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{P2P()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Ns3\+Objects.\+Links.\+P2\+P.\+P2P (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{String}]{name,  }\item[{String}]{delay,  }\item[{String}]{data\+Rate,  }\item[{String}]{speed\+Modifier,  }\item[{boolean}]{enable\+Pcap,  }\item[{boolean}]{is\+Default,  }\item[{boolean}]{is\+Used }\end{DoxyParamCaption})}
+
+to instantiate the object of type P2P
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & for identity \\
+\hline
+{\em name} & for alias \\
+\hline
+{\em delay} & for delay in ms \\
+\hline
+{\em data\+Rate} & for data rate of the link \\
+\hline
+{\em speed\+Modifier} & for speed modifier \\
+\hline
+{\em enable\+Pcap} & for enabling packet capture of entire link \\
+\hline
+{\em is\+Default} & for setting as default link \\
+\hline
+{\em is\+Used} & for marking as used link \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+P2\+P\+::\+P2\+P(int, String, String, String, String, boolean, boolean) P2P 
+
+P2\+P\+::\+P2\+P(int, String, String, String, String, boolean) P2P 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 107} of file \textbf{ P2\+P.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_ns3_objects_1_1_links_1_1_p2_p_aca33c3c496a680823e90b53b93864fed} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!forSettings@{forSettings}}
+\index{forSettings@{forSettings}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{forSettings()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+for\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the storage format in settings file
+
+\begin{DoxyReturn}{Returns}
+storage format for settings file 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2302c01e1b5a299b66758727c7a148e3}.
+
+
+
+Definition at line \textbf{ 131} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_aa7fb5fa82920d4f086d9afddaedb054e} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!getDataRate@{getDataRate}}
+\index{getDataRate@{getDataRate}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{getDataRate()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+get\+Data\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ab5979d5433c3224590739501731b4e1d}.
+
+
+
+Definition at line \textbf{ 238} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a9c00066bcf4d814e6f5aaa0465aa3573} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!getDelay@{getDelay}}
+\index{getDelay@{getDelay}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{getDelay()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+get\+Delay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ae6a8830bdea02110cda8cff5a1b33747}.
+
+
+
+Definition at line \textbf{ 228} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a86a54c0c7892f435c91efa581fba1460} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!getEnablePcap@{getEnablePcap}}
+\index{getEnablePcap@{getEnablePcap}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{getEnablePcap()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+P2\+P.\+get\+Enable\+Pcap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a7c8f176a689a115a00a28eb670377160}.
+
+
+
+Definition at line \textbf{ 268} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a60722b7722ce8003d31ec4ffe8cfb9ce} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!getId@{getId}}
+\index{getId@{getId}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{getId()}
+{\footnotesize\ttfamily int Ns3\+Objects.\+Links.\+P2\+P.\+get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a375e12cfed426bb38d52a66f7f0aa6c1}.
+
+
+
+Definition at line \textbf{ 208} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_ad04bd2b9ac2e0b3213d7d23a9a1b52b5} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!getLinkType@{getLinkType}}
+\index{getLinkType@{getLinkType}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{getLinkType()}
+{\footnotesize\ttfamily \textbf{ Link\+Type} Ns3\+Objects.\+Links.\+P2\+P.\+get\+Link\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_af9a212d6ca443661bbb711ab520a51e7}.
+
+
+
+Definition at line \textbf{ 258} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_afd5b4deb47cd9a8e3bb072b348e15fe5} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!getName@{getName}}
+\index{getName@{getName}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{getName()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a339c90c6249616099bfc0d200057fe88}.
+
+
+
+Definition at line \textbf{ 218} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_ae5e68578cd53f0838b1aad3a6e474746} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!getPacketCaptureAllCode@{getPacketCaptureAllCode}}
+\index{getPacketCaptureAllCode@{getPacketCaptureAllCode}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{getPacketCaptureAllCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+get\+Packet\+Capture\+All\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the code for packet capture of entire link 
+
+
+\begin{DoxyPre}
+{\ttfamily \newlineExample:\newlinep2pName.EnablePcapAll("{}Name"{});\newline}
+\end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+Equivalent code for "{}.\+Enable\+Pcap\+All()"{} method 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a73f84dce85a1fb5866aca4481453f52b}.
+
+
+
+Definition at line \textbf{ 200} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a4713746ee50a4ce2d5bcb1e0af2b8858} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!getSpeedModifier@{getSpeedModifier}}
+\index{getSpeedModifier@{getSpeedModifier}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{getSpeedModifier()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+get\+Speed\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_aa9fdc3ec8d14a6850616a89a830b289a}.
+
+
+
+Definition at line \textbf{ 248} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a4717c5ec3c6e55408037af0622bd8ecc} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!isDefault@{isDefault}}
+\index{isDefault@{isDefault}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{isDefault()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+P2\+P.\+is\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_ad6d72c9f7fc6e581e0e939841419a514}.
+
+
+
+Definition at line \textbf{ 136} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a7b244daaf27c2ef7b330f6976c1e37ce} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!isUsed@{isUsed}}
+\index{isUsed@{isUsed}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{isUsed()}
+{\footnotesize\ttfamily boolean Ns3\+Objects.\+Links.\+P2\+P.\+is\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a08ab309b90d7aa65ae0fabe46e7b3a3b}.
+
+
+
+Definition at line \textbf{ 146} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_acb9d5d4a28dbf6e8f188c5bf4e3a3e5d} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setDataRate@{setDataRate}}
+\index{setDataRate@{setDataRate}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setDataRate()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Data\+Rate (\begin{DoxyParamCaption}\item[{String}]{data\+Rate }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_adb59efa98debc4a97a3e3f49eb5227d1}.
+
+
+
+Definition at line \textbf{ 243} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_af7deb5f46378ee9afac468e2429fb6c7} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setDefault@{setDefault}}
+\index{setDefault@{setDefault}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setDefault()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Default (\begin{DoxyParamCaption}\item[{boolean}]{is\+Default }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a858d7c49ae7d305ba6276ffc9c3e44e0}.
+
+
+
+Definition at line \textbf{ 141} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a53e5cb5c84dbadb38a81628fbde622e4} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setDelay@{setDelay}}
+\index{setDelay@{setDelay}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setDelay()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Delay (\begin{DoxyParamCaption}\item[{String}]{delay }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a9537bbbd60cdd177ad0085b608667c47}.
+
+
+
+Definition at line \textbf{ 233} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_af1a51df79942810092f512eb9a37c60f} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setEnablePcap@{setEnablePcap}}
+\index{setEnablePcap@{setEnablePcap}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setEnablePcap()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Enable\+Pcap (\begin{DoxyParamCaption}\item[{boolean}]{enable\+Pcap }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2f736a32ec9169c2bcfcd0d062c798c1}.
+
+
+
+Definition at line \textbf{ 273} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_abfdbf3f9198969c07213ee08666d7e61} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setId@{setId}}
+\index{setId@{setId}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setId()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a392f6a5c3807bca7bcd89a8af824f24f}.
+
+
+
+Definition at line \textbf{ 213} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_afdfdfc835ef0deeb5e17397ef396dd57} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setLinkType@{setLinkType}}
+\index{setLinkType@{setLinkType}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setLinkType()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Link\+Type (\begin{DoxyParamCaption}\item[{\textbf{ Link\+Type}}]{link\+Type }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a0fe0f2e530871c476ea4260358b802d7}.
+
+
+
+Definition at line \textbf{ 263} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a9e641ea7fac96e386d9162510d07dbcf} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setName@{setName}}
+\index{setName@{setName}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setName()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Name (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a2ecf6c0fd47800c282e7a6f9acd4baf4}.
+
+
+
+Definition at line \textbf{ 223} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_afcb398373685519198b97281d6ac6c07} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setSpeedModifier@{setSpeedModifier}}
+\index{setSpeedModifier@{setSpeedModifier}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setSpeedModifier()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Speed\+Modifier (\begin{DoxyParamCaption}\item[{String}]{speed\+Modifier }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a14af742336e8777f6ffb7760af1d3691}.
+
+
+
+Definition at line \textbf{ 253} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a5783abf2a189abfa3df76b2d1277bba3} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!setUsed@{setUsed}}
+\index{setUsed@{setUsed}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{setUsed()}
+{\footnotesize\ttfamily void Ns3\+Objects.\+Links.\+P2\+P.\+set\+Used (\begin{DoxyParamCaption}\item[{boolean}]{used }\end{DoxyParamCaption})}
+
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a92ca53f427592ad8a5d7efc48d74df27}.
+
+
+
+Definition at line \textbf{ 151} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_ad92174af36072f09c6b667b64ad3ff6c} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!toCode@{toCode}}
+\index{toCode@{toCode}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{toCode()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+to\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to generate the link configuration code 
+
+
+\begin{DoxyPre}
+{\ttfamily \newlineExample:\newline PointToPointHelper pointToPoint;\newline pointToPoint.SetDeviceAttribute("{}DataRate"{}, StringValue("{}500Mbps"{}));\newline pointToPoint.SetChannelAttribute("{}Delay"{}, StringValue("{}2ms"{}));\newline }
+ \end{DoxyPre}
+ 
+
+\begin{DoxyReturn}{Returns}
+the link configuration code 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Implements \textbf{ Ns3\+Objects.\+Links.\+Network\+Link} \doxyref{}{p.}{interface_ns3_objects_1_1_links_1_1_network_link_a5a5ec341998eaa7649cde94048724ef5}.
+
+
+
+Definition at line \textbf{ 174} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a83a16478ed7a176b6aa085ddf1ee8833} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!toString@{toString}}
+\index{toString@{toString}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to render the link information
+
+\begin{DoxyReturn}{Returns}
+the link information 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 119} of file \textbf{ P2\+P.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a488f734fd730af55f6b00815a0f5cf96} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!dataRate@{dataRate}}
+\index{dataRate@{dataRate}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{dataRate}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+data\+Rate}
+
+for data rate 
+
+Definition at line \textbf{ 25} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a2144aed26be6ef9f0ae95dc920be4114} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!delay@{delay}}
+\index{delay@{delay}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{delay}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+delay}
+
+for delay in "{}ms"{} 
+
+Definition at line \textbf{ 21} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a65cade519810ce7264b186da8105dfc5} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!name@{name}}
+\index{name@{name}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{name}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+name}
+
+for alias name 
+
+Definition at line \textbf{ 17} of file \textbf{ P2\+P.\+java}.
+
+\label{class_ns3_objects_1_1_links_1_1_p2_p_a0b0b088cdba376fef6eca9602945a874} 
+\index{Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}!speedModifier@{speedModifier}}
+\index{speedModifier@{speedModifier}!Ns3Objects.Links.P2P@{Ns3Objects.Links.P2P}}
+\doxysubsubsection{speedModifier}
+{\footnotesize\ttfamily String Ns3\+Objects.\+Links.\+P2\+P.\+speed\+Modifier}
+
+for speed modifier of link 
+
+Definition at line \textbf{ 29} of file \textbf{ P2\+P.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Ns3\+Objects/\+Links/\textbf{ P2\+P.\+java}\end{DoxyCompactItemize}

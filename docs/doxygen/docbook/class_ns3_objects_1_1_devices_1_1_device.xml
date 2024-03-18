@@ -1,0 +1,385 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_ns3_objects_1_1_devices_1_1_device" xml:lang="en-US">
+<title>Ns3Objects.Devices.Device Class Reference</title>
+<indexterm><primary>Ns3Objects.Devices.Device</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a58788f1d4f6582393593490ba7e86dee">Device</link> (<link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a8b3c0c0653491c3ea52f3c32c989e595">linkSettings</link>, <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a45d589c8ec75606acc9cbb6633334489">networkSettings</link>, ArrayList&lt; Integer &gt; <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1acf146139faeaa83fe19c5d0f7fa8f6b0">nodes</link>, int csma_index)</para>
+</listitem>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a5bcbf0d52d2e8db889e1cbb2783b0c14">Device</link> (<link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a8b3c0c0653491c3ea52f3c32c989e595">linkSettings</link>, <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a45d589c8ec75606acc9cbb6633334489">networkSettings</link>, String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1ad4e1178aa5e8ea1024c3b88836959ea1">nodeA</link>, String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1aa3f5a0f55a874bba031dfc97a8d3d9ef">nodeB</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a29c2d3198f874e7b406ef70b92a4617d">getDeviceConfCode</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a3ada168b03baf771c1a25ae04df59ecc">getIPConfCode</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1ad11cd6c0a48b0a53db8fca9936ebda30">getNodesGroup</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a58d7191425741ac88fd1804b4a8cf515">getDevicesGroup</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a5f8e478fa9015f6ef1e6d149c764b4b4">getNodesGroupCode</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a6068e56095f15ad7b66532f466bd4687">toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a1ee9e93a083e63aec10555d65389dbf4">CSMA_INDEX</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a8b3c0c0653491c3ea52f3c32c989e595">linkSettings</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a45d589c8ec75606acc9cbb6633334489">networkSettings</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1a61e33a373a3ee815f6fa7e607cd72381">nodesGroup</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1ad4e1178aa5e8ea1024c3b88836959ea1">nodeA</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1aa3f5a0f55a874bba031dfc97a8d3d9ef">nodeB</link></para>
+</listitem>
+            <listitem><para>ArrayList&lt; Integer &gt; <link linkend="_class_ns3_objects_1_1_devices_1_1_device_1acf146139faeaa83fe19c5d0f7fa8f6b0">nodes</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>A class to store information of a Device in NS-3 </para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00020">20</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a58788f1d4f6582393593490ba7e86dee"/><section>
+    <title>Device()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Device</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>Device</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Devices.Device.Device (<link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> linkSettings, <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> networkSettings, ArrayList&lt; Integer &gt; nodes, int csma_index)</computeroutput></para>
+<para>to instantiate the object of type Device</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>linkSettings</entry><entry>
+<para>the link settings </para>
+</entry>
+                            </row>
+                            <row>
+<entry>networkSettings</entry><entry>
+<para>the network settings </para>
+</entry>
+                            </row>
+                            <row>
+<entry>nodes</entry><entry>
+<para>the list of nodes, if type is CSMA link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>csma_index</entry><entry>
+<para>the unique number </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00055">55</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a5bcbf0d52d2e8db889e1cbb2783b0c14"/><section>
+    <title>Device()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Device</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>Device</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Devices.Device.Device (<link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> linkSettings, <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> networkSettings, String nodeA, String nodeB)</computeroutput></para>
+<para>to instantiate the object of type Device, in case of wired point-to-point link</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>linkSettings</entry><entry>
+<para>the link settings </para>
+</entry>
+                            </row>
+                            <row>
+<entry>networkSettings</entry><entry>
+<para>the network settings </para>
+</entry>
+                            </row>
+                            <row>
+<entry>nodeA</entry><entry>
+<para>the index of first node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>nodeB</entry><entry>
+<para>the index of second node </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00073">73</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a29c2d3198f874e7b406ef70b92a4617d"/><section>
+    <title>getDeviceConfCode()</title>
+<indexterm><primary>getDeviceConfCode</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>getDeviceConfCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.getDeviceConfCode ( )</computeroutput></para>
+<para>To generate the device configuration code </para>
+
+<para>Example: <literallayout><computeroutput><literallayout>&#160;&#xa;</literallayout>
+     devices01 = pointToPoint.Install(nodes01); // (For P2P Link)<literallayout>&#160;&#xa;</literallayout>
+     csmaDevices0 = csmaLink.Install(csmaNodes0); // (For CSMA Link)<literallayout>&#160;&#xa;</literallayout>
+ </computeroutput>
+ </literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the device configuration code for NS-3 Script </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00097">97</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a58d7191425741ac88fd1804b4a8cf515"/><section>
+    <title>getDevicesGroup()</title>
+<indexterm><primary>getDevicesGroup</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>getDevicesGroup</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.getDevicesGroup ( )</computeroutput></para>
+<para>to get the device group for NetDeviceContainer in NS-3 Script </para>
+
+<para><literallayout>
+        <computeroutput><literallayout>&#160;&#xa;</literallayout>
+Example:<literallayout>&#160;&#xa;</literallayout>
+ devices01<literallayout>&#160;&#xa;</literallayout>
+<literallayout>&#160;&#xa;</literallayout>
+ // (For CSMA)<literallayout>&#160;&#xa;</literallayout>
+ csmaDevices0<literallayout>&#160;&#xa;</literallayout>
+ </computeroutput>
+     </literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the alias for the device group in NS-3 Script </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00252">252</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a3ada168b03baf771c1a25ae04df59ecc"/><section>
+    <title>getIPConfCode()</title>
+<indexterm><primary>getIPConfCode</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>getIPConfCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.getIPConfCode ( )</computeroutput></para>
+<para>To generate the network configuration code for the nodes in device </para>
+
+<para><literallayout>
+        <computeroutput><literallayout>&#160;&#xa;</literallayout>
+Example:<literallayout>&#160;&#xa;</literallayout>
+ address.SetBase(&quot;54.0.0.0&quot;, &quot;255.0.0.0&quot;);<literallayout>&#160;&#xa;</literallayout>
+ Ipv4InterfaceContainer interfaces01 = address.Assign(devices01);<literallayout>&#160;&#xa;</literallayout>
+<literallayout>&#160;&#xa;</literallayout>
+ // (For CSMA)<literallayout>&#160;&#xa;</literallayout>
+ address.SetBase(&quot;54.0.0.0&quot;,&quot;255.0.0.0&quot;);<literallayout>&#160;&#xa;</literallayout>
+ Ipv4InterfaceContainer csmaInterface0 = address.Assign(csmaDevices0);<literallayout>&#160;&#xa;</literallayout>
+     </computeroutput>
+     </literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the IP configuration code for the NS-3 Script </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00176">176</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1ad11cd6c0a48b0a53db8fca9936ebda30"/><section>
+    <title>getNodesGroup()</title>
+<indexterm><primary>getNodesGroup</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>getNodesGroup</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.getNodesGroup ( )</computeroutput></para>
+<para>to get the alias for the node group, used in NodeContainer </para>
+
+<para><literallayout>
+         <computeroutput><literallayout>&#160;&#xa;</literallayout>
+             Example:<literallayout>&#160;&#xa;</literallayout>
+                 nodes01<literallayout>&#160;&#xa;</literallayout>
+<literallayout>&#160;&#xa;</literallayout>
+                 // (For CSMA)<literallayout>&#160;&#xa;</literallayout>
+                 csmaNodes0<literallayout>&#160;&#xa;</literallayout>
+         </computeroutput>
+     </literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the alias for the nodes group </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00223">223</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a5f8e478fa9015f6ef1e6d149c764b4b4"/><section>
+    <title>getNodesGroupCode()</title>
+<indexterm><primary>getNodesGroupCode</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>getNodesGroupCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.getNodesGroupCode ( )</computeroutput></para>
+<para>to get the code for node group </para>
+
+<para><literallayout>
+        <computeroutput><literallayout>&#160;&#xa;</literallayout>
+Example:<literallayout>&#160;&#xa;</literallayout>
+ nodes01.Add(allNodes.Get(0));<literallayout>&#160;&#xa;</literallayout>
+ nodes01.Add(allNodes.Get(1));<literallayout>&#160;&#xa;</literallayout>
+<literallayout>&#160;&#xa;</literallayout>
+ // (For CSMA)<literallayout>&#160;&#xa;</literallayout>
+ csmaNodes0.Add(allNodes.Get(0));<literallayout>&#160;&#xa;</literallayout>
+ csmaNodes0.Add(allNodes.Get(1));<literallayout>&#160;&#xa;</literallayout>
+ // ......(variable)<literallayout>&#160;&#xa;</literallayout>
+ </computeroutput>
+ </literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the nodes groups code in NS-3 </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00281">281</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a6068e56095f15ad7b66532f466bd4687"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.toString ( )</computeroutput></para>
+<para>to get the information out of devices</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>information string of device </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00306">306</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a1ee9e93a083e63aec10555d65389dbf4"/><section>
+    <title>CSMA_INDEX</title>
+<indexterm><primary>CSMA_INDEX</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>CSMA_INDEX</secondary></indexterm>
+<para><computeroutput>int Ns3Objects.Devices.Device.CSMA_INDEX = 0</computeroutput></para>
+<para>to identification of each CSMA devices </para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00024">24</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a8b3c0c0653491c3ea52f3c32c989e595"/><section>
+    <title>linkSettings</title>
+<indexterm><primary>linkSettings</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>linkSettings</secondary></indexterm>
+<para><computeroutput><link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">NetworkLink</link> Ns3Objects.Devices.Device.linkSettings</computeroutput></para>
+<para>for storing the links settings between the nodes in the device </para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00028">28</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a45d589c8ec75606acc9cbb6633334489"/><section>
+    <title>networkSettings</title>
+<indexterm><primary>networkSettings</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>networkSettings</secondary></indexterm>
+<para><computeroutput><link linkend="_class_ns3_objects_1_1_netoworks_1_1_network">Network</link> Ns3Objects.Devices.Device.networkSettings</computeroutput></para>
+<para>for storing the network configuration between the nodes in the device </para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00032">32</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1ad4e1178aa5e8ea1024c3b88836959ea1"/><section>
+    <title>nodeA</title>
+<indexterm><primary>nodeA</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>nodeA</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.nodeA</computeroutput></para>
+<para>for storing the index of first two nodes in case of link type is wired point-to-point </para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00040">40</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1aa3f5a0f55a874bba031dfc97a8d3d9ef"/><section>
+    <title>nodeB</title>
+<indexterm><primary>nodeB</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>nodeB</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.nodeB</computeroutput></para><para>
+Definition at line <link linkend="__device_8java_source_1l00040">40</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1acf146139faeaa83fe19c5d0f7fa8f6b0"/><section>
+    <title>nodes</title>
+<indexterm><primary>nodes</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>nodes</secondary></indexterm>
+<para><computeroutput>ArrayList&lt;Integer&gt; Ns3Objects.Devices.Device.nodes</computeroutput></para>
+<para>to store the nodes index in case of csma link </para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00044">44</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_devices_1_1_device_1a61e33a373a3ee815f6fa7e607cd72381"/><section>
+    <title>nodesGroup</title>
+<indexterm><primary>nodesGroup</primary><secondary>Ns3Objects.Devices.Device</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Devices.Device</primary><secondary>nodesGroup</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Devices.Device.nodesGroup</computeroutput></para>
+<para>for storing the group of nodes </para>
+<para>
+Definition at line <link linkend="__device_8java_source_1l00036">36</link> of file <link linkend="__device_8java_source">Device.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Devices/<link linkend="__device_8java">Device.java</link></section>
+</section>

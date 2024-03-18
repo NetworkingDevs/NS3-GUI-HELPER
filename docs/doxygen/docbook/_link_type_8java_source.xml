@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__link_type_8java_source" xml:lang="en-US">
+<title>LinkType.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/StatusHelper/LinkType.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__link_type_8java_source_1l00001"/>00001 
+<anchor xml:id="__link_type_8java_source_1l00009"/><link linkend="_namespace_status_helper">00009</link> <emphasis role="keyword">package&#32;</emphasis>StatusHelper;
+<anchor xml:id="__link_type_8java_source_1l00010"/>00010 
+<anchor xml:id="__link_type_8java_source_1l00014"/><link linkend="_enum_status_helper_1_1_link_type">00014</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_enum_status_helper_1_1_link_type">LinkType</link>&#32;{
+<anchor xml:id="__link_type_8java_source_1l00015"/><link linkend="_enum_status_helper_1_1_link_type_1ae2a842c884992ac31a56e0f1cc959f49">00015</link> &#32;&#32;&#32;&#32;LINK_P2P,&#32;<link linkend="_enum_status_helper_1_1_link_type_1ae2a842c884992ac31a56e0f1cc959f49">LINK_CSMA</link>,&#32;LINK_WIFI
+<anchor xml:id="__link_type_8java_source_1l00016"/><link linkend="_enum_status_helper_1_1_link_type_1a212d32ea6d8d75c4ddbf7e0406fcaab7">00016</link> }
+</programlisting></section>

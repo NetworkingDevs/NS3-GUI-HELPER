@@ -1,0 +1,46 @@
+\doxysection{Dialog\+\_\+\+Helper.\+java}
+\label{_dialog___helper_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_Helper.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_Helper.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_Helper\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}\ Component\ anyParentComponent;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_Helper(Component\ component)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Crating\ object\ :\ Dialog\_Helper"{}});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ this.anyParentComponent\ =\ component;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ showConfirmationDialog(String\ msg,\ String\ title)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Showing\ confirmation\ dialog\ for\ message\ :\ "{}}+msg);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ JOptionPane.showConfirmDialog(this.anyParentComponent,\ msg,\ title,\ JOptionPane.YES\_NO\_OPTION);}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showWarningMsg(String\ msg,\ String\ title)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Showing\ warning\ dialog\ for\ message\ :\ "{}}+msg);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ this.showDialog(msg,\ title,\ JOptionPane.WARNING\_MESSAGE);}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showInformationMsg(String\ msg,\ String\ title)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Showing\ information\ dialog\ for\ message\ :\ "{}}+msg);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ this.showDialog(msg,\ title,\ JOptionPane.INFORMATION\_MESSAGE);}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showErrorMsg(String\ msg,\ String\ title)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Showing\ error\ dialog\ for\ message\ :\ "{}}+msg);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ this.showDialog(msg,\ title,\ JOptionPane.ERROR\_MESSAGE);}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ showDialog(String\ msg,\ String\ title,\ \textcolor{keywordtype}{int}\ type)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ JOptionPane.showMessageDialog(this.anyParentComponent,\ msg,\ title,\ type);}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}

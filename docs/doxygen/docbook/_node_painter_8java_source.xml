@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__node_painter_8java_source" xml:lang="en-US">
+<title>NodePainter.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/NodePainter.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__node_painter_8java_source_1l00001"/>00001 <emphasis role="keyword">package&#32;</emphasis>GuiRenderers;
+<anchor xml:id="__node_painter_8java_source_1l00002"/>00002 
+<anchor xml:id="__node_painter_8java_source_1l00003"/>00003 <emphasis role="keyword">import</emphasis>&#32;<link linkend="_namespace_helpers">Helpers</link>.<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>;
+<anchor xml:id="__node_painter_8java_source_1l00004"/>00004 
+<anchor xml:id="__node_painter_8java_source_1l00005"/>00005 <emphasis role="keyword">import</emphasis>&#32;java.awt.*;
+<anchor xml:id="__node_painter_8java_source_1l00006"/>00006 
+<anchor xml:id="__node_painter_8java_source_1l00010"/><link linkend="_class_gui_renderers_1_1_node_painter">00010</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link>&#32;<emphasis role="keyword">implements</emphasis>&#32;<link linkend="_interface_gui_renderers_1_1_canvas_painter">CanvasPainter</link>&#32;{
+<anchor xml:id="__node_painter_8java_source_1l00011"/>00011 
+<anchor xml:id="__node_painter_8java_source_1l00015"/><link linkend="_class_gui_renderers_1_1_node_painter_1ae759a6d929d8e5b90107c47726336e96">00015</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1ae759a6d929d8e5b90107c47726336e96">xPos</link>;
+<anchor xml:id="__node_painter_8java_source_1l00019"/><link linkend="_class_gui_renderers_1_1_node_painter_1aa2f8250660be8374ab38c85ce14bc666">00019</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1aa2f8250660be8374ab38c85ce14bc666">yPos</link>;
+<anchor xml:id="__node_painter_8java_source_1l00023"/><link linkend="_class_gui_renderers_1_1_node_painter_1a0cdce565a43838959a5f5722274382fe">00023</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a0cdce565a43838959a5f5722274382fe">radius</link>;
+<anchor xml:id="__node_painter_8java_source_1l00027"/><link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">00027</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;String&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>;
+<anchor xml:id="__node_painter_8java_source_1l00031"/><link linkend="_class_gui_renderers_1_1_node_painter_1a475596c0da116fd277080ec8485d780d">00031</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;Color&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a475596c0da116fd277080ec8485d780d">color</link>;
+<anchor xml:id="__node_painter_8java_source_1l00032"/>00032 
+<anchor xml:id="__node_painter_8java_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;Color&#32;DEFAULT_FILL_COLOR&#32;=&#32;Color.RED;
+<anchor xml:id="__node_painter_8java_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;DEFAULT_RADIUS&#32;=&#32;20;
+<anchor xml:id="__node_painter_8java_source_1l00041"/>00041 
+<anchor xml:id="__node_painter_8java_source_1l00052"/><link linkend="_class_gui_renderers_1_1_node_painter_1ad4ff757862ab2065d75d850c48601e62">00052</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1ad4ff757862ab2065d75d850c48601e62">NodePainter</link>(<emphasis role="keywordtype">int</emphasis>&#32;x,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y,&#32;String&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>)&#32;{
+<anchor xml:id="__node_painter_8java_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>(x,y,DEFAULT_RADIUS,<link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>,DEFAULT_FILL_COLOR);
+<anchor xml:id="__node_painter_8java_source_1l00054"/>00054 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__node_painter_8java_source_1l00055"/>00055 
+<anchor xml:id="__node_painter_8java_source_1l00067"/><link linkend="_class_gui_renderers_1_1_node_painter_1ae9bec103a69d9d2b2b6ab70458f2f990">00067</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1ae9bec103a69d9d2b2b6ab70458f2f990">NodePainter</link>(<emphasis role="keywordtype">int</emphasis>&#32;x,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y,&#32;<emphasis role="keywordtype">int</emphasis>&#32;r,&#32;String&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>)&#32;{
+<anchor xml:id="__node_painter_8java_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">this</emphasis>(x,y,r,<link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>,DEFAULT_FILL_COLOR);
+<anchor xml:id="__node_painter_8java_source_1l00069"/>00069 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__node_painter_8java_source_1l00070"/>00070 
+<anchor xml:id="__node_painter_8java_source_1l00083"/><link linkend="_class_gui_renderers_1_1_node_painter_1a30dc3c53fc591941bff84bf5e7d7cdf2">00083</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a30dc3c53fc591941bff84bf5e7d7cdf2">NodePainter</link>(<emphasis role="keywordtype">int</emphasis>&#32;x,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y,&#32;<emphasis role="keywordtype">int</emphasis>&#32;r,&#32;String&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>,&#32;Color&#32;fill)&#32;{
+<anchor xml:id="__node_painter_8java_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a9d59d12965cd365e86f6bb5d352f41c6">Log</link>(<emphasis role="stringliteral">&quot;Creating&#32;object&#32;of&#32;type&#32;NodePainter&quot;</emphasis>);
+<anchor xml:id="__node_painter_8java_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.xPos&#32;=&#32;x;
+<anchor xml:id="__node_painter_8java_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.yPos&#32;=&#32;y;
+<anchor xml:id="__node_painter_8java_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.radius&#32;=&#32;r;
+<anchor xml:id="__node_painter_8java_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.label&#32;=&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>;
+<anchor xml:id="__node_painter_8java_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this.color&#32;=&#32;fill;
+<anchor xml:id="__node_painter_8java_source_1l00090"/>00090 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__node_painter_8java_source_1l00091"/>00091 
+<anchor xml:id="__node_painter_8java_source_1l00098"/>00098 &#32;&#32;&#32;&#32;@Override
+<anchor xml:id="__node_painter_8java_source_1l00099"/><link linkend="_class_gui_renderers_1_1_node_painter_1a56661670adef01ab7f964de42a6dd14a">00099</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_gui_renderers_1_1_node_painter_1a56661670adef01ab7f964de42a6dd14a">paint</link>(Graphics&#32;g)&#32;{
+<anchor xml:id="__node_painter_8java_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_helpers_1_1_logging_helper">LoggingHelper</link>.<link linkend="_class_helpers_1_1_logging_helper_1a811f34f64ec058289a8c010dd747f50f">LogFunction</link>(<emphasis role="stringliteral">&quot;Node&#32;Painter&#32;:&#32;Painting&#32;on&#32;the&#32;canvas!&quot;</emphasis>);
+<anchor xml:id="__node_painter_8java_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;g.setColor(this.color);
+<anchor xml:id="__node_painter_8java_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;g.fillOval(this.xPos,this.yPos,this.radius,this.radius);
+<anchor xml:id="__node_painter_8java_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;g.drawString(this.label,this.xPos,this.yPos);
+<anchor xml:id="__node_painter_8java_source_1l00104"/>00104 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__node_painter_8java_source_1l00105"/>00105 
+<anchor xml:id="__node_painter_8java_source_1l00106"/>00106 }
+<anchor xml:id="__node_painter_8java_source_1l00107"/>00107 
+</programlisting></section>

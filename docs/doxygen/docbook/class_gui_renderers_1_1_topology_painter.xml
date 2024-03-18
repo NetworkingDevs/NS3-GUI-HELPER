@@ -1,0 +1,719 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_gui_renderers_1_1_topology_painter" xml:lang="en-US">
+<title>GuiRenderers.TopologyPainter Class Reference</title>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary></indexterm>
+<para>Inheritance diagram for GuiRenderers.TopologyPainter:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gui_renderers_1_1_topology_painter.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_topology_painter_1a4a951d4e85b36e6f9d656b62ea7b0121">TopologyPainter</link> (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; n, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> &gt; l)</para>
+</listitem>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_topology_painter_1a2f6340d2f1492f868c933cf90d53d366">TopologyPainter</link> (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; n, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> &gt; l, int w, int h)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a919a8460a55a3ff7bf985e6df1a593e3">paint</link> (Graphics g)</para>
+</listitem>
+            <listitem><para>Dimension <link linkend="_class_gui_renderers_1_1_topology_painter_1a168b4abe23d1a97ed1a35626cdbcd26b">getPreferredSize</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1aba3c8b5fc66d07cb2c0b0b3781e3f914">addNode</link> (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> node)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1ae04525a2f36ccf686b3ec6f5e0b16cf4">addLink</link> (<link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> link)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a9e50f256be1a565b7822a1c7265563ed">addLink</link> (<link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link> link)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a9ae245ab4866f5d2da3038a35e53a4c9">addLink</link> (<link linkend="_class_gui_renderers_1_1_wifi_link_painter">WifiLinkPainter</link> link)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a4429ee55cd09d4252c89c06c5b27a0a2">addRefNode</link> (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> node)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a8dbbda8f7032657409227598818f091c">addAndPrintRefNode</link> (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> node)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1adaa61bc3859745625b237b00ef1b4d0f">addAndPrintNode</link> (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> node)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a80e900d364e9af95b2d24dd29e247c64">addAndPrintLink</link> (<link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link> link)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a1cf50659b31e8fa1c4b2081596045554">addAndPrintLink</link> (<link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> link)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a217936faa6bfa0fc7fbcebcfedc17931">addAndPrintLink</link> (<link linkend="_class_gui_renderers_1_1_wifi_link_painter">WifiLinkPainter</link> link)</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_gui_renderers_1_1_topology_painter_1ad5dfca2823170d1beea4f59331b429f8">pointCollideWithAny</link> (int x, int y)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a8d99c63aa42513c1ba13340acd7959a4">enableView</link> (int s, int c)</para>
+</listitem>
+            <listitem><para>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; <link linkend="_class_gui_renderers_1_1_topology_painter_1ae2a6835aea8c708ca9c40dfb80e0bb98">getNodes</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1a1ef44cd8bc8c30cd12b4b92da784ac6e">setNodes</link> (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; nodes)</para>
+</listitem>
+            <listitem><para>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> &gt; <link linkend="_class_gui_renderers_1_1_topology_painter_1a732e1bec76b94d530f1a7f0d914649c0">getLinks</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1abbd9a7ed7da5b965985606b42207a378">setLinks</link> (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> &gt; links)</para>
+</listitem>
+            <listitem><para>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; <link linkend="_class_gui_renderers_1_1_topology_painter_1a561180e8a5c771961eca0c7cb9db77eb">getReferenceNodes</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1ad88ec8bd994ecab0746bb3720812772e">setReferenceNodes</link> (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; referenceNodes)</para>
+</listitem>
+            <listitem><para>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link> &gt; <link linkend="_class_gui_renderers_1_1_topology_painter_1ab8d7cdd648135f4309c7073e8da724ae">getLinks_csma</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_topology_painter_1aab5a23b67699bcd180d509c0f199304c">setLinks_csma</link> (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link> &gt; links_csma)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>for painting the objects on the canvas this will be centrally responsible entity </para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00014">14</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a4a951d4e85b36e6f9d656b62ea7b0121"/><section>
+    <title>TopologyPainter()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>TopologyPainter</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>TopologyPainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.TopologyPainter.TopologyPainter (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; n, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> &gt; l)</computeroutput></para>
+<para>to create an object of type Topology Painter</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>n</entry><entry>
+<para>list of nodes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>l</entry><entry>
+<para>list of links </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>TopologyPainter::TopologyPainter(ArrayList, ArrayList, int, int) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00069">69</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a2f6340d2f1492f868c933cf90d53d366"/><section>
+    <title>TopologyPainter()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>TopologyPainter</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>TopologyPainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.TopologyPainter.TopologyPainter (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; n, ArrayList&lt; <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> &gt; l, int w, int h)</computeroutput></para>
+<para>to create an object of type Topology Painter</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>n</entry><entry>
+<para>list of nodes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>l</entry><entry>
+<para>list of links </para>
+</entry>
+                            </row>
+                            <row>
+<entry>w</entry><entry>
+<para>the width of the canvas </para>
+</entry>
+                            </row>
+                            <row>
+<entry>h</entry><entry>
+<para>the height of the canvas </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>TopologyPainter::TopologyPainter(ArrayList, ArrayList) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00083">83</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a80e900d364e9af95b2d24dd29e247c64"/><section>
+    <title>addAndPrintLink()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>addAndPrintLink</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addAndPrintLink</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addAndPrintLink (<link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link> link)</computeroutput></para>
+<para>to add the link and direct painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>link</entry><entry>
+<para>the link to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00253">253</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a1cf50659b31e8fa1c4b2081596045554"/><section>
+    <title>addAndPrintLink()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>addAndPrintLink</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addAndPrintLink</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addAndPrintLink (<link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> link)</computeroutput></para>
+<para>to add the link and direct painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>link</entry><entry>
+<para>the link to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00265">265</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a217936faa6bfa0fc7fbcebcfedc17931"/><section>
+    <title>addAndPrintLink()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>addAndPrintLink</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addAndPrintLink</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addAndPrintLink (<link linkend="_class_gui_renderers_1_1_wifi_link_painter">WifiLinkPainter</link> link)</computeroutput></para>
+<para>to add the link and direct painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>link</entry><entry>
+<para>the link to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00277">277</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1adaa61bc3859745625b237b00ef1b4d0f"/><section>
+    <title>addAndPrintNode()</title>
+<indexterm><primary>addAndPrintNode</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addAndPrintNode</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addAndPrintNode (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> node)</computeroutput></para>
+<para>to add the node and direct painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>node</entry><entry>
+<para>the node to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00241">241</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a8dbbda8f7032657409227598818f091c"/><section>
+    <title>addAndPrintRefNode()</title>
+<indexterm><primary>addAndPrintRefNode</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addAndPrintRefNode</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addAndPrintRefNode (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> node)</computeroutput></para>
+<para>to add the reference node and directly painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>node</entry><entry>
+<para>the node to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00229">229</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a9e50f256be1a565b7822a1c7265563ed"/><section>
+    <title>addLink()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>addLink</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addLink</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addLink (<link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link> link)</computeroutput></para>
+<para>to add the CSMA link for painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>link</entry><entry>
+<para>the link to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>TopologyPainter::addLink(P2pLinkPainter) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00194">194</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1ae04525a2f36ccf686b3ec6f5e0b16cf4"/><section>
+    <title>addLink()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>addLink</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addLink</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addLink (<link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> link)</computeroutput></para>
+<para>to add the P2P link for painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>link</entry><entry>
+<para>the link to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>TopologyPainter::addLink(CsmaLinkPainter) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00181">181</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a9ae245ab4866f5d2da3038a35e53a4c9"/><section>
+    <title>addLink()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>addLink</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addLink</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addLink (<link linkend="_class_gui_renderers_1_1_wifi_link_painter">WifiLinkPainter</link> link)</computeroutput></para>
+<para>to add the Wi-Fi link for painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>link</entry><entry>
+<para>the link to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.2.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00206">206</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1aba3c8b5fc66d07cb2c0b0b3781e3f914"/><section>
+    <title>addNode()</title>
+<indexterm><primary>addNode</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addNode</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addNode (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> node)</computeroutput></para>
+<para>to add nodes for painting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>node</entry><entry>
+<para>the node to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00169">169</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a4429ee55cd09d4252c89c06c5b27a0a2"/><section>
+    <title>addRefNode()</title>
+<indexterm><primary>addRefNode</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>addRefNode</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.addRefNode (<link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> node)</computeroutput></para>
+<para>to add the reference node</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>node</entry><entry>
+<para>the node to be added </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00218">218</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a8d99c63aa42513c1ba13340acd7959a4"/><section>
+    <title>enableView()</title>
+<indexterm><primary>enableView</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>enableView</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.enableView (int s, int c)</computeroutput></para>
+<para>to enabling highlighting of the server and client node</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>s</entry><entry>
+<para>server index </para>
+</entry>
+                            </row>
+                            <row>
+<entry>c</entry><entry>
+<para>client index </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>1.0.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00313">313</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a732e1bec76b94d530f1a7f0d914649c0"/><section>
+    <title>getLinks()</title>
+<indexterm><primary>getLinks</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>getLinks</secondary></indexterm>
+<para><computeroutput>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> &gt; GuiRenderers.TopologyPainter.getLinks ( )</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00351">351</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1ab8d7cdd648135f4309c7073e8da724ae"/><section>
+    <title>getLinks_csma()</title>
+<indexterm><primary>getLinks_csma</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>getLinks_csma</secondary></indexterm>
+<para><computeroutput>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link> &gt; GuiRenderers.TopologyPainter.getLinks_csma ( )</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00371">371</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1ae2a6835aea8c708ca9c40dfb80e0bb98"/><section>
+    <title>getNodes()</title>
+<indexterm><primary>getNodes</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>getNodes</secondary></indexterm>
+<para><computeroutput>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; GuiRenderers.TopologyPainter.getNodes ( )</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00341">341</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a168b4abe23d1a97ed1a35626cdbcd26b"/><section>
+    <title>getPreferredSize()</title>
+<indexterm><primary>getPreferredSize</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>getPreferredSize</secondary></indexterm>
+<para><computeroutput>Dimension GuiRenderers.TopologyPainter.getPreferredSize ( )</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00158">158</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a561180e8a5c771961eca0c7cb9db77eb"/><section>
+    <title>getReferenceNodes()</title>
+<indexterm><primary>getReferenceNodes</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>getReferenceNodes</secondary></indexterm>
+<para><computeroutput>ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; GuiRenderers.TopologyPainter.getReferenceNodes ( )</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00361">361</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a919a8460a55a3ff7bf985e6df1a593e3"/><section>
+    <title>paint()</title>
+<indexterm><primary>paint</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>paint</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.paint (Graphics g)</computeroutput></para>
+<para>to paint the objects on the canvas</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>g</entry><entry>
+<para>the graphics in the CANVAS </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00104">104</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1ad5dfca2823170d1beea4f59331b429f8"/><section>
+    <title>pointCollideWithAny()</title>
+<indexterm><primary>pointCollideWithAny</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>pointCollideWithAny</secondary></indexterm>
+<para><computeroutput>int GuiRenderers.TopologyPainter.pointCollideWithAny (int x, int y)</computeroutput></para>
+<para>to get the index of node, with which the mouse is collided</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>x</entry><entry>
+<para>x-position of the mouse </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>y-position of the mouse </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the integer value, representing the index of the first collided node, and it will return -1, in case not collided with any of the node </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00292">292</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1abbd9a7ed7da5b965985606b42207a378"/><section>
+    <title>setLinks()</title>
+<indexterm><primary>setLinks</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>setLinks</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.setLinks (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link> &gt; links)</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00356">356</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1aab5a23b67699bcd180d509c0f199304c"/><section>
+    <title>setLinks_csma()</title>
+<indexterm><primary>setLinks_csma</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>setLinks_csma</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.setLinks_csma (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link> &gt; links_csma)</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00376">376</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1a1ef44cd8bc8c30cd12b4b92da784ac6e"/><section>
+    <title>setNodes()</title>
+<indexterm><primary>setNodes</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>setNodes</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.setNodes (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; nodes)</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00346">346</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_topology_painter_1ad88ec8bd994ecab0746bb3720812772e"/><section>
+    <title>setReferenceNodes()</title>
+<indexterm><primary>setReferenceNodes</primary><secondary>GuiRenderers.TopologyPainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.TopologyPainter</primary><secondary>setReferenceNodes</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.TopologyPainter.setReferenceNodes (ArrayList&lt; <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link> &gt; referenceNodes)</computeroutput></para><para>
+Definition at line <link linkend="__topology_painter_8java_source_1l00366">366</link> of file <link linkend="__topology_painter_8java_source">TopologyPainter.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/<link linkend="__topology_painter_8java">TopologyPainter.java</link></section>
+</section>

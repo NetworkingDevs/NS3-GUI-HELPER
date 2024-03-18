@@ -1,0 +1,259 @@
+\doxysection{Dialogs.\+Dialog\+\_\+\+Connection Class Reference}
+\label{class_dialogs_1_1_dialog___connection}\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+Inheritance diagram for Dialogs.\+Dialog\+\_\+\+Connection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dialogs_1_1_dialog___connection}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Dialog\+\_\+\+Connection} ()
+\item 
+\textbf{ Dialog\+\_\+\+Connection} (int a, int b, Array\+List$<$ \textbf{ Network\+Link} $>$ l, Array\+List$<$ \textbf{ Network} $>$ n)
+\item 
+void \textbf{ add\+Dialog\+Link} (\textbf{ Dialog\+\_\+\+Link} dialog\+Link)
+\item 
+void \textbf{ add\+Dialog\+Link} (\textbf{ Dialog\+\_\+\+Wi\+Fi\+Link} dialog\+Link)
+\item 
+void \textbf{ show\+Dialog} (Array\+List$<$ \textbf{ Network\+Link} $>$ l, Array\+List$<$ \textbf{ Network} $>$ n, Array\+List$<$ Integer $>$ \textbf{ nodes}, \textbf{ Tool\+Status} selected\+Tool)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Dialog\+\_\+\+Connection} \textbf{ get\+Instance} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ nodeA}
+\item 
+int \textbf{ nodeB}
+\item 
+Array\+List$<$ Integer $>$ \textbf{ nodes}
+\item 
+Array\+List$<$ \textbf{ Network\+Link} $>$ \textbf{ links}
+\item 
+Array\+List$<$ \textbf{ Network} $>$ \textbf{ networks}
+\item 
+Array\+List$<$ \textbf{ Device} $>$ \textbf{ devices}
+\item 
+Array\+List$<$ \textbf{ Device} $>$ \textbf{ devices\+\_\+csma}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to configure the connections 
+
+Definition at line \textbf{ 22} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_dialogs_1_1_dialog___connection_a9b351d415a83d9a256affa8133eae990} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!Dialog\_Connection@{Dialog\_Connection}}
+\index{Dialog\_Connection@{Dialog\_Connection}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{Dialog\_Connection()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Dialogs.\+Dialog\+\_\+\+Connection.\+Dialog\+\_\+\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to create the object of type Dialog\+\_\+\+Connection
+
+\begin{DoxySeeAlso}{See also}
+Dialog\+\_\+\+Connection\+::\+Dialog\+\_\+\+Connection(int, int, Array\+List, Array\+List) 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 104} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_a8c9b04a74820dade24aadfa728db7855} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!Dialog\_Connection@{Dialog\_Connection}}
+\index{Dialog\_Connection@{Dialog\_Connection}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{Dialog\_Connection()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Dialogs.\+Dialog\+\_\+\+Connection.\+Dialog\+\_\+\+Connection (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b,  }\item[{Array\+List$<$ \textbf{ Network\+Link} $>$}]{l,  }\item[{Array\+List$<$ \textbf{ Network} $>$}]{n }\end{DoxyParamCaption})}
+
+to create the object of type this class
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & index of first node \\
+\hline
+{\em b} & index of second mode \\
+\hline
+{\em l} & list of links settings \\
+\hline
+{\em n} & list of network settings \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Dialog\+\_\+\+Connection\+::\+Dialog\+\_\+\+Connection() 
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 118} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_dialogs_1_1_dialog___connection_a1a46f471e48b5ba3e0acc9ae221d340d} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!addDialogLink@{addDialogLink}}
+\index{addDialogLink@{addDialogLink}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{addDialogLink()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Dialogs.\+Dialog\+\_\+\+Connection.\+add\+Dialog\+Link (\begin{DoxyParamCaption}\item[{\textbf{ Dialog\+\_\+\+Link}}]{dialog\+Link }\end{DoxyParamCaption})}
+
+to add dialog for link configuration
+
+
+\begin{DoxyParams}{Parameters}
+{\em dialog\+Link} & the Dialog\+\_\+\+Link\textquotesingle{}s object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 216} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_ac714eb588d30796fb06c43772726e26d} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!addDialogLink@{addDialogLink}}
+\index{addDialogLink@{addDialogLink}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{addDialogLink()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Dialogs.\+Dialog\+\_\+\+Connection.\+add\+Dialog\+Link (\begin{DoxyParamCaption}\item[{\textbf{ Dialog\+\_\+\+Wi\+Fi\+Link}}]{dialog\+Link }\end{DoxyParamCaption})}
+
+to add dialog for link configuration
+
+
+\begin{DoxyParams}{Parameters}
+{\em dialog\+Link} & the Dialog\+\_\+\+Wifi\+Link\textquotesingle{}s object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 226} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_a59538d71547ad9c2acfc08b5b25126cd} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{getInstance()}
+{\footnotesize\ttfamily static \textbf{ Dialog\+\_\+\+Connection} Dialogs.\+Dialog\+\_\+\+Connection.\+get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+to get the instance of this class
+
+\begin{DoxyReturn}{Returns}
+the instance of this class 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 89} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_a79857db96f0a4c8b2a00f7f0c9fd9ea6} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!showDialog@{showDialog}}
+\index{showDialog@{showDialog}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{showDialog()}
+{\footnotesize\ttfamily void Dialogs.\+Dialog\+\_\+\+Connection.\+show\+Dialog (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Network\+Link} $>$}]{l,  }\item[{Array\+List$<$ \textbf{ Network} $>$}]{n,  }\item[{Array\+List$<$ Integer $>$}]{nodes,  }\item[{\textbf{ Tool\+Status}}]{selected\+Tool }\end{DoxyParamCaption})}
+
+it will show or hide the dialog
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & list of links \\
+\hline
+{\em n} & list of network settings \\
+\hline
+{\em nodes} & list of nodes \\
+\hline
+{\em selected\+Tool} & the selected tool \\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+1.\+1.\+0 
+\end{DoxySince}
+
+
+Definition at line \textbf{ 280} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{class_dialogs_1_1_dialog___connection_a46834d50dbaebba5ddfba8bb317dc71d} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!devices@{devices}}
+\index{devices@{devices}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{devices}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Device}$>$ Dialogs.\+Dialog\+\_\+\+Connection.\+devices}
+
+list of devices 
+
+Definition at line \textbf{ 52} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_a62050a3f1756d4f49402e28743db9f5f} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!devices\_csma@{devices\_csma}}
+\index{devices\_csma@{devices\_csma}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{devices\_csma}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Device}$>$ Dialogs.\+Dialog\+\_\+\+Connection.\+devices\+\_\+csma}
+
+list of devices containing CSMA devices 
+
+Definition at line \textbf{ 56} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_ab2b18bb45b08c8f3a9e094519a14ca5d} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!links@{links}}
+\index{links@{links}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{links}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Network\+Link}$>$ Dialogs.\+Dialog\+\_\+\+Connection.\+links}
+
+list of link settings 
+
+Definition at line \textbf{ 44} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_ab28af967bc0765d60589064c44c83abd} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!networks@{networks}}
+\index{networks@{networks}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{networks}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Network}$>$ Dialogs.\+Dialog\+\_\+\+Connection.\+networks}
+
+list of network settings 
+
+Definition at line \textbf{ 48} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_a609616ccafcbecf4ea59d5cd6828bf00} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!nodeA@{nodeA}}
+\index{nodeA@{nodeA}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{nodeA}
+{\footnotesize\ttfamily int Dialogs.\+Dialog\+\_\+\+Connection.\+nodeA}
+
+the index of first two nodes 
+
+Definition at line \textbf{ 36} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_ac0d84f5f3909dec99e434280c0db55b0} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!nodeB@{nodeB}}
+\index{nodeB@{nodeB}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{nodeB}
+{\footnotesize\ttfamily int Dialogs.\+Dialog\+\_\+\+Connection.\+nodeB}
+
+
+
+Definition at line \textbf{ 36} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+\label{class_dialogs_1_1_dialog___connection_ad9b184a377bf78f758a67e0f0976910e} 
+\index{Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}!nodes@{nodes}}
+\index{nodes@{nodes}!Dialogs.Dialog\_Connection@{Dialogs.Dialog\_Connection}}
+\doxysubsubsection{nodes}
+{\footnotesize\ttfamily Array\+List$<$Integer$>$ Dialogs.\+Dialog\+\_\+\+Connection.\+nodes}
+
+list of nodes in connection 
+
+Definition at line \textbf{ 40} of file \textbf{ Dialog\+\_\+\+Connection.\+java}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project/\+Networking Projects/\+NS3-\/\+GUI/src/main/\+Dialogs/\textbf{ Dialog\+\_\+\+Connection.\+java}\end{DoxyCompactItemize}

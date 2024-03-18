@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_ns3_objects_1_1_links_1_1_network_link" xml:lang="en-US">
+<title>Ns3Objects.Links.NetworkLink Interface Reference</title>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary></indexterm>
+<para>Inheritance diagram for Ns3Objects.Links.NetworkLink:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_ns3_objects_1_1_links_1_1_network_link.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a375e12cfed426bb38d52a66f7f0aa6c1">getId</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a392f6a5c3807bca7bcd89a8af824f24f">setId</link> (int id)</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a339c90c6249616099bfc0d200057fe88">getName</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2ecf6c0fd47800c282e7a6f9acd4baf4">setName</link> (String name)</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ae6a8830bdea02110cda8cff5a1b33747">getDelay</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a9537bbbd60cdd177ad0085b608667c47">setDelay</link> (String delay)</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ab5979d5433c3224590739501731b4e1d">getDataRate</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1adb59efa98debc4a97a3e3f49eb5227d1">setDataRate</link> (String dataRate)</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aa9fdc3ec8d14a6850616a89a830b289a">getSpeedModifier</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a14af742336e8777f6ffb7760af1d3691">setSpeedModifier</link> (String speedModifier)</para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_link_type">LinkType</link> <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1af9a212d6ca443661bbb711ab520a51e7">getLinkType</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a0fe0f2e530871c476ea4260358b802d7">setLinkType</link> (<link linkend="_enum_status_helper_1_1_link_type">LinkType</link> linkType)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a7c8f176a689a115a00a28eb670377160">getEnablePcap</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2f736a32ec9169c2bcfcd0d062c798c1">setEnablePcap</link> (boolean enablePcap)</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2302c01e1b5a299b66758727c7a148e3">forSettings</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ad6d72c9f7fc6e581e0e939841419a514">isDefault</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a858d7c49ae7d305ba6276ffc9c3e44e0">setDefault</link> (boolean <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ad6d72c9f7fc6e581e0e939841419a514">isDefault</link>)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a08ab309b90d7aa65ae0fabe46e7b3a3b">isUsed</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a92ca53f427592ad8a5d7efc48d74df27">setUsed</link> (boolean <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a08ab309b90d7aa65ae0fabe46e7b3a3b">isUsed</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a73f84dce85a1fb5866aca4481453f52b">getPacketCaptureAllCode</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a5a5ec341998eaa7649cde94048724ef5">toCode</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_enum_status_helper_1_1_link_type">LinkType</link> <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a4d9e874cb468e45f39df3d81f1054715">getLinkType</link> (int choiceIndex)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aad960c8e36a0e0f217112a278437c25b">CHOICE_INDEX_P2P</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aef560f5e16dbe292dd61c112691f277c">CHOICE_INDEX_CSMA</link> = 1</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a7f29b15a152e4459a8d6090789f15520">LABEL_P2P</link> = &quot;P2P&quot;</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a07ff4fdcefd9f7385c6d26ae04ad1b15">LABEL_CSMA</link> = &quot;CSMA&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to store and manage network links objects in NS-3 </para>
+<para>
+Definition at line <link linkend="__network_link_8java_source_1l00017">17</link> of file <link linkend="__network_link_8java_source">NetworkLink.java</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a2302c01e1b5a299b66758727c7a148e3"/><section>
+    <title>forSettings()</title>
+<indexterm><primary>forSettings</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>forSettings</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.forSettings ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aad36ef97c97f4eb461294f38cb2ac25f">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aca33c3c496a680823e90b53b93864fed">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aa4854c367964dfb9db9d1a3126f92463">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1ab5979d5433c3224590739501731b4e1d"/><section>
+    <title>getDataRate()</title>
+<indexterm><primary>getDataRate</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getDataRate</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.getDataRate ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aca99e944bab8e29b68d9a973c3fc035c">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1aa7fb5fa82920d4f086d9afddaedb054e">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aaab95937529adebe0d14e930a7550885">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1ae6a8830bdea02110cda8cff5a1b33747"/><section>
+    <title>getDelay()</title>
+<indexterm><primary>getDelay</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getDelay</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.getDelay ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1ab0f61c5c788fafc4443049563ea166">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9c00066bcf4d814e6f5aaa0465aa3573">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1abcb8e5c943fe2674ee0f4af9bc3715d5">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a7c8f176a689a115a00a28eb670377160"/><section>
+    <title>getEnablePcap()</title>
+<indexterm><primary>getEnablePcap</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getEnablePcap</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.NetworkLink.getEnablePcap ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1ec7aad5f1c584c84440f4438785000c">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a86a54c0c7892f435c91efa581fba1460">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a193642d7389298769cb0f855d1d12970">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a375e12cfed426bb38d52a66f7f0aa6c1"/><section>
+    <title>getId()</title>
+<indexterm><primary>getId</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getId</secondary></indexterm>
+<para><computeroutput>int Ns3Objects.Links.NetworkLink.getId ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae325345d9ebdae0493811f06d6a81283">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a60722b7722ce8003d31ec4ffe8cfb9ce">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a13c94075cc852c5a07c29850a6e2d0f3">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1af9a212d6ca443661bbb711ab520a51e7"/><section>
+    <title>getLinkType()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>getLinkType</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getLinkType</secondary></indexterm>
+<para><computeroutput><link linkend="_enum_status_helper_1_1_link_type">LinkType</link> Ns3Objects.Links.NetworkLink.getLinkType ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1af24c00100ab74fa85f87f749d2af02d5">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ad04bd2b9ac2e0b3213d7d23a9a1b52b5">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0c494fd9e9422bb64a8a7eb4d9deb725">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a4d9e874cb468e45f39df3d81f1054715"/><section>
+    <title>getLinkType()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>getLinkType</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getLinkType</secondary></indexterm>
+<para><computeroutput>static <link linkend="_enum_status_helper_1_1_link_type">LinkType</link> Ns3Objects.Links.NetworkLink.getLinkType (int choiceIndex)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>to get the Link type from the provided choice</para>
+
+<para><formalpara><title>See also</title>
+
+<para>LinkType </para>
+</formalpara>
+<formalpara><title>Returns</title>
+
+<para>Link type </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__network_link_8java_source_1l00105">105</link> of file <link linkend="__network_link_8java_source">NetworkLink.java</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a339c90c6249616099bfc0d200057fe88"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.getName ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae41c9ea197cd1d8f3c2bbff7e1e288f9">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afd5b4deb47cd9a8e3bb072b348e15fe5">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a3d564b2a55ceb160cf1a859406c9ec9b">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a73f84dce85a1fb5866aca4481453f52b"/><section>
+    <title>getPacketCaptureAllCode()</title>
+<indexterm><primary>getPacketCaptureAllCode</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getPacketCaptureAllCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.getPacketCaptureAllCode ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aa660c317bf7e73c596420ed63af4280e">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ae5e68578cd53f0838b1aad3a6e474746">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a8e22831b58f2f33cffc679c47a53b43c">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1aa9fdc3ec8d14a6850616a89a830b289a"/><section>
+    <title>getSpeedModifier()</title>
+<indexterm><primary>getSpeedModifier</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>getSpeedModifier</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.getSpeedModifier ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ace27ce6d563955f2206cd12674858004">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4713746ee50a4ce2d5bcb1e0af2b8858">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aeda324f9b71f5b23618802da5e9d33b9">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1ad6d72c9f7fc6e581e0e939841419a514"/><section>
+    <title>isDefault()</title>
+<indexterm><primary>isDefault</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>isDefault</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.NetworkLink.isDefault ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a88b5881655ba5510e1880627294d4f1d">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a4717c5ec3c6e55408037af0622bd8ecc">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1af8d72f49b13ced1af5d4dfdf05ff5546">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a08ab309b90d7aa65ae0fabe46e7b3a3b"/><section>
+    <title>isUsed()</title>
+<indexterm><primary>isUsed</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>isUsed</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.NetworkLink.isUsed ( )</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aecd552f13b6f21e30aabb1d4745c744e">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a7b244daaf27c2ef7b330f6976c1e37ce">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a15fd22fe7469839d9d3b074dd9d0d4d6">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1adb59efa98debc4a97a3e3f49eb5227d1"/><section>
+    <title>setDataRate()</title>
+<indexterm><primary>setDataRate</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setDataRate</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setDataRate (String dataRate)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a7ce5db14a9c9c93096fd800baf95885a">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1acb9d5d4a28dbf6e8f188c5bf4e3a3e5d">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0e7d4683d3efb94a4b32a5dfc2c6354f">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a858d7c49ae7d305ba6276ffc9c3e44e0"/><section>
+    <title>setDefault()</title>
+<indexterm><primary>setDefault</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setDefault</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setDefault (boolean isDefault)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aeee23637e219f439a25a42d767f97a39">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1af7deb5f46378ee9afac468e2429fb6c7">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aad50904a5f6f9131c6aedc21c6c9577f">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a9537bbbd60cdd177ad0085b608667c47"/><section>
+    <title>setDelay()</title>
+<indexterm><primary>setDelay</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setDelay</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setDelay (String delay)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a169e26a3b53437f3c3666ef18e96f32e">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a53e5cb5c84dbadb38a81628fbde622e4">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0b9b00fa630b3bd010afc9a5448a44d1">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a2f736a32ec9169c2bcfcd0d062c798c1"/><section>
+    <title>setEnablePcap()</title>
+<indexterm><primary>setEnablePcap</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setEnablePcap</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setEnablePcap (boolean enablePcap)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d5059155e4623aced26f99235f101f">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1af1a51df79942810092f512eb9a37c60f">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a94ec46bbb0cb002b871bf913a856786b">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a392f6a5c3807bca7bcd89a8af824f24f"/><section>
+    <title>setId()</title>
+<indexterm><primary>setId</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setId</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setId (int id)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a7b4169d54cbb21adfc4baaa162431a36">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1abfdbf3f9198969c07213ee08666d7e61">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a34186cee5ec987a5de5ed5ef09b98644">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a0fe0f2e530871c476ea4260358b802d7"/><section>
+    <title>setLinkType()</title>
+<indexterm><primary>setLinkType</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setLinkType</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setLinkType (<link linkend="_enum_status_helper_1_1_link_type">LinkType</link> linkType)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a91e864124175bc6e8011036d33babd5d">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afdfdfc835ef0deeb5e17397ef396dd57">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a62ce80d88a41fda64775a8b13a275cab">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a2ecf6c0fd47800c282e7a6f9acd4baf4"/><section>
+    <title>setName()</title>
+<indexterm><primary>setName</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setName</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setName (String name)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a56839e5085e00c0316d3132f11a63ddb">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a9e641ea7fac96e386d9162510d07dbcf">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1ad9ccc11e6191e853693975f364a36067">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a14af742336e8777f6ffb7760af1d3691"/><section>
+    <title>setSpeedModifier()</title>
+<indexterm><primary>setSpeedModifier</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setSpeedModifier</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setSpeedModifier (String speedModifier)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae00b53da3395dfe31e58472a5990edca">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1afcb398373685519198b97281d6ac6c07">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aeb952a9cdaa69d50a2ee43116c998ab9">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a92ca53f427592ad8a5d7efc48d74df27"/><section>
+    <title>setUsed()</title>
+<indexterm><primary>setUsed</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>setUsed</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.NetworkLink.setUsed (boolean isUsed)</computeroutput></para><para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aaec238dc5d48f77fc79d2861387e4ebb">Ns3Objects.Links.WIFI</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1add961d6440d4de645f7ef94165a97320">Ns3Objects.Links.CSMA</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1a5783abf2a189abfa3df76b2d1277bba3">Ns3Objects.Links.P2P</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a5a5ec341998eaa7649cde94048724ef5"/><section>
+    <title>toCode()</title>
+<indexterm><primary>toCode</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>toCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.toCode ( )</computeroutput></para>
+<para>to generate the link configuration code </para>
+
+<para><literallayout>
+        <computeroutput><literallayout>&#160;&#xa;</literallayout>
+Example:<literallayout>&#160;&#xa;</literallayout>
+ PointToPointHelper pointToPoint;<literallayout>&#160;&#xa;</literallayout>
+ pointToPoint.SetDeviceAttribute(&quot;DataRate&quot;, StringValue(&quot;500Mbps&quot;));<literallayout>&#160;&#xa;</literallayout>
+ pointToPoint.SetChannelAttribute(&quot;Delay&quot;, StringValue(&quot;2ms&quot;));<literallayout>&#160;&#xa;</literallayout>
+ </computeroutput>
+ </literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the link configuration code for the link </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Implemented in <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ab8c22d14ec2d77bf259044ed101e8640">Ns3Objects.Links.CSMA</link>, <link linkend="_class_ns3_objects_1_1_links_1_1_p2_p_1ad92174af36072f09c6b667b64ad3ff6c">Ns3Objects.Links.P2P</link>, and <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0133183cb8c4776cb46bb41f1e95de05">Ns3Objects.Links.WIFI</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1aef560f5e16dbe292dd61c112691f277c"/><section>
+    <title>CHOICE_INDEX_CSMA</title>
+<indexterm><primary>CHOICE_INDEX_CSMA</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>CHOICE_INDEX_CSMA</secondary></indexterm>
+<para><computeroutput>int Ns3Objects.Links.NetworkLink.CHOICE_INDEX_CSMA = 1</computeroutput></para>
+<para>to map the index with the type of the CSMA link </para>
+<para>
+Definition at line <link linkend="__network_link_8java_source_1l00026">26</link> of file <link linkend="__network_link_8java_source">NetworkLink.java</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1aad960c8e36a0e0f217112a278437c25b"/><section>
+    <title>CHOICE_INDEX_P2P</title>
+<indexterm><primary>CHOICE_INDEX_P2P</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>CHOICE_INDEX_P2P</secondary></indexterm>
+<para><computeroutput>int Ns3Objects.Links.NetworkLink.CHOICE_INDEX_P2P = 0</computeroutput></para>
+<para>to map the index with the type of the P2P link </para>
+<para>
+Definition at line <link linkend="__network_link_8java_source_1l00022">22</link> of file <link linkend="__network_link_8java_source">NetworkLink.java</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a07ff4fdcefd9f7385c6d26ae04ad1b15"/><section>
+    <title>LABEL_CSMA</title>
+<indexterm><primary>LABEL_CSMA</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>LABEL_CSMA</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.LABEL_CSMA = &quot;CSMA&quot;</computeroutput></para>
+<para>label for rendering the CSMA link </para>
+<para>
+Definition at line <link linkend="__network_link_8java_source_1l00035">35</link> of file <link linkend="__network_link_8java_source">NetworkLink.java</link>.</para>
+</section>
+<anchor xml:id="_interface_ns3_objects_1_1_links_1_1_network_link_1a7f29b15a152e4459a8d6090789f15520"/><section>
+    <title>LABEL_P2P</title>
+<indexterm><primary>LABEL_P2P</primary><secondary>Ns3Objects.Links.NetworkLink</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.NetworkLink</primary><secondary>LABEL_P2P</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.NetworkLink.LABEL_P2P = &quot;P2P&quot;</computeroutput></para>
+<para>label for rendering P2P link </para>
+<para>
+Definition at line <link linkend="__network_link_8java_source_1l00031">31</link> of file <link linkend="__network_link_8java_source">NetworkLink.java</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Links/<link linkend="__network_link_8java">NetworkLink.java</link></section>
+</section>

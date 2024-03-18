@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_ns3_objects_1_1_netoworks_1_1_network" xml:lang="en-US">
+<title>Ns3Objects.Netoworks.Network Class Reference</title>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1ae2703659d6193bd5cc99bac81e013cb2">Network</link> (int <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1a747236c6c3fc08b76a197b67b84c1256">id</link>, String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1ab178160c23828e49436ae0ea316bd617">netId</link>, String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1ad4ba0026b6a5f7f06d6efc109a61fbe6">netMask</link>, String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1afab979ea6fd4378ef562551b204e339d">name</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1a43df8aac2c79877628aa3cd04cc6988d">Network</link> (int <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1a747236c6c3fc08b76a197b67b84c1256">id</link>, String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1ab178160c23828e49436ae0ea316bd617">netId</link>, String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1ad4ba0026b6a5f7f06d6efc109a61fbe6">netMask</link>, String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1afab979ea6fd4378ef562551b204e339d">name</link>, boolean <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1a97f20857350668d1b6ba882f96a67108">isDefault</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1a7a1c616ae0929be2f03ce6554ea1c0b6">toString</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1a9aaa6a7594697cdeccdd38bc62546e91">forSettings</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1a747236c6c3fc08b76a197b67b84c1256">id</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1ab178160c23828e49436ae0ea316bd617">netId</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1ad4ba0026b6a5f7f06d6efc109a61fbe6">netMask</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1afab979ea6fd4378ef562551b204e339d">name</link></para>
+</listitem>
+            <listitem><para>boolean <link linkend="_class_ns3_objects_1_1_netoworks_1_1_network_1a97f20857350668d1b6ba882f96a67108">isDefault</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>a storage type for network settings in NS-3 </para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00013">13</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1ae2703659d6193bd5cc99bac81e013cb2"/><section>
+    <title>Network()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Network</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>Network</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Netoworks.Network.Network (int id, String netId, String netMask, String name)</computeroutput></para>
+<para>to make the object of type Network</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>unique identity </para>
+</entry>
+                            </row>
+                            <row>
+<entry>netId</entry><entry>
+<para>net id of the network </para>
+</entry>
+                            </row>
+                            <row>
+<entry>netMask</entry><entry>
+<para>subnet mask for the network </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>alias name of the network </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00044">44</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1a43df8aac2c79877628aa3cd04cc6988d"/><section>
+    <title>Network()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Network</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>Network</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Netoworks.Network.Network (int id, String netId, String netMask, String name, boolean isDefault)</computeroutput></para>
+<para>to make the object of type Network</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>unique identity </para>
+</entry>
+                            </row>
+                            <row>
+<entry>netId</entry><entry>
+<para>net id of the network </para>
+</entry>
+                            </row>
+                            <row>
+<entry>netMask</entry><entry>
+<para>subnet mask for the network </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>alias name of the network </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isDefault</entry><entry>
+<para>select as default link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00062">62</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1a9aaa6a7594697cdeccdd38bc62546e91"/><section>
+    <title>forSettings()</title>
+<indexterm><primary>forSettings</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>forSettings</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Netoworks.Network.forSettings ( )</computeroutput></para>
+<para>to generate the storage format in settings file</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>storage format for settings file </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00085">85</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1a7a1c616ae0929be2f03ce6554ea1c0b6"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Netoworks.Network.toString ( )</computeroutput></para>
+<para>to render the network settings</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the network settings information </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00074">74</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1a747236c6c3fc08b76a197b67b84c1256"/><section>
+    <title>id</title>
+<indexterm><primary>id</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>id</secondary></indexterm>
+<para><computeroutput>int Ns3Objects.Netoworks.Network.id</computeroutput></para>
+<para>for unique identity </para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00017">17</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1a97f20857350668d1b6ba882f96a67108"/><section>
+    <title>isDefault</title>
+<indexterm><primary>isDefault</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>isDefault</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Netoworks.Network.isDefault</computeroutput></para>
+<para>for selecting as default network settings </para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00033">33</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1afab979ea6fd4378ef562551b204e339d"/><section>
+    <title>name</title>
+<indexterm><primary>name</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>name</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Netoworks.Network.name</computeroutput></para>
+<para>for name alias name </para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00029">29</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1ab178160c23828e49436ae0ea316bd617"/><section>
+    <title>netId</title>
+<indexterm><primary>netId</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>netId</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Netoworks.Network.netId</computeroutput></para>
+<para>for net id of the network settings </para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00021">21</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_netoworks_1_1_network_1ad4ba0026b6a5f7f06d6efc109a61fbe6"/><section>
+    <title>netMask</title>
+<indexterm><primary>netMask</primary><secondary>Ns3Objects.Netoworks.Network</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Netoworks.Network</primary><secondary>netMask</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Netoworks.Network.netMask</computeroutput></para>
+<para>for netmask of the network settings </para>
+<para>
+Definition at line <link linkend="__network_8java_source_1l00025">25</link> of file <link linkend="__network_8java_source">Network.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Netoworks/<link linkend="__network_8java">Network.java</link></section>
+</section>

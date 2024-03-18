@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__log_level_8java_source" xml:lang="en-US">
+<title>LogLevel.java</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/StatusHelper/LogLevel.java</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__log_level_8java_source_1l00001"/>00001 <emphasis role="keyword">package&#32;</emphasis>StatusHelper;
+<anchor xml:id="__log_level_8java_source_1l00002"/>00002 
+<anchor xml:id="__log_level_8java_source_1l00003"/><link linkend="_enum_status_helper_1_1_log_level">00003</link> <emphasis role="keyword">public</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_enum_status_helper_1_1_log_level">LogLevel</link>&#32;{
+<anchor xml:id="__log_level_8java_source_1l00004"/><link linkend="_enum_status_helper_1_1_log_level_1a7bc464ce04810faa56ae28f69c22fd2c">00004</link> &#32;&#32;&#32;&#32;<link linkend="_enum_status_helper_1_1_log_level_1a7bc464ce04810faa56ae28f69c22fd2c">LOG_LEVEL_ERROR</link>,
+<anchor xml:id="__log_level_8java_source_1l00005"/><link linkend="_enum_status_helper_1_1_log_level_1aeaab9d9c1316fe97d9e0c2b14ae90ff4">00005</link> &#32;&#32;&#32;&#32;<link linkend="_enum_status_helper_1_1_log_level_1aeaab9d9c1316fe97d9e0c2b14ae90ff4">LOG_LEVEL_DEBUG</link>,
+<anchor xml:id="__log_level_8java_source_1l00006"/><link linkend="_enum_status_helper_1_1_log_level_1ac70e9ebd776b95b78fe19e6db2c88d55">00006</link> &#32;&#32;&#32;&#32;<link linkend="_enum_status_helper_1_1_log_level_1ac70e9ebd776b95b78fe19e6db2c88d55">LOG_LEVEL_INFO</link>,
+<anchor xml:id="__log_level_8java_source_1l00007"/><link linkend="_enum_status_helper_1_1_log_level_1af2bb34c0ef877fa691511bf32f50b2cc">00007</link> &#32;&#32;&#32;&#32;<link linkend="_enum_status_helper_1_1_log_level_1af2bb34c0ef877fa691511bf32f50b2cc">LOG_LEVEL_FUNCTION</link>,
+<anchor xml:id="__log_level_8java_source_1l00008"/><link linkend="_enum_status_helper_1_1_log_level_1a4cc45c5fec478151def9262d31ea772f">00008</link> &#32;&#32;&#32;&#32;<link linkend="_enum_status_helper_1_1_log_level_1a4cc45c5fec478151def9262d31ea772f">LOG_LEVEL_LOGIC</link>,
+<anchor xml:id="__log_level_8java_source_1l00009"/><link linkend="_enum_status_helper_1_1_log_level_1a5d20898cb9a9541f1984028682447de8">00009</link> &#32;&#32;&#32;&#32;<link linkend="_enum_status_helper_1_1_log_level_1a5d20898cb9a9541f1984028682447de8">LOG_LEVEL_ALL</link>,
+<anchor xml:id="__log_level_8java_source_1l00010"/>00010 &#32;&#32;&#32;&#32;LOG_NONE
+<anchor xml:id="__log_level_8java_source_1l00011"/><link linkend="_enum_status_helper_1_1_log_level_1ae2061fda0ea7bf5da0071882a6d2982c">00011</link> }
+</programlisting></section>

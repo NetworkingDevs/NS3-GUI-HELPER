@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_home___screen" xml:lang="en-US">
+<title>Home_Screen Class Reference</title>
+<indexterm><primary>Home_Screen</primary></indexterm>
+<para>Inheritance diagram for Home_Screen:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_home___screen.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_home___screen_1a49744d10015048500c540bf4d2c95145">Home_Screen</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_class_home___screen_1a775ac1fc4c9a932b6266ee34c7fb60bd">main</link> (String[] args)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This is the main entry class for the application, This will centrally responsible for all Dialog boxes management, Code Generation and Canvas renderings. </para>
+<para>
+Definition at line <link linkend="__home___screen_8java_source_1l00028">28</link> of file <link linkend="__home___screen_8java_source">Home_Screen.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_home___screen_1a49744d10015048500c540bf4d2c95145"/><section>
+    <title>Home_Screen()</title>
+<indexterm><primary>Home_Screen</primary><secondary>Home_Screen</secondary></indexterm>
+<indexterm><primary>Home_Screen</primary><secondary>Home_Screen</secondary></indexterm>
+<para><computeroutput>Home_Screen.Home_Screen ( )</computeroutput></para>
+<para>constructor that initializes the necessary objects, events, etc. </para>
+<para>
+Definition at line <link linkend="__home___screen_8java_source_1l00204">204</link> of file <link linkend="__home___screen_8java_source">Home_Screen.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_home___screen_1a775ac1fc4c9a932b6266ee34c7fb60bd"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>Home_Screen</secondary></indexterm>
+<indexterm><primary>Home_Screen</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>static void Home_Screen.main (String[] args)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The entry point for the application </para>
+<para>
+Definition at line <link linkend="__home___screen_8java_source_1l01039">1039</link> of file <link linkend="__home___screen_8java_source">Home_Screen.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/<link linkend="__home___screen_8java">Home_Screen.java</link></section>
+</section>

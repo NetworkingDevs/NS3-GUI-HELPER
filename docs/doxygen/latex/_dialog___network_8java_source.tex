@@ -1,0 +1,138 @@
+\doxysection{Dialog\+\_\+\+Network.\+java}
+\label{_dialog___network_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_Network.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/Dialogs/Dialog\_Network.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }Dialogs;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ Helpers.PlaceHolderHelper;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ Ns3Objects.Netoworks.Network;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ javax.swing.*;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ java.awt.event.ActionEvent;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ java.awt.event.ActionListener;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ java.util.Map;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Dialog\_Network\ \textcolor{keyword}{extends}\ JFrame\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}\ JPanel\ JPanel\_main;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_netId;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_netid;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_netmask;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_netmask;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}\ JLabel\ lbl\_networkName;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}\ JTextField\ textField\_network\_name;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ JButton\ btn\_makeNetwork;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ mention\ all\ the\ components\ that\ have\ to\ be\ taken\ here....}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_NET\_ID\ =\ \textcolor{stringliteral}{"{}Enter\ NetID"{}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_SUBNET\_MASK\ =\ \textcolor{stringliteral}{"{}Enter\ Subnet\ mask"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ String\ PLACEHOLDER\_ALIAS\_NAME\ =\ \textcolor{stringliteral}{"{}Enter\ Name"{}};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ COMPONENT\_COMBO\_BOX\ =\ \textcolor{stringliteral}{"{}Network\_ComboBox"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{final}\ String\ COMPONENT\_OVERVIEW\_LABEL\ =\ \textcolor{stringliteral}{"{}Network\_OverviewLabel"{}};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ SHOW\_DEFAULT\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Dialog\_Network\ INSTANCE;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Dialog\_Network\ getInstance(Map<String,\ JComponent>\ helpfulComponents)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ LoggingHelper.LogInfo(\textcolor{stringliteral}{"{}Checking\ for\ the\ instance\ of\ Dialog\_Network"{}});}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (INSTANCE\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogDebug(\textcolor{stringliteral}{"{}The\ instance\ of\ Dialog\_Network\ was\ not\ available."{}});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ INSTANCE\ =\ \textcolor{keyword}{new}\ Dialog\_Network(helpfulComponents);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INSTANCE;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ for\ serving\ the\ functionalities....}}
+\DoxyCodeLine{00075\ \ \ \ \ Map<String,\ JComponent>\ helpfulComponents;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Network>\ links;;\ \textcolor{comment}{//\ changed\ this\ to\ public\ on\ 08/12/23\ for\ accessibility...}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ lastID\ =\ 0;}
+\DoxyCodeLine{00087\ \ \ \ \ Dialog\_Helper\ dialogHelper;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{public}\ Dialog\_Network(Map<String,\ JComponent>\ components)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ Dialog\_Network!"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ this.helpfulComponents\ =\ components;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ this.links\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ this.dialogHelper\ =\ \textcolor{keyword}{new}\ Dialog\_Helper(\textcolor{keyword}{this});}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ this.setContentPane(this.JPanel\_main);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ this.setTitle(\textcolor{stringliteral}{"{}Create\ Network"{}});}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ this.setSize(400,200);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ this.setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ this.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ this.setDefaultCloseOperation(JFrame.HIDE\_ON\_CLOSE);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ btn\_makeNetwork.addActionListener(\textcolor{keyword}{new}\ ActionListener()\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ @Override}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ actionPerformed(ActionEvent\ e)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Adding\ a\ network\ settings!"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ addNetwork();}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ updateOverviewTxt();}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_netid,PLACEHOLDER\_NET\_ID);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_netmask,PLACEHOLDER\_SUBNET\_MASK);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ PlaceHolderHelper.addPlaceHolder(textField\_network\_name,PLACEHOLDER\_ALIAS\_NAME);}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ showNetworks()\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Network\ :\ show\ networks\ called!"{}});}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).removeAllItems();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SHOW\_DEFAULT)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Network\ link\ :\ links)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(link.toString());}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Network\ link\ :\ links)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!link.isDefault)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(link.toString());}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ setDefaultNetworks(ArrayList<Network>\ links)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Network\ :\ set\ default\ networks\ called!"{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ this.links.addAll(links);}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ showDefaultNetworks(\textcolor{keywordtype}{boolean}\ show)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Network\ :\ show\ default\ networks\ called!"{}});}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ SHOW\_DEFAULT\ =\ show;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ this.showNetworks();}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Network>\ getAllNetworks()\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Network\ :\ get\ all\ networks\ called!"{}});}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ ArrayList<Network>\ networks\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ networks.addAll(this.links);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ networks;}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ getNetworkCount()\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Network\ :\ get\ network\ count\ called!"{}});}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this.links.size();}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ addNetwork()\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Dialog\ Network\ :\ adding\ a\ network\ settings!"{}});}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ Network\ network\ =\ \textcolor{keyword}{new}\ Network(lastID++,\ this.textField\_netid.getText().toString(),\ \textcolor{keyword}{this}.textField\_netmask.getText().toString(),\ \textcolor{keyword}{this}.textField\_network\_name.getText().toString());}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ this.links.add(network);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ ((JComboBox)this.helpfulComponents.get(COMPONENT\_COMBO\_BOX)).addItem(this.links.get(\textcolor{keyword}{this}.links.size()-\/1));}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ this.dialogHelper.showInformationMsg(\textcolor{stringliteral}{"{}Network\ Added\ Successfully\ with\ name\ :\ "{}}+this.textField\_network\_name.getText().toString(),\textcolor{stringliteral}{"{}Success"{}});}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ updateOverviewTxt()\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ LoggingHelper.LogLogic(\textcolor{stringliteral}{"{}Dialog\ Link\ :\ changing\ the\ overview\ text!"{}});}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ 0;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Network\ link\ :\ this.links)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!link.isDefault)\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cnt++;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ ((JLabel)this.helpfulComponents.get(COMPONENT\_OVERVIEW\_LABEL)).setText(\textcolor{stringliteral}{"{}Networks\ :\ "{}}+(cnt)+\textcolor{stringliteral}{"{}\ networks\ created"{}});}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_gui_renderers" xml:lang="en-US">
+<title>Package GuiRenderers</title>
+<indexterm><primary>GuiRenderers</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>interface <link linkend="_interface_gui_renderers_1_1_canvas_painter">CanvasPainter</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_gui_renderers_1_1_csma_link_painter">CsmaLinkPainter</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_gui_renderers_1_1_node_painter">NodePainter</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_gui_renderers_1_1_p2p_link_painter">P2pLinkPainter</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_gui_renderers_1_1_topology_painter">TopologyPainter</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_gui_renderers_1_1_wifi_link_painter">WifiLinkPainter</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The following package includes the classes for rendering the objects on the canvas of the application and it will help to interact the mouse with canvas.</para>
+
+<para>It will draw the elements on the canvas not like that it will render the images or something. </para>
+</section>
+</section>

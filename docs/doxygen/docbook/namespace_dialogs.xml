@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_dialogs" xml:lang="en-US">
+<title>Package Dialogs</title>
+<indexterm><primary>Dialogs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___configure_client">Dialog_ConfigureClient</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___configure_server">Dialog_ConfigureServer</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___connection">Dialog_Connection</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___default_link_config">Dialog_DefaultLinkConfig</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___default_network_config">Dialog_DefaultNetworkConfig</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___default_wi_fi_link_config">Dialog_DefaultWiFiLinkConfig</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___helper">Dialog_Helper</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___link">Dialog_Link</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___network">Dialog_Network</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog__output_file_chooser">Dialog_outputFileChooser</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_dialogs_1_1_dialog___wi_fi_link">Dialog_WiFiLink</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The following package will include the classes for interacting with use in form of a dialog, it will help to manage, store, add and modify the things that act as a modules, classes in NS-3 </para>
+</section>
+</section>

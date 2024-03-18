@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_deprecated" xml:lang="en-US">
+<title>Deprecated List</title>
+<indexterm><primary>Deprecated List</primary></indexterm>
+
+<para><variablelist>
+<varlistentry><term>Member <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aaab95937529adebe0d14e930a7550885">Ns3Objects.Links.WIFI.getDataRate</link>  ()</term>
+<listitem>
+<para><anchor xml:id="_deprecated_1_deprecated000006"/>  </para>
+</listitem></varlistentry>
+<varlistentry><term>Member <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1abcb8e5c943fe2674ee0f4af9bc3715d5">Ns3Objects.Links.WIFI.getDelay</link>  ()</term>
+<listitem>
+<para><anchor xml:id="_deprecated_1_deprecated000004"/>  </para>
+</listitem></varlistentry>
+<varlistentry><term>Member <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aeda324f9b71f5b23618802da5e9d33b9">Ns3Objects.Links.WIFI.getSpeedModifier</link>  ()</term>
+<listitem>
+<para><anchor xml:id="_deprecated_1_deprecated000008"/>  </para>
+</listitem></varlistentry>
+<varlistentry><term>Member <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0e7d4683d3efb94a4b32a5dfc2c6354f">Ns3Objects.Links.WIFI.setDataRate</link>  (String dataRate)</term>
+<listitem>
+<para><anchor xml:id="_deprecated_1_deprecated000007"/>  </para>
+</listitem></varlistentry>
+<varlistentry><term>Member <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1a0b9b00fa630b3bd010afc9a5448a44d1">Ns3Objects.Links.WIFI.setDelay</link>  (String delay)</term>
+<listitem>
+<para><anchor xml:id="_deprecated_1_deprecated000005"/>  </para>
+</listitem></varlistentry>
+<varlistentry><term>Member <link linkend="_class_ns3_objects_1_1_links_1_1_w_i_f_i_1aeb952a9cdaa69d50a2ee43116c998ab9">Ns3Objects.Links.WIFI.setSpeedModifier</link>  (String speedModifier)</term>
+<listitem>
+<para><anchor xml:id="_deprecated_1_deprecated000009"/> </para>
+</listitem></varlistentry>
+</variablelist>
+</para>
+</section>

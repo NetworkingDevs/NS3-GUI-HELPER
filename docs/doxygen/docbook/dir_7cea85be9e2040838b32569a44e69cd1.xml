@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_7cea85be9e2040838b32569a44e69cd1" xml:lang="en-US">
+<title>E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs Directory Reference</title>
+<indexterm><primary>E:/Project/Networking Projects/NS3-GUI/src/main/Dialogs Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__dialog___configure_client_8java">Dialog_ConfigureClient.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___configure_server_8java">Dialog_ConfigureServer.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___connection_8java">Dialog_Connection.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___default_link_config_8java">Dialog_DefaultLinkConfig.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___default_network_config_8java">Dialog_DefaultNetworkConfig.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___default_wi_fi_link_config_8java">Dialog_DefaultWiFiLinkConfig.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___helper_8java">Dialog_Helper.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___link_8java">Dialog_Link.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___network_8java">Dialog_Network.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog__output_file_chooser_8java">Dialog_outputFileChooser.java</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__dialog___wi_fi_link_8java">Dialog_WiFiLink.java</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

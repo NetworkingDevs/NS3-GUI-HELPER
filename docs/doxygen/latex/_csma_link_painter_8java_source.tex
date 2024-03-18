@@ -1,0 +1,49 @@
+\doxysection{Csma\+Link\+Painter.\+java}
+\label{_csma_link_painter_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/CsmaLinkPainter.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/CsmaLinkPainter.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }GuiRenderers;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ java.util.ArrayList;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }CsmaLinkPainter\ \textcolor{keyword}{implements}\ CanvasPainter\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}\ Color\ linkColor;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<Integer>\ nodeList;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}\ ArrayList<NodePainter>\ nodes;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ Stroke\ dashed\ =\ \textcolor{keyword}{new}\ BasicStroke(3,\ BasicStroke.CAP\_BUTT,\ BasicStroke.JOIN\_BEVEL,\ 0,\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[]\{9\},\ 0);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Color\ DEFAULT\_LINK\_COLOR\ =\ Color.GREEN;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}\ CsmaLinkPainter(ArrayList<Integer>\ nodeList,\ ArrayList<NodePainter>\ nodes,\ Color\ color)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ CsmaLinkPainter"{}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ this.nodes\ =\ nodes;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ this.nodeList\ =\ nodeList;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ this.linkColor\ =\ color;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{public}\ CsmaLinkPainter(ArrayList<Integer>\ nodeList,\ ArrayList<NodePainter>\ nodes)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}(nodeList,nodes,DEFAULT\_LINK\_COLOR);}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \ \ \ \ @Override}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ paint(Graphics\ g)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}Csma\ Link\ Paiting\ :\ Painting\ on\ canvas!"{}});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ adjustA\ =\ 0,\ adjustB\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ NodePainter\ nodeA,\ nodeB;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;\ i<=nodeList.size()-\/2;\ i++)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ nodeA\ =\ this.nodes.get(this.nodeList.get(i));}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ nodeB\ =\ this.nodes.get(this.nodeList.get(i+1));}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ adjustA\ =\ nodeA.radius\ /\ 2\ ;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ adjustB\ =\ nodeB.radius\ /\ 2\ ;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ g.setColor(this.linkColor);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ ((Graphics2D)g).setStroke(dashed);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ g.drawLine(nodeA.xPos\ +\ adjustA,\ nodeA.yPos\ +\ adjustA,\ nodeB.xPos\ +\ adjustB,\ nodeB.yPos\ +\ adjustB);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_gui_renderers_1_1_node_painter" xml:lang="en-US">
+<title>GuiRenderers.NodePainter Class Reference</title>
+<indexterm><primary>GuiRenderers.NodePainter</primary></indexterm>
+<para>Inheritance diagram for GuiRenderers.NodePainter:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gui_renderers_1_1_node_painter.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_node_painter_1ad4ff757862ab2065d75d850c48601e62">NodePainter</link> (int x, int y, String <link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_node_painter_1ae9bec103a69d9d2b2b6ab70458f2f990">NodePainter</link> (int x, int y, int r, String <link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_gui_renderers_1_1_node_painter_1a30dc3c53fc591941bff84bf5e7d7cdf2">NodePainter</link> (int x, int y, int r, String <link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link>, Color fill)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_gui_renderers_1_1_node_painter_1a56661670adef01ab7f964de42a6dd14a">paint</link> (Graphics g)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_class_gui_renderers_1_1_node_painter_1ae759a6d929d8e5b90107c47726336e96">xPos</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_class_gui_renderers_1_1_node_painter_1aa2f8250660be8374ab38c85ce14bc666">yPos</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_class_gui_renderers_1_1_node_painter_1a0cdce565a43838959a5f5722274382fe">radius</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388">label</link></para>
+</listitem>
+            <listitem><para>Color <link linkend="_class_gui_renderers_1_1_node_painter_1a475596c0da116fd277080ec8485d780d">color</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to manage, paint and store the node </para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00010">10</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1ad4ff757862ab2065d75d850c48601e62"/><section>
+    <title>NodePainter()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>NodePainter</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>NodePainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.NodePainter.NodePainter (int x, int y, String label)</computeroutput></para>
+<para>to create the object if type NodePainter</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>x</entry><entry>
+<para>x-position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>y-position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>label</entry><entry>
+<para>label for the node </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>NodePainter::NodePainter(int, int, int, String, Color) </para>
+
+<para>NodePainter::NodePainter(int, int, int, String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00052">52</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1ae9bec103a69d9d2b2b6ab70458f2f990"/><section>
+    <title>NodePainter()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>NodePainter</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>NodePainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.NodePainter.NodePainter (int x, int y, int r, String label)</computeroutput></para>
+<para>to create the object if type NodePainter</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>x</entry><entry>
+<para>x-position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>y-position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>r</entry><entry>
+<para>radius value </para>
+</entry>
+                            </row>
+                            <row>
+<entry>label</entry><entry>
+<para>label for the node </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>NodePainter::NodePainter(int, int, int, String, Color) </para>
+
+<para>NodePainter::NodePainter(int, int, String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00067">67</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1a30dc3c53fc591941bff84bf5e7d7cdf2"/><section>
+    <title>NodePainter()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>NodePainter</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>NodePainter</secondary></indexterm>
+<para><computeroutput>GuiRenderers.NodePainter.NodePainter (int x, int y, int r, String label, Color fill)</computeroutput></para>
+<para>to create the object if type NodePainter</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>x</entry><entry>
+<para>x-position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>y-position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>r</entry><entry>
+<para>radius value </para>
+</entry>
+                            </row>
+                            <row>
+<entry>label</entry><entry>
+<para>label for the node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>fill</entry><entry>
+<para>the color for the node </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>NodePainter::NodePainter(int, int, int, String) </para>
+
+<para>NodePainter::NodePainter(int, int, String) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00083">83</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1a56661670adef01ab7f964de42a6dd14a"/><section>
+    <title>paint()</title>
+<indexterm><primary>paint</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>paint</secondary></indexterm>
+<para><computeroutput>void GuiRenderers.NodePainter.paint (Graphics g)</computeroutput></para>
+<para>to paint the node on the canvas</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>g</entry><entry>
+<para>the Graphics from the painter </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Since</title>
+
+<para>0.3.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_gui_renderers_1_1_canvas_painter_1a84d5c9562ee8ff11161ea8b2e5b115f5">GuiRenderers.CanvasPainter</link>.</para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00099">99</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1a475596c0da116fd277080ec8485d780d"/><section>
+    <title>color</title>
+<indexterm><primary>color</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>color</secondary></indexterm>
+<para><computeroutput>Color GuiRenderers.NodePainter.color</computeroutput></para>
+<para>color for the node </para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00031">31</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1a7eb26597100f288149aff98ba3a28388"/><section>
+    <title>label</title>
+<indexterm><primary>label</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>label</secondary></indexterm>
+<para><computeroutput>String GuiRenderers.NodePainter.label</computeroutput></para>
+<para>label for the node </para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00027">27</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1a0cdce565a43838959a5f5722274382fe"/><section>
+    <title>radius</title>
+<indexterm><primary>radius</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>radius</secondary></indexterm>
+<para><computeroutput>int GuiRenderers.NodePainter.radius</computeroutput></para>
+<para>radius value for the node </para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00023">23</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1ae759a6d929d8e5b90107c47726336e96"/><section>
+    <title>xPos</title>
+<indexterm><primary>xPos</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>xPos</secondary></indexterm>
+<para><computeroutput>int GuiRenderers.NodePainter.xPos</computeroutput></para>
+<para>x-value for the node </para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00015">15</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+<anchor xml:id="_class_gui_renderers_1_1_node_painter_1aa2f8250660be8374ab38c85ce14bc666"/><section>
+    <title>yPos</title>
+<indexterm><primary>yPos</primary><secondary>GuiRenderers.NodePainter</secondary></indexterm>
+<indexterm><primary>GuiRenderers.NodePainter</primary><secondary>yPos</secondary></indexterm>
+<para><computeroutput>int GuiRenderers.NodePainter.yPos</computeroutput></para>
+<para>y-value for the node </para>
+<para>
+Definition at line <link linkend="__node_painter_8java_source_1l00019">19</link> of file <link linkend="__node_painter_8java_source">NodePainter.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/GuiRenderers/<link linkend="__node_painter_8java">NodePainter.java</link></section>
+</section>

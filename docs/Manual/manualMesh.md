@@ -2,7 +2,7 @@
 layout: default
 ---
 
-| [Home](../index.md) | [Final Product](../appImages.html) | Manul | [Releases](../releases.html) | [Doxygen](../doxygen/index.html) |
+| [Home](../index.md) | [Final Product](../appImages.html) | Manul | [Releases](../releases.html) | [Doxygen](../doxygen/html/index.html) |
 |:--------------------|:-----------------------------------|----------------------|------------------------------|---|
 | To Home Page        | To Final Product                   | This Page            | For Latest Updates           | To Doxygen |
 

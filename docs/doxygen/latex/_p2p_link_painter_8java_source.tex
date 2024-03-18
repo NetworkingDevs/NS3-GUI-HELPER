@@ -1,0 +1,39 @@
+\doxysection{P2p\+Link\+Painter.\+java}
+\label{_p2p_link_painter_8java_source}\index{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/P2pLinkPainter.java@{E:/Project/Networking Projects/NS3-\/GUI/src/main/GuiRenderers/P2pLinkPainter.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{package\ }GuiRenderers;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ Helpers.LoggingHelper;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ java.awt.*;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }P2pLinkPainter\ \textcolor{keyword}{implements}\ CanvasPainter\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}\ NodePainter\ nodeA,nodeB;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ Color\ linkColor;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Color\ DEFAULT\_LINK\_COLOR\ =\ Color.black;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{public}\ P2pLinkPainter(NodePainter\ a,\ NodePainter\ b)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}(a,\ b,\ DEFAULT\_LINK\_COLOR);}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{public}\ P2pLinkPainter(NodePainter\ a,\ NodePainter\ b,\ Color\ color)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ LoggingHelper.Log(\textcolor{stringliteral}{"{}Creating\ object\ of\ type\ P2pLinkPainter"{}});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ this.nodeA\ =\ a;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ this.nodeB\ =\ b;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ this.linkColor\ =\ color;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \ \ @Override}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ paint(Graphics\ g)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ LoggingHelper.LogFunction(\textcolor{stringliteral}{"{}P2P\ Link\ Painter\ :\ Painting\ on\ canvas!"{}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ adjustA\ =\ this.nodeA.radius/2;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ adjustB\ =\ this.nodeB.radius/2;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ g.setColor(this.linkColor);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ g.drawLine(this.nodeA.xPos\ +\ adjustA,\ \textcolor{keyword}{this}.nodeA.yPos\ +\ adjustA,\ \textcolor{keyword}{this}.nodeB.xPos\ +\ adjustB,\ \textcolor{keyword}{this}.nodeB.yPos\ +\ adjustB);}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}

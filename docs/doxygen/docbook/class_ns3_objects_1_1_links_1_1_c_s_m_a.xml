@@ -1,0 +1,625 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a" xml:lang="en-US">
+<title>Ns3Objects.Links.CSMA Class Reference</title>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary></indexterm>
+<para>Inheritance diagram for Ns3Objects.Links.CSMA:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_ns3_objects_1_1_links_1_1_c_s_m_a.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1adca295f4ff9ad9f6b6444efda7465f38">CSMA</link> (int id, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a63beafe49c9b044362db236b880277d6">name</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d8432ba5bb92396dc559621168ffa6">delay</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1386d7e72fdc30f8ba317e5c61bf8520">dataRate</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1abed352367bd52df5301664ccb5105388">speedModifier</link>, boolean enablePcap)</para>
+</listitem>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a9de936769fba66c5f46509e1c22f3474">CSMA</link> (int id, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a63beafe49c9b044362db236b880277d6">name</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d8432ba5bb92396dc559621168ffa6">delay</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1386d7e72fdc30f8ba317e5c61bf8520">dataRate</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1abed352367bd52df5301664ccb5105388">speedModifier</link>, boolean enablePcap, boolean isDefault)</para>
+</listitem>
+            <listitem><para><link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1acd938581114c5ce3211bec692483db36">CSMA</link> (int id, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a63beafe49c9b044362db236b880277d6">name</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d8432ba5bb92396dc559621168ffa6">delay</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1386d7e72fdc30f8ba317e5c61bf8520">dataRate</link>, String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1abed352367bd52df5301664ccb5105388">speedModifier</link>, boolean enablePcap, boolean isDefault, boolean isUsed)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a04652c2c30a685b9d62b203e5374fe0a">toString</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aad36ef97c97f4eb461294f38cb2ac25f">forSettings</link> ()</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a88b5881655ba5510e1880627294d4f1d">isDefault</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aeee23637e219f439a25a42d767f97a39">setDefault</link> (boolean isDefault)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aecd552f13b6f21e30aabb1d4745c744e">isUsed</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1add961d6440d4de645f7ef94165a97320">setUsed</link> (boolean used)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ab8c22d14ec2d77bf259044ed101e8640">toCode</link> ()</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aa660c317bf7e73c596420ed63af4280e">getPacketCaptureAllCode</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae325345d9ebdae0493811f06d6a81283">getId</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a7b4169d54cbb21adfc4baaa162431a36">setId</link> (int id)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae41c9ea197cd1d8f3c2bbff7e1e288f9">getName</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a56839e5085e00c0316d3132f11a63ddb">setName</link> (String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a63beafe49c9b044362db236b880277d6">name</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1ab0f61c5c788fafc4443049563ea166">getDelay</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a169e26a3b53437f3c3666ef18e96f32e">setDelay</link> (String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d8432ba5bb92396dc559621168ffa6">delay</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aca99e944bab8e29b68d9a973c3fc035c">getDataRate</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a7ce5db14a9c9c93096fd800baf95885a">setDataRate</link> (String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1386d7e72fdc30f8ba317e5c61bf8520">dataRate</link>)</para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ace27ce6d563955f2206cd12674858004">getSpeedModifier</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae00b53da3395dfe31e58472a5990edca">setSpeedModifier</link> (String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1abed352367bd52df5301664ccb5105388">speedModifier</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_enum_status_helper_1_1_link_type">LinkType</link> <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1af24c00100ab74fa85f87f749d2af02d5">getLinkType</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a91e864124175bc6e8011036d33babd5d">setLinkType</link> (<link linkend="_enum_status_helper_1_1_link_type">LinkType</link> linkType)</para>
+</listitem>
+            <listitem><para>boolean <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1ec7aad5f1c584c84440f4438785000c">getEnablePcap</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d5059155e4623aced26f99235f101f">setEnablePcap</link> (boolean enablePcap)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a63beafe49c9b044362db236b880277d6">name</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d8432ba5bb92396dc559621168ffa6">delay</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1386d7e72fdc30f8ba317e5c61bf8520">dataRate</link></para>
+</listitem>
+            <listitem><para>String <link linkend="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1abed352367bd52df5301664ccb5105388">speedModifier</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Attributes inherited from <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">Ns3Objects.Links.NetworkLink</link>        <itemizedlist>
+            <listitem><para>int <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aad960c8e36a0e0f217112a278437c25b">CHOICE_INDEX_P2P</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aef560f5e16dbe292dd61c112691f277c">CHOICE_INDEX_CSMA</link> = 1</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a7f29b15a152e4459a8d6090789f15520">LABEL_P2P</link> = &quot;P2P&quot;</para>
+</listitem>
+            <listitem><para>String <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a07ff4fdcefd9f7385c6d26ae04ad1b15">LABEL_CSMA</link> = &quot;CSMA&quot;</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Static Public Member Functions inherited from <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link">Ns3Objects.Links.NetworkLink</link>        <itemizedlist>
+            <listitem><para>static <link linkend="_enum_status_helper_1_1_link_type">LinkType</link> <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a4d9e874cb468e45f39df3d81f1054715">getLinkType</link> (int choiceIndex)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>to store the link of type CsmaHelper in terms of NS-3 Script </para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00008">8</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1adca295f4ff9ad9f6b6444efda7465f38"/><section>
+    <title>CSMA()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>CSMA</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>CSMA</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Links.CSMA.CSMA (int id, String name, String delay, String dataRate, String speedModifier, boolean enablePcap)</computeroutput></para>
+<para>to instantiate the object of type CSMA</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>for identity </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>alias name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>delay</entry><entry>
+<para>delay value in ms </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dataRate</entry><entry>
+<para>for data rate </para>
+</entry>
+                            </row>
+                            <row>
+<entry>speedModifier</entry><entry>
+<para>for speed modifier </para>
+</entry>
+                            </row>
+                            <row>
+<entry>enablePcap</entry><entry>
+<para>for enabling packet capture of entire link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>P2P </para>
+
+<para>NetworkLink </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00060">60</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a9de936769fba66c5f46509e1c22f3474"/><section>
+    <title>CSMA()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>CSMA</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>CSMA</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Links.CSMA.CSMA (int id, String name, String delay, String dataRate, String speedModifier, boolean enablePcap, boolean isDefault)</computeroutput></para>
+<para>to instantiate the object of type CSMA</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>for identity </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>for alias </para>
+</entry>
+                            </row>
+                            <row>
+<entry>delay</entry><entry>
+<para>for delay in ms </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dataRate</entry><entry>
+<para>for data rate of the link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>speedModifier</entry><entry>
+<para>for speed modifier </para>
+</entry>
+                            </row>
+                            <row>
+<entry>enablePcap</entry><entry>
+<para>for enabling packet capture of entire link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isDefault</entry><entry>
+<para>for setting as default link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>CSMA::CSMA(int, String, String, String, String, boolean) </para>
+
+<para>CSMA::CSMA(int, String, String, String, String, boolean, boolean, boolean) </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00087">87</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1acd938581114c5ce3211bec692483db36"/><section>
+    <title>CSMA()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>CSMA</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>CSMA</secondary></indexterm>
+<para><computeroutput>Ns3Objects.Links.CSMA.CSMA (int id, String name, String delay, String dataRate, String speedModifier, boolean enablePcap, boolean isDefault, boolean isUsed)</computeroutput></para>
+<para>to instantiate the object of type CSMA</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>id</entry><entry>
+<para>for identity </para>
+</entry>
+                            </row>
+                            <row>
+<entry>name</entry><entry>
+<para>for alias </para>
+</entry>
+                            </row>
+                            <row>
+<entry>delay</entry><entry>
+<para>for delay in ms </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dataRate</entry><entry>
+<para>for data rate of the link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>speedModifier</entry><entry>
+<para>for speed modifier </para>
+</entry>
+                            </row>
+                            <row>
+<entry>enablePcap</entry><entry>
+<para>for enabling packet capture of entire link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isDefault</entry><entry>
+<para>for setting as default link </para>
+</entry>
+                            </row>
+                            <row>
+<entry>isUsed</entry><entry>
+<para>for marking as used link </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para>CSMA::CSMA(int, String, String, String, String, boolean) </para>
+
+<para>CSMA::CSMA(int, String, String, String, String, boolean, boolean) CSMA </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00107">107</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aad36ef97c97f4eb461294f38cb2ac25f"/><section>
+    <title>forSettings()</title>
+<indexterm><primary>forSettings</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>forSettings</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.forSettings ( )</computeroutput></para>
+<para>to generate the storage format in settings file</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>storage format for settings file </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2302c01e1b5a299b66758727c7a148e3">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00131">131</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aca99e944bab8e29b68d9a973c3fc035c"/><section>
+    <title>getDataRate()</title>
+<indexterm><primary>getDataRate</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>getDataRate</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.getDataRate ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ab5979d5433c3224590739501731b4e1d">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00237">237</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1ab0f61c5c788fafc4443049563ea166"/><section>
+    <title>getDelay()</title>
+<indexterm><primary>getDelay</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>getDelay</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.getDelay ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ae6a8830bdea02110cda8cff5a1b33747">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00227">227</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1ec7aad5f1c584c84440f4438785000c"/><section>
+    <title>getEnablePcap()</title>
+<indexterm><primary>getEnablePcap</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>getEnablePcap</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.CSMA.getEnablePcap ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a7c8f176a689a115a00a28eb670377160">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00267">267</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae325345d9ebdae0493811f06d6a81283"/><section>
+    <title>getId()</title>
+<indexterm><primary>getId</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>getId</secondary></indexterm>
+<para><computeroutput>int Ns3Objects.Links.CSMA.getId ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a375e12cfed426bb38d52a66f7f0aa6c1">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00207">207</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1af24c00100ab74fa85f87f749d2af02d5"/><section>
+    <title>getLinkType()</title>
+<indexterm><primary>getLinkType</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>getLinkType</secondary></indexterm>
+<para><computeroutput><link linkend="_enum_status_helper_1_1_link_type">LinkType</link> Ns3Objects.Links.CSMA.getLinkType ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1af9a212d6ca443661bbb711ab520a51e7">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00257">257</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae41c9ea197cd1d8f3c2bbff7e1e288f9"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.getName ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a339c90c6249616099bfc0d200057fe88">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00217">217</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aa660c317bf7e73c596420ed63af4280e"/><section>
+    <title>getPacketCaptureAllCode()</title>
+<indexterm><primary>getPacketCaptureAllCode</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>getPacketCaptureAllCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.getPacketCaptureAllCode ( )</computeroutput></para>
+<para>to generate the code for packet capture of entire link </para>
+
+<para><literallayout>
+        <computeroutput><literallayout>&#160;&#xa;</literallayout>
+Example:<literallayout>&#160;&#xa;</literallayout>
+csmaName.EnablePcapAll(&quot;Name&quot;);<literallayout>&#160;&#xa;</literallayout>
+</computeroutput>
+</literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Equivalent code for &quot;.EnablePcapAll()&quot; method </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a73f84dce85a1fb5866aca4481453f52b">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00200">200</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ace27ce6d563955f2206cd12674858004"/><section>
+    <title>getSpeedModifier()</title>
+<indexterm><primary>getSpeedModifier</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>getSpeedModifier</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.getSpeedModifier ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1aa9fdc3ec8d14a6850616a89a830b289a">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00247">247</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a88b5881655ba5510e1880627294d4f1d"/><section>
+    <title>isDefault()</title>
+<indexterm><primary>isDefault</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>isDefault</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.CSMA.isDefault ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1ad6d72c9f7fc6e581e0e939841419a514">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00136">136</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aecd552f13b6f21e30aabb1d4745c744e"/><section>
+    <title>isUsed()</title>
+<indexterm><primary>isUsed</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>isUsed</secondary></indexterm>
+<para><computeroutput>boolean Ns3Objects.Links.CSMA.isUsed ( )</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a08ab309b90d7aa65ae0fabe46e7b3a3b">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00146">146</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a7ce5db14a9c9c93096fd800baf95885a"/><section>
+    <title>setDataRate()</title>
+<indexterm><primary>setDataRate</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setDataRate</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setDataRate (String dataRate)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1adb59efa98debc4a97a3e3f49eb5227d1">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00242">242</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1aeee23637e219f439a25a42d767f97a39"/><section>
+    <title>setDefault()</title>
+<indexterm><primary>setDefault</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setDefault</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setDefault (boolean isDefault)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a858d7c49ae7d305ba6276ffc9c3e44e0">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00141">141</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a169e26a3b53437f3c3666ef18e96f32e"/><section>
+    <title>setDelay()</title>
+<indexterm><primary>setDelay</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setDelay</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setDelay (String delay)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a9537bbbd60cdd177ad0085b608667c47">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00232">232</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d5059155e4623aced26f99235f101f"/><section>
+    <title>setEnablePcap()</title>
+<indexterm><primary>setEnablePcap</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setEnablePcap</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setEnablePcap (boolean enablePcap)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2f736a32ec9169c2bcfcd0d062c798c1">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00272">272</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a7b4169d54cbb21adfc4baaa162431a36"/><section>
+    <title>setId()</title>
+<indexterm><primary>setId</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setId</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setId (int id)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a392f6a5c3807bca7bcd89a8af824f24f">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00212">212</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a91e864124175bc6e8011036d33babd5d"/><section>
+    <title>setLinkType()</title>
+<indexterm><primary>setLinkType</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setLinkType</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setLinkType (<link linkend="_enum_status_helper_1_1_link_type">LinkType</link> linkType)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a0fe0f2e530871c476ea4260358b802d7">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00262">262</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a56839e5085e00c0316d3132f11a63ddb"/><section>
+    <title>setName()</title>
+<indexterm><primary>setName</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setName</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setName (String name)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a2ecf6c0fd47800c282e7a6f9acd4baf4">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00222">222</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ae00b53da3395dfe31e58472a5990edca"/><section>
+    <title>setSpeedModifier()</title>
+<indexterm><primary>setSpeedModifier</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setSpeedModifier</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setSpeedModifier (String speedModifier)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a14af742336e8777f6ffb7760af1d3691">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00252">252</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1add961d6440d4de645f7ef94165a97320"/><section>
+    <title>setUsed()</title>
+<indexterm><primary>setUsed</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>setUsed</secondary></indexterm>
+<para><computeroutput>void Ns3Objects.Links.CSMA.setUsed (boolean used)</computeroutput></para><para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a92ca53f427592ad8a5d7efc48d74df27">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00151">151</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1ab8c22d14ec2d77bf259044ed101e8640"/><section>
+    <title>toCode()</title>
+<indexterm><primary>toCode</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>toCode</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.toCode ( )</computeroutput></para>
+<para>to generate the link configuration code </para>
+
+<para><literallayout>
+         <computeroutput><literallayout>&#160;&#xa;</literallayout>
+ Example:<literallayout>&#160;&#xa;</literallayout>
+  CsmaHelper csma;<literallayout>&#160;&#xa;</literallayout>
+  csma.SetChannelAttribute(&quot;DataRate&quot;, StringValue(&quot;500Mbps&quot;));<literallayout>&#160;&#xa;</literallayout>
+  csma.SetChannelAttribute(&quot;Delay&quot;, TimeValue(NanoSeconds(6560)));<literallayout>&#160;&#xa;</literallayout>
+  </computeroutput>
+  </literallayout> </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the link configuration code </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interface_ns3_objects_1_1_links_1_1_network_link_1a5a5ec341998eaa7649cde94048724ef5">Ns3Objects.Links.NetworkLink</link>.</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00174">174</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a04652c2c30a685b9d62b203e5374fe0a"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.toString ( )</computeroutput></para>
+<para>to render the link information</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>the link information </para>
+</formalpara>
+<formalpara><title>Since</title>
+
+<para>1.1.0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00119">119</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a1386d7e72fdc30f8ba317e5c61bf8520"/><section>
+    <title>dataRate</title>
+<indexterm><primary>dataRate</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>dataRate</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.dataRate</computeroutput></para>
+<para>for data rate </para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00025">25</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a08d8432ba5bb92396dc559621168ffa6"/><section>
+    <title>delay</title>
+<indexterm><primary>delay</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>delay</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.delay</computeroutput></para>
+<para>for delay in &quot;ms&quot; </para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00021">21</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1a63beafe49c9b044362db236b880277d6"/><section>
+    <title>name</title>
+<indexterm><primary>name</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>name</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.name</computeroutput></para>
+<para>for alias name </para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00017">17</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<anchor xml:id="_class_ns3_objects_1_1_links_1_1_c_s_m_a_1abed352367bd52df5301664ccb5105388"/><section>
+    <title>speedModifier</title>
+<indexterm><primary>speedModifier</primary><secondary>Ns3Objects.Links.CSMA</secondary></indexterm>
+<indexterm><primary>Ns3Objects.Links.CSMA</primary><secondary>speedModifier</secondary></indexterm>
+<para><computeroutput>String Ns3Objects.Links.CSMA.speedModifier</computeroutput></para>
+<para>for speed modifier of link </para>
+<para>
+Definition at line <link linkend="__c_s_m_a_8java_source_1l00029">29</link> of file <link linkend="__c_s_m_a_8java_source">CSMA.java</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+E:/Project/Networking Projects/NS3-GUI/src/main/Ns3Objects/Links/<link linkend="__c_s_m_a_8java">CSMA.java</link></section>
+</section>
