@@ -143,7 +143,7 @@ public class CodeGenerator {
                     serverPrimaryConfigured = true;
                 } else if (device.nodeB.compareToIgnoreCase(this.dialogConfigureServer.getServerIndex()) == 0) {
                     LoggingHelper.LogLogic("CodeGenerator : primary server index and primary server group is found!");
-                    primaryServerGrp = device.nodesGroup;
+                    primaryServerGrp = "interfaces"+device.nodesGroup;
                     serverPrimaryIndex = "1";
                     serverPrimaryConfigured = true;
                 }
