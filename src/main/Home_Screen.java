@@ -92,6 +92,11 @@ public class Home_Screen extends JFrame {
     private JButton btn_addWiFiLink;
     private JComboBox comboBox_wifiLinks;
     private JLabel lbl_wifi_links;
+    private JButton btn_tool_echo_client;
+    private JButton btn_tool_echo_server;
+    private JPanel JPanel_configTools;
+    private JScrollPane JScrollPane_forConfigTools;
+    private JPanel JPanel_configTools_buttons;
     /**
      * menu bar for the application
      * */
@@ -112,7 +117,7 @@ public class Home_Screen extends JFrame {
     /**
      * Images for the icons and other settings
      * */
-    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected, icon_wifiLinkTool;
+    Image imgInfo, icon_nodeTool, icon_p2pLinkTool, icon_csmaLinkTool, icon_viewTool, icon_selected, icon_wifiLinkTool, icon_udpEchoClientTool, icon_udpEchoServerTool;
 
     {
         try {
@@ -123,6 +128,8 @@ public class Home_Screen extends JFrame {
             icon_viewTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_view.png"));
             icon_selected = ImageIO.read(getClass().getClassLoader().getResource("icon_selected.png"));
             icon_wifiLinkTool = ImageIO.read(getClass().getClassLoader().getResource("icon_tool_wifiLink.png"));
+            icon_udpEchoClientTool = ImageIO.read(getClass().getClassLoader().getResource("icon_echo_client.png"));
+            icon_udpEchoServerTool = ImageIO.read(getClass().getClassLoader().getResource("icon_echo_server.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -229,6 +236,10 @@ public class Home_Screen extends JFrame {
         this.btn_tool_wifiConn.setText("");
         this.btn_tool_view.setIcon(new ImageIcon(icon_viewTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
         this.btn_tool_view.setText("");
+        this.btn_tool_echo_client.setIcon(new ImageIcon(icon_udpEchoClientTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
+        this.btn_tool_echo_client.setText("");
+        this.btn_tool_echo_server.setIcon(new ImageIcon(icon_udpEchoServerTool.getScaledInstance(50,50, Image.SCALE_AREA_AVERAGING)));
+        this.btn_tool_echo_server.setText("");
 
         this.dialogHelper = new Dialog_Helper(this.JPanel_main);
 
