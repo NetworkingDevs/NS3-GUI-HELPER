@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * to manage the configuration of one UDP Echo server
  * */
-public class Dialog_ConfigureServer extends JFrame {
+public class Dialog_ConfigureServer extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JLabel lbl_serverIndex;
     private JComboBox comboBox_serverInex;
@@ -24,19 +24,8 @@ public class Dialog_ConfigureServer extends JFrame {
     private JTextField textField_upTime;
     private JButton btn_save;
 
-    /**
-     * placeholder for port number
-     * */
-    private static String PLACEHOLDER_PORT = "Enter the port number";
-    /**
-     * placeholder for start time
-     * */
-    private static String PLACEHOLDER_START_TIME = "Enter start time";
-    /**
-     * placeholder for uptime
-     * */
-    private static String PLACEHOLDER_UP_TIME = "Enter total up time";
-    // mention all the components that have to be taken here....
+
+   // mention all the components that have to be taken here....
     /**
      * the key for overview label
      * */

@@ -20,7 +20,7 @@ import static Helpers.ApplicationSettingsHelper.*;
 /**
  * Dialog to configure the default link settings
  * */
-public class Dialog_DefaultLinkConfig extends JFrame {
+public class Dialog_DefaultLinkConfig extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JPanel JPanel_uppper;
     private JLabel lbl_delay;
@@ -39,18 +39,7 @@ public class Dialog_DefaultLinkConfig extends JFrame {
     private JComboBox comboBox_linkType;
     private JCheckBox checkBox_enablePcap;
 
-    /**
-     * placeholder for delay
-     * */
-    private static String PLACEHOLDER_DELAY = "Enter delay (in ms)";
-    /**
-     * placeholder for data rate
-     * */
-    private static String PLACEHOLDER_DATA_RATE = "Enter data rate";
-    /**
-     * placeholder for alias name
-     * */
-    private static String PLACEHOLDER_ALIAS_NAME = "Enter alias name";
+
     /**
      * list of network settings
      * */

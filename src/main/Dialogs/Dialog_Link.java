@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * The dialog for management of links settings
  * */
-public class Dialog_Link extends JFrame {
+public class Dialog_Link extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JLabel lbl_delay;
     private JTextField textField_delay;
@@ -31,18 +31,6 @@ public class Dialog_Link extends JFrame {
     private JComboBox comboBox_linkType;
     private JCheckBox chkBox_enablePcap;
 
-    /**
-     * placeholder for delay
-     * */
-    private static String PLACEHOLDER_DELAY = "Enter Delay (in ms)";
-    /**
-     * placeholder for data rate
-     * */
-    private static String PLACEHOLDER_DATA_RATE = "Enter Data rate";
-    /**
-     * placeholder for alias name
-     * */
-    private static String PLACEHOLDER_ALIAS_NAME = "Enter name";
     // mention all the components that have to be taken here....
     /**
      * the key for the combo box

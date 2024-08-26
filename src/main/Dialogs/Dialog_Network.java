@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * to manage network settings
  * */
-public class Dialog_Network extends JFrame {
+public class Dialog_Network extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JLabel lbl_netId;
     private JTextField textField_netid;
@@ -23,19 +23,8 @@ public class Dialog_Network extends JFrame {
     private JTextField textField_network_name;
     private JButton btn_makeNetwork;
 
+
     // mention all the components that have to be taken here....
-    /**
-     * placeholder fdr net id
-     * */
-    private static String PLACEHOLDER_NET_ID = "Enter NetID";
-    /**
-     * placeholder for subnet mask
-     * */
-    private static String PLACEHOLDER_SUBNET_MASK = "Enter Subnet mask";
-    /**
-     * placeholder for alias name
-     * */
-    private static String PLACEHOLDER_ALIAS_NAME = "Enter Name";
     /**
      * key for the combo box
      * */

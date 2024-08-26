@@ -17,7 +17,7 @@ import static Helpers.ApplicationSettingsHelper.*;
 /**
  * Dialog to configure the default network settings
  * */
-public class Dialog_DefaultNetworkConfig extends JFrame {
+public class Dialog_DefaultNetworkConfig extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JPanel JPanel_top;
     private JPanel JPanel_top_top;
@@ -32,18 +32,7 @@ public class Dialog_DefaultNetworkConfig extends JFrame {
     private JScrollPane JScrollPane_network_manager;
     private JPanel JPanel_networks;
 
-    /**
-     * placeholder for net id
-     * */
-    private static String PLACEHOLDER_NET_ID = "Enter NetID";
-    /**
-     * placeholder for subnet mask
-     * */
-    private static String PLACEHOLDER_SUBNET_MASK = "Enter netmask";
-    /**
-     * placeholder for alias name
-     * */
-    private static String PLACEHOLDER_ALIAS_NAME = "Enter alias name";
+
     /**
      * list of network settings
      * */

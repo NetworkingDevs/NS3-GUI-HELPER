@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 /**
  * For configuration of output file generation
  * */
-public class Dialog_outputFileChooser extends JFrame {
+public class Dialog_outputFileChooser extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JPanel JPanel_top;
     private JCheckBox chkBox_outputPath;
@@ -24,14 +24,6 @@ public class Dialog_outputFileChooser extends JFrame {
     private JButton btn_save;
 
     // These are variable created for serving the functionalities....
-    /**
-     * The placeholder for output path
-     * */
-    private static String PLACEHOLDER_OUTPUT_PATH = "Enter path for output path";
-    /**
-     * The placeholder for file name
-     * */
-    private static String PLACEHOLDER_FILE_NAME = "Enter name for output file";
     /**
      * the path where the output will be generated
      * */

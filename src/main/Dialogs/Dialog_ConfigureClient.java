@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * to manage the configuration of one UDP Echo client
  * */
-public class Dialog_ConfigureClient extends JFrame {
+public class Dialog_ConfigureClient extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JLabel lbl_clientIndex;
     private JComboBox comboBox_clientIndex;
@@ -29,26 +29,7 @@ public class Dialog_ConfigureClient extends JFrame {
     private JTextField textField_packets;
     private JButton btn_save;
 
-    /**
-     * placeholder for start time
-     * */
-    private static String PLACEHOLDER_START_TIME = "Enter start time";
-    /**
-     * placeholder for uptime
-     * */
-    private static String PLACEHOLDER_UP_TIME = "Enter total up time";
-    /**
-     * placeholder for MTU
-     * */
-    private static String PLACEHOLDER_MTU = "Enter the MTU";
-    /**
-     * placeholder for interval between two packets
-     * */
-    private static String PLACEHOLDER_INTERVAL = "Enter the interval";
-    /**
-     * placeholder for total packets to be sent
-     * */
-    private static String PLACEHOLDER_TOT_PACKETS = "Enter total packets";
+
     // mention all the components that have to be taken here....
     /**
      * the key for overview label

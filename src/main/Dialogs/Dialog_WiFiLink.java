@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * The dialog for management of links setting for WiFi Links
  * */
-public class Dialog_WiFiLink extends JFrame {
+public class Dialog_WiFiLink extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JLabel lbl_standard;
     private JComboBox comboBox_standard;
@@ -28,22 +28,7 @@ public class Dialog_WiFiLink extends JFrame {
     private JCheckBox checkBox_genDefault;
     private JCheckBox checkBox_enablePcap;
 
-    /**
-     * placeholder for ssid
-     * */
-    private static final String PLACEHOLDER_SSID = "Enter SSID";
-    /**
-     * placeholder for alias name
-     * */
-    private static final String PLACEHOLDER_ALIAS = "Enter Alias name";
-    /**
-     * the key for the combo box
-     * */
-    public static final String COMPONENT_COMBO_BOX = "WiFiLink_ComboBox";
-    /**
-     * the key for the overview label
-     * */
-    public static final String COMPONENT_OVERVIEW_LABEL = "WiFiLink_OverviewLabel";
+
     /**
      * to indicate that whether the default network settings are visible or not
      * */
@@ -124,7 +109,7 @@ public class Dialog_WiFiLink extends JFrame {
                 }
             }
         });
-        PlaceHolderHelper.addPlaceHolder(textField_alias,PLACEHOLDER_ALIAS);
+        PlaceHolderHelper.addPlaceHolder(textField_alias,PLACEHOLDER_ALIAS_NAME);
         PlaceHolderHelper.addPlaceHolder(textField_ssid,PLACEHOLDER_SSID);
     }
 

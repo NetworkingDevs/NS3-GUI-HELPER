@@ -26,7 +26,7 @@ import static Helpers.ApplicationSettingsHelper.*;
  *
  * @since 1.2.0
  * */
-public class Dialog_DefaultWiFiLinkConfig extends JFrame {
+public class Dialog_DefaultWiFiLinkConfig extends JFrame implements Dialog {
     private JPanel JPanel_main;
     private JPanel JPanel_upper;
     private JComboBox comboBox_wifiStandard;
@@ -43,14 +43,7 @@ public class Dialog_DefaultWiFiLinkConfig extends JFrame {
     private JScrollPane JScrollPane_linkManager;
     private JPanel JPanel_links;
 
-    /**
-     * placeholder for ssid
-     * */
-    private static final String PLACEHOLDER_SSID = "Enter SSID";
-    /**
-     * placeholder for alias name
-     * */
-    private static final String PLACEHOLDER_ALIAS = "Enter Alias name";
+
     /**
      * list of wi-fi link settings
      * */
@@ -111,7 +104,7 @@ public class Dialog_DefaultWiFiLinkConfig extends JFrame {
         }
 
         PlaceHolderHelper.addPlaceHolder(textField_ssid,PLACEHOLDER_SSID);
-        PlaceHolderHelper.addPlaceHolder(textField_alias,PLACEHOLDER_ALIAS);
+        PlaceHolderHelper.addPlaceHolder(textField_alias,PLACEHOLDER_ALIAS_NAME);
         this.setUpEventListeners();
     }
 
