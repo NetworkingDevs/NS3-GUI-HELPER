@@ -172,6 +172,7 @@ public class Home_Screen extends JFrame {
      * to configure a single UDP Echo Server
      * */
     Dialog_ConfigureServer dialogConfigureServer;
+    Dialog_UdpEchoServer dialogUdpEchoServer;
     /**
      * to configure a single UDP Echo client
      * */
@@ -655,6 +656,7 @@ public class Home_Screen extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 LoggingHelper.LogDebug("Clicked at x : "+e.getX()+" y : "+e.getY());
+                int collision = -1;
                 switch (toolStatus) {
                     // if tool is 'node' tool then...
                     case TOOL_NODE : {
@@ -666,7 +668,6 @@ public class Home_Screen extends JFrame {
 
                     // if tool is 'link' tool then...
                     case TOOL_LINK : {
-                        int collision = -1;
                         boolean successfulClick = false;
                         // for first successful click....
                         // check if collision with any node...
@@ -698,8 +699,6 @@ public class Home_Screen extends JFrame {
                     } break;
 
                     case TOOL_LINK_CSMA, TOOL_LINK_WIFI: {
-                       int collision = -1;
-
                        collision = painter.pointCollideWithAny(e.getX(), e.getY());
                        LoggingHelper.LogDebug("Collision : "+collision);
                        if (collision >= 0 && !nodesSelected.contains(collision)) {
@@ -708,7 +707,32 @@ public class Home_Screen extends JFrame {
                        }
                     } break;
 
+                    case TOOL_CONFIG_ECHO_SERVER: {
+                        collision = painter.pointCollideWithAny(e.getX(), e.getY());
+                        LoggingHelper.LogDebug("Collision : "+collision);
+
+                        if (collision >= 0) {
+                            if (dialogUdpEchoServer != null) {
+                                dialogUdpEchoServer.showDialog(collision);
+                            } else {
+                                dialogUdpEchoServer = Dialog_UdpEchoServer.getInstance(collision);
+                                dialogUdpEchoServer.setVisible(true);
+                            }
+                        }
+                    } break;
+
                 }
+            }
+        });
+
+        // action to perform when Udp Echo Server Configuration Tool is Selected...
+        btn_tool_echo_server.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               if (checkIfNodesExists("There are no nodes to configure!")) {
+                   lbl_info.setText("Udp Echo Server Tool Selected : Click on any node to configure.");
+                   toolStatus = ToolStatus.TOOL_CONFIG_ECHO_SERVER;
+               }
             }
         });
 
