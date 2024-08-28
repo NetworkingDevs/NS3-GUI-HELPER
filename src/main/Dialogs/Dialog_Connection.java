@@ -269,7 +269,7 @@ public class Dialog_Connection extends JFrame {
     }
 
     /**
-     * it will show or hide the dialog
+     * it will show the dialog with the configuration changes...
      *
      * @param l list of links
      * @param n list of network settings
