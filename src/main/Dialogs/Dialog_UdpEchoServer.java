@@ -48,7 +48,7 @@ public class Dialog_UdpEchoServer extends JFrame implements Dialog {
         // initializing the components...
         this.setContentPane(this.JPanel_main);
         this.setTitle("Udp Echo Server Configuration");
-        this.setSize(400,300);
+        this.setSize(400,200);
         this.setVisible(false);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
