@@ -8,6 +8,14 @@ package Ns3Objects.UdpEchoCommunication;
 public class UdpEchoServer implements Communication {
 
     /**
+     * For maintaining the identity of the objects...
+     * */
+    private static int ID_COUNT = 0;
+    /**
+     * ID (identity) of this object
+     * */
+    private int ID = -1;
+    /**
      * The index of the node
      * */
     int index;
@@ -34,6 +42,18 @@ public class UdpEchoServer implements Communication {
         this.portNo = portNo;
         this.startTime = startTime;
         this.upTime = upTime;
+        this.ID = ID_COUNT;
+        ID_COUNT++;
+    }
+
+    /**
+     * To get the ID no. of this object...
+     *
+     * @since 1.3.0
+     * @return ID no. of this object!
+     * */
+    public int getID() {
+        return this.ID;
     }
 
     /**
@@ -88,7 +108,7 @@ public class UdpEchoServer implements Communication {
      * */
     @Override
     public int getStartTime() {
-        return 0;
+        return this.startTime;
     }
 
     /**
@@ -122,5 +142,16 @@ public class UdpEchoServer implements Communication {
     @Override
     public void setUpTime(int upTime) {
         this.upTime = upTime;
+    }
+
+    /**
+     * To get the string format for directly printing...
+     *
+     * @return String format information for the Server Configuration...
+     * @since 1.3.0
+     * */
+    @Override
+    public String toString() {
+        return "Server Index "+this.index+" - Port:"+this.portNo;
     }
 }
