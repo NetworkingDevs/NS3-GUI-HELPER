@@ -2,10 +2,14 @@ package Dialogs;
 
 import Helpers.LoggingHelper;
 import Helpers.PlaceHolderHelper;
+import Ns3Objects.UdpEchoCommunication.UdpEchoServer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Dialog_UdpEchoServer extends JFrame implements Dialog {
     private JPanel JPanel_main;
@@ -19,6 +23,14 @@ public class Dialog_UdpEchoServer extends JFrame implements Dialog {
     private JTextField textField_upTime;
     private JButton btn_Save;
 
+    /**
+     * the list of active servers in the current topology
+     * */
+    public ArrayList<UdpEchoServer> serverList;
+    /**
+     * The dialog helper for errors and warnings.
+     * */
+    private Dialog_Helper dialogHelper;
     /**
      * the instance of this class
      * */
@@ -53,6 +65,8 @@ public class Dialog_UdpEchoServer extends JFrame implements Dialog {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.selectedNode = n;
+        this.serverList = new ArrayList<>();
+        this.dialogHelper = new Dialog_Helper(this);
 
         // putting all the placeholders in place...
         PlaceHolderHelper.addPlaceHolder(textField_portNo, PLACEHOLDER_PORT);
@@ -64,9 +78,52 @@ public class Dialog_UdpEchoServer extends JFrame implements Dialog {
         btn_Save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                LoggingHelper.LogFunction("Trying to save the Udp Echo Server Configuration");
                 // put the action here only...
+                // validation of parameters...
+                if (validateInputs()) {
+                    // Making a new server configuration...
+                    UdpEchoServer serverConfig = new UdpEchoServer(selectedNode, Integer.parseInt(textField_portNo.getText()), Integer.parseInt(textField_startTime.getText()), Integer.parseInt(textField_upTime.getText()));
+                    // saving the new server configuration
+                    serverList.add(serverConfig);
+                    // showing the success dialog box
+                    dialogHelper.showInformationMsg("The server added successfully!", "Success!");
+                    // clearing out all the fields
+                    textField_portNo.setText("");
+                    textField_startTime.setText("");
+                    textField_upTime.setText("");
+                    // hiding this dialog box...
+                    setVisible(false);
+                }
             }
         });
+    }
+
+    /**
+     * To validate the server configuration parameters...
+     *
+     * @return A boolean value containing the status of validation of server configuration params.
+     * @since 1.3.0
+     * */
+    private boolean validateInputs() {
+        LoggingHelper.LogFunction("Udp Echo Server Config : Validating all inputs");
+
+        if (!textField_portNo.getText().chars().allMatch(Character::isDigit) || textField_portNo.getText().isEmpty()) {
+            this.dialogHelper.showErrorMsg("Please enter valid port number!", "Error!");
+            return false;
+        }
+
+        if (!textField_startTime.getText().chars().allMatch(Character::isDigit) || textField_startTime.getText().isEmpty()) {
+            this.dialogHelper.showErrorMsg("Please enter valid start time!", "Error!");
+            return false;
+        }
+
+        if (!textField_upTime.getText().chars().allMatch(Character::isDigit) || textField_upTime.getText().isEmpty()) {
+            this.dialogHelper.showErrorMsg("Please enter valid up time!", "Error!");
+            return false;
+        }
+
+        return true;
     }
 
     /**
