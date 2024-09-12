@@ -173,6 +173,7 @@ public class Home_Screen extends JFrame {
      * */
     Dialog_ConfigureServer dialogConfigureServer;
     Dialog_UdpEchoServer dialogUdpEchoServer;
+    Dialog_UdpEchoServerManager dialogUdpEchoServerManager;
     /**
      * to configure a single UDP Echo client
      * */
@@ -861,6 +862,8 @@ public class Home_Screen extends JFrame {
         btn_serverConfig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // TODO: Remove this code once you're good to go with new feature!
+                /*
                 if (checkIfNodesExists("Please add some nodes first!")) {
                    if (dialogConfigureServer != null) {
                        dialogConfigureServer.showDialog(painter.getNodes().size());
@@ -870,6 +873,19 @@ public class Home_Screen extends JFrame {
                        dialogConfigureServer = new Dialog_ConfigureServer(painter.getNodes().size(), helpfulComponents);
                        dialogConfigureServer.showDialog(painter.getNodes().size());
                    }
+                }
+                */
+                // making sure that dependency exists...
+                if (checkIfNodesExists("Please add some nodes to configure server!")) {
+                    if (dialogUdpEchoServer == null) {
+                        dialogUdpEchoServer = Dialog_UdpEchoServer.getInstance(0);
+                        dialogUdpEchoServer.setVisible(false);
+                    }
+                    // checking for availability of instance of Dialog box
+                    if (dialogUdpEchoServerManager == null) {
+                        dialogUdpEchoServerManager = Dialog_UdpEchoServerManager.getInstance();
+                    }
+                    dialogUdpEchoServerManager.showDialog(painter.getNodes().size(), dialogUdpEchoServer.serverList);
                 }
             }
         });
