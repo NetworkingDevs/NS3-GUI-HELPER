@@ -178,6 +178,7 @@ public class Home_Screen extends JFrame {
      * to configure a single UDP Echo client
      * */
     Dialog_ConfigureClient dialogConfigureClient;
+    Dialog_UdpEchoClient dialogUdpEchoClient;
     /**
      * to manage the settings for output file that will be generated
      * */
@@ -722,6 +723,20 @@ public class Home_Screen extends JFrame {
                         }
                     } break;
 
+                    case TOOL_CONFIG_ECHO_CLIENT: {
+                        collision = painter.pointCollideWithAny(e.getX(), e.getY());
+                        LoggingHelper.LogDebug("Collision : "+collision);
+
+                        if (collision >= 0) {
+                            if (dialogUdpEchoClient != null) {
+                                dialogUdpEchoClient.showDialog(collision);
+                            } else {
+                                dialogUdpEchoClient = Dialog_UdpEchoClient.getInstance(collision);
+                                dialogUdpEchoClient.setVisible(true);
+                            }
+                        }
+                    }
+
                 }
             }
         });
@@ -734,6 +749,17 @@ public class Home_Screen extends JFrame {
                    lbl_info.setText("Udp Echo Server Tool Selected : Click on any node to configure.");
                    toolStatus = ToolStatus.TOOL_CONFIG_ECHO_SERVER;
                }
+            }
+        });
+
+        // action to perform when Udp Echo Client Configuration Tool is Selected...
+        btn_tool_echo_client.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (checkIfNodesExists("There are no nodes to configure!")) {
+                    lbl_info.setText("Udp Echo Client Tool Selected : Click on any node to configure.");
+                    toolStatus = ToolStatus.TOOL_CONFIG_ECHO_CLIENT;
+                }
             }
         });
 
@@ -894,6 +920,8 @@ public class Home_Screen extends JFrame {
         btn_clientConfig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // TODO: Remove this code once you're good to go with the new feature
+                /*
                 if (checkIfNodesExists("Please add some nodes first!")) {
                     if (dialogConfigureServer.settings.size() == 0) { // server configuration has not been done yet...
                         // show warning message...
@@ -909,6 +937,16 @@ public class Home_Screen extends JFrame {
                             dialogConfigureClient.showDialog(painter.getNodes().size());
                         }
                     }
+                }
+                */
+
+                // making sure that dependencies exists...
+                if (checkIfNodesExists("Please add some nodes first!")) {
+                    if (dialogUdpEchoClient == null) {
+                        dialogUdpEchoClient = Dialog_UdpEchoClient.getInstance(0);
+                        dialogUdpEchoClient.setVisible(false);
+                    }
+                    // TODO: check for the availability of the Client Manager Dialog Box Once it is coded...
                 }
             }
         });
