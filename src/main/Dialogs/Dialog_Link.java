@@ -116,7 +116,7 @@ public class Dialog_Link extends JFrame implements Dialog {
      * */
     private void showLinks() {
         LoggingHelper.LogFunction("Dialog Link : show links called!");
-        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
+        ((JComboBox<?>)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
             for(NetworkLink link : this.links) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());

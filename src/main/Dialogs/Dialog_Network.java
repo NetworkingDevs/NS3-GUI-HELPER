@@ -65,7 +65,7 @@ public class Dialog_Network extends JFrame implements Dialog {
     /**
      * network settings
      * */
-    public ArrayList<Network> links;; // changed this to public on 08/12/23 for accessibility...
+    public ArrayList<Network> networks; // changed this to public on 08/12/23 for accessibility...
     /**
      * the id of last inserted network settings
      * */
@@ -85,7 +85,7 @@ public class Dialog_Network extends JFrame implements Dialog {
     public Dialog_Network(Map<String, JComponent> components) {
         LoggingHelper.Log("Creating object of type Dialog_Network!");
         this.helpfulComponents = components;
-        this.links = new ArrayList<>();
+        this.networks = new ArrayList<>();
         this.dialogHelper = new Dialog_Helper(this);
 
         this.setContentPane(this.JPanel_main);
@@ -116,13 +116,13 @@ public class Dialog_Network extends JFrame implements Dialog {
      * */
     private void showNetworks() {
         LoggingHelper.LogFunction("Dialog Network : show networks called!");
-        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
+        ((JComboBox<?>)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
-            for (Network link : links) {
+            for (Network link : networks) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
             }
         } else {
-            for (Network link : links) {
+            for (Network link : networks) {
                 if (!link.isDefault) {
                     ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
                 }
@@ -130,9 +130,20 @@ public class Dialog_Network extends JFrame implements Dialog {
         }
     }
 
-    public void setDefaultNetworks(ArrayList<Network> links) {
-        LoggingHelper.LogFunction("Dialog Network : set default networks called!");
-        this.links.addAll(links);
+    public void setDefaultNetworks(ArrayList<Network> networks) {
+        LoggingHelper.LogFunction("Dialog Link : set Default Links called!");
+        for (Network defaultNetwork : networks) {
+            boolean alreadyExist = false;
+            for (Network link : this.networks) {
+                if (link.toString().equalsIgnoreCase(defaultNetwork.toString())) {
+                    alreadyExist = true;
+                    break;
+                }
+            }
+            if (!alreadyExist) {
+                this.networks.add(defaultNetwork);
+            }
+        }
     }
 
     /**
@@ -156,7 +167,7 @@ public class Dialog_Network extends JFrame implements Dialog {
     public ArrayList<Network> getAllNetworks() {
         LoggingHelper.LogFunction("Dialog Network : get all networks called!");
         ArrayList<Network> networks = new ArrayList<>();
-        networks.addAll(this.links);
+        networks.addAll(this.networks);
         return networks;
     }
 
@@ -168,7 +179,7 @@ public class Dialog_Network extends JFrame implements Dialog {
      * */
     public int getNetworkCount() {
         LoggingHelper.LogFunction("Dialog Network : get network count called!");
-        return this.links.size();
+        return this.networks.size();
     }
 
     /**
@@ -179,8 +190,8 @@ public class Dialog_Network extends JFrame implements Dialog {
     private void addNetwork() {
         LoggingHelper.LogFunction("Dialog Network : adding a network settings!");
         Network network = new Network(this.textField_netid.getText().toString(), this.textField_netmask.getText().toString(), this.textField_network_name.getText().toString());
-        this.links.add(network);
-        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.links.get(this.links.size()-1));
+        this.networks.add(network);
+        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(this.networks.get(this.networks.size()-1));
         this.dialogHelper.showInformationMsg("Network Added Successfully with name : "+this.textField_network_name.getText().toString(),"Success");
     }
 
@@ -192,7 +203,7 @@ public class Dialog_Network extends JFrame implements Dialog {
     private void updateOverviewTxt() {
         LoggingHelper.LogLogic("Dialog Link : changing the overview text!");
         int cnt = 0;
-        for (Network link : this.links) {
+        for (Network link : this.networks) {
             if (!link.isDefault) {
                 cnt++;
             }

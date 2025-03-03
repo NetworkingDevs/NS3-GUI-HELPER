@@ -120,7 +120,7 @@ public class Dialog_WiFiLink extends JFrame implements Dialog {
      * */
     private void showLinks() {
         LoggingHelper.LogFunction("Dialog WiFiLink : showing the links!");
-        ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
+        ((JComboBox<?>)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).removeAllItems();
         if (SHOW_DEFAULT) {
             for(NetworkLink link : this.links) {
                 ((JComboBox)this.helpfulComponents.get(COMPONENT_COMBO_BOX)).addItem(link.toString());
@@ -170,7 +170,7 @@ public class Dialog_WiFiLink extends JFrame implements Dialog {
         for (NetworkLink defaultLink : defaultLinks) {
             boolean alreadyExist = false;
             for (NetworkLink link : this.links) {
-                if (link.forSettings().equalsIgnoreCase(defaultLink.forSettings())) {
+                if (link.toString().equalsIgnoreCase(defaultLink.toString())) {
                     alreadyExist = true;
                     break;
                 }
