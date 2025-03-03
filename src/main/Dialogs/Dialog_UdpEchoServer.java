@@ -52,7 +52,7 @@ public class Dialog_UdpEchoServer extends JFrame implements Dialog {
     /**
      * Constructor to create an object of type Dialog_UdpEchoServer
      *
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     public Dialog_UdpEchoServer(int n) {
         LoggingHelper.Log("Creating object of type Dialog_UdpEchoServer");
@@ -103,7 +103,7 @@ public class Dialog_UdpEchoServer extends JFrame implements Dialog {
      * To validate the server configuration parameters...
      *
      * @return A boolean value containing the status of validation of server configuration params.
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     private boolean validateInputs() {
         LoggingHelper.LogFunction("Udp Echo Server Config : Validating all inputs");
@@ -126,11 +126,21 @@ public class Dialog_UdpEchoServer extends JFrame implements Dialog {
         return true;
     }
 
+    public ArrayList<Integer> getActiveServerList() {
+        ArrayList<Integer> rServerList = new ArrayList<>();
+        for (UdpEchoServer serverConfig : this.serverList) {
+            if (!rServerList.contains(serverConfig.getIndex())) {
+                rServerList.add(serverConfig.getIndex());
+            }
+        }
+        return rServerList;
+    }
+
     /**
      * To alter the visibility of the dialog box...
      *
      * @param show a boolean value, whether to show or hide.
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     @Override
     public void setVisible(boolean show) {
@@ -142,7 +152,7 @@ public class Dialog_UdpEchoServer extends JFrame implements Dialog {
      * It will show the dialog with the configuration changes...
      *
      * @param n Selected Node Index
-     * @since 1.3.0
+     * @since 2.0.0
      * @see Dialog_UdpEchoServer#setVisible(boolean)
      * */
     public void showDialog(int n) {
