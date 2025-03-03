@@ -57,7 +57,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
      * To get the instance of class {@code Dialog_UdpEchoServerManager}
      *
      * @return The instance of class {@code Dialog_UdpEchoServerManager}
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     public static Dialog_UdpEchoServerManager getInstance() {
         LoggingHelper.LogInfo("Checking for the available instance of Dialog_UdpEchoServerManager");
@@ -71,7 +71,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
     /**
      * To make the object of type Dialog_UdpEchoServerManager
      *
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     public Dialog_UdpEchoServerManager() {
         LoggingHelper.Log("Creating object of type Dialog_UdpEchoServerManager");
@@ -138,6 +138,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
                         serverList.get(editIndex).setUpTime(upTime);
                         editIndex = -1;
                         dialogHelper.showInformationMsg("Server Configuration Updated Successfully!", "Success!");
+                        resetAllFields();
                     } else {
                         int yes = dialogHelper.showConfirmationDialog("The configuration is not changed. Are you sure to edit?", "Nothing's changed!");
                         if (yes == JOptionPane.YES_OPTION) {
@@ -179,7 +180,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
     /**
      * To show the dialog box with the configuration changes...
      *
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     public void showDialog(int n, ArrayList<UdpEchoServer> serverList) {
         // do some configuration, if needed...
@@ -214,7 +215,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
      * To edit the server configuration, it will show the current values
      *
      * @param index The index of the server
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     private void showServerConfiguration(int index) {
         LoggingHelper.LogFunction("Dialog Udp Echo Server Manager : show server Settings called!");
@@ -231,7 +232,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
     /**
      * To reset all the fields to default values
      *
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     private void resetAllFields() {
         comboBox_serverIndex.setSelectedIndex(0);
@@ -243,7 +244,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
     /**
      * This will render all the server configuration on the screen
      *
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     private void showServerList() {
         this.showServerList(-1);
@@ -255,7 +256,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
      * And it will use filter parameter as "Server Index"
      *
      * @param filterIndex The filter server index
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     private void showServerList(int filterIndex) {
         LoggingHelper.LogFunction("Dialog Udp Echo Server Manager : Rendering each server config in JPanel!");
@@ -321,7 +322,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
      * To show the server list after some changes in server list
      *
      * @param filterIndex The filter index no.
-     * @since 1.3.0
+     * @since 2.0.0
      * @see Dialog_UdpEchoServerManager#showServerList()
      * @see Dialog_UdpEchoServerManager#showServerList(int) 
      * */
@@ -337,7 +338,7 @@ public class Dialog_UdpEchoServerManager extends JFrame implements Dialog {
     /**
      * To show the server list after some changes in server list
      * 
-     * @since 1.3.0
+     * @since 2.0.0
      * */
     private void showServerListAgain() {
         this.showServerListAgain(-1);
