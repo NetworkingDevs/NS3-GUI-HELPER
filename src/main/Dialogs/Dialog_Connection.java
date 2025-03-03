@@ -298,4 +298,11 @@ public class Dialog_Connection extends JFrame {
     private void setNetworks(ArrayList<Network> networks) {
         this.networks = networks;
     }
+
+    protected ArrayList<Device> getAllDevices() {
+        ArrayList<Device> allDevices = new ArrayList<>();
+        allDevices.addAll(this.devices);
+        allDevices.addAll(this.devices_csma);
+        return allDevices;
+    }
 }
